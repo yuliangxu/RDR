@@ -1,7 +1,7 @@
 # %%
 # 0. load libraries
 import os
-os.chdir("/hpc/home/yx306/DRE")
+os.chdir("/hpc/home/yx306/RDR")
 os.getcwd()
 
 
@@ -12,8 +12,6 @@ import torch
 import utils.DRE_func as dre
 from matplotlib.colors import TwoSlopeNorm
 from importlib import reload
-import utils.MoE_func as moe
-import utils.MoE_fixed_teacher as moe_ft
 
 # for reproducibility
 SEED = 123
