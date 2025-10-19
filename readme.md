@@ -3,7 +3,7 @@
 This repository contains the official implementation for the paper:
 
 > **"Distributional Evaluation of Generative Models via Relative Density Ratio"**  
-> (Xu, 2025) — [arXiv link tbc]
+> [arXiv link tbc]
 
 The code provides a principled framework to evaluate the distributional discrepancy
 between observed and generated data using the **relative density ratio**
@@ -15,6 +15,7 @@ which measures how much (probability mass) each sample belongs to the real vs. g
 ---
 
 ## 🔧 Repository Structure
+```
 RDR/
 ├─ checkpoints/
 │ └─ ratio_ddim_celeba64_nep2.pt # pretrained ratio estimator for CelebA64-DDIM
@@ -43,3 +44,4 @@ RDR/
 │ └─ vae.py # simple VAE baseline
 │
 └─ readme.md
+```
