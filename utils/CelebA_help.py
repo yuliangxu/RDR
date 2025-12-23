@@ -1145,6 +1145,15 @@ class DDIMFakeOnlySampler:
         else:
             return x_dev
 
+    def reset(self, epoch: int = 0):
+        for meta in self._meta:
+            meta["ptr"] = 0
+            meta["perm"] = None  # force new perm on next access
+        self._rr = 0
+        self.epoch = epoch
+        self._loaded_idx = None
+        self._loaded_tensor = None
+
 
 def _extract_tensor_from_obj(obj, fake_key=None, assume_chw=True):
     if isinstance(obj, torch.Tensor):
@@ -1248,6 +1257,10 @@ def plot_generated_extremes_by_targets(
     # layout
     T = len(targets)
     fig, axes = plt.subplots(1, T, figsize=(6*T, 6), dpi=dpi, constrained_layout=True)
+    fig.patch.set_facecolor("white")
+    for ax in axes:
+        ax.set_facecolor("white")
+
     if T == 1:
         axes = [axes]
 
@@ -1277,7 +1290,7 @@ def plot_generated_extremes_by_targets(
             imgs = (imgs + 1.0) / 2.0
         imgs = imgs.clamp(0, 1)
 
-        grid = make_grid(imgs, nrow=nrow, padding=2)
+        grid = make_grid(imgs, nrow=nrow, padding=2, pad_value=1.0)
         ax.imshow(grid.permute(1, 2, 0).numpy())
         ax.axis("off")
 
@@ -1322,6 +1335,114 @@ def make_fake_fetcher(ddim_data_dir, q_shard, q_idx_local, *, fake_key=None, ass
 
     return fetch_fake
 
+# avoids duplications
+@torch.no_grad()
+def plot_generated_extremes_by_targets_new(
+    scores: torch.Tensor,
+    fetch_fn,                         # callable: indices -> (B,C,H,W) tensor (CPU ok)
+    targets=(0.0, 1.0, 2.0),
+    k_each: int = 25,
+    nrow: int = 5,
+    dpi: int = 120,
+    title_prefix: str = "",
+    thresh: float = 0.5,
+    score_domain=(0.0, 2.0),          # clip for general case
+):
+    scores = scores.view(-1).detach().cpu()
+    N = scores.numel()
+
+    def band_for_target(t):
+        # Special bands for (0,1,2) with open/closed ends as requested
+        if len(targets) == 3 and tuple(float(x) for x in targets) == (0.0, 1.0, 2.0) and abs(thresh-0.5) < 1e-9:
+            if t == 0.0:
+                # [0, 0.5)
+                return ("closed", 0.0, 0.5, "open")
+            elif t == 1.0:
+                # (0.5, 1.5)
+                return ("open", 0.5, 1.5, "open")
+            elif t == 2.0:
+                # (1.5, 2]
+                return ("open", 1.5, 2.0, "closed")
+
+        # General symmetric band: [t - thresh, t + thresh], clipped
+        lo = max(score_domain[0], float(t) - thresh)
+        hi = min(score_domain[1], float(t) + thresh)
+        return ("closed", lo, hi, "closed")
+
+    def filter_indices_by_band(band):
+        left_mode, lo, hi, right_mode = band
+        if left_mode == "closed":
+            left_mask = (scores >= lo)
+        else:  # "open"
+            left_mask = (scores > lo)
+        if right_mode == "closed":
+            right_mask = (scores <= hi)
+        else:  # "open"
+            right_mask = (scores < hi)
+        return torch.nonzero(left_mask & right_mask).view(-1)
+
+    # Track which indices have already been used so there are no duplicates
+    used = torch.zeros(N, dtype=torch.bool)
+
+    # Will store indices in the same order as `targets`
+    per_target_indices = []
+
+    # layout
+    T = len(targets)
+    fig, axes = plt.subplots(1, T, figsize=(6*T, 6), dpi=dpi, constrained_layout=True)
+    if T == 1:
+        axes = [axes]
+
+    for ax, t in zip(axes, targets):
+        t_float = float(t)
+        band = band_for_target(t_float)
+        valid = filter_indices_by_band(band)
+
+        # Exclude indices that have already been used for previous targets
+        if valid.numel() > 0:
+            valid = valid[~used[valid]]
+
+        if valid.numel() == 0:
+            ax.axis("off")
+            prefix = (title_prefix + ": ") if title_prefix else ""
+            ax.set_title(f"{prefix}Nearest to {t_float:g} (0 in band)")
+            per_target_indices.append(torch.empty(0, dtype=torch.long))
+            continue
+
+        # Among VALID indices, pick those nearest to target
+        d = (scores[valid] - t_float).abs()
+        k = min(k_each, valid.numel())
+        _, ord_idx = torch.topk(d, k, largest=False, sorted=True)
+        sel_idx = valid[ord_idx]
+
+        # Mark as used so they cannot be reused for another target
+        used[sel_idx] = True
+        per_target_indices.append(sel_idx.clone())
+
+        # fetch & display
+        imgs = fetch_fn(sel_idx.long())
+        if isinstance(imgs, torch.Tensor) and imgs.dtype != torch.float32:
+            imgs = imgs.float()
+        # If in [-1,1], map to [0,1] for display
+        if imgs.min() < 0.0:
+            imgs = (imgs + 1.0) / 2.0
+        imgs = imgs.clamp(0, 1)
+
+        grid = make_grid(imgs, nrow=nrow, padding=2)
+        ax.imshow(grid.permute(1, 2, 0).numpy())
+        ax.axis("off")
+
+        sel_scores = scores[sel_idx]
+        prefix = (title_prefix + ": ") if title_prefix else ""
+        ax.set_title(
+            f"{prefix}Nearest to {t_float:g} \n "
+            f"(n={sel_idx.numel()}, min={sel_scores.min():.3g}, "
+            f"max={sel_scores.max():.3g})"
+        )
+
+    plt.show()
+
+    return per_target_indices
 
 
 @torch.no_grad()

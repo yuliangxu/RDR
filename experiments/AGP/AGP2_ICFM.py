@@ -3,12 +3,20 @@
 import torch
 import os
 import sys
-os.chdir("/hpc/home/yx306/RDR")
+os.chdir("/hpc/home/yx306/DRE")
 
+import utils.MBGAN_model as mbgan
 
 agp_data_path = "/hpc/group/mastatlab/yx306/AGP/data/"
+
+
+agp_func_path = "/hpc/group/mastatlab/yx306/AGP/code/"
 ganchao_path = "/hpc/group/mastatlab/microbiome/clean/"
+
+sys.path.append(agp_func_path)
 sys.path.append(ganchao_path)
+import trainer.model as agp_model
+import trainer.data as agp_data
 import microbiome_unet as ganchao
 import utils.AGP_help as agp_help
 
@@ -31,6 +39,24 @@ from sklearn.model_selection import train_test_split
 import torch
 import utils.help_func as help
 import utils.microbiome_help as mb_help
+
+
+SEED = 42
+# Python built-in RNG
+def set_seed(seed=42):
+    import random, numpy as np, torch
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(seed)
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
+    print(f"[Seed set to {seed}]")
+
+# Make cuDNN deterministic (may slightly slow training)
+torch.backends.cudnn.deterministic = True
+torch.backends.cudnn.benchmark = False
 
 # DRE functions
 import utils.DRE_func as dre
@@ -213,6 +239,7 @@ icfm_recon_train = ganchao.reconstruct_lt_all(
 
 
 np.savetxt(agp_data_path + '/yx1_icfm_recon_train.csv', icfm_recon_train, delimiter=",")
+
 # %%
 # ------------------ analysis from here --------------------------
 
@@ -220,6 +247,8 @@ np.savetxt(agp_data_path + '/yx1_icfm_recon_train.csv', icfm_recon_train, delimi
 # evaluate x_test_raw vs icfm_test
 
 icfm_test = np.loadtxt(agp_data_path + '/yx1_icfm_recon_test.csv', delimiter=",")
+icfm_train = np.loadtxt(agp_data_path + '/yx1_icfm_recon_train.csv', delimiter=",")
+
 
 # transform to lt space
 # LT transform
@@ -250,21 +279,55 @@ num_epochs = 3000
 icfm_test_torch = torch.tensor(icfm_test, dtype=torch.float32).to(device)
 x_test_torch = torch.tensor(x_test_raw, dtype=torch.float32).to(device)
 
+icfm_train_torch = torch.tensor(icfm_train, dtype=torch.float32).to(device)
+x_train_torch = torch.tensor(x_train_raw, dtype=torch.float32).to(device)
+
 icfm_test_lt_torch = torch.tensor(icfm_test_lt, dtype=torch.float32).to(device)
 x_test_lt_torch = torch.tensor(x_test_lt, dtype=torch.float32).to(device)
 
 x_mixed = torch.cat([x_test_torch, icfm_test_torch], dim=0) 
 x_mixed_lt = torch.cat([x_test_lt_torch, icfm_test_lt_torch], dim=0) 
-
-model_r, losses_r = dre.run_DRE_fdiv(x_test_torch,x_mixed,xi=0.5,
-                                num_epochs = num_epochs,
-                                log_scale = False,
-                                loss_method='Hellinger')
-
-# model_lt, losses_lt = dre.run_DRE_fdiv(x_test_lt_torch,x_mixed_lt,xi=0.5,
+x_mixed_train = torch.cat([x_train_torch, icfm_train_torch], dim=0) 
+# model_r, losses_r = dre.run_DRE_fdiv(x_test_torch,x_mixed,xi=0.5,
 #                                 num_epochs = num_epochs,
 #                                 log_scale = False,
 #                                 loss_method='Hellinger')
+reload(dre)
+set_seed(SEED)
+num_epochs = 2000
+model_r, losses_r, val_losses_r = dre.run_DRE_fdiv(x_test_torch,x_mixed,xi=0.5,
+                                x_p_val=x_train_torch, x_q_val=x_mixed,
+                                num_epochs = num_epochs,
+                                log_scale = False,
+                                early_patience = 5,
+                                loss_method='Hellinger')
+
+
+plt.figure(figsize=(7,5))
+
+# Plot training loss (every epoch)
+plt.plot(np.arange(len(losses_r)), losses_r, label="Training Loss", color="tab:blue", linewidth=2)
+
+# Plot validation loss (may have fewer points)
+if val_losses_r and len(val_losses_r) > 0:
+    plt.plot(np.arange(len(val_losses_r)), val_losses_r, label="Validation Loss", color="tab:orange", linewidth=2)
+    # mark best epoch
+    best_epoch = int(np.argmin(val_losses_r))
+    best_val = float(val_losses_r[best_epoch])
+    plt.axvline(best_epoch, color="gray", linestyle="--", alpha=0.5)
+    plt.scatter(best_epoch, best_val, color="red", zorder=5, label=f"Best Epoch {best_epoch} (val={best_val:.4f})")
+    print(f"Best epoch = {best_epoch} | val_loss = {best_val:.6f}")
+else:
+    print("No validation losses recorded.")
+
+# Styling
+plt.title("Training vs Validation Loss (run_DRE_fdiv)")
+plt.xlabel("Epoch")
+plt.ylabel("Loss")
+plt.legend()
+plt.grid(alpha=0.3)
+plt.tight_layout()
+plt.show()
 
 # %%
 # check visualz
@@ -294,9 +357,15 @@ help.add_ratio_hist(g_q.detach().cpu().numpy(), ax=ax, bin_edges=bin_edges,
                     density=bool_density,
                     label="q (AGP ICFM)", color="tab:green")
 
-last_epoch = losses_r[(num_epochs-100):num_epochs]
+n_total = len(losses_r)
+window = min(100, n_total)   # use last 100 epochs or fewer if training stopped early
+
+# Compute the mean of the last segment of training loss
+last_epoch = losses_r[-window:]
 mean_last_epoch = float(np.mean(last_epoch))
-ax.set_title(f"Histogram ddim, h^2(p,(p+q)/2) = {-mean_last_epoch:.3f}")
+
+# Plot or title update
+ax.set_title(f"Histogram r(X), h²(p,(p+q)/2) = {-mean_last_epoch:.3f}")
 plt.tight_layout(); plt.show()# %%
 
 # 3. check summary stats
@@ -317,6 +386,10 @@ taxa_df = pd.read_csv(path, index_col=0)
 taxa_df.columns = [f"V{i}" for i in range(1, 8)]
 
 reload(mb_help)
+plt.rcParams['axes.titlesize'] = 24
+plt.rcParams['axes.labelsize'] = 20
+plt.rcParams['xtick.labelsize'] = 16
+plt.rcParams['ytick.labelsize'] = 16
 mb_help.stratified_stacked_barplot(g_q, g_p, 
                                     icfm_test_torch, 
                                     x_test_torch,taxa_df,
@@ -419,11 +492,11 @@ X_species = np.vstack([to_np(x_test_raw), to_np(icfm_test)])   # shape (n, K_spe
 # block = np.concatenate([np.zeros(len(x_test_raw), int), np.ones(len(icfm_test), int)], axis=0)
 
 # ---------- aggregate to V3 ----------
-X_V3, V3_labels = aggregate_to_V3(X_species, taxa_df)          # (n, L)
+X_V3, V3_labels = aggregate_to_V3(X_species, taxa_df,"V3")          # (n, L)
 X_V3_clr = clr_transform(X_V3)
 
-X_V3, V3_labels = aggregate_to_V3(X_species, taxa_df,"V5")          # (n, L)
-X_V3_clr = clr_transform(X_V3)
+# X_V3, V3_labels = aggregate_to_V3(X_species, taxa_df,"V5")          # (n, L)
+# X_V3_clr = clr_transform(X_V3)
 
 # spieces level
 # X_V3_clr = clr_transform(X_species)
@@ -470,7 +543,7 @@ print(sig[cols].to_string(index=False))
 sig[cols].round(3)
 
 # take top 10 taxa by absolute correlation
-top10 = sig.head(10).copy()
+top10 = sig.head(11).copy()
 
 # display rounded results
 cols = ["V3", "rho", "abs_rho", "pval_perm", "qval_perm_bh"]
@@ -664,7 +737,8 @@ sunburst_matplotlib_labeled(
     outfile="taxonomy_sunburst_labeled.png",
     max_labels_per_level=5,   # tweak per your preference
     min_deg=6.0,               # increase to suppress tiny labels
-    fontbase=5
+    fontbase=5,
+    dpi=300
 )
 
 

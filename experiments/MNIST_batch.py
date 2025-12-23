@@ -2,12 +2,12 @@
 # ----------- this file provides the reproducible training and plots in the paper ------------#
 # 0. load libraries
 import os
-os.chdir("/hpc/home/yx306/RDR")
+os.chdir("/hpc/home/yx306/DRE") # blinded
 os.getcwd()
 
-data_path = "/hpc/group/mastatlab/yx306/MNIST/"
+data_path = "/hpc/group/mastatlab/yx306/MNIST/" # blinded
 
-
+import random
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -19,6 +19,22 @@ from matplotlib.colors import TwoSlopeNorm
 from importlib import reload
 import utils.MNIST_help as mnist
 
+SEED = 42
+# Python built-in RNG
+def set_seed(seed=42):
+    import random, numpy as np, torch
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(seed)
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
+    print(f"[Seed set to {seed}]")
+
+# Make cuDNN deterministic (may slightly slow training)
+torch.backends.cudnn.deterministic = True
+torch.backends.cudnn.benchmark = False
 
 # to load MNIST data
 from torch.utils.data import DataLoader
@@ -29,10 +45,14 @@ ROOT = Path(data_path)
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 
+
+
 # %%
 # try batch DRE on DCGAN
 # real data loader for q (can be separate from p_loader to avoid overlap)
+reload(dre)
 reload(dre_batch)
+set_seed(SEED)
 
 transform = transforms.Compose([
     transforms.ToTensor(),                # [0,1]
@@ -48,27 +68,73 @@ mnist_train = datasets.MNIST(root=ROOT, train=True, download=False,
 p_loader = DataLoader(mnist_train, batch_size=batch_size,
                  shuffle=True, num_workers=2, drop_last=True)
 
+mnist_val = datasets.MNIST(root=ROOT, train=False, download=False, transform=transform)
+val_loader = DataLoader(mnist_val, batch_size=batch_size, shuffle=False, num_workers=2, drop_last=False)
+
 # Sampler: 50% generator, 50% real
-# the pretrained models are downloaded here: https://github.com/csinva/gan-vae-pretrained-pytorch/tree/master
 G, nz = mnist.build_dcgan28(data_path+"mnist_dcgan/netG_epoch_99.pth", device=device)
 q_sampler = dre_batch.make_q_mixed_sampler(G, nz, p_loader, gen_frac=0.5, post=None)
 
-
+num_epochs_planned = 20
 # 3) Train
-model, losses = dre_batch.run_DRE_fdiv_cnn_minibatch(
+model, losses, val_losses = dre_batch.run_DRE_fdiv_cnn_minibatch(
     p_loader=p_loader,
     q_sampler=q_sampler,
-    num_epochs=20,
+    num_epochs=num_epochs_planned,
     print_every=100,
-    bn_freeze_epoch=5
+    bn_freeze_epoch=5,
+    val_loader=val_loader,   # <--- enable validation
+    val_q_batches=8,
+    early_stop_patience = 5  
 )
 
 # plot loss
 reload(help)
 fig, ax = plt.subplots(figsize=(6,4))
-help.plot_losses(losses, label="dcgan", ax=ax, color="tab:blue")
-ax.legend()
+# 1) training (per-step)
+help.plot_losses(losses, label="train (dcgan)", ax=ax, color="tab:blue")
 
+# 2) validation (per-epoch, align to end-of-epoch step)
+steps_per_epoch = len(p_loader)                 # constant because drop_last=True
+epochs_run = len(val_losses)
+
+if epochs_run > 0:
+    if len(val_losses) > num_epochs_planned:
+        val_losses = val_losses[:num_epochs_planned]
+
+        epochs_run = len(val_losses)
+        if epochs_run == 0:
+            print("No validation losses recorded.")
+        else:
+            steps_per_epoch = len(p_loader)  # drop_last=True so this is constant
+
+            # end-of-epoch step positions: 1*spe, 2*spe, ..., epochs_run*spe
+            val_steps = steps_per_epoch * np.arange(1, epochs_run + 1)
+
+            # clip to the last available training step (in case of tiny rounding mismatches)
+            val_steps = np.minimum(val_steps, len(losses))
+
+            # plot
+            ax.plot(val_steps, val_losses, 'o-', label="validation", color="tab:orange", linewidth=2)
+
+            # best epoch (1-based for readability)
+            best_idx = int(np.argmin(val_losses))        # 0-based index
+            best_epoch = best_idx + 1                    # 1-based label
+            best_step = int(val_steps[best_idx])
+            best_val = float(val_losses[best_idx])
+
+            ax.axvline(best_step, linestyle="--", alpha=0.35)
+            ax.scatter([best_step], [best_val], s=60, zorder=5, label=f"best @ epoch {best_epoch}")
+            print(f"Best epoch = {best_epoch} | step ≈ {best_step} | val_loss = {best_val:.4f}")
+else:
+    print("No validation losses recorded.")
+
+ax.set_title("Training vs Validation Loss")
+ax.set_xlabel("Training step")
+ax.set_ylabel("Loss")
+ax.legend()
+ax.grid(True, alpha=0.3)
+plt.tight_layout()
 # %%
 # evaluate dcgan
 reload(dre)
@@ -121,13 +187,14 @@ plt.tight_layout(); plt.show()# %%
 # %%
 # try batch DRE on VAE
 reload(dre_batch)
+set_seed(SEED)
 
 vae_weight = data_path + "mnist_vae/vae_epoch_25.pth"
-from utils.vae import VAE
+from twoD_MNIST.vae import VAE
 reload(mnist)
 vae = mnist.VAEWrapper.from_repo(
     weights=vae_weight,   # <-- adjust filename if it differs
-    module_path="utils",              # folder in the repo
+    module_path="twoD_MNIST",              # folder in the repo
     class_name="VAE",                     # adjust if the class has a different name
     # model_ctor=lambda: MyVAE(latent_dim=20),  # optional custom constructor
     latent_dim=20,                                # only if inference fails
@@ -140,20 +207,65 @@ q_mixed_vae_sampler = dre_batch.make_mnist_vae_50_50_sampler(
     return_source=False
 )
 
+num_epochs_planned = 3
 # 3) Train
-model_vae, losses_vae = dre_batch.run_DRE_fdiv_cnn_minibatch(
+model_vae, losses_vae, val_losses_vae= dre_batch.run_DRE_fdiv_cnn_minibatch(
     p_loader=p_loader,
     q_sampler=q_mixed_vae_sampler,
-    num_epochs=5,
+    num_epochs=num_epochs_planned,
     print_every=100,
-    bn_freeze_epoch=0
+    bn_freeze_epoch=0,
+    val_loader=val_loader,   # <--- enable validation
+    val_q_batches=8,
+    early_stop_patience = 5    
 )
 
 # plot loss
 reload(help)
 fig, ax = plt.subplots(figsize=(6,4))
-help.plot_losses(losses_vae, label="vae", ax=ax, color="tab:blue")
+help.plot_losses(losses_vae, label="train (vae)", ax=ax, color="tab:blue")
+
+# 2) validation (per-epoch, align to end-of-epoch step)
+steps_per_epoch = len(p_loader)                 # constant because drop_last=True
+epochs_run = len(val_losses_vae)
+
+if epochs_run > 0:
+    if len(val_losses_vae) > num_epochs_planned:
+        val_losses_vae = val_losses_vae[:num_epochs_planned]
+
+        epochs_run = len(val_losses_vae)
+        if epochs_run == 0:
+            print("No validation losses recorded.")
+        else:
+            steps_per_epoch = len(p_loader)  # drop_last=True so this is constant
+
+            # end-of-epoch step positions: 1*spe, 2*spe, ..., epochs_run*spe
+            val_steps = steps_per_epoch * np.arange(1, epochs_run + 1)
+
+            # clip to the last available training step (in case of tiny rounding mismatches)
+            val_steps = np.minimum(val_steps, len(losses_vae))
+
+            # plot
+            ax.plot(val_steps, val_losses_vae, 'o-', label="validation", color="tab:orange", linewidth=2)
+
+            # best epoch (1-based for readability)
+            best_idx = int(np.argmin(val_losses_vae))        # 0-based index
+            best_epoch = best_idx + 1                    # 1-based label
+            best_step = int(val_steps[best_idx])
+            best_val = float(val_losses_vae[best_idx])
+
+            ax.axvline(best_step, linestyle="--", alpha=0.35)
+            ax.scatter([best_step], [best_val], s=60, zorder=5, label=f"best @ epoch {best_epoch}")
+            print(f"Best epoch = {best_epoch} | step ≈ {best_step} | val_loss = {best_val:.4f}")
+else:
+    print("No validation losses recorded.")
+
+ax.set_title("Training vs Validation Loss")
+ax.set_xlabel("Training step")
+ax.set_ylabel("Loss")
 ax.legend()
+ax.grid(True, alpha=0.3)
+plt.tight_layout(); plt.show()# %%
 # %%
 # evaluate VAE and compare with DCGAN
 reload(dre)
@@ -191,6 +303,7 @@ stats = {
 }
 df = pd.DataFrame(stats)
 print(df.round(2))  # show 4 digits
+
 
 
 
@@ -252,7 +365,7 @@ ax.set_title(f"Histogram DCGAN, h^2(p,(p+q)/2) = {-mean_last_epoch:.3f}")
 ax, bin_edges2 = help.plot_ratio_hist(g_p_vae.detach().cpu().numpy(), bins=50, 
                                      range=(0,2), density=bool_density,
                                       label="p-observed sample", color="tab:purple",
-                                      figsize=(5,4)
+                                      figsize=(3,3)
                                       )
 help.add_ratio_hist(g_q_vae.detach().cpu().numpy(), ax=ax, 
                     bin_edges=bin_edges2, density=bool_density,
@@ -261,7 +374,7 @@ ax.legend();
 steps_per_epoch = len(p_loader)
 last_epoch = losses_vae[-steps_per_epoch:]
 mean_last_epoch = float(np.mean(last_epoch))
-ax.set_title(f"Histogram VAE, h^2(p,(p+q)/2) = {-mean_last_epoch:.3f}")
+ax.set_title(f"Histogram VAE,\n h^2(p,(p+q)/2) = {-mean_last_epoch:.3f}")
 
 plt.tight_layout(); plt.show()# %%
 # %%
@@ -310,6 +423,7 @@ mnist.plot_extremes_three_panels(
     # ax = axes[1,1],
 )
 
+reload(mnist)
 mnist.plot_extremes_three_panels(
     x_p_vae,
     vae_p_extreme,
@@ -359,5 +473,7 @@ sns.violinplot(x=y_p_vae.cpu(), y=g_p_vae.cpu(), inner="quartile")
 plt.xlabel("Digits")
 plt.ylabel("r(x)")
 plt.title("VAE:Distribution of VAE r(X_p) by digits")
+g_vals = g_p_vae.detach().cpu().numpy()
+plt.ylim(g_vals.min() - 1e-5, 2)
 plt.show()
 # %%

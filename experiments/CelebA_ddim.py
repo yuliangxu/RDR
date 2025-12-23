@@ -17,7 +17,7 @@
 # %%
 # # 0. set path
 import os
-os.chdir("/hpc/home/yx306/RDR")
+os.chdir("/hpc/home/yx306/DRE")
 os.getcwd() 
 import pandas as pd
 from importlib import reload
@@ -27,11 +27,29 @@ import numpy as np
 from torchvision import datasets, transforms
 from torch.utils.data import Dataset, DataLoader
 from PIL import Image
+import utils.CelebA_help as celeb
 import utils.help_func as help
 import matplotlib.pyplot as plt
 import utils.DRE_batch as dre_batch
 import utils.DRE_func as dre
 import torch
+
+SEED = 42
+# Python built-in RNG
+def set_seed(seed=42):
+    import random, numpy as np, torch
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(seed)
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
+    print(f"[Seed set to {seed}]")
+
+# Make cuDNN deterministic (may slightly slow training)
+torch.backends.cudnn.deterministic = True
+torch.backends.cudnn.benchmark = False
 
 # %%
 # real data loader
@@ -56,6 +74,8 @@ trainset = datasets.CelebA(
 batch_size = 512
 celeba_loader = DataLoader(trainset, batch_size=batch_size, shuffle=True, num_workers=2)
 
+valset   = datasets.CelebA(root=data_path, split="valid", transform=transform, download=False)
+celeba_valloader = DataLoader(valset, batch_size=batch_size, shuffle=False, num_workers=2, drop_last=False)
 
 # # %%
 # # not required: load DDIM pretraiend model
@@ -88,6 +108,13 @@ q_mixed_sampler = celeb.DDIMDiskSampler(
     split="train",   
 )
 
+# q for validation: mix of real TEST loader and DDIM TEST images on disk
+q_val_sampler = celeb.DDIMDiskSampler(
+    real_loader=celeba_valloader,
+    ddim_data_dir=ddim_data_dir,
+    gen_frac=0.5,
+    split="test",
+)
 
 # Sample a batch
 x_mixed = q_mixed_sampler(batch_size=batch_size)
@@ -97,28 +124,60 @@ print(x_mixed.shape)   # torch.Size([64, 3, 64, 64])
 
 
 # %%
-# # ---------- (takes a long time to run)try to run ratio estimator -------------#
-# reload(dre)
-# reload(dre_batch)
-# model_ddim, losses_ddim = dre_batch.run_DRE_fdiv_cnn_minibatch_celeba64(
-#         celeba_loader,                  # DataLoader yielding real CelebA-64 (N,3,64,64) in [-1,1]
-#         q_mixed_sampler,                 # callable(bs, device, dtype) -> (N,3,64,64) in [-1,1]
-#         num_epochs= 2
-# )
-# save_path = data_path + "ratio_ddim_celeba64_nep2.pt"
-# torch.save(
-#     {
-#         "model_state": model_ddim.state_dict(),
-#         "losses": losses_ddim,
-#     },
-#     save_path,
-# )
+# # ---------- try to run ratio estimator -------------#
+reload(dre)
+reload(dre_batch)
+set_seed(SEED)
+
+num_epochs = 2
+model_ddim, losses_ddim, val_losses = dre_batch.run_DRE_fdiv_cnn_minibatch_celeba64(
+    p_loader=celeba_loader,
+    q_sampler=q_mixed_sampler,          # training q
+    num_epochs=num_epochs,
+    val_loader=celeba_valloader,       # p for validation
+    val_q_sampler=q_val_sampler,        # q for validation (disk, test split)
+    val_q_batches=2,                    # increase for smoother estimate
+    early_stop_patience=5,
+    print_every=1,
+)
+save_path = data_path + "ratio_ddim_celeba64_val_alpha01_nep2.pt"
+torch.save(
+    {
+        "model_state": model_ddim.state_dict(),
+        "losses": losses_ddim,
+    },
+    save_path,
+)
+
+# plot loss
+steps_per_epoch = len(celeba_loader)
+epochs_run = len(val_losses)
+val_steps = steps_per_epoch * np.arange(1, epochs_run+1)
+val_steps = np.minimum(val_steps, len(losses_ddim))
+
+fig, ax = plt.subplots(figsize=(6,4))
+help.plot_losses(losses_ddim, label="train (CelebA64)", ax=ax, color="tab:blue")
+ax.plot(val_steps, val_losses, 'o-', label="validation", color="tab:orange", linewidth=2)
+
+best_idx = int(np.argmin(val_losses))
+best_epoch = best_idx + 1
+best_step = int(val_steps[best_idx])
+best_val = float(val_losses[best_idx])
+ax.axvline(best_step, linestyle="--", alpha=0.35)
+ax.scatter([best_step], [best_val], s=60, zorder=5, label=f"best @ epoch {best_epoch}")
+
+ax.set_title("Training vs Validation Loss (CelebA64)")
+ax.set_xlabel("Training step")
+ax.set_ylabel("Loss")
+ax.legend(); ax.grid(True, alpha=0.3); plt.tight_layout()
 
 
 # %%
 # reload trained model
-# this pretrained check point is saved at ./checkpoints/ratio_ddim_celeba64_nep2.pt in this GitHub Repo
-save_path = data_path + "ratio_ddim_celeba64_nep2.pt"
+# save_path = data_path + "ratio_ddim_celeba64_nep2.pt"
+# save_path = data_path + "ratio_ddim_celeba64_val_nep2.pt"
+save_path = data_path + "ratio_ddim_celeba64_val_alpha01_nep2.pt"
+# save_path = data_path + "ratio_ddim_celeba64_val_alpha1_nep2.pt"
 # reload
 checkpoint = torch.load(save_path)
 model_ddim = dre.RatioNetCelebA64(in_ch=3, ndf=64, log_scale=False) 
@@ -130,6 +189,7 @@ reload(help)
 fig, ax = plt.subplots(figsize=(6,4))
 help.plot_losses(losses_ddim, label="ddim", ax=ax, color="tab:blue")
 ax.legend()
+
 
 # %% 
 # evaluation
@@ -393,6 +453,7 @@ q_idx_local = torch.empty(N_q, dtype=torch.int64)   # index inside shard
 # evaluate r(x) over the entire training set
 # part 2: this takes long!
 # ---------------- Pass A: compute g_p on all real images ----------------
+print("epoch before Pass A:", q_sampler.epoch)
 with torch.no_grad():
     for (x_p, attrs, idxs_abs) in tqdm(celeba_loader, desc="Real pass (g_p)"):
         b = x_p.size(0)
@@ -404,11 +465,45 @@ with torch.no_grad():
 
         g_p_all[idxs_abs] = g_p.view(-1).cpu()
         attrs01_all[idxs_abs] = attrs.to(torch.uint8).cpu()
-
+print("epoch after Pass A:", q_sampler.epoch)
 # ---------------- Pass B: compute g_q on 160k DDIM fakes ----------------
 produced = 0
 bs = 512
 n_batches = (N_q + bs - 1) // bs  # ceiling division
+q_sampler.reset(epoch=0)
+
+# -- avoid duplicated images --- #
+import hashlib
+
+def tensor_md5_uint8(x: torch.Tensor) -> str:
+    """
+    x: [C,H,W] float in [0,1] or [-1,1] or uint8.
+    Produces md5 of uint8 pixels after a consistent transform.
+    """
+    if x.dtype != torch.uint8:
+        # put into [0,255] deterministically
+        y = x.detach().float().cpu()
+        # if your images are in [-1,1], uncomment next line
+        # y = (y + 1) / 2
+        y = y.clamp(0, 1)
+        y = (y * 255.0).round().to(torch.uint8)
+    else:
+        y = x.detach().cpu()
+
+    arr = y.numpy()  # uint8
+    return hashlib.md5(arr.tobytes()).hexdigest()
+
+def count_image_duplicates(xq_batch: torch.Tensor):
+    # xq_batch: [B,C,H,W]
+    hashes = [tensor_md5_uint8(xq_batch[i]) for i in range(xq_batch.shape[0])]
+    # count
+    from collections import Counter
+    ctr = Counter(hashes)
+    n_dup = sum(c-1 for c in ctr.values() if c > 1)
+    return n_dup, ctr
+# -- end : avoid duplicated images --- #
+q_hash = [None] * N_q
+last_epoch = q_sampler.epoch
 
 with torch.no_grad(), tqdm(total=N_q, desc="DDIM pass (g_q)") as pbar:
     real_iter = iter(celeba_loader)
@@ -419,6 +514,16 @@ with torch.no_grad(), tqdm(total=N_q, desc="DDIM pass (g_q)") as pbar:
 
         # fakes + metadata
         x_q, meta = q_sampler(batch_size=need, device=device, dtype=torch.float32, return_meta=True)
+        # check for duplicated images
+        n_dup, ctr = count_image_duplicates(x_q)
+        if n_dup > 0:
+            print(f"[batch dup warning] found {n_dup} exact duplicate images inside this batch")
+        batch_hashes = [tensor_md5_uint8(x_q[i]) for i in range(x_q.shape[0])]
+        q_hash[produced:produced+need] = batch_hashes
+
+        if q_sampler.epoch != last_epoch:
+            print(f"[sampler] epoch advanced: {last_epoch} -> {q_sampler.epoch} at produced={produced}")
+            last_epoch = q_sampler.epoch
 
         # dummy real batch of same size
         try:
@@ -447,32 +552,102 @@ with torch.no_grad(), tqdm(total=N_q, desc="DDIM pass (g_q)") as pbar:
         produced += need
         pbar.update(need)   # progress bar update
 
+from collections import Counter
+ctr = Counter(q_hash)
+n_dup_total = sum(c-1 for c in ctr.values() if c > 1)
+print("Total exact duplicate images in N_q:", n_dup_total)
+print("Unique images:", len(ctr))
 
 # Save: you can always reconstruct the exact image by (shard, idx_in_shard)
 torch.save({
     "g_p": g_p_all,               # len 162,770, indexed by absolute CelebA index
     "attrs01": attrs01_all,
-}, "/hpc/group/mastatlab/yx306/CelebA/DDIM/g_p_real_train.pt")
+# }, "/hpc/group/mastatlab/yx306/CelebA/DDIM/g_p_real_train.pt")
+# }, "/hpc/group/mastatlab/yx306/CelebA/DDIM/g_p_real_val_train.pt")
+}, "/hpc/group/mastatlab/yx306/CelebA/DDIM/g_p_real_val_alpha01_train.pt")
+# }, "/hpc/group/mastatlab/yx306/CelebA/DDIM/g_p_real_val_alpha1_train.pt")
 
 torch.save({
     "g_q": g_q_all,               # len 160,000
     "shard": q_shard,             # len 160,000
     "idx_in_shard": q_idx_local,  # len 160,000
-}, "/hpc/group/mastatlab/yx306/CelebA/DDIM/g_q_ddim_train_meta.pt")
+# }, "/hpc/group/mastatlab/yx306/CelebA/DDIM/g_q_ddim_train_meta.pt")
+# }, "/hpc/group/mastatlab/yx306/CelebA/DDIM/g_q_ddim_val_train_meta.pt")
+}, "/hpc/group/mastatlab/yx306/CelebA/DDIM/g_q_ddim_val_alpha01_train_meta.pt")
+# }, "/hpc/group/mastatlab/yx306/CelebA/DDIM/g_q_ddim_val_alpha1_train_meta.pt")
+
 
 
 # %%
 # evaluate on the full training data
-g_q_ddim_train_meta = torch.load("/hpc/group/mastatlab/yx306/CelebA/DDIM/g_q_ddim_train_meta.pt")
+# alpha = 1
+# g_q_ddim_train_meta = torch.load("/hpc/group/mastatlab/yx306/CelebA/DDIM/g_q_ddim_val_alpha1_train_meta.pt")
+# g_p_real_train = torch.load("/hpc/group/mastatlab/yx306/CelebA/DDIM/g_p_real_val_alpha1_train.pt")
+
+# # alpha = 0.1
+g_q_ddim_train_meta = torch.load("/hpc/group/mastatlab/yx306/CelebA/DDIM/g_q_ddim_val_alpha01_train_meta.pt")
+g_p_real_train = torch.load("/hpc/group/mastatlab/yx306/CelebA/DDIM/g_p_real_val_alpha01_train.pt")
+
+# with bounded-softplus
+# g_q_ddim_train_meta = torch.load("/hpc/group/mastatlab/yx306/CelebA/DDIM/g_q_ddim_train_meta.pt")
+# g_p_real_train = torch.load("/hpc/group/mastatlab/yx306/CelebA/DDIM/g_p_real_train.pt")
+# with symmetric activation
+# g_q_ddim_train_meta = torch.load("/hpc/group/mastatlab/yx306/CelebA/DDIM/g_q_ddim_val_train_meta.pt")
+# g_p_real_train = torch.load("/hpc/group/mastatlab/yx306/CelebA/DDIM/g_p_real_val_train.pt")
 g_q_all = g_q_ddim_train_meta["g_q"]
 q_shard = g_q_ddim_train_meta["shard"]
+q_idx_local = g_q_ddim_train_meta["idx_in_shard"]
 
-g_p_real_train = torch.load("/hpc/group/mastatlab/yx306/CelebA/DDIM/g_p_real_train.pt")
+# %%
+# check duplicated index
+def report_meta_duplicates(q_shard, q_idx_local):
+    qs = q_shard.view(-1).cpu()
+    qi = q_idx_local.view(-1).cpu()
+
+    print("q_shard dtype:", qs.dtype, "q_idx_local dtype:", qi.dtype)
+
+    # Force integer types (if these were floats, rounding can create fake duplicates!)
+    if not torch.is_floating_point(qs):
+        qs_i = qs.long()
+    else:
+        qs_i = qs.round().long()
+
+    if not torch.is_floating_point(qi):
+        qi_i = qi.long()
+    else:
+        qi_i = qi.round().long()
+
+    pairs = torch.stack([qs_i, qi_i], dim=1)              # [N,2]
+    uniq, counts = torch.unique(pairs, dim=0, return_counts=True)
+    n_dup_pairs = int((counts > 1).sum().item())
+    max_rep = int(counts.max().item())
+
+    print(f"N total: {pairs.shape[0]}")
+    print(f"N unique (shard,idx): {uniq.shape[0]}")
+    print(f"How many pairs repeat: {n_dup_pairs}")
+    print(f"Max repetitions of a single pair: {max_rep}")
+
+    if n_dup_pairs > 0:
+        dup_pairs = uniq[counts > 1]
+        dup_counts = counts[counts > 1]
+        # show a few
+        k = min(10, dup_pairs.shape[0])
+        print("Examples of repeated (shard,idx) and their counts:")
+        for j in range(k):
+            s, i = dup_pairs[j].tolist()
+            c = int(dup_counts[j].item())
+            print(f"  (shard={s}, idx={i}) -> {c} times")
+
+report_meta_duplicates(q_shard, q_idx_local)
+
+# %%
+# check summary stats
+
 g_p_all = g_p_real_train["g_p"]
 attrs01_all = g_p_real_train["attrs01"]
 
 
-# check summary stats
+
 stats = {
     "g_p_ddim": help.summarize_vector(g_p_all.detach().cpu().numpy()),
     "g_q_ddim": help.summarize_vector(g_q_all.detach().cpu().numpy()),
@@ -482,144 +657,52 @@ df = pd.DataFrame(stats)
 print(df.round(2))  # show 4 digits
 
 
+sum(g_q_all < g_p_all.min())
 
 
 
-
-
-# # Create 2×2 grid
-# fig, axs = plt.subplots(2, 2, figsize=(10, 6), gridspec_kw={'height_ratios':[1,1]})
-# # Adjust layout
-# plt.subplots_adjust(hspace=0.5)
-
-# # --- Row 1: left plot ---
-# # plot hist
-# bool_density = False
-# ax, bin_edges = help.plot_ratio_hist(g_p_all.detach().cpu().numpy(), 
-#                                      bins=50, range=(0,2), density=bool_density,
-#                                      figsize = (5,4),
-#                                      label="p-observed sample", color="tab:purple")
-# help.add_ratio_hist(g_q_all.detach().cpu().numpy(), ax=axs[0,0], bin_edges=bin_edges, 
-#                     density=bool_density,
-#                     label="q (CelebA64 ddim)", color="tab:green")
-# ax.legend(); 
-# steps_per_epoch = len(test_celeba_loader)
-# last_epoch = losses_ddim[-steps_per_epoch:]
-# mean_last_epoch = float(np.mean(last_epoch))
-# ax.set_title(f"Histogram ddim, h^2(p,(p+q)/2) = {-mean_last_epoch:.3f}")
-# plt.tight_layout(); plt.show()# %%
-
-# # --- Row 1: right table ---
-# axs[0,1].axis("off")  # hide axis
-# table = axs[0,1].table(cellText=df.round(2),
-#                        colLabels=["Label", "Value"],
-#                        loc="center")
-# table.auto_set_font_size(False)
-# table.set_fontsize(10)
-
-# # --- Row 2: single figure spanning two columns ---
-# from matplotlib.gridspec import GridSpec
-# fig.clf()  # clear old subplots
-# gs = fig.add_gridspec(2, 2, height_ratios=[1,1])
-
-# ax1 = fig.add_subplot(gs[0,0])
-# ax2 = fig.add_subplot(gs[0,1])
-# ax3 = fig.add_subplot(gs[1,:])  # span both columns
-
-# # Row 1 left: figure
-# ax1.plot(x, y)
-# ax1.set_title("Figure 1")
-
-# # Row 1 right: table
-# ax2.axis("off")
-# table = ax2.table(cellText=table_data,
-#                   colLabels=["Label", "Value"],
-#                   loc="center")
-# table.auto_set_font_size(False)
-# table.set_fontsize(10)
-
-# # Row 2: big figure spanning both columns
-# ax3.plot(x, np.cos(x))
-# ax3.set_title("Figure 2 (spans both columns)")
-
-# plt.tight_layout()
-# plt.show()
+bool_density = False
+ax, bin_edges = help.plot_ratio_hist(g_p_all.detach().cpu().numpy(), 
+                                     bins=50, range=(0,2), density=bool_density,
+                                     figsize = (5,4),
+                                     label="p-observed sample", color="tab:purple")
+help.add_ratio_hist(g_q_all.detach().cpu().numpy(), ax=ax, bin_edges=bin_edges, 
+                    density=bool_density,
+                    label="q (CelebA64 ddim)", color="tab:green")
+ax.legend(); 
+losses = np.array(losses_ddim)
+n = len(losses)
+k = max(1, int(0.1 * n))      
+last_10pct = losses[-k:]
+mean_last_10pct = float(np.mean(last_10pct))
+ax.set_title(f"Histogram ddim, h^2(p,(p+q)/2) = {-mean_last_10pct:.3f}")
+plt.tight_layout(); plt.show()# %%
 
 # %%
-# try regression on entire training
-# batch_size = 512
-# celeba_loader = DataLoader(trainset_idx, batch_size=batch_size, shuffle=False, num_workers=2, pin_memory=True)
-
-# N = len(trainset_idx)
-# attrs01_all = torch.empty((N, 40), dtype=torch.uint8)   # 40 CelebA attributes
-
-# with torch.no_grad():
-#     for (_, attrs, idxs_abs) in celeba_loader:
-#         # If your dataset gives -1/1 attributes, convert to 0/1:
-#         if attrs.min().item() < 0:
-#             attrs = (attrs > 0).to(torch.uint8)
-#         else:
-#             attrs = attrs.to(torch.uint8)
-#         attrs01_all[idxs_abs.long()] = attrs
-# mask = torch.isfinite(g_p_all)
-# num_true  = mask.sum().item()
-# num_false = (~mask).sum().item()
-# print({"True": num_true, "False": num_false})
-# gp_vals   = g_p_all[mask]
-# attrs_gp  = attrs01_all[mask]       # same order as gp_vals
-# idxs_gp   = torch.nonzero(mask).view(-1)   # absolute CelebA indices used
-
-# torch.save({"g_p": gp_vals, "attrs01": attrs_gp, "idxs": idxs_gp},
-#            "/hpc/group/mastatlab/yx306/CelebA/DDIM/gp_with_attrs.pt")
-
-
-# data = torch.load("/hpc/group/mastatlab/yx306/CelebA/DDIM/gp_with_attrs.pt")
-# # Unpack
-# g_p_all   = data["g_p"]       # 1D tensor of g_p values
-# attrs  = data["attrs01"]   # 2D tensor (N, 40) of attributes
-
-
-
-# gp, A01 = celeb.prepare_gp_attrs(g_p_all, attrs)
+# downstream analysis
 
 gp, A01 = celeb.prepare_gp_attrs(g_p_all, attrs01_all)
 
-# Linear regression
-df_ranked, res = celeb.run_linear(
-    gp, A01,
-    attr_names=list(testset.attr_names)[:A01.shape[1]],  # ensure same length (40)
-    print_summary=False
-)
-print(df_ranked.head(10))      
-intercept_row = {
-    "coef": res.params[0], "se": res.bse[0], "t": res.tvalues[0], "pvalue": res.pvalues[0],
-    "ci_low": res.conf_int()[0,0], "ci_high": res.conf_int()[0,1],
-}
 
-# Beta regression
-df_ranked, res = celeb.run_beta_on_02(
-    gp, A01,
-    attr_names=list(testset.attr_names)[:A01.shape[1]],  # ensure same length (40)
+# log-transformed Linear regression
+log1p_gp = np.log(2.0 - gp)
+df_ranked_log_linear, res = celeb.run_linear(
+    log1p_gp, A01,
+    attr_names=list(trainset.attr_names)[:A01.shape[1]],  # ensure same length (40)
     print_summary=False
 )
-print(df_ranked.head(10))       # top 10 most significant attributes
-# If you want the intercept stats:
-intercept_row = {
-    "coef": res.params[0], "se": res.bse[0], "t": res.tvalues[0], "pvalue": res.pvalues[0],
-    "ci_low": res.conf_int()[0,0], "ci_high": res.conf_int()[0,1],
-}
 
-# Logistic regression P(g>1)
-df_ranked, res = celeb.run_logistic(
-    gp, A01,
-    attr_names=list(testset.attr_names)[:A01.shape[1]],  # ensure same length (40)
-    print_summary=False
+df_ranked_log_linear = df_ranked_log_linear.reindex(
+    df_ranked_log_linear["coef"].abs().sort_values(ascending=False).index
 )
-print(df_ranked.head(10))      
-intercept_row = {
-    "coef": res.params[0], "se": res.bse[0], "t": res.tvalues[0], "pvalue": res.pvalues[0],
-    "ci_low": res.conf_int()[0,0], "ci_high": res.conf_int()[0,1],
-}
+print(df_ranked_log_linear.head(10))    
+
+df_ranked_log_linear[df_ranked_log_linear["pvalue"] < 0.05]
+df_ranked_log_linear
+df_ranked_log_linear.head(10).round(2)
+df_ranked_log_linear.head(10)
+
+help.summarize_vector(log1p_gp)
 
 
 
@@ -657,7 +740,8 @@ fetch_fake = celeb.make_fake_fetcher(
     assume_chw=q_sampler.assume_chw,     # mirror your sampler
 )
 
-celeb.plot_generated_extremes_by_targets(
+reload(celeb)
+ddim_idx = celeb.plot_generated_extremes_by_targets(
     scores=g_q_all,
     fetch_fn=fetch_fake,
     targets=(0.0, 1.0, 2.0),
@@ -667,15 +751,6 @@ celeb.plot_generated_extremes_by_targets(
     title_prefix="DDIM"
 )
 
-celeb.plot_generated_extremes_by_targets(
-    scores=g_q_all,
-    fetch_fn=fetch_fake,
-    targets=(0.00012,0.486),
-    k_each=k_each,
-    nrow=nrow,
-    thresh = 0.5,
-    title_prefix="DDIM"
-)
 
 # %%
 # check the closest pairs around 0,1,2
@@ -744,6 +819,7 @@ print(i_train)
 print("i_train.shape",i_train.shape)
 
 # %%
+# show matched pairs to a certain training image
 print(i_train)
 matched_train = celeb.fetch_by_indices(celeba_loader_fixed.dataset, i_train[0], device="cuda")  # (25,C,H,W)
 

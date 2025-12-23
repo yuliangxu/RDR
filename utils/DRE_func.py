@@ -6,6 +6,7 @@ from typing import Tuple, Optional, Union, Dict, Any
 from itertools import cycle
 import itertools
 from torch.utils.data import DataLoader
+import copy
 
 
 def _model_device_dtype(model):
@@ -51,9 +52,9 @@ def Hellinger_loss(model, x_p, x_q, xi=0.5, log_scale = False):
         loss_q = torch.mean(torch.exp(0.5*w_q))
     else:
         loss_p = torch.mean(w_p.pow(-0.5))
-        # For q(x): the square root, w(x)^{1/2}
         loss_q = torch.mean(w_q.pow(0.5))
-            
+        # loss_p = torch.mean(w_p)
+        # loss_q = torch.mean(w_q)    
     # Total loss is the sum of the two terms.
     loss = xi*loss_p + (1-xi)*loss_q -1
     return loss
@@ -110,6 +111,13 @@ class BoundedSoftplus(nn.Module):
         sp = F.softplus(x)        # (0, ∞)
         return 2 * sp / (1 + sp)  # (0,2)
 
+class BoundedSigmoid(nn.Module):
+    def __init__(self, alpha=0.1):
+        super().__init__()
+        self.alpha = alpha
+    def forward(self, x):
+        return 2 * torch.sigmoid(self.alpha * x)
+
 # ======= MLP (for 2D example)===============
 class MLP(nn.Module):
     def __init__(self, input_dim, hidden_dim=32, output_dim=1):
@@ -123,7 +131,8 @@ class MLP(nn.Module):
             nn.ReLU(),
             nn.Linear(hidden_dim, output_dim),
             # nn.Softplus()  # ensures the output is > 0
-            BoundedSoftplus()
+            # BoundedSoftplus()
+            BoundedSigmoid()
         )
     
     def forward(self, x):
@@ -194,7 +203,7 @@ class UNet(nn.Module):
 class DREConvNet_DCGAN_MNIST(nn.Module):
     """
     DCGAN Discriminator-style backbone (as in csinva/mnist_dcgan) with a 1D head for ratio/log-ratio.
-    - If log_scale=False: returns w(x) > 0 via BoundedSoftplus().
+    - If log_scale=False: returns w(x) > 0 via BoundedSigmoid().
     - If log_scale=True:  returns log w(x) in R (linear).
     """
     def __init__(self, in_ch=1, base=64, log_scale: bool = False, img_hw: int = 28):
@@ -233,7 +242,7 @@ class DREConvNet_DCGAN_MNIST(nn.Module):
         self.conv_last = nn.Conv2d(base * 4, 1, kernel_size=self._feat_hw, stride=1, padding=0, bias=True)
 
         # For the positive head
-        self.bounded_softplus = BoundedSoftplus()
+        self.bounded_softplus = BoundedSigmoid(alpha=0.5)
 
     def _ensure_nchw(self, x: torch.Tensor) -> torch.Tensor:
         if x.ndim == 2:
@@ -328,7 +337,7 @@ class RatioNetCelebA64(nn.Module):
         if self.log_scale:
             self.out_act = nn.Identity()           # outputs log w(x)
         else:
-            self.out_act = BoundedSoftplus()       # outputs w(x) > 0
+            self.out_act = BoundedSigmoid()       # outputs w(x) > 0
 
         self.apply(dcgan_weights_init)
 
@@ -347,14 +356,21 @@ class RatioNetCelebA64(nn.Module):
 # --------------------------------------------------------------------------------------------
 
 # for generaral f-divergences
-def run_DRE_fdiv(x_p,x_q,xi=0.5,num_epochs = 2000, 
-                x_p_val=None, x_q_val=None,
-                 loss_method='Hellinger',
-                 NN="MLP",
-                 log_scale = False,
-                 optimizer=None,
-                 scheduler=None,
-                 clip_max_norm: float = 1.0):
+def run_DRE_fdiv(
+    x_p, x_q, xi=0.5, num_epochs: int = 2000,
+    x_p_val=None, x_q_val=None,
+    loss_method: str = 'Hellinger',
+    NN: str = "MLP",
+    log_scale: bool = False,
+    optimizer=None,
+    scheduler=None,
+    # early-stop controls
+    early_start: int = 300,                 # don't check early stop before this epoch
+    early_patience: Optional[int] = None,   # e.g., 5 (None disables early stop)
+    min_delta: float = 1e-5,                # improvement threshold on val loss
+    restore_best: bool = True,              # reload best weights at stop
+    clip_max_norm: float = 1.0,
+):
      
     
     device = x_p.device if isinstance(x_p, torch.Tensor) else 'cpu'
@@ -405,7 +421,12 @@ def run_DRE_fdiv(x_p,x_q,xi=0.5,num_epochs = 2000,
     x_q_val = _prep(x_q_val) if x_q_val is not None else None
 
     
-    losses = []
+    losses, val_losses = [], []
+    # early-stop state
+    best_val = float('inf')
+    best_state = None
+    no_improve = 0
+    
     show_iter = max(1, num_epochs // 10)
     
     for epoch in range(num_epochs):
@@ -426,10 +447,11 @@ def run_DRE_fdiv(x_p,x_q,xi=0.5,num_epochs = 2000,
         torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=clip_max_norm)
         optimizer.step()
 
-        losses.append(loss.item())
+        losses.append(float(loss.detach().cpu()))
 
-        # ---- choose metric for scheduler: val loss if provided, else train loss ----
-        metric = loss.detach()
+        # ---- validation loss (if provided) ----
+        val_loss = None
+        metric = loss.detach()  # default: train loss if no val
         if (x_p_val is not None) and (x_q_val is not None):
             model.eval()
             with torch.no_grad():
@@ -437,23 +459,47 @@ def run_DRE_fdiv(x_p,x_q,xi=0.5,num_epochs = 2000,
                     val_loss = Hellinger_loss(model, x_p_val, x_q_val, xi, log_scale=log_scale)
                 elif loss_method == 'KL':
                     val_loss = KL_loss(model, x_p_val, x_q_val)
-                else:  # Chisq
+                else:
                     val_loss = Chisq_loss(model, x_p_val, x_q_val)
             model.train()
-            metric = val_loss.detach()
 
+            v = float(val_loss.detach().cpu())
+            val_losses.append(v)
+            metric = val_loss.detach()  # scheduler steps on val
+
+            # ---- patience-based early stopping (after early_start) ----
+            if early_patience is not None and epoch >= early_start:
+                if v < best_val - min_delta:
+                    best_val = v
+                    no_improve = 0
+                    if restore_best:
+                        best_state = copy.deepcopy(model.state_dict())
+                else:
+                    no_improve += 1
+                if no_improve >= early_patience:
+                    print(f"[EarlyStop] epoch {epoch} | best_val={best_val:.6f} (patience {early_patience})")
+                    if restore_best and best_state is not None:
+                        model.load_state_dict(best_state)
+                    break
+
+        # ---- scheduler step (val if present, else train) ----
         scheduler.step(metric)
 
-
-        
+        # ---- logging ----
         if (epoch % show_iter) == 0:
-            print(f"Epoch {epoch:4d}: Loss = {loss.item():.6f}")
+            if val_loss is not None:
+                print(f"Epoch {epoch:4d}: loss={loss.item():.6f} | val_loss={val_loss.item():.6f}")
+            else:
+                print(f"Epoch {epoch:4d}: loss={loss.item():.6f}")
 
         if torch.isnan(loss):
             print("NaN loss encountered; stopping.")
             break
+    if x_p_val is None:
+        return model, losses
+    else:
+        return model, losses, val_losses
 
-    return model,losses
 
 
 

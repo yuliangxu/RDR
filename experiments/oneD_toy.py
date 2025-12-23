@@ -1,7 +1,8 @@
 # %%
 # 0. load libraries
 import os
-os.chdir("/hpc/home/yx306/RDR")
+os.chdir("/hpc/home/yx306/RDR") # named
+# os.chdir("your_path/RDR") # blinded
 os.getcwd()
 
 
@@ -12,6 +13,7 @@ import torch
 import utils.DRE_func as dre
 from matplotlib.colors import TwoSlopeNorm
 from importlib import reload
+
 
 # for reproducibility
 SEED = 123
@@ -28,12 +30,41 @@ torch.backends.cudnn.deterministic = True
 torch.backends.cudnn.benchmark = False
 
 # %%
+# check sigmoid alpha value
+# Input range
+x = torch.linspace(-4, 4, 400)
+
+# Try different alpha values for BoundedSigmoid
+alpha_values = [0.1, 0.3, 0.5, 1, 2, ]
+plt.figure(figsize=(7,5))
+
+for alpha in alpha_values:
+    f = dre.BoundedSigmoid(alpha)
+    y = f(x)
+    plt.plot(x.numpy(), y.numpy(), label=f"BoundedSigmoid α={alpha}", linewidth=2)
+
+# Add BoundedSoftplus line
+f_soft = dre.BoundedSoftplus()
+y_soft = f_soft(x)
+plt.plot(x.numpy(), y_soft.numpy(), 'k--', linewidth=2.5, label="BoundedSoftplus")
+
+# Styling
+plt.title("BoundedSigmoid vs BoundedSoftplus Activations")
+plt.xlabel("Input x")
+plt.ylabel("Output f(x) ∈ (0,2)")
+plt.legend()
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+
+# %%
 # 1D example: g r tail comparison
 reload(dre)
 reload(help)
 # sweep values
 # deltas = [0.0, 0.5, 1.0, 1.5, 2, 3,4]
 deltas = [0.0,  1.0, 1.5, 2, 4]
+# deltas = [0.0,  1.0, 4]
 
 # reproducibility
 SEED = 123
@@ -57,12 +88,12 @@ def make_eval_grid(y1, y2, pad=1.0, n=800):
 
 
 plt.rcParams.update({
-    "font.size": 18,        # default text size
+    "font.size": 20,        # default text size
     "axes.titlesize": 20,   # axes title
     "axes.labelsize": 18,   # x and y labels
     "xtick.labelsize": 16,  # tick labels
     "ytick.labelsize": 16,
-    "legend.fontsize": 14,
+    "legend.fontsize": 18,
 })
 
 h_size = 5*len(deltas)
@@ -111,8 +142,12 @@ for col, delta in enumerate(deltas):
     w_vis_np_r = w_vis_r.detach().numpy()
     w_vis_np_g = w_vis_g.detach().numpy()
 
+    # w_vis_np_r = w_vis_np_r*w_vis_np_r
+    # w_vis_np_g = w_vis_np_g*w_vis_np_g
+
     ratios_r = help.density_ratio(Y_grid,weights,means1,means2,
                                 covariances1,covariances2, mixed=True)
+    
 
     ratios_g = help.density_ratio(Y_grid,weights,means1,means2,
                                 covariances1,covariances2, mixed=False)
@@ -134,7 +169,7 @@ for col, delta in enumerate(deltas):
         ax=axR
     )
     help.add_density_ratio_line(Y_grid, w_vis_np_r,
-                                    label="estimated r(x)", ax=axR)
+                                    label="est. r(x)", ax=axR)
 
     axR.legend(loc="best")
     
@@ -148,7 +183,7 @@ for col, delta in enumerate(deltas):
         ax=axR
     )
     help.add_density_ratio_line(Y_grid, w_vis_np_g,
-                                    label="estimated g(x)", ax=axR)
+                                    label="est. g(x)", ax=axR)
 
     axR.legend(loc="best")
 
@@ -259,7 +294,7 @@ for col, params in enumerate(params_list):
         ax=axR
     )
     help.add_density_ratio_line(Y_grid, w_vis_np,
-                                    label="estimated r(x)", ax=axR)
+                                    label="est. r(x)", ax=axR)
 
     axR.legend(loc="best")
 

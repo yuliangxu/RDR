@@ -5,7 +5,123 @@ from scipy.stats import gaussian_kde
 import pandas as pd
 import torch
 from typing import Dict
+from sklearn.linear_model import LogisticRegression
+from sklearn.calibration import CalibratedClassifierCV
 
+
+# -------- use binary classification and Bayes rule to learn  RDR ---------- #
+def density_ratio_classifier(Xp, Xq, X_eval=None, balance_priors=True, C=1.0, random_state=0):
+    """
+    Estimate r(x)=p(x)/q(x) via binary classification and Bayes' rule.
+    Xp: (n_p, d) samples from p
+    Xq: (n_q, d) samples from q
+    X_eval: points to evaluate r(x) on (defaults to stacked [Xp; Xq])
+    balance_priors: if True, use effective priors π0=π1=0.5 (recommended)
+    """
+    Xp, Xq = np.asarray(Xp), np.asarray(Xq)
+    X = np.vstack([Xp, Xq])
+    y = np.hstack([np.ones(len(Xp)), np.zeros(len(Xq))])
+
+    # Effective priors
+    if balance_priors:
+        pi1, pi0 = 0.5, 0.5
+        # balance by weighting the loss (keeps all samples)
+        w = np.where(y == 1, len(X) / (2*len(Xp)), len(X) / (2*len(Xq)))
+    else:
+        pi1, pi0 = len(Xp) / len(X), len(Xq) / len(X)
+        w = np.ones_like(y)
+
+    base = LogisticRegression(C=C, solver="lbfgs", max_iter=1000, random_state=random_state)
+    # Calibrate to improve probability quality (important for ratios)
+    clf = CalibratedClassifierCV(base, method="isotonic", cv=3)
+    clf.fit(X, y, sample_weight=w)
+
+    if X_eval is None:
+        X_eval = X
+
+    # Posterior η(x) = P(Y=1|x)
+    eta = clf.predict_proba(X_eval)[:, 1]
+    # clip to avoid division issues
+    eps = 1e-12
+    eta = np.clip(eta, eps, 1 - eps)
+
+    # r(x) = (pi0/pi1) * eta/(1-eta)
+    r = (pi0 / pi1) * (eta / (1.0 - eta))
+    return r, eta, {"pi1": pi1, "pi0": pi0, "clf": clf}
+
+# ----------20D sim helpers ----------
+
+def make_orthonormal_K(D=20, d=2, seed=0):
+    rng = np.random.default_rng(seed)
+    G = rng.normal(size=(D, d))          # 20 x 2
+    Q, _ = np.linalg.qr(G, mode='reduced')
+    # Q has orthonormal columns; shape (20, 2)
+    return Q
+
+# --- 2) project 2D points into 20D with isotropic Gaussian noise
+def lift_to_20D(Y2, K, noise_sd=0.1, seed=1):
+    """
+    Y2: (n, 2) points
+    K:  (20, 2) with orthonormal columns
+    returns Y20: (n, 20)
+    """
+    rng = np.random.default_rng(seed)
+    n = Y2.shape[0]
+    eps = rng.normal(scale=noise_sd, size=(n, K.shape[0]))  # (n, 20)
+    # Y20 = Y2 @ K^T + noise
+    Y20 = Y2 @ K.T + eps
+    return Y20
+def mvn_logpdf(x, mean, cov):
+    # x: (n,2), mean: (2,), cov: (2,2)
+    L = np.linalg.cholesky(cov)
+    diff = x - mean
+    # solve (L L^T)^{-1} diff via triangular solves
+    sol = np.linalg.solve(L, diff.T)       # (2,n)
+    quad = np.sum(sol**2, axis=0)          # (n,)
+    logdet = 2.0 * np.sum(np.log(np.diag(L)))
+    return -0.5 * (quad + logdet + 2*np.log(2*np.pi))
+
+def logsumexp(arr, axis=0):
+    m = np.max(arr, axis=axis, keepdims=True)
+    return (m + np.log(np.sum(np.exp(arr - m), axis=axis, keepdims=True))).squeeze(axis)
+
+def mixture_logpdf(x, weights, means, covs):
+    # weights: (K,), means: list/array of K (2,), covs: list/array of K (2,2)
+    logs = []
+    for w, mu, S in zip(weights, means, covs):
+        logs.append(np.log(w) + mvn_logpdf(x, mu, S))
+    logs = np.vstack(logs)                 # (K, n)
+    return logsumexp(logs, axis=0)         # (n,)
+
+# ---------- theoretical 20D ratio ----------
+def RDR_20D_theoretical(X20, K, weights,
+                          means_p, covs_p, means_q, covs_q,
+                          sigma):
+    """
+    X20: (n,20)
+    K: (20,2) with K.T @ K = I2
+    weights: (Kmix,)
+    means_*(list): length Kmix of 2D means for p and q
+    covs_*(list): length Kmix of 2x2 covs for p and q
+    sigma: noise sd in 20D lift (epsilon ~ N(0, sigma^2 I_20))
+    """
+    # project to 2D; since K has orthonormal columns, K^T x == x @ K
+    z = X20 @ K                              # (n,2)
+    I2 = np.eye(2) * (sigma**2)
+
+    # convolved 2D mixtures: Σ -> Σ + σ^2 I_2
+    covs_p_conv = [S + I2 for S in covs_p]
+    covs_q_conv = [S + I2 for S in covs_q]
+
+    logp = mixture_logpdf(z, weights, means_p, covs_p_conv)
+    logq = mixture_logpdf(z, weights, means_q, covs_q_conv)
+
+    p1 = np.exp(logp)
+    p2 = np.exp(logq)
+
+    ratios = 2*p1/(p1+p2)
+    # return np.exp(logp - logq)              # (n,)
+    return ratios
 
 def plot_losses(losses, xlabel="Iteration", ylabel="Loss", title="Training Loss", 
                 color="tab:blue", figsize=(6,4), ax=None, label=None, logy=False):
@@ -442,14 +558,14 @@ def plot_1d_density_compare(
         created_fig = True
 
     # KDEs
-    ax.plot(x_grid, kde_vals_X, label=f"KDE {labels[0]}", color="navy")
-    ax.plot(x_grid, kde_vals_Y, label=f"KDE {labels[1]}", color="darkred")
+    ax.plot(x_grid, kde_vals_X,  color="navy")
+    ax.plot(x_grid, kde_vals_Y,  color="darkred")
 
     # Histograms
     ax.bar(bin_centers_X, counts_X, width=(bin_edges_X[1]-bin_edges_X[0]),
-           alpha=0.3, label=f"Hist {labels[0]}", color="gray", edgecolor="black")
+           alpha=0.3, label=f" {labels[0]}", color="gray", edgecolor="black")
     ax.bar(bin_centers_Y, counts_Y, width=(bin_edges_Y[1]-bin_edges_Y[0]),
-           alpha=0.3, label=f"Hist {labels[1]}", color="orange", edgecolor="black")
+           alpha=0.3, label=f" {labels[1]}", color="orange", edgecolor="black")
 
     ax.set_xlabel("x")
     ax.set_ylabel("Density")
