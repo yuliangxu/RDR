@@ -1,0 +1,76 @@
+# Fixed final generator and historical seed namespaces; no exploratory search or gates.
+experiment_name: stylegan2_truncation_equal_fid
+repo_root: /hpc/home/yx306/RDR
+output_root: /cwork/yx306/RDR/JRSSB/ddim_diffusion_stylegan2_equal_fid
+seed: 20260825
+num_workers: 0
+generator:
+  name: diffusion_stylegan2_celeba64
+  repository_url: https://github.com/Zhendong-Wang/Diffusion-GAN.git
+  repository_commit: 2ca5e7aa21f07a3ff0e78966e5796c580126c14f
+  repository_path: /cwork/yx306/RDR/JRSSB/external/Diffusion-GAN
+  code_subdirectory: diffusion-stylegan2
+  checkpoint_url: https://huggingface.co/zhendongw/diffusion-gan/resolve/main/checkpoints/diffusion-stylegan2-celeba64.pkl
+  checkpoint_path: /cwork/yx306/RDR/JRSSB/external/checkpoints/diffusion-stylegan2-celeba64.pkl
+  checkpoint_sha256: 921e72e290870affb879bc90fe5334e8cb6d5f90ff486e4d6b540036a5606745
+  expected_resolution: 64
+  expected_channels: 3
+  noise_mode: const
+  force_reference_ops: true
+fid_features:
+  package: pytorch-fid
+  package_version: 0.3.0
+  dimensions: 2048
+  source_center_crop: 178
+  analysis_resize: 64
+  model_internal_resize: 299
+  input_pixel_range:
+  - 0
+  - 1
+  interpolation: bilinear_antialiased
+  batch_size: 64
+  num_workers: 0
+full_generation:
+  total_size_per_source: 160000
+  total_size_all_sources: 320000
+  sources:
+    lower:
+      source: stylegan2_lower
+      truncation_psi: 0.65
+      roles:
+        train:
+          seed_start: 1000000
+          pool_size: 120000
+          main_rdr_size: 60000
+        design:
+          seed_start: 1120000
+          pool_size: 10000
+          main_rdr_size: 9000
+        validation:
+          seed_start: 1130000
+          pool_size: 20000
+          main_rdr_size: 20000
+        test:
+          seed_start: 1150000
+          pool_size: 10000
+          main_rdr_size: 9000
+    upper:
+      source: stylegan2_upper
+      truncation_psi: 1.569
+      roles:
+        train:
+          seed_start: 4000000
+          pool_size: 120000
+          main_rdr_size: 60000
+        design:
+          seed_start: 4120000
+          pool_size: 10000
+          main_rdr_size: 9000
+        validation:
+          seed_start: 4130000
+          pool_size: 20000
+          main_rdr_size: 20000
+        test:
+          seed_start: 4150000
+          pool_size: 10000
+          main_rdr_size: 9000

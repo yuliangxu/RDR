@@ -1,0 +1,16 @@
+# Local runtime files; existing tracked files remain until their migration.
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+.jupyter-data/
+/.venv/
+.DS_Store
+# Reproducible simulations write generated runs to a configurable directory.
+/runs/
+
+# Local inputs and exploratory outputs; selected evidence belongs in results/.
+/.codex
+/data/MNIST/raw/
+/experiments/results/
+/experiments/experiments/results/

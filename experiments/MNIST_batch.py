@@ -11,13 +11,14 @@ import random
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import utils.help_func as help
+import utils.diagnostics as help
 import torch
 import utils.DRE_func as dre
 import utils.DRE_batch as dre_batch
+from experiments.MNIST import sampling as mnist_sampling
 from matplotlib.colors import TwoSlopeNorm
 from importlib import reload
-import utils.MNIST_help as mnist
+import experiments.MNIST.helpers as mnist
 
 SEED = 42
 # Python built-in RNG
@@ -73,7 +74,7 @@ val_loader = DataLoader(mnist_val, batch_size=batch_size, shuffle=False, num_wor
 
 # Sampler: 50% generator, 50% real
 G, nz = mnist.build_dcgan28(data_path+"mnist_dcgan/netG_epoch_99.pth", device=device)
-q_sampler = dre_batch.make_q_mixed_sampler(G, nz, p_loader, gen_frac=0.5, post=None)
+q_sampler = mnist_sampling.make_q_mixed_sampler(G, nz, p_loader, gen_frac=0.5, post=None)
 
 num_epochs_planned = 20
 # 3) Train
@@ -200,7 +201,7 @@ vae = mnist.VAEWrapper.from_repo(
     latent_dim=20,                                # only if inference fails
 )
 
-q_mixed_vae_sampler = dre_batch.make_mnist_vae_50_50_sampler(
+q_mixed_vae_sampler = mnist_sampling.make_mnist_vae_50_50_sampler(
     vae,
     real_loader=p_loader,
     post=lambda t: t*2.0 - 1.0,   # map VAE's [0,1] -> [-1,1]

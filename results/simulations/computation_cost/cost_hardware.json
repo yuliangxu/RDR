@@ -1,0 +1,1263 @@
+{
+  "device": "cpu",
+  "hardware_records": [
+    {
+      "hardware": {
+        "affinity": [
+          14,
+          38
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "44",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56506511"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          15,
+          39
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "47",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56506574"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          2,
+          26
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "48",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56506707"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          22,
+          46
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "0",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56499502"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          22,
+          46
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "11",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56501753"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          22,
+          46
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "12",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56502028"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          22,
+          46
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "14",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56502425"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          22,
+          46
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "16",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56502642"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          22,
+          46
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "18",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56502886"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          22,
+          46
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "2",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56499724"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          22,
+          46
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "20",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56503114"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          22,
+          46
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "22",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56503475"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          22,
+          46
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "25",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56503725"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          22,
+          46
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "26",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56504055"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          22,
+          46
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "29",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56504310"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          22,
+          46
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "31",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56504633"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          22,
+          46
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "33",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56504987"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          22,
+          46
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "34",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56505206"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          22,
+          46
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "37",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56505488"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          22,
+          46
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "39",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56505733"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          22,
+          46
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "4",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56500256"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          22,
+          46
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "41",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56506055"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          22,
+          46
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "43",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56506304"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          22,
+          46
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "6",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56500838"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          22,
+          46
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "8",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56501381"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          23,
+          47
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "1",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56499503"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          23,
+          47
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "10",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56501751"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          23,
+          47
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "13",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56502085"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          23,
+          47
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "15",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56502472"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          23,
+          47
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "17",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56502709"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          23,
+          47
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "19",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56502923"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          23,
+          47
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "21",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56503231"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          23,
+          47
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "23",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56503494"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          23,
+          47
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "24",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56503718"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          23,
+          47
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "27",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56504058"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          23,
+          47
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "28",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56504304"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          23,
+          47
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "3",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56499859"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          23,
+          47
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "30",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56504602"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          23,
+          47
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "32",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56504930"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          23,
+          47
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "35",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56505219"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          23,
+          47
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "36",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56505461"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          23,
+          47
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "38",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56505706"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          23,
+          47
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "40",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56505998"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          23,
+          47
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "42",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56506277"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          23,
+          47
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "5",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56500432"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          23,
+          47
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "7",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56500928"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          23,
+          47
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "9",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56501403"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          3,
+          27
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "49",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56499501"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          4,
+          28
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "45",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56506519"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    },
+    {
+      "hardware": {
+        "affinity": [
+          6,
+          30
+        ],
+        "cpu_model": "Intel(R) Xeon(R) Gold 6226 CPU @ 2.70GHz",
+        "node": "dcc-mastatlab-gpu-ferc-s-t18-22",
+        "platform": "Linux-5.14.0-687.29.1.el9_8.x86_64-x86_64-with-glibc2.34",
+        "slurm": {
+          "SLURM_ARRAY_JOB_ID": "56499501",
+          "SLURM_ARRAY_TASK_ID": "46",
+          "SLURM_CPUS_PER_TASK": "1",
+          "SLURM_JOB_ID": "56506527"
+        },
+        "thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "torch_threads": 1
+      },
+      "timed_fits": 24
+    }
+  ],
+  "threads": 1,
+  "versions": {
+    "matplotlib": "3.9.4",
+    "numpy": "1.26.4",
+    "python": "3.9.25",
+    "scipy": "1.13.1",
+    "torch": "2.6.0+cu124"
+  }
+}

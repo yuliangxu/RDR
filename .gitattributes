@@ -1,0 +1,8 @@
+# These files are checked against the recorded scientific SHA-256 manifests.
+# Preserve their bytes, including the standard CRLF records in CSV exports.
+utils/*.py -text
+experiments/__init__.py -text
+experiments/simulations/*.py -text
+experiments/simulations/config.json -text
+experiments/simulations/requirements.txt -text
+results/simulations/** -text

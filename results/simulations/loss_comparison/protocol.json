@@ -1,0 +1,149 @@
+{
+  "candidates": [
+    {
+      "architecture": "bottleneck8_residual64",
+      "loss": "kl",
+      "output_alpha": 2
+    },
+    {
+      "architecture": "bottleneck8_residual64",
+      "loss": "chisq",
+      "output_alpha": 2
+    },
+    {
+      "architecture": "bottleneck8_residual64",
+      "loss": "js",
+      "output_alpha": 2
+    }
+  ],
+  "config": {
+    "adaptive": false,
+    "architectures": [
+      "baseline32",
+      "wide64",
+      "deep64",
+      "residual64",
+      "bottleneck8_residual64"
+    ],
+    "bootstrap_repetitions": 10000,
+    "calibration_n": 5000,
+    "cases": [
+      "D2_noise0.00",
+      "D20_noise0.10",
+      "D40_noise0.10",
+      "D40_noise0.30",
+      "D100_noise0.30"
+    ],
+    "ci_alpha": 0.05,
+    "convergence_repeats": 100,
+    "evaluation_n": 10000,
+    "losses": [
+      "hellinger",
+      "kl",
+      "chisq",
+      "js"
+    ],
+    "max_epochs": 1000,
+    "min_cell_count": 100,
+    "min_epochs": 300,
+    "output_alphas": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "patience": 30,
+    "sample_sizes": [
+      100,
+      200,
+      500,
+      1000,
+      2000,
+      5000
+    ],
+    "seed": 2026092601,
+    "selection_repeats": 10,
+    "train_n": 1000,
+    "validation_n": 500
+  },
+  "device": "cpu",
+  "edges": [
+    0.0,
+    0.1,
+    0.2,
+    0.30000000000000004,
+    0.4,
+    0.5,
+    0.6000000000000001,
+    0.7000000000000001,
+    0.8,
+    0.9,
+    1.0,
+    1.1,
+    1.2000000000000002,
+    1.3,
+    1.4000000000000001,
+    1.5,
+    1.6,
+    1.7000000000000002,
+    1.8,
+    1.9000000000000001,
+    2.0
+  ],
+  "evaluation_role": "follow-up design evidence after inspecting the original study",
+  "followup_source_sha256": {
+    "experiments/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "experiments/simulations/__init__.py": "4dfc32e28423c115138cb7f49f23a880c9893ab44d607d127b67ea811d1b3bbf",
+    "experiments/simulations/config.json": "0f4975f94fa8307d0993ff09f94aa15cf9aee241cb834eb5288d27942b7cdac6",
+    "experiments/simulations/loss_followup.py": "aa6fb700032aaf0593fa4daf3b9a778dab9d7efa249c447d495757d5dbe8feb3",
+    "experiments/simulations/population.py": "4507a9feeea89839f99f7dc7047b91b99091ed0404fb12902983c4382b68b2d8",
+    "experiments/simulations/report.py": "720a5fce207e6b7686724f43d367cc3e21b50a253eb3e73db5cc169d1ead8112",
+    "experiments/simulations/requirements.txt": "e80891433946e697a2a134bc93b3f4a747639108ec40ec59748579feaa407e29",
+    "experiments/simulations/workflow.py": "aef136b8214081bcfa70101659a63726ef42e36f2a22bdec6eaef57509a41fc2",
+    "utils/DRE_batch.py": "2034af68a4d438d5c6597d70c4dff5885a91c1342741efd86098a1282cdbecf3",
+    "utils/DRE_func.py": "7f3d1244e8a337508d4c0d0f02d9e0ad962e6f9fbb3c2ccd83ce9fe2dafff175",
+    "utils/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "utils/calibration.py": "c038069e02f659d6ac8196ece44158287d50709c4aff1c6d662d85150e0ed19c",
+    "utils/diagnostics.py": "73f8251ea3cee9e1dc47d5c5097b692e8ea32a37d2689541cbb464d132f4425e",
+    "utils/losses.py": "5c8a557a116b11769e5f9d80093852fd321cf612ba25507ba094cd3bf220b8df",
+    "utils/networks.py": "e3c712c4bab10085f489f8c6421547760e1296cfb94adc1339ee459e08f4d386",
+    "utils/training.py": "579a14b277b8905161d564f04f4499f74cf2c1a6f341500fd2fe8f97b961c6e0"
+  },
+  "reference_candidate": {
+    "architecture": "bottleneck8_residual64",
+    "loss": "hellinger",
+    "output_alpha": 2
+  },
+  "reference_manifest_sha256": "7273a23c247c4492082b01e786a26991aa5de9896617372f68a27d7aa8daf77f",
+  "reference_selection_sha256": "7971c89ded24feb11877470af4993ff5cd02fee330c5b9003b918555ecf5ff19",
+  "schema": 1,
+  "selected": null,
+  "selection_rule": "No new selection: matched loss comparison at the original frozen architecture/activation",
+  "selection_sha256": null,
+  "source_sha256": {
+    "experiments/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "experiments/simulations/__init__.py": "4dfc32e28423c115138cb7f49f23a880c9893ab44d607d127b67ea811d1b3bbf",
+    "experiments/simulations/config.json": "0f4975f94fa8307d0993ff09f94aa15cf9aee241cb834eb5288d27942b7cdac6",
+    "experiments/simulations/population.py": "4507a9feeea89839f99f7dc7047b91b99091ed0404fb12902983c4382b68b2d8",
+    "experiments/simulations/requirements.txt": "e80891433946e697a2a134bc93b3f4a747639108ec40ec59748579feaa407e29",
+    "experiments/simulations/workflow.py": "aef136b8214081bcfa70101659a63726ef42e36f2a22bdec6eaef57509a41fc2",
+    "utils/DRE_batch.py": "2034af68a4d438d5c6597d70c4dff5885a91c1342741efd86098a1282cdbecf3",
+    "utils/DRE_func.py": "7f3d1244e8a337508d4c0d0f02d9e0ad962e6f9fbb3c2ccd83ce9fe2dafff175",
+    "utils/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "utils/calibration.py": "c038069e02f659d6ac8196ece44158287d50709c4aff1c6d662d85150e0ed19c",
+    "utils/diagnostics.py": "73f8251ea3cee9e1dc47d5c5097b692e8ea32a37d2689541cbb464d132f4425e",
+    "utils/losses.py": "5c8a557a116b11769e5f9d80093852fd321cf612ba25507ba094cd3bf220b8df",
+    "utils/networks.py": "e3c712c4bab10085f489f8c6421547760e1296cfb94adc1339ee459e08f4d386",
+    "utils/training.py": "579a14b277b8905161d564f04f4499f74cf2c1a6f341500fd2fe8f97b961c6e0"
+  },
+  "stage": "selection",
+  "target": "2p/(p+q)",
+  "threads": 1,
+  "versions": {
+    "matplotlib": "3.9.4",
+    "numpy": "1.26.4",
+    "python": "3.9.25",
+    "scipy": "1.13.1",
+    "torch": "2.6.0+cu124"
+  }
+}

@@ -1,0 +1,34 @@
+experiment_name: stylegan2_near_fid_matched_feature_null
+output_root: /cwork/yx306/RDR/JRSSB/ddim_diffusion_stylegan2_equal_fid
+required_terminology: near-FID-matched
+formal_fid_equivalence_claim_authorized: false
+repetitions_per_branch: 5
+fold_seed_base: 2026083100
+model_seed_base: 2026083200
+selection:
+  train:
+    size_per_fold: 60000
+  validation:
+    size_per_fold: 10000
+  design:
+    size_per_fold: 5000
+feature_rdr:
+  representation: pool3_2048
+  hidden_dimension: 512
+  output_alpha: 2.0
+  batch_size: 128
+  evaluation_batch_size: 4096
+  num_workers: 0
+  learning_rate: 0.0005
+  weight_decay: 0.01
+  gradient_clip_norm: 1.0
+  scheduler: plateau
+  scheduler_factor: 0.5
+  scheduler_patience: 2
+  num_epochs: 50
+  early_stop_min_epochs: 8
+  early_stop_patience: 5
+  early_stop_min_delta: 0.0
+  require_cuda: true
+  saturation_guard: 0.95
+  constant_ratio_validation_baseline: false

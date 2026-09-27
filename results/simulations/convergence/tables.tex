@@ -1,0 +1,61 @@
+% Requires \usepackage{booktabs}; entries are means (Monte Carlo SEs).
+
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\caption{Evaluation MSE. Fixed NN architecture B8-Res64 and output activation 2 sigmoid(2 z). Equal-weight mean over 5 fixed settings; parentheses give Monte Carlo standard errors. Bold marks the lowest observed mean at each sample size (ties included), without a significance claim.}
+\label{tab:sim-evaluation-mse}
+\begin{tabular}{lcccc}
+\toprule
+Train n per P/Q & Hellinger & KL & Chi-square & JS \\
+\midrule
+100 & \shortstack{0.1923\\(0.0016)} & \shortstack{0.1797\\(0.0017)} & \textbf{\shortstack{0.1690\\(0.0014)}} & \shortstack{0.1730\\(0.0014)} \\
+200 & \shortstack{0.1632\\(0.0014)} & \shortstack{0.1403\\(0.0013)} & \textbf{\shortstack{0.1315\\(0.0011)}} & \shortstack{0.1346\\(0.0011)} \\
+500 & \shortstack{0.1137\\(0.0015)} & \shortstack{0.0869\\(0.0009)} & \shortstack{0.0854\\(0.0006)} & \textbf{\shortstack{0.0851\\(0.0008)}} \\
+1,000 & \shortstack{0.0814\\(0.0013)} & \shortstack{0.0592\\(0.0006)} & \shortstack{0.0596\\(0.0005)} & \textbf{\shortstack{0.0578\\(0.0005)}} \\
+2,000 & \shortstack{0.0531\\(0.0012)} & \shortstack{0.0355\\(0.0004)} & \shortstack{0.0367\\(0.0004)} & \textbf{\shortstack{0.0347\\(0.0004)}} \\
+5,000 & \shortstack{0.0280\\(0.0010)} & \textbf{\shortstack{0.0173\\(0.0003)}} & \shortstack{0.0180\\(0.0002)} & \shortstack{0.0175\\(0.0006)} \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\caption{Evaluation Brier. Fixed NN architecture B8-Res64 and output activation 2 sigmoid(2 z). Equal-weight mean over 5 fixed settings; parentheses give Monte Carlo standard errors. Bold marks the lowest observed mean at each sample size (ties included), without a significance claim.}
+\label{tab:sim-evaluation-brier}
+\begin{tabular}{lcccc}
+\toprule
+Train n per P/Q & Hellinger & KL & Chi-square & JS \\
+\midrule
+100 & \shortstack{0.2188\\(0.0004)} & \shortstack{0.2156\\(0.0004)} & \textbf{\shortstack{0.2130\\(0.0004)}} & \shortstack{0.2140\\(0.0004)} \\
+200 & \shortstack{0.2115\\(0.0004)} & \shortstack{0.2058\\(0.0003)} & \textbf{\shortstack{0.2036\\(0.0003)}} & \shortstack{0.2043\\(0.0003)} \\
+500 & \shortstack{0.1992\\(0.0004)} & \shortstack{0.1925\\(0.0002)} & \shortstack{0.1921\\(0.0002)} & \textbf{\shortstack{0.1920\\(0.0002)}} \\
+1,000 & \shortstack{0.1910\\(0.0003)} & \shortstack{0.1855\\(0.0001)} & \shortstack{0.1856\\(0.0001)} & \textbf{\shortstack{0.1851\\(0.0001)}} \\
+2,000 & \shortstack{0.1840\\(0.0003)} & \shortstack{0.1796\\(0.0001)} & \shortstack{0.1799\\(0.0001)} & \textbf{\shortstack{0.1794\\(0.0001)}} \\
+5,000 & \shortstack{0.1777\\(0.0003)} & \textbf{\shortstack{0.1750\\(0.0001)}} & \shortstack{0.1752\\(0.0001)} & \shortstack{0.1751\\(0.0002)} \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\caption{Local gap. Fixed NN architecture B8-Res64 and output activation 2 sigmoid(2 z). Equal-weight mean over 5 fixed settings; parentheses give Monte Carlo standard errors. Bold marks the lowest observed mean at each sample size (ties included), without a significance claim.}
+\label{tab:sim-local-gap}
+\begin{tabular}{lcccc}
+\toprule
+Train n per P/Q & Hellinger & KL & Chi-square & JS \\
+\midrule
+100 & \shortstack{0.1441\\(0.0018)} & \shortstack{0.1301\\(0.0017)} & \textbf{\shortstack{0.1184\\(0.0014)}} & \shortstack{0.1240\\(0.0016)} \\
+200 & \shortstack{0.1399\\(0.0016)} & \shortstack{0.1187\\(0.0013)} & \textbf{\shortstack{0.1042\\(0.0011)}} & \shortstack{0.1069\\(0.0011)} \\
+500 & \shortstack{0.1143\\(0.0014)} & \shortstack{0.0928\\(0.0010)} & \textbf{\shortstack{0.0833\\(0.0009)}} & \shortstack{0.0845\\(0.0009)} \\
+1,000 & \shortstack{0.0903\\(0.0012)} & \shortstack{0.0748\\(0.0008)} & \shortstack{0.0703\\(0.0008)} & \textbf{\shortstack{0.0694\\(0.0007)}} \\
+2,000 & \shortstack{0.0669\\(0.0009)} & \shortstack{0.0594\\(0.0006)} & \shortstack{0.0589\\(0.0006)} & \textbf{\shortstack{0.0577\\(0.0006)}} \\
+5,000 & \shortstack{0.0487\\(0.0006)} & \shortstack{0.0441\\(0.0005)} & \shortstack{0.0441\\(0.0004)} & \textbf{\shortstack{0.0432\\(0.0004)}} \\
+\bottomrule
+\end{tabular}
+\end{table*}

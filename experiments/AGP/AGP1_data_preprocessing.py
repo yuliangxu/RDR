@@ -11,7 +11,7 @@ agp_data_path = "/hpc/group/mastatlab/yx306/AGP/data/"
 ganchao_path = "/hpc/group/mastatlab/microbiome/clean/"
 sys.path.append(ganchao_path)
 import microbiome_unet as ganchao
-import utils.AGP_help as agp_help
+import experiments.AGP.helpers as agp_help
 
 
 

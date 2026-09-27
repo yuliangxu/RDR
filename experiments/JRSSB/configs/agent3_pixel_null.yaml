@@ -1,0 +1,49 @@
+experiment_name: stylegan2_near_fid_matched_pixel_null
+output_root: /cwork/yx306/RDR/JRSSB/ddim_diffusion_stylegan2_equal_fid
+feature_null_config: /hpc/home/yx306/RDR/experiments/JRSSB/configs/agent3_feature_null.yaml
+required_terminology: near-FID-matched
+formal_fid_equivalence_claim_authorized: false
+repetitions_per_branch: 5
+model_seed_base: 2026083400
+near_one_tolerances:
+- 0.05
+- 0.1
+- 0.2
+central_quantiles:
+- 0.01
+- 0.99
+central_bounds:
+- 0.8
+- 1.2
+maximum_absolute_mean_bias: 0.05
+minimum_fraction_within_0_10: 0.9
+pixel_rdr:
+  representation: pixels64_cnn
+  image_resolution: 64
+  input_pixel_range:
+  - -1
+  - 1
+  preload_storage_dtype: uint8
+  ndf: 64
+  output_alpha: 1.0
+  batch_size: 128
+  evaluation_batch_size: 512
+  num_workers: 0
+  learning_rate: 0.0002
+  adam_beta1: 0.9
+  adam_beta2: 0.999
+  weight_decay: 0.0
+  onecycle_max_lr: 0.0006
+  onecycle_pct_start: 0.1
+  onecycle_div_factor: 10.0
+  onecycle_final_div_factor: 1000.0
+  scheduler: onecycle
+  num_epochs: 50
+  early_stop_min_epochs: 10
+  early_stop_patience: 5
+  early_stop_min_delta: 0.0
+  gradient_clip_norm: 1.0
+  bn_freeze_epoch: 5
+  require_cuda: true
+  saturation_guard: 0.95
+  constant_ratio_validation_baseline: false

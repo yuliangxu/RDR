@@ -18,7 +18,7 @@ sys.path.append(ganchao_path)
 import trainer.model as agp_model
 import trainer.data as agp_data
 import microbiome_unet as ganchao
-import utils.AGP_help as agp_help
+import experiments.AGP.helpers as agp_help
 
 
 
@@ -37,8 +37,8 @@ from scipy.stats import describe
 from keras.models import load_model
 from sklearn.model_selection import train_test_split
 import torch
-import utils.help_func as help
-import utils.microbiome_help as mb_help
+import utils.diagnostics as help
+import experiments.AGP.microbiome as mb_help
 
 
 SEED = 42

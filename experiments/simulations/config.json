@@ -1,0 +1,21 @@
+{
+  "seed": 2026092601,
+  "cases": ["D2_noise0.00", "D20_noise0.10", "D40_noise0.10", "D40_noise0.30", "D100_noise0.30"],
+  "losses": ["hellinger", "kl", "chisq", "js"],
+  "architectures": ["baseline32", "wide64", "deep64", "residual64", "bottleneck8_residual64"],
+  "output_alphas": [1, 2, 3, 4],
+  "selection_repeats": 10,
+  "convergence_repeats": 100,
+  "train_n": 1000,
+  "validation_n": 500,
+  "calibration_n": 5000,
+  "evaluation_n": 10000,
+  "sample_sizes": [100, 200, 500, 1000, 2000, 5000],
+  "max_epochs": 1000,
+  "min_epochs": 300,
+  "patience": 30,
+  "ci_alpha": 0.05,
+  "adaptive": false,
+  "min_cell_count": 100,
+  "bootstrap_repetitions": 10000
+}

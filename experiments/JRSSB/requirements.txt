@@ -1,0 +1,14 @@
+numpy==1.26.4
+pandas==2.2.3
+PyYAML==5.4.1
+scikit-learn==1.6.1
+scipy==1.13.1
+pytorch-fid==0.3.0
+matplotlib>=3.8
+Pillow>=10.0
+torch>=2.1
+torchvision>=0.16
+click>=8.1
+requests>=2.31
+tqdm>=4.66
+ninja>=1.11

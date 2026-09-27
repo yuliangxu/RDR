@@ -1,0 +1,20 @@
+# Fixed CelebA preprocessing. Role membership is supplied by hashed split manifests.
+experiment_name: real_ddim_fid_matched
+repo_root: /hpc/home/yx306/RDR
+output_root: /cwork/yx306/RDR/JRSSB/real_ddim_fid_matched
+celeba_root: /hpc/group/mastatlab/yx306/CelebA
+seed: 20260824
+fid_features:
+  package: pytorch-fid
+  package_version: 0.3.0
+  dimensions: 2048
+  source_center_crop: 178
+  analysis_resize: 64
+  model_internal_resize: 299
+  input_pixel_range:
+  - 0
+  - 1
+  interpolation: bilinear_antialiased
+  batch_size: 64
+  num_workers: 0
+  slurm_num_workers: 4

@@ -17,18 +17,22 @@
 # %%
 # # 0. set path
 import os
-os.chdir("/hpc/home/yx306/DRE")
-os.getcwd() 
+import sys
+REPO_DIR = "/hpc/home/yx306/RDR"
+os.chdir(REPO_DIR)
+if REPO_DIR not in sys.path:
+    sys.path.insert(0, REPO_DIR)
+os.getcwd()
 import pandas as pd
 from importlib import reload
-import utils.sampler_ddim_celeba64 as ddim
-import utils.CelebA_help as celeb
+import experiments.CelebA.ddim as ddim
+import experiments.CelebA.helpers as celeb
 import numpy as np
 from torchvision import datasets, transforms
 from torch.utils.data import Dataset, DataLoader
 from PIL import Image
-import utils.CelebA_help as celeb
-import utils.help_func as help
+import experiments.CelebA.helpers as celeb
+import utils.diagnostics as help
 import matplotlib.pyplot as plt
 import utils.DRE_batch as dre_batch
 import utils.DRE_func as dre
@@ -77,6 +81,9 @@ celeba_loader = DataLoader(trainset, batch_size=batch_size, shuffle=True, num_wo
 valset   = datasets.CelebA(root=data_path, split="valid", transform=transform, download=False)
 celeba_valloader = DataLoader(valset, batch_size=batch_size, shuffle=False, num_workers=2, drop_last=False)
 
+testset = datasets.CelebA(root=data_path, split="test", transform=transform, download=False)
+celeba_testloader = DataLoader(testset, batch_size=batch_size, shuffle=False, num_workers=2, drop_last=False)
+
 # # %%
 # # not required: load DDIM pretraiend model
 # # Paths you set:
@@ -101,20 +108,74 @@ celeba_valloader = DataLoader(valset, batch_size=batch_size, shuffle=False, num_
 reload(celeb)
 ddim_data_dir = "/hpc/group/mastatlab/yx306/CelebA/DDIM/data"
 
+DDIM_SAMPLES_PER_SHARD = 10_000
+VERIFY_DDIM_SHARD_COUNTS = False
+
+def ddim_shard_sample_count(ddim_data_dir, shard_ids):
+    shard_ids = list(shard_ids)
+    if not VERIFY_DDIM_SHARD_COUNTS:
+        return len(shard_ids) * DDIM_SAMPLES_PER_SHARD
+
+    total = 0
+    for shard_id in shard_ids:
+        shard_path = celeb._find_shard_path(ddim_data_dir, int(shard_id))
+        shard_obj = torch.load(shard_path, map_location="cpu")
+        total += int(celeb._extract_tensor_from_obj(shard_obj).shape[0])
+        del shard_obj
+    return total
+
+train_q_shards = range(0, 16)
+validation_q_shards = range(16, 18)
+test_q_shards = range(18, 20)
+train_q_pool_n = ddim_shard_sample_count(ddim_data_dir, train_q_shards)
+validation_q_pool_n = ddim_shard_sample_count(ddim_data_dir, validation_q_shards)
+test_q_pool_n = ddim_shard_sample_count(ddim_data_dir, test_q_shards)
+
 q_mixed_sampler = celeb.DDIMDiskSampler(
     real_loader=celeba_loader,
     ddim_data_dir=ddim_data_dir,
     gen_frac=0.5,
-    split="train",   
+    shard_ids=train_q_shards,
 )
 
-# q for validation: mix of real TEST loader and DDIM TEST images on disk
+# q for validation loss: mix of real validation images and held-out DDIM shards 16-17
 q_val_sampler = celeb.DDIMDiskSampler(
     real_loader=celeba_valloader,
     ddim_data_dir=ddim_data_dir,
     gen_frac=0.5,
-    split="test",
+    shard_ids=validation_q_shards,
 )
+
+split_sample_sizes = pd.DataFrame(
+    [
+        {
+            "phase": "training",
+            "p_source": "CelebA train",
+            "q_source": "DDIM shards 0-15",
+            "p_n": len(trainset),
+            "q_n": train_q_pool_n,
+            "q_pool_n": train_q_pool_n,
+        },
+        {
+            "phase": "validation_loss",
+            "p_source": "CelebA valid",
+            "q_source": "DDIM shards 16-17",
+            "p_n": len(valset),
+            "q_n": validation_q_pool_n,
+            "q_pool_n": validation_q_pool_n,
+        },
+        {
+            "phase": "evaluation_test",
+            "p_source": "CelebA test",
+            "q_source": "DDIM shards 18-19",
+            "p_n": len(testset),
+            "q_n": len(testset),
+            "q_pool_n": test_q_pool_n,
+        },
+    ]
+)
+print("Independent split sample sizes")
+print(split_sample_sizes.to_string(index=False))
 
 # Sample a batch
 x_mixed = q_mixed_sampler(batch_size=batch_size)
@@ -125,26 +186,40 @@ print(x_mixed.shape)   # torch.Size([64, 3, 64, 64])
 
 # %%
 # # ---------- try to run ratio estimator -------------#
-reload(dre)
-reload(dre_batch)
+import inspect
+REPO_DIR = "/hpc/home/yx306/RDR"
+os.chdir(REPO_DIR)
+if REPO_DIR not in sys.path:
+    sys.path.insert(0, REPO_DIR)
+for module_name in ("utils.DRE_batch", "utils.DRE_func"):
+    sys.modules.pop(module_name, None)
+import utils.DRE_batch as dre_batch
+import utils.DRE_func as dre
+print("DRE_batch path:", dre_batch.__file__)
+print("CelebA64 trainer signature:", inspect.signature(dre_batch.run_DRE_fdiv_cnn_minibatch_celeba64))
 set_seed(SEED)
 
-num_epochs = 2
+num_epochs = 20
+restore_mode = "best_val"  # "best_val" or "last_finite_train"
 model_ddim, losses_ddim, val_losses = dre_batch.run_DRE_fdiv_cnn_minibatch_celeba64(
     p_loader=celeba_loader,
     q_sampler=q_mixed_sampler,          # training q
     num_epochs=num_epochs,
     val_loader=celeba_valloader,       # p for validation
-    val_q_sampler=q_val_sampler,        # q for validation (disk, test split)
+    val_q_sampler=q_val_sampler,        # q for validation loss (DDIM shards 16-17)
     val_q_batches=2,                    # increase for smoother estimate
     early_stop_patience=5,
+    restore_best=True,
+    restore_mode=restore_mode,
+    return_val_losses=True,
     print_every=1,
 )
-save_path = data_path + "ratio_ddim_celeba64_val_alpha01_nep2.pt"
+save_path = data_path + "ratio_ddim_celeba64_valshards16-17_testshards18-19_alpha01_nep10.pt"
 torch.save(
     {
         "model_state": model_ddim.state_dict(),
         "losses": losses_ddim,
+        "val_losses": val_losses,
     },
     save_path,
 )
@@ -157,14 +232,17 @@ val_steps = np.minimum(val_steps, len(losses_ddim))
 
 fig, ax = plt.subplots(figsize=(6,4))
 help.plot_losses(losses_ddim, label="train (CelebA64)", ax=ax, color="tab:blue")
-ax.plot(val_steps, val_losses, 'o-', label="validation", color="tab:orange", linewidth=2)
+if val_losses:
+    ax.plot(val_steps, val_losses, 'o-', label="validation", color="tab:orange", linewidth=2)
 
-best_idx = int(np.argmin(val_losses))
-best_epoch = best_idx + 1
-best_step = int(val_steps[best_idx])
-best_val = float(val_losses[best_idx])
-ax.axvline(best_step, linestyle="--", alpha=0.35)
-ax.scatter([best_step], [best_val], s=60, zorder=5, label=f"best @ epoch {best_epoch}")
+    best_idx = int(np.argmin(val_losses))
+    best_epoch = best_idx + 1
+    best_step = int(val_steps[best_idx])
+    best_val = float(val_losses[best_idx])
+    ax.axvline(best_step, linestyle="--", alpha=0.35)
+    ax.scatter([best_step], [best_val], s=60, zorder=5, label=f"best @ epoch {best_epoch}")
+else:
+    print("No finite validation losses were recorded.")
 
 ax.set_title("Training vs Validation Loss (CelebA64)")
 ax.set_xlabel("Training step")
@@ -173,16 +251,266 @@ ax.legend(); ax.grid(True, alpha=0.3); plt.tight_layout()
 
 
 # %%
+# reload the saved trained RDR and summarize on full train/test samples.
+# The validation split is reserved for early stopping and is not reused here.
+save_path = data_path + "ratio_ddim_celeba64_valshards16-17_testshards18-19_alpha01_nep10.pt"
+ratio_device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+checkpoint = torch.load(save_path, map_location=ratio_device)
+model_ddim = dre.RatioNetCelebA64(in_ch=3, ndf=64, log_scale=False).to(ratio_device)
+model_ddim.load_state_dict(checkpoint["model_state"])
+losses_ddim = checkpoint["losses"]
+val_losses = checkpoint.get("val_losses", [])
+
+def _batch_images(batch):
+    return batch[0] if isinstance(batch, (tuple, list)) else batch
+
+@torch.no_grad()
+def score_rdr_tensor(model, x):
+    model.eval()
+    p_model = next(model.parameters())
+    x = x.to(device=p_model.device, dtype=p_model.dtype, non_blocking=True)
+    r = model(x).view(-1)
+    if getattr(model, "log_scale", False):
+        r = torch.exp(r)
+    return r.detach().cpu()
+
+@torch.no_grad()
+def score_rdr_loader(model, loader, max_batches=None):
+    scores = []
+    for k, batch in enumerate(loader):
+        if max_batches is not None and k >= max_batches:
+            break
+        scores.append(score_rdr_tensor(model, _batch_images(batch)))
+    return torch.cat(scores, dim=0)
+
+@torch.no_grad()
+def score_rdr_sampler_n(model, sampler, batch_size, n_samples):
+    p_model = next(model.parameters())
+    if hasattr(sampler, "reset"):
+        sampler.reset(epoch=0)
+    scores = []
+    remaining = int(n_samples)
+    while remaining > 0:
+        this_batch = min(int(batch_size), remaining)
+        x = sampler(batch_size=this_batch, device=p_model.device, dtype=p_model.dtype)
+        scores.append(score_rdr_tensor(model, x))
+        remaining -= this_batch
+    return torch.cat(scores, dim=0)
+
+def summarize_rdr_scores(split, group, scores):
+    arr = scores.numpy()
+    finite = np.isfinite(arr)
+    if finite.any():
+        stats = help.summarize_vector(arr[finite])
+    else:
+        stats = {
+            "length": 0,
+            "mean": np.nan,
+            "std": np.nan,
+            "min": np.nan,
+            "q1": np.nan,
+            "median": np.nan,
+            "q3": np.nan,
+            "max": np.nan,
+        }
+    stats.update(
+        {
+            "split": split,
+            "group": group,
+            "n_nonfinite": int((~finite).sum()),
+        }
+    )
+    return stats
+
+train_q_n = len(trainset)
+test_q_n = len(testset)
+rdr_train_fake_sampler = celeb.DDIMFakeOnlySampler(ddim_data_dir=ddim_data_dir, split="train")
+rdr_test_fake_sampler = celeb.DDIMFakeOnlySampler(ddim_data_dir=ddim_data_dir, shard_ids=range(18, 20))
+
+rdr_full_summary_rows = [
+    summarize_rdr_scores("train", "real", score_rdr_loader(model_ddim, celeba_loader)),
+    summarize_rdr_scores(
+        "train",
+        "generated",
+        score_rdr_sampler_n(model_ddim, rdr_train_fake_sampler, batch_size, train_q_n),
+    ),
+    summarize_rdr_scores("test", "real", score_rdr_loader(model_ddim, celeba_testloader)),
+    summarize_rdr_scores(
+        "test",
+        "generated",
+        score_rdr_sampler_n(model_ddim, rdr_test_fake_sampler, batch_size, test_q_n),
+    ),
+]
+rdr_full_summary_df = (
+    pd.DataFrame(rdr_full_summary_rows)
+    .set_index(["split", "group"])
+    [["length", "n_nonfinite", "mean", "std", "min", "q1", "median", "q3", "max"]]
+)
+print(
+    "Full-split RDR summary; "
+    f"train P/Q use {len(trainset):,}/{train_q_n:,} images and "
+    f"test P/Q use {len(testset):,}/{test_q_n:,} images. "
+    "Validation P/Q is reserved for early stopping."
+)
+print(rdr_full_summary_df.round(4))
+
+loss_epoch_rows = []
+steps_per_epoch = len(celeba_loader)
+num_loss_epochs = max(
+    int(np.ceil(len(losses_ddim) / steps_per_epoch)) if losses_ddim else 0,
+    len(val_losses),
+)
+for epoch_idx in range(num_loss_epochs):
+    start = epoch_idx * steps_per_epoch
+    end = min((epoch_idx + 1) * steps_per_epoch, len(losses_ddim))
+    train_epoch_losses = np.asarray(losses_ddim[start:end], dtype=float)
+    train_finite = np.isfinite(train_epoch_losses)
+    val_loss = val_losses[epoch_idx] if epoch_idx < len(val_losses) else np.nan
+    loss_epoch_rows.append(
+        {
+            "epoch": epoch_idx + 1,
+            "train_steps": int(end - start),
+            "train_loss_mean": (
+                float(np.mean(train_epoch_losses[train_finite]))
+                if train_finite.any()
+                else np.nan
+            ),
+            "train_loss_last": (
+                float(train_epoch_losses[train_finite][-1])
+                if train_finite.any()
+                else np.nan
+            ),
+            "validation_loss": float(val_loss) if np.isfinite(val_loss) else np.nan,
+        }
+    )
+loss_epoch_df = pd.DataFrame(loss_epoch_rows).set_index("epoch")
+print("Training and validation loss by epoch")
+print(loss_epoch_df.round(6))
+
+
+# %%
+# reload the new Slurm-trained RDR and summarize with the exact available DDIM Q sizes.
+# This corrects the older train/generated row, which sampled len(trainset)=162,770
+# generated images even though training DDIM shards 0-15 contain 160,000 images.
+new_result_dir = os.environ.get(
+    "CELEBA_DDIM_TRAIN_OUTPUT_DIR",
+    "/cwork/yx306/RDR/celeba-ddim-rdr",
+)
+new_save_path = os.path.join(
+    new_result_dir,
+    "ratio_ddim_celeba64_valshards16-17_testshards18-19_alpha01_nep10.pt",
+)
+ratio_device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+checkpoint = torch.load(new_save_path, map_location=ratio_device)
+model_ddim = dre.RatioNetCelebA64(in_ch=3, ndf=64, log_scale=False).to(ratio_device)
+model_ddim.load_state_dict(checkpoint["model_state"])
+losses_ddim = checkpoint["losses"]
+val_losses = checkpoint.get("val_losses", [])
+
+train_q_exact_n = train_q_pool_n
+test_q_exact_n = len(testset)
+rdr_train_fake_sampler_exact = celeb.DDIMFakeOnlySampler(
+    ddim_data_dir=ddim_data_dir,
+    shard_ids=train_q_shards,
+)
+rdr_test_fake_sampler_exact = celeb.DDIMFakeOnlySampler(
+    ddim_data_dir=ddim_data_dir,
+    shard_ids=test_q_shards,
+)
+
+rdr_exact_q_summary_rows = [
+    summarize_rdr_scores("train", "real", score_rdr_loader(model_ddim, celeba_loader)),
+    summarize_rdr_scores(
+        "train",
+        "generated",
+        score_rdr_sampler_n(
+            model_ddim,
+            rdr_train_fake_sampler_exact,
+            batch_size,
+            train_q_exact_n,
+        ),
+    ),
+    summarize_rdr_scores("test", "real", score_rdr_loader(model_ddim, celeba_testloader)),
+    summarize_rdr_scores(
+        "test",
+        "generated",
+        score_rdr_sampler_n(
+            model_ddim,
+            rdr_test_fake_sampler_exact,
+            batch_size,
+            test_q_exact_n,
+        ),
+    ),
+]
+rdr_exact_q_summary_df = (
+    pd.DataFrame(rdr_exact_q_summary_rows)
+    .set_index(["split", "group"])
+    [["length", "n_nonfinite", "mean", "std", "min", "q1", "median", "q3", "max"]]
+)
+print(
+    "Corrected full-split RDR summary; "
+    f"train P/Q use {len(trainset):,}/{train_q_exact_n:,} images and "
+    f"test P/Q use {len(testset):,}/{test_q_exact_n:,} images. "
+    "Validation P/Q is reserved for early stopping."
+)
+print(rdr_exact_q_summary_df.round(4))
+
+corrected_summary_csv = os.path.join(new_result_dir, "rdr_full_summary_exact_q.csv")
+corrected_summary_md = os.path.join(new_result_dir, "rdr_full_summary_exact_q.md")
+rdr_exact_q_summary_df.to_csv(corrected_summary_csv)
+
+def _simple_markdown_table(df, floatfmt=".6f"):
+    df = df.copy()
+    headers = [str(col) for col in df.columns]
+    rows = []
+    for row in df.itertuples(index=False, name=None):
+        formatted = []
+        for value in row:
+            if isinstance(value, (float, np.floating)):
+                formatted.append("" if not np.isfinite(value) else format(float(value), floatfmt))
+            else:
+                formatted.append(str(value))
+        rows.append(formatted)
+    widths = [
+        max(len(headers[i]), *(len(row[i]) for row in rows)) if rows else len(headers[i])
+        for i in range(len(headers))
+    ]
+    lines = [
+        "| " + " | ".join(headers[i].ljust(widths[i]) for i in range(len(headers))) + " |",
+        "| " + " | ".join("-" * widths[i] for i in range(len(headers))) + " |",
+    ]
+    for row in rows:
+        lines.append("| " + " | ".join(row[i].ljust(widths[i]) for i in range(len(headers))) + " |")
+    return "\n".join(lines)
+
+with open(corrected_summary_md, "w", encoding="utf-8") as f:
+    f.write("# Corrected Full Train/Test RDR Summary\n\n")
+    f.write(
+        "Training Q uses exactly the available DDIM train-shard pool "
+        f"({train_q_exact_n:,} samples from shards 0-15). "
+        "Test Q is matched to the CelebA test P sample size "
+        f"({test_q_exact_n:,}); shards 18-19 contain 20,000 generated images, "
+        "so 38 generated images are left unused to keep P/Q sample sizes paired in test evaluation.\n\n"
+    )
+    f.write(_simple_markdown_table(rdr_exact_q_summary_df.round(6).reset_index()))
+    f.write("\n")
+print(f"Saved corrected exact-Q summary to {corrected_summary_csv}")
+print(f"Saved corrected exact-Q Markdown to {corrected_summary_md}")
+
+
+# %%
 # reload trained model
 # save_path = data_path + "ratio_ddim_celeba64_nep2.pt"
 # save_path = data_path + "ratio_ddim_celeba64_val_nep2.pt"
-save_path = data_path + "ratio_ddim_celeba64_val_alpha01_nep2.pt"
+# save_path = data_path + "ratio_ddim_celeba64_val_alpha01_nep2.pt"
+save_path = data_path + "ratio_ddim_celeba64_valshards16-17_testshards18-19_alpha01_nep10.pt"
 # save_path = data_path + "ratio_ddim_celeba64_val_alpha1_nep2.pt"
 # reload
 checkpoint = torch.load(save_path)
 model_ddim = dre.RatioNetCelebA64(in_ch=3, ndf=64, log_scale=False) 
 model_ddim.load_state_dict(checkpoint["model_state"])
 losses_ddim = checkpoint["losses"]
+val_losses = checkpoint.get("val_losses", [])
 
 # check loss
 reload(help)
