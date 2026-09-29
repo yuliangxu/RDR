@@ -6,3 +6,6 @@ experiments/simulations/*.py -text
 experiments/simulations/config.json -text
 experiments/simulations/requirements.txt -text
 results/simulations/** -text
+experiments/MNIST/** -text
+results/MNIST/** -text
+results/MNIST/**/*.csv whitespace=cr-at-eol

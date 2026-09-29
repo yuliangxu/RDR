@@ -1,0 +1,182 @@
+{
+  "study": "selected_mnist_perturbation_and_null",
+  "smoke": false,
+  "chosen": {
+    "candidate": "js_a2",
+    "loss": "js",
+    "output_alpha": 2.0
+  },
+  "config": {
+    "seed": 2026092901,
+    "losses": [
+      "hellinger",
+      "kl",
+      "chisq",
+      "js"
+    ],
+    "output_alphas": [
+      0.5,
+      1,
+      2,
+      4
+    ],
+    "repeats": 5,
+    "train_n": 45000,
+    "earlystop_n": 5000,
+    "selection_calibration_n": 5000,
+    "selection_evaluation_n": 5000,
+    "final_calibration_n": 5000,
+    "final_evaluation_n": 5000,
+    "batch_size": 512,
+    "max_epochs": 20,
+    "min_epochs": 6,
+    "patience": 5,
+    "bn_freeze_epoch": 5,
+    "base_channels": 64,
+    "max_lr": 0.0006,
+    "ci_alpha": 0.05,
+    "bins": 20,
+    "diagnostic_n": 5000
+  },
+  "files": {
+    "assets/train-images-idx3-ubyte": {
+      "sha256": "ba891046e6505d7aadcbbe25680a0738ad16aec93bde7f9b65e87a2fc25776db",
+      "original": "/hpc/group/mastatlab/yx306/MNIST/MNIST/raw/train-images-idx3-ubyte"
+    },
+    "assets/train-labels-idx1-ubyte": {
+      "sha256": "65a50cbbf4e906d70832878ad85ccda5333a97f0f4c3dd2ef09a8a9eef7101c5",
+      "original": "/hpc/group/mastatlab/yx306/MNIST/MNIST/raw/train-labels-idx1-ubyte"
+    },
+    "assets/t10k-images-idx3-ubyte": {
+      "sha256": "0fa7898d509279e482958e8ce81c8e77db3f2f8254e26661ceb7762c4d494ce7",
+      "original": "/hpc/group/mastatlab/yx306/MNIST/MNIST/raw/t10k-images-idx3-ubyte"
+    },
+    "assets/t10k-labels-idx1-ubyte": {
+      "sha256": "ff7bcfd416de33731a308c3f266cc351222c34898ecbeaf847f06e48f7ec33f2",
+      "original": "/hpc/group/mastatlab/yx306/MNIST/MNIST/raw/t10k-labels-idx1-ubyte"
+    },
+    "assets/evidence/selection.json": {
+      "sha256": "48807a984a9ad3c9dd3238c3be4465cbf3b486b1c0646354fc8bd9c01681ff60",
+      "original": "/hpc/home/yx306/RDR/results/MNIST/model_selection/selection.json"
+    },
+    "assets/evidence/selection.sha256": {
+      "sha256": "b889744436c45926c73c6e89c28d86ff9c4a6f6528386924da04eee5d76d2153",
+      "original": "/hpc/home/yx306/RDR/results/MNIST/model_selection/selection.sha256"
+    },
+    "assets/evidence/protocol.json": {
+      "sha256": "dd473e1282933bd104cc7cb75dd2db71bfa37bebc3d541da6df3d11b65d13b0c",
+      "original": "/hpc/home/yx306/RDR/results/MNIST/model_selection/protocol.json"
+    },
+    "assets/evidence/protocol.sha256": {
+      "sha256": "c31dcf6a334d7d5192540617370fb161c45c079f96b28a18ec55f1bcff268ee6",
+      "original": "/hpc/home/yx306/RDR/results/MNIST/model_selection/protocol.sha256"
+    },
+    "assets/evidence/per_fit.csv": {
+      "sha256": "27a425194bd06024a1a3523567e8d05a868b5b538520525f3f331d580b74b750",
+      "original": "/hpc/home/yx306/RDR/results/MNIST/model_selection/per_fit.csv"
+    },
+    "assets/evidence/splits.json": {
+      "sha256": "182891c7012056f2f3174ae7c9cd887a81bc8d927022afafb823d9f94562572a",
+      "original": "/hpc/home/yx306/RDR/results/MNIST/model_selection/splits.json"
+    },
+    "assets/evidence/manifest.json": {
+      "sha256": "b5a9f087ae61e48d25483016011755684247acbaec5415cf78bde21fc0ad1500",
+      "original": "/hpc/home/yx306/RDR/results/MNIST/model_selection/manifest.json"
+    },
+    "source/utils/networks.py": {
+      "sha256": "e3c712c4bab10085f489f8c6421547760e1296cfb94adc1339ee459e08f4d386",
+      "original": "/hpc/home/yx306/RDR/utils/networks.py"
+    },
+    "source/utils/losses.py": {
+      "sha256": "5c8a557a116b11769e5f9d80093852fd321cf612ba25507ba094cd3bf220b8df",
+      "original": "/hpc/home/yx306/RDR/utils/losses.py"
+    },
+    "source/utils/DRE_func.py": {
+      "sha256": "7f3d1244e8a337508d4c0d0f02d9e0ad962e6f9fbb3c2ccd83ce9fe2dafff175",
+      "original": "/hpc/home/yx306/RDR/utils/DRE_func.py"
+    },
+    "source/utils/DRE_batch.py": {
+      "sha256": "2034af68a4d438d5c6597d70c4dff5885a91c1342741efd86098a1282cdbecf3",
+      "original": "/hpc/home/yx306/RDR/utils/DRE_batch.py"
+    },
+    "source/utils/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original": "/hpc/home/yx306/RDR/utils/__init__.py"
+    },
+    "source/utils/training.py": {
+      "sha256": "579a14b277b8905161d564f04f4499f74cf2c1a6f341500fd2fe8f97b961c6e0",
+      "original": "/hpc/home/yx306/RDR/utils/training.py"
+    },
+    "source/utils/calibration.py": {
+      "sha256": "c038069e02f659d6ac8196ece44158287d50709c4aff1c6d662d85150e0ed19c",
+      "original": "/hpc/home/yx306/RDR/utils/calibration.py"
+    },
+    "source/utils/diagnostics.py": {
+      "sha256": "73f8251ea3cee9e1dc47d5c5097b692e8ea32a37d2689541cbb464d132f4425e",
+      "original": "/hpc/home/yx306/RDR/utils/diagnostics.py"
+    },
+    "source/experiments/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original": "/hpc/home/yx306/RDR/experiments/__init__.py"
+    },
+    "source/experiments/MNIST/__init__.py": {
+      "sha256": "30e6d76f4d3cf15c53c642853c847fbcb6e6fecd6fd99588625352cf1c28c703",
+      "original": "/hpc/home/yx306/RDR/experiments/MNIST/__init__.py"
+    },
+    "source/experiments/MNIST/generators.py": {
+      "sha256": "e29f165cf2233ea0af3bcdb75041d4b535ff152eb083931f937223b0fd6b447b",
+      "original": "/hpc/home/yx306/RDR/experiments/MNIST/generators.py"
+    },
+    "source/experiments/MNIST/model_selection.py": {
+      "sha256": "39254b256fee8e15088cdecbe8dbce4434f47e19cc5c0c2b21500a7b37c3e07c",
+      "original": "/hpc/home/yx306/RDR/experiments/MNIST/model_selection.py"
+    },
+    "source/experiments/MNIST/selection_metrics.py": {
+      "sha256": "5029f157c03ac72e66ccfa90ef1688b30d6eeb1de025b2e5e121e1260a3cc5e3",
+      "original": "/hpc/home/yx306/RDR/experiments/MNIST/selection_metrics.py"
+    },
+    "source/experiments/MNIST/selection_report.py": {
+      "sha256": "b1c93fbedcb09b437d6fa70219c2285e06d8c4fee559e63f1e2c295f64f3d278",
+      "original": "/hpc/home/yx306/RDR/experiments/MNIST/selection_report.py"
+    },
+    "source/experiments/MNIST/selection_evidence.py": {
+      "sha256": "86c69ef464f2667cb1c1d5973b9b35c06d17261585f93a5fc653f5c63433bd91",
+      "original": "/hpc/home/yx306/RDR/experiments/MNIST/selection_evidence.py"
+    },
+    "source/experiments/MNIST/controls.py": {
+      "sha256": "b6ae00f84c4b348e8d810d5ce7001fd009fbadcdd722670e21b8997194b4cadd",
+      "original": "/hpc/home/yx306/RDR/experiments/MNIST/controls.py"
+    },
+    "source/experiments/MNIST/controls_plot.py": {
+      "sha256": "6624c14dec39f5c96f1b07c8e0f75d48965ca658fb8c0e2c5dbf4d96e7ddaeaa",
+      "original": "/hpc/home/yx306/RDR/experiments/MNIST/controls_plot.py"
+    },
+    "source/experiments/MNIST/controls.slurm": {
+      "sha256": "275fa20b47fabee8875108a7c1a5b4df726aa37172c4493fdad9096941fb78fe",
+      "original": "/hpc/home/yx306/RDR/experiments/MNIST/controls.slurm"
+    },
+    "splits.json": {
+      "sha256": "009448e8c5999e8304a20d2e525e86ac32617b3d474a6ad106332d65eedc35aa"
+    },
+    "selection.json": {
+      "sha256": "48807a984a9ad3c9dd3238c3be4465cbf3b486b1c0646354fc8bd9c01681ff60"
+    }
+  },
+  "selection_sha256": "48807a984a9ad3c9dd3238c3be4465cbf3b486b1c0646354fc8bd9c01681ff60",
+  "target": "r=2p/(p+q); network inputs [-1,1]",
+  "primary_splits": "Historical seed 123 train halves and seed 133 test halves; Q resampling seeds 143/153/163",
+  "checkpoint_rule": "minimum validation balanced Brier; checkpoint saved/restored before final or fresh diagnostic scoring",
+  "sampling": "fixed historical primary Q rows; all training rows each epoch; independent shuffles for P and Q",
+  "diagnostic_scope": "Conditional finite-pool Monte Carlo intervals after freezing the fitted network: the reference images are fixed; only independent resampling draws are random. Repeated images are not additional independent source images. These intervals exclude reference-image sampling uncertainty and are not population or pointwise guarantees.",
+  "null_role": "validation diagnostic, not an independent final-test experiment",
+  "reference_roles": "perturbation held-out 5,000; null pooled 10,000 validation; smoke pools smaller",
+  "limitations": "post-selection transfer without further search; official test previously inspected; historical early stopping used Hellinger",
+  "python": "3.9.25 (main, Jul 13 2026, 00:00:00) \n[GCC 11.5.0 20240719 (Red Hat 11.5.0-14)]",
+  "packages": {
+    "torch": "2.6.0",
+    "torchvision": "0.21.0",
+    "numpy": "1.26.4",
+    "scipy": "1.13.1",
+    "matplotlib": "3.9.4"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "copied_on": "2026-09-27",
+  "status": "Selected historical evidence; byte-identical copies, not new fits or a new scientific replay",
+  "roles": {
+    "vae": "main",
+    "dcgan": "main",
+    "digit_perturbation": "main",
+    "real_vs_real_null": "validation diagnostic only"
+  },
+  "source_package": "/cwork/yx306/RDR/MNIST_jrssb_final",
+  "files": {
+    "mnist_vae_dcgan_comparison.png": {
+      "source": "/cwork/yx306/RDR/mnist-vae-dcgan-comparison/mnist_vae_dcgan_comparison.png",
+      "sha256": "df179b5dbc8d05d537513faaf0e4f05e0176bdcbfefd4be4694c5bafcbf35153",
+      "bytes": 1485399
+    },
+    "mnist_vae_dcgan_comparison.pdf": {
+      "source": "/cwork/yx306/RDR/mnist-vae-dcgan-comparison/mnist_vae_dcgan_comparison.pdf",
+      "sha256": "ef666726e679ef1a2ae66db67fb5ba7270fb4d58a35376a410e23a4bcff398c8",
+      "bytes": 547035
+    },
+    "generator_table.md": {
+      "source": "/cwork/yx306/RDR/MNIST_jrssb_final/replay/generator_table.md",
+      "sha256": "32ca998722321f8265766f39e2581f0710cd1846fc430c09b2143ee3b6408c84",
+      "bytes": 295
+    },
+    "digits_table.md": {
+      "source": "/cwork/yx306/RDR/MNIST_jrssb_final/replay/digits_table.md",
+      "sha256": "d0574189b455578090cbbb9fcebbc55f8f3c30763e4764b35a697365c0d3537f",
+      "bytes": 727
+    },
+    "null_table.md": {
+      "source": "/cwork/yx306/RDR/MNIST_jrssb_final/replay/null_table.md",
+      "sha256": "e67c17c17dcebabb9289672ac2d1fed3099faa4ebf4c78050fc98f518b6aed28",
+      "bytes": 444
+    },
+    "metrics.json": {
+      "source": "/cwork/yx306/RDR/MNIST_jrssb_final/replay/metrics.json",
+      "sha256": "27f78ec1ff5a33a65059b091a2591c9ce26cb71931cb83c93b480a8008889612",
+      "bytes": 1670
+    }
+  }
+}

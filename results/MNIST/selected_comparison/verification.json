@@ -1,0 +1,52 @@
+{
+  "status": "passed",
+  "root": "/cwork/yx306/RDR/MNIST/selected_comparison_20260928",
+  "protocol_sha256": "227062d55c4c1450332670649025b6ccdccdb74c35a58d094aab0f12d7d8d2fa",
+  "selection_sha256": "48807a984a9ad3c9dd3238c3be4465cbf3b486b1c0646354fc8bd9c01681ff60",
+  "frozen_inputs_verified": 31,
+  "checks_passed": 2034,
+  "score_values_checked": 40000,
+  "calibration_cells_checked": 40,
+  "panel_rows_checked": 480,
+  "maximum_numeric_difference": 2.220446049250313e-16,
+  "methods": "Independent NumPy Brier and direct score-cell grouping; SciPy normal and beta quantiles for C.1/C.2; independent stable panel ranking and image-source audit. No training/calibration/plot helper imported. Saved model predictions were not recomputed in this audit.",
+  "results": {
+    "vae": {
+      "best_epoch": 19,
+      "epochs": 20,
+      "earlystop_brier": 0.0003667151936538853,
+      "test_brier": 0.0007481999303003201,
+      "diagnostic_evaluation_brier": 0.0007420280243193644,
+      "local_gap": 0.0015048012134058124,
+      "supported_mass": 0.9994,
+      "middle_mass": 0.0005,
+      "middle_local_gap": 0.528296281894048
+    },
+    "dcgan": {
+      "best_epoch": 17,
+      "epochs": 20,
+      "earlystop_brier": 0.085285285852949,
+      "test_brier": 0.0824769307487303,
+      "diagnostic_evaluation_brier": 0.08398374238891385,
+      "local_gap": 0.018135465836765733,
+      "supported_mass": 0.9999999999999999,
+      "middle_mass": 0.081,
+      "middle_local_gap": 0.04547064711145671
+    }
+  },
+  "panel_image_mosaic_sha256": {
+    "vae/p/smallest": "f59ca459064c601f9ca1a2a838dc75da8dcc609418c9532b4af470c6256879ff",
+    "vae/p/closest_to_one": "e63b91d8a3c5836ef1f9cade69a22ba052f46b54b215c2dc6b3011b37897b405",
+    "vae/p/largest": "46e6e63b20ccd91515442ceca09d64e79c2334d324ac2fa1bd155c77aeda1f1c",
+    "vae/q/smallest": "0f28ac62f4adacb08086055af5e382803df83c18c8b371e6297927c020683f0d",
+    "vae/q/closest_to_one": "4b6d4a1d9bc536c34f0b2026142f93d5e58c2790efb09cb77e0c6f0f7c88ae5a",
+    "vae/q/largest": "bf7f54b56fefee4d612f77854ecf34c68337768ce1ffcfa1d29423a681262c19",
+    "dcgan/p/smallest": "6177f7c629c3de60d168eadf2e61d33c83d5a7715c8d50cf0ed6dcd706e0365f",
+    "dcgan/p/closest_to_one": "263aafe0a599c22a1312d9f8b75e88ab7bf3b792f5a63fdc33668d4ee8df3189",
+    "dcgan/p/largest": "83475fa7ee94d8354d1077bad9649bbcc16ee882fef0e822abf62a3b5aaaf9a9",
+    "dcgan/q/smallest": "f48b3c6b42f439f686010ccf24a9a43165233541fcd98afffee21fbaaaf4a04d",
+    "dcgan/q/closest_to_one": "b43bdb175246b3e0b2d93e9ed02988e44fc914ee27511bc067fd1089c3855343",
+    "dcgan/q/largest": "417615c2b97eb2041b4b0e3264fe5e35c63b2bdca91a78ee66ebefe9bde94899"
+  },
+  "limitations": "post-selection refit; official test inspected previously; generator pretraining membership unaudited; not a loss-only comparison with historical fits"
+}

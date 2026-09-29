@@ -1,0 +1,65 @@
+{
+  "status": "passed",
+  "tests": {
+    "fresh_export_passed": 66,
+    "fresh_export_skipped": 2,
+    "skips": "optional original-checkpoint parity integrations; separately passed against archived originals",
+    "original_generator_parity_tests_passed": 4
+  },
+  "public_inputs": {
+    "status": "all six downloaded and hashes matched",
+    "verification_command": "python3 -B experiments/MNIST/inputs.py --data-root /tmp/mnist-public-inputs-20260929 --verify-only"
+  },
+  "clean_export": {
+    "root": "/tmp/rdr-mnist-clean-export-20260929",
+    "tracked_and_unignored_files": 284,
+    "PYTHONPATH": "",
+    "ignored_inputs_and_git_metadata": "excluded"
+  },
+  "smoke_runs": {
+    "comparison": {
+      "path": "/tmp/mnist-clean-export-comparison-smoke",
+      "status": "complete and all completion hashes verified",
+      "protocol_sha256": "ccbb9b2285dc507c87f50ddbbdb2a4562daf5bd8daff2bb330034e01bab85726"
+    },
+    "controls": {
+      "path": "/tmp/mnist-clean-export-controls-smoke",
+      "status": "complete and all completion hashes verified",
+      "protocol_sha256": "3533bbe45465d2edf526094ba3a60a0b81dff66478b573ef2a86d37131ce6c01"
+    }
+  },
+  "full_controls_job": {
+    "job_id": 56707707,
+    "state": "COMPLETED",
+    "exit_code": "0:0",
+    "elapsed": "00:01:28"
+  },
+  "cleanup_receipt": "cleanup_20260929.json",
+  "source_sha256": {
+    "experiments/MNIST/README.md": "f060875616a77eac245d1ecf093707b0400042ef96c6904e59cb2d6888da135c",
+    "experiments/MNIST/__init__.py": "30e6d76f4d3cf15c53c642853c847fbcb6e6fecd6fd99588625352cf1c28c703",
+    "experiments/MNIST/comparison.py": "cc83d33621c8a6ed1335b7cdd951fc9021f3698d67b0685e39d482e2408d0092",
+    "experiments/MNIST/comparison.slurm": "fffdc564ed471d82a6697eff89712bb4299a5ef740b756c2f4600b7b7263c172",
+    "experiments/MNIST/comparison_plot.py": "39c5da05d86dd2a9e89de5d2401e7b913179945ba28208ce69bf4fcefe2e1533",
+    "experiments/MNIST/controls.py": "b6ae00f84c4b348e8d810d5ce7001fd009fbadcdd722670e21b8997194b4cadd",
+    "experiments/MNIST/controls.slurm": "275fa20b47fabee8875108a7c1a5b4df726aa37172c4493fdad9096941fb78fe",
+    "experiments/MNIST/controls_plot.py": "6624c14dec39f5c96f1b07c8e0f75d48965ca658fb8c0e2c5dbf4d96e7ddaeaa",
+    "experiments/MNIST/generators.py": "e29f165cf2233ea0af3bcdb75041d4b535ff152eb083931f937223b0fd6b447b",
+    "experiments/MNIST/inputs.py": "86ae99318bba895da140c530310be0f3154c39f0ebc12411cb1146a6c0d8b837",
+    "experiments/MNIST/model_selection.py": "39254b256fee8e15088cdecbe8dbce4434f47e19cc5c0c2b21500a7b37c3e07c",
+    "experiments/MNIST/requirements.txt": "66f38efd81da19c65ef9d6ae9a35b481fc7d3d69541db2173c22cc40d93f7f44",
+    "experiments/MNIST/selection.slurm": "2abc36d171110ec5e5100d24ba1f0387fd662123f0d97131edc465905b4b3bb9",
+    "experiments/MNIST/selection_config.json": "2993770011c055db19a5ee32ef72057207c5477813aea29ace5064ec2991e908",
+    "experiments/MNIST/selection_evidence.py": "86c69ef464f2667cb1c1d5973b9b35c06d17261585f93a5fc653f5c63433bd91",
+    "experiments/MNIST/selection_metrics.py": "5029f157c03ac72e66ccfa90ef1688b30d6eeb1de025b2e5e121e1260a3cc5e3",
+    "experiments/MNIST/selection_report.py": "b1c93fbedcb09b437d6fa70219c2285e06d8c4fee559e63f1e2c295f64f3d278",
+    "tests/test_mnist_comparison.py": "5d9b41c6675a975146d1ad1ada6eecdeecf718aaa7a476ad065c1da2ff85439c",
+    "tests/test_mnist_comparison_plot.py": "5863f8f5197853d36604326854516bfc762558fcd4f371acd8e18cfa80b56476",
+    "tests/test_mnist_controls.py": "484fec7536934211e92d52feddce692238970ce263df07c3a17782ac3d325ec3",
+    "tests/test_mnist_generators.py": "be69e31411fd57d7fe897156fb1d19d488b7c721f42cc4de6719c06f1f5d828c",
+    "tests/test_mnist_inputs.py": "0947ea3ddee939bd654f0778fb697559cb6d8ed2b1f5f439848b9c18390f28c7",
+    "tests/test_mnist_model_selection.py": "f755fd882c696ad8f027b30328eae174bfdcdd4d1f31b9c0ef7e1e5d811ebf58",
+    "tests/test_mnist_selection_evidence.py": "d526ccee49fd693d2373d6475c1346a4205cd9bec1a83ff6397231875cca15cb",
+    "tests/test_mnist_selection_metrics.py": "03a28af707c2c14d8c53129f4f364cac6289a7f52685c3fdd961ff4284967f39"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "source_run": "/cwork/yx306/RDR/MNIST/selected_comparison_20260928",
+  "slurm_job_id": 56703307,
+  "slurm_state": "COMPLETED",
+  "slurm_exit_code": "0:0",
+  "slurm_elapsed": "00:03:19",
+  "files": {
+    "RESULTS.md": {
+      "source": "/cwork/yx306/RDR/MNIST/selected_comparison_20260928/RESULTS.md",
+      "bytes": 2462,
+      "sha256": "2e67843b882df55b7ff7e5753e0639c5d9f98be7566f3a733c0ccd2081685785"
+    },
+    "mnist_vae_dcgan_comparison.png": {
+      "source": "/cwork/yx306/RDR/MNIST/selected_comparison_20260928/mnist_vae_dcgan_comparison.png",
+      "bytes": 751118,
+      "sha256": "47d99c426aa120f788ca755e11cda23aa89e9685b5ff87d243d69d2441c0358d"
+    },
+    "mnist_vae_dcgan_comparison.pdf": {
+      "source": "/cwork/yx306/RDR/MNIST/selected_comparison_20260928/mnist_vae_dcgan_comparison.pdf",
+      "bytes": 173102,
+      "sha256": "5e9b71f3ffb22027152ec0605284138d475a6db4eac0f1c4d3d1c42fa6d046e4"
+    },
+    "panel_selection.csv": {
+      "source": "/cwork/yx306/RDR/MNIST/selected_comparison_20260928/panel_selection.csv",
+      "bytes": 23566,
+      "sha256": "28fd0169e36d3242166c42c63228855a343a7c2a595c09fa70ad502f8f93a7b6"
+    },
+    "figure_manifest.json": {
+      "source": "/cwork/yx306/RDR/MNIST/selected_comparison_20260928/figure_manifest.json",
+      "bytes": 11912,
+      "sha256": "b19e6737ed85733759b0ae47b93a9b7e7397288b2b635d3b17dc532c41c1a4d3"
+    },
+    "protocol.json": {
+      "source": "/cwork/yx306/RDR/MNIST/selected_comparison_20260928/protocol.json",
+      "bytes": 8038,
+      "sha256": "227062d55c4c1450332670649025b6ccdccdb74c35a58d094aab0f12d7d8d2fa"
+    },
+    "protocol.sha256": {
+      "source": "/cwork/yx306/RDR/MNIST/selected_comparison_20260928/protocol.sha256",
+      "bytes": 65,
+      "sha256": "3a0bed7bb0ffa1f77ad9aa654622696681f4673d469497dfefada6847af1e19c"
+    },
+    "selection.json": {
+      "source": "/cwork/yx306/RDR/MNIST/selected_comparison_20260928/selection.json",
+      "bytes": 8840,
+      "sha256": "48807a984a9ad3c9dd3238c3be4465cbf3b486b1c0646354fc8bd9c01681ff60"
+    },
+    "selection.sha256": {
+      "source": "/cwork/yx306/RDR/MNIST/selected_comparison_20260928/selection.sha256",
+      "bytes": 65,
+      "sha256": "b889744436c45926c73c6e89c28d86ff9c4a6f6528386924da04eee5d76d2153"
+    },
+    "vae/metrics.json": {
+      "source": "/cwork/yx306/RDR/MNIST/selected_comparison_20260928/vae/metrics.json",
+      "bytes": 1327,
+      "sha256": "3e27842681a173614381495ea59ad78fc7b55d6bfd340778430639f0f78486ee"
+    },
+    "vae/history.json": {
+      "source": "/cwork/yx306/RDR/MNIST/selected_comparison_20260928/vae/history.json",
+      "bytes": 2998,
+      "sha256": "514218ff3fb620da2b14691e5e3dc11268d78aa9efe11ad4f6280e3f47a9bae0"
+    },
+    "vae/cells.json": {
+      "source": "/cwork/yx306/RDR/MNIST/selected_comparison_20260928/vae/cells.json",
+      "bytes": 11889,
+      "sha256": "6e6908d2e9ce62e7a698045944ecca3359d2cc04e70c898f7738fb067ba10f08"
+    },
+    "dcgan/metrics.json": {
+      "source": "/cwork/yx306/RDR/MNIST/selected_comparison_20260928/dcgan/metrics.json",
+      "bytes": 1319,
+      "sha256": "fb5d4f46f4dc63e04c2675cccdeed1b89db30508df104f74e87a292393fbc97e"
+    },
+    "dcgan/history.json": {
+      "source": "/cwork/yx306/RDR/MNIST/selected_comparison_20260928/dcgan/history.json",
+      "bytes": 2972,
+      "sha256": "1d51d301331300ccd887448c4146ae4ed19370817ccaa54e7c50c100934bfe09"
+    },
+    "dcgan/cells.json": {
+      "source": "/cwork/yx306/RDR/MNIST/selected_comparison_20260928/dcgan/cells.json",
+      "bytes": 13459,
+      "sha256": "665cedefdc107a2677266847df95535e19bfc7f4174ddf22a0591b4ac69e78c0"
+    },
+    "verification.json": {
+      "source": "/tmp/mnist-selected-comparison-verification.json",
+      "bytes": 2824,
+      "sha256": "ae85c89dfba79e7c76df42b96cf063aaa2a03b55bbfec6379aaa381505ff04c7"
+    }
+  }
+}

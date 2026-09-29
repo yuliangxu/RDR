@@ -1,0 +1,108 @@
+{
+  "schema": 1,
+  "copied_on": "2026-09-28",
+  "source_run": "/cwork/yx306/RDR/MNIST/dcgan_model_selection_20260927",
+  "fit_job": 56593056,
+  "finalizer_job": 56598383,
+  "selection_fits": 80,
+  "final_assessments": 5,
+  "files": {
+    "RESULTS.md": {
+      "source": "/cwork/yx306/RDR/MNIST/dcgan_model_selection_20260927/RESULTS.md",
+      "bytes": 7680,
+      "sha256": "193baab1062aed8ad6f4bc43c403fa09d2aa3a9e9ccea6a289c53aedda5c09a0"
+    },
+    "summary.csv": {
+      "source": "/cwork/yx306/RDR/MNIST/dcgan_model_selection_20260927/summary.csv",
+      "bytes": 6444,
+      "sha256": "245626c53b612359f9ad75e3e121f952db6a8dfbaa03bce72285d8cd423f66e3"
+    },
+    "per_fit.csv": {
+      "source": "/cwork/yx306/RDR/MNIST/dcgan_model_selection_20260927/per_fit.csv",
+      "bytes": 13914,
+      "sha256": "27a425194bd06024a1a3523567e8d05a868b5b538520525f3f331d580b74b750"
+    },
+    "protocol.json": {
+      "source": "/cwork/yx306/RDR/MNIST/dcgan_model_selection_20260927/protocol.json",
+      "bytes": 18680,
+      "sha256": "dd473e1282933bd104cc7cb75dd2db71bfa37bebc3d541da6df3d11b65d13b0c"
+    },
+    "protocol.sha256": {
+      "source": "/cwork/yx306/RDR/MNIST/dcgan_model_selection_20260927/protocol.sha256",
+      "bytes": 65,
+      "sha256": "c31dcf6a334d7d5192540617370fb161c45c079f96b28a18ec55f1bcff268ee6"
+    },
+    "splits.json": {
+      "source": "/cwork/yx306/RDR/MNIST/dcgan_model_selection_20260927/splits.json",
+      "bytes": 888271,
+      "sha256": "182891c7012056f2f3174ae7c9cd887a81bc8d927022afafb823d9f94562572a"
+    },
+    "selection.json": {
+      "source": "/cwork/yx306/RDR/MNIST/dcgan_model_selection_20260927/selection.json",
+      "bytes": 8840,
+      "sha256": "48807a984a9ad3c9dd3238c3be4465cbf3b486b1c0646354fc8bd9c01681ff60"
+    },
+    "selection.sha256": {
+      "source": "/cwork/yx306/RDR/MNIST/dcgan_model_selection_20260927/selection.sha256",
+      "bytes": 65,
+      "sha256": "b889744436c45926c73c6e89c28d86ff9c4a6f6528386924da04eee5d76d2153"
+    },
+    "report_status.json": {
+      "source": "/cwork/yx306/RDR/MNIST/dcgan_model_selection_20260927/report_status.json",
+      "bytes": 453,
+      "sha256": "ae0f174458926f608b1414c686f9870f52a66d98973965ce90c0bb08fe08cdb8"
+    },
+    "COMPLETE": {
+      "source": "/cwork/yx306/RDR/MNIST/dcgan_model_selection_20260927/COMPLETE",
+      "bytes": 21,
+      "sha256": "9b952878b358e72509b88f666d6bbc43302a76e4da06e258a23e8be5fbd0c067"
+    },
+    "selection_grid.png": {
+      "source": "/cwork/yx306/RDR/MNIST/dcgan_model_selection_20260927/selection_grid.png",
+      "bytes": 124831,
+      "sha256": "3dc147179dd06905c57c1d7e329b4ed01bf2d3afa978dd80c6d7e6e995ce0a9c"
+    },
+    "selection_grid.pdf": {
+      "source": "/cwork/yx306/RDR/MNIST/dcgan_model_selection_20260927/selection_grid.pdf",
+      "bytes": 24908,
+      "sha256": "74eed5b880d7d8b34a88ab5d9859eddc95abe06cd6b8e010279025439eb40e57"
+    },
+    "selected_selection_cells.png": {
+      "source": "/cwork/yx306/RDR/MNIST/dcgan_model_selection_20260927/selected_selection_cells.png",
+      "bytes": 85625,
+      "sha256": "a3e1d4bc34b5c805600eb6a3b2583b6af6e11bb173fd493d6d4e90d9fe0ff3b8"
+    },
+    "selected_selection_cells.pdf": {
+      "source": "/cwork/yx306/RDR/MNIST/dcgan_model_selection_20260927/selected_selection_cells.pdf",
+      "bytes": 18451,
+      "sha256": "e5102b3058b6153050c8a8630cef959169bb7da2ac99fbcd898a8b7a8ca053bd"
+    },
+    "selected_final_cells.png": {
+      "source": "/cwork/yx306/RDR/MNIST/dcgan_model_selection_20260927/selected_final_cells.png",
+      "bytes": 87714,
+      "sha256": "1be487a755902494193176932bb5adb9376928dc376d2109bb0f58780c48f589"
+    },
+    "selected_final_cells.pdf": {
+      "source": "/cwork/yx306/RDR/MNIST/dcgan_model_selection_20260927/selected_final_cells.pdf",
+      "bytes": 18689,
+      "sha256": "82470a5a04d63e9446ab9f8c005cd351c2d2359e1fd638bb1cd678a8eac13d30"
+    },
+    "selected_selection_cells.json": {
+      "source_pattern": "/cwork/yx306/RDR/MNIST/dcgan_model_selection_20260927/runs/js_a2/repeat_*/cells.json",
+      "bytes": 72744,
+      "sha256": "8a7d766a8afd72c77c8e8fe4a9031c650ab84cd8817422ed3725865137271e78",
+      "transformation": "Lossless grouping of the five selected repetition cell tables by repeat ID"
+    },
+    "selected_final_cells.json": {
+      "source_pattern": "/cwork/yx306/RDR/MNIST/dcgan_model_selection_20260927/final/repeat_*/cells.json",
+      "bytes": 72235,
+      "sha256": "7cc82844958eca980216bcaa4846d2d2b994115f8394f43bf80c5d93b181a980",
+      "transformation": "Lossless grouping of the five selected repetition cell tables by repeat ID"
+    },
+    "verification.json": {
+      "bytes": 8676,
+      "sha256": "c99a64ad5815c8b91a2b5ffa1aa4b61543c73583a7219384a4146af6cafe0ab2",
+      "transformation": "Independent read-only recomputation from the complete original score, history, checkpoint and calibration artifacts"
+    }
+  }
+}

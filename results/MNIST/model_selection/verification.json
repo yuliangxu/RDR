@@ -1,0 +1,239 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "verified_at_utc": "2026-09-29T01:38:23.865274+00:00",
+  "original_run_root": "/cwork/yx306/RDR/MNIST/dcgan_model_selection_20260927",
+  "method": "Read-only verification of frozen run inputs, manifests, checkpoints, sample-role indices, and independent numerical recomputation from saved predictions; no training or scoring rerun. Only this verification artifact was written.",
+  "checks": {
+    "protocol_files_sha256": 22,
+    "selection_fit_manifests": 80,
+    "final_result_manifests": 5,
+    "prediction_archives": 85,
+    "prediction_arrays": 340,
+    "prediction_values": 1700000,
+    "fixed_cell_rows": 1700,
+    "earlystop_histories_and_checkpoint_best_epochs": 80,
+    "selected_checkpoint_hashes": 5,
+    "disjoint_complete_official_train_indices": 60000,
+    "disjoint_complete_official_test_indices": 10000,
+    "sample_roles": {
+      "train": {
+        "n_p": 45000,
+        "n_q": 45000,
+        "real_p_source": "official_train",
+        "q_source": "frozen DCGAN; independent role/repeat latent RNG stream",
+        "q_sampling": "fresh draws each epoch; n_q is draws consumed per epoch"
+      },
+      "earlystop": {
+        "n_p": 5000,
+        "n_q": 5000,
+        "real_p_source": "official_train",
+        "q_source": "frozen DCGAN; independent role/repeat latent RNG stream"
+      },
+      "selection_calibration": {
+        "n_p": 5000,
+        "n_q": 5000,
+        "real_p_source": "official_train",
+        "q_source": "frozen DCGAN; independent role/repeat latent RNG stream"
+      },
+      "selection_evaluation": {
+        "n_p": 5000,
+        "n_q": 5000,
+        "real_p_source": "official_train",
+        "q_source": "frozen DCGAN; independent role/repeat latent RNG stream"
+      },
+      "final_calibration": {
+        "n_p": 5000,
+        "n_q": 5000,
+        "real_p_source": "official_test",
+        "q_source": "frozen DCGAN; independent role/repeat latent RNG stream"
+      },
+      "final_evaluation": {
+        "n_p": 5000,
+        "n_q": 5000,
+        "real_p_source": "official_test",
+        "q_source": "frozen DCGAN; independent role/repeat latent RNG stream"
+      }
+    },
+    "deterministically_regenerated_splits_match": true,
+    "distinct_repeat_role_rng_seeds": 40,
+    "frozen_api_checks": [
+      "load_protocol",
+      "all_rows",
+      "load_selection",
+      "verify_result for all final repeats"
+    ],
+    "independent_intervals": "All C.1 delta-method bounds and C.2 Bonferroni Clopper-Pearson bounds recalculated from counts for all 1700 cells; C.2 tail probability 0.05/(4*20)."
+  },
+  "absolute_tolerance": 1e-12,
+  "maximum_absolute_differences": {
+    "cell_bin": 0.0,
+    "cell_left": 0.0,
+    "cell_right": 0.0,
+    "cell_cal_count_p": 0.0,
+    "cell_cal_count_q": 0.0,
+    "cell_eval_count_p": 0.0,
+    "cell_eval_count_q": 0.0,
+    "cell_calibration_mass": 5.551115123125783e-17,
+    "cell_eval_mass": 5.551115123125783e-17,
+    "cell_neural_mean": 6.661338147750939e-16,
+    "cell_calibrated_rdr": 2.220446049250313e-16,
+    "cell_gap": 6.661338147750939e-16,
+    "cell_absolute_gap": 6.661338147750939e-16,
+    "cell_c1_lower": 4.440892098500626e-16,
+    "cell_c1_upper": 4.440892098500626e-16,
+    "cell_c2_lower": 6.661338147750939e-16,
+    "cell_c2_upper": 4.440892098500626e-16,
+    "cell_c2_width": 8.881784197001252e-16,
+    "cell_c2_distance": 6.661338147750939e-16,
+    "metric_brier": 0.0,
+    "metric_local_gap": 1.3877787807814457e-16,
+    "metric_signed_gap": 1.5265566588595902e-16,
+    "metric_maximum_gap": 4.440892098500626e-16,
+    "metric_supported_mass": 5.551115123125783e-16,
+    "metric_unsupported_mass": 0.0,
+    "metric_c2_distance": 1.942890293094024e-16,
+    "metric_c2_width": 3.0531133177191805e-16,
+    "metric_middle_mass": 1.3877787807814457e-17,
+    "metric_middle_supported_mass": 1.3877787807814457e-17,
+    "metric_middle_supported_fraction": 0.0,
+    "metric_middle_local_gap": 1.6653345369377348e-16,
+    "metric_middle_signed_gap": 1.6653345369377348e-16,
+    "metric_middle_maximum_gap": 4.440892098500626e-16,
+    "metric_middle_c2_distance": 2.0122792321330962e-16,
+    "ranking_mean_brier": 0.0,
+    "ranking_mean_local_gap": 8.326672684688674e-17,
+    "ranking_paired_mean_brier_difference": 0.0,
+    "ranking_paired_brier_difference_se": 0.0
+  },
+  "selection": {
+    "rule": "Reference: minimum mean balanced Brier. Shortlist: mean paired Brier difference from reference <= one standard error of paired differences + 1e-12, with supported evaluation mass >= 0.99 in every repeat. Choose smallest mean local absolute gap, then mean Brier, then candidate ID. The repeat standard error is descriptive conditional on the fixed MNIST data; it is not a confidence interval or an independent-data uncertainty estimate.",
+    "independent_rule_confirmed": true,
+    "brier_reference": "js_a2",
+    "shortlist": [
+      "js_a2"
+    ],
+    "chosen": {
+      "candidate": "js_a2",
+      "mean_brier": 0.09834423732825597,
+      "mean_local_gap": 0.08175752815985296,
+      "paired_mean_brier_difference": 0.0,
+      "paired_brier_difference_se": 0.0,
+      "eligible": true
+    },
+    "lowest_local_gap_candidate": {
+      "candidate": "chisq_a0p5",
+      "mean_brier": 0.10413929781095252,
+      "mean_local_gap": 0.060505217996381644,
+      "paired_mean_brier_difference": 0.005795060482696565,
+      "paired_brier_difference_se": 0.0006027219465620535,
+      "eligible": false
+    },
+    "second_lowest_brier_candidate": {
+      "candidate": "js_a4",
+      "mean_brier": 0.09876715955734991,
+      "mean_local_gap": 0.08991801129136227,
+      "paired_mean_brier_difference": 0.0004229222290939555,
+      "paired_brier_difference_se": 0.00033831766733586537,
+      "eligible": false
+    }
+  },
+  "final_metrics": {
+    "brier": {
+      "mean": 0.09105569357625032,
+      "sample_sd_across_five_repeats": 0.00096820297040502,
+      "values": [
+        0.09135060954455479,
+        0.09117669471938282,
+        0.09225770530911145,
+        0.08957800941308028,
+        0.09091544889512226
+      ]
+    },
+    "local_gap": {
+      "mean": 0.06695064124807246,
+      "sample_sd_across_five_repeats": 0.007813767985385566,
+      "values": [
+        0.07489014633568578,
+        0.05785991834763464,
+        0.0730107021238507,
+        0.05950772351521031,
+        0.06948471591798083
+      ]
+    },
+    "c2_distance": {
+      "mean": 0.002201069003956712,
+      "sample_sd_across_five_repeats": 0.0005375301953932959,
+      "values": [
+        0.002794149898025577,
+        0.0015387313425982653,
+        0.0026328210179465726,
+        0.0022577368233067767,
+        0.0017819059379063668
+      ]
+    },
+    "c2_width": {
+      "mean": 0.2249230468620392,
+      "sample_sd_across_five_repeats": 0.0058507072018052315,
+      "values": [
+        0.22633262202449841,
+        0.22946352099847106,
+        0.23117548996152093,
+        0.2181985685855472,
+        0.2194450327401585
+      ]
+    },
+    "supported_mass": {
+      "mean": 1.0,
+      "sample_sd_across_five_repeats": 0.0,
+      "values": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "middle_mass": {
+      "mean": 0.08875999999999999,
+      "sample_sd_across_five_repeats": 0.0035465476170495704,
+      "values": [
+        0.0873,
+        0.08979999999999999,
+        0.0945,
+        0.0861,
+        0.08610000000000001
+      ]
+    },
+    "middle_local_gap": {
+      "mean": 0.18031655815751843,
+      "sample_sd_across_five_repeats": 0.030898565906576376,
+      "values": [
+        0.21726666352093743,
+        0.144036505733261,
+        0.20704037650887366,
+        0.17151648123191968,
+        0.16172276379260045
+      ]
+    },
+    "middle_signed_gap": {
+      "mean": -0.18031655815751843,
+      "sample_sd_across_five_repeats": 0.030898565906576376,
+      "values": [
+        -0.21726666352093743,
+        -0.144036505733261,
+        -0.20704037650887366,
+        -0.17151648123191968,
+        -0.16172276379260045
+      ]
+    }
+  },
+  "limitations": [
+    "The five repeats reuse fixed real-image roles; repeat SD and paired SE are descriptive conditional on these fixed data.",
+    "Official test images had been inspected in historical studies; final assessments are retrospective after the present selection lock.",
+    "Generator pretraining membership is unaudited.",
+    "C.1/C.2 target score-cell mean RDR; interval checks do not establish pointwise coverage or zero calibration error. Neural cell means also have sampling uncertainty.",
+    "js_a2 minimizes mean selection Brier, but chisq_a0p5 has the smallest mean local gap and is excluded by the Brier shortlist."
+  ],
+  "material_integrity_issues": []
+}

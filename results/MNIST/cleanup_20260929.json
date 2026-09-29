@@ -1,0 +1,120 @@
+{
+  "action": "retire_superseded_MNIST_source_after_verified_replacement",
+  "backup": "/cwork/yx306/RDR/MNIST-pre-cleanup-20260929T021146Z",
+  "backup_archive_sha256": "230aedb98bb29bb8f1865e6f1083b33af8c2c4dd4e359a86f5493173a4234e02",
+  "backup_verified_entries": 3116,
+  "removed_files": [
+    {
+      "path": "experiments/MNIST/generator.py",
+      "bytes": 24953,
+      "sha256": "592bbf1d315c50ccd967adcb098a33330fb67c804048d8ab9606661acaac875b"
+    },
+    {
+      "path": "experiments/MNIST/generator.slurm",
+      "bytes": 1300,
+      "sha256": "21e2f518c3b9a5d796723e939fd5c69b8a8ad97ceca388e6a0d5acc7543cc44f"
+    },
+    {
+      "path": "experiments/MNIST/reproduction.py",
+      "bytes": 25426,
+      "sha256": "bdd1c58a5037c40b70c27e892e343fbb24840b38526b1d8d1ec0646a173d8c69"
+    },
+    {
+      "path": "experiments/MNIST_generator_strict_split.py",
+      "bytes": 410,
+      "sha256": "7b360ce6c70e1f008c23f5c1f508680d3afdcf34d4c2da1708af1c86d2db674b"
+    },
+    {
+      "path": "experiments/MNIST_generator_strict_split.slurm",
+      "bytes": 1377,
+      "sha256": "6e7f8976289df317682217be768b8024befcf904db3198992d14fd0111979361"
+    },
+    {
+      "path": "experiments/MNIST_label_perturbation.py",
+      "bytes": 316,
+      "sha256": "c41a7913e6b167fc21ec577741c9ac33cca72243326ac02ce16abea3ebe8ce59"
+    },
+    {
+      "path": "experiments/MNIST_two_halves.py",
+      "bytes": 322,
+      "sha256": "7a4ed1d997fe5c03f139ce8d1e4e2f92508d6c9ec4f0b3481dae8da18032baba"
+    },
+    {
+      "path": "experiments/MNIST_batch.py",
+      "bytes": 16593,
+      "sha256": "6052b3b60b8395662e05d814bf58efc7cefb58eb44da422eb7dd3a916abe2beb"
+    },
+    {
+      "path": "experiments/MNIST_batch.ipynb",
+      "bytes": 700054,
+      "sha256": "2c0245c027298f544a081e12640d37c5b1bf86c4ea06b7d7dfd2b6b14bcf7fea"
+    },
+    {
+      "path": "experiments/MNIST/sampling.py",
+      "bytes": 5302,
+      "sha256": "52aa991b3843d2eca77dd97229a943c3871775c006261e61ebc8ee6f669cc3d6"
+    },
+    {
+      "path": "experiments/MNIST/vae.py",
+      "bytes": 5158,
+      "sha256": "5216a92fe21b73698538eb1f48ee1fe20624eb17f64f0120891b23f261e8c34c"
+    },
+    {
+      "path": "experiments/JRSSB/mnist_final_audit.py",
+      "bytes": 5846,
+      "sha256": "03aa2563e0c7c521e9d30b478322709f4c176b9a361fa4673c64d6c6dbf5779a"
+    },
+    {
+      "path": "experiments/JRSSB/mnist_final_cleanup.py",
+      "bytes": 4078,
+      "sha256": "c1b2a0790e5d4a412be549887be0f7d175564760acac0a6e7fe0ac203d11f0a4"
+    },
+    {
+      "path": "experiments/JRSSB/mnist_final_package.py",
+      "bytes": 2382,
+      "sha256": "0951a1ad0420e996cad4fd8c4077db4889297cd5f1e8987a8b954e2ec9674ce8"
+    },
+    {
+      "path": "experiments/JRSSB/mnist_final_workflow.py",
+      "bytes": 339,
+      "sha256": "70ea0cd23c756b81473c14ae9bd40644e688338bc943204159baada907731546"
+    },
+    {
+      "path": "experiments/JRSSB/MNIST_jrssb_verify_historical.slurm",
+      "bytes": 827,
+      "sha256": "c9b187d298358aa74da8a277bd4114d6b65fb78774662efcc87fea272ab0f135"
+    },
+    {
+      "path": "experiments/JRSSB/MNIST_jrssb_verify_training.slurm",
+      "bytes": 1318,
+      "sha256": "ab58723213784cba0289b4ad5209a8d3c242f0f4c5bc5b172e8aa76750805fa3"
+    },
+    {
+      "path": "experiments/JRSSB/MNIST_jrssb_cleanup_plan.md",
+      "bytes": 15379,
+      "sha256": "64bb5ca3fa56245adbb190016daab56258d58e9991d44a3985763b5da88b3ee7"
+    },
+    {
+      "path": "experiments/MNIST/perturbation.py",
+      "bytes": 21892,
+      "sha256": "0af576ddbe84690eadaff324369c4bed706dacc5215f44f6900f6748ae136563"
+    },
+    {
+      "path": "experiments/MNIST/null_validation.py",
+      "bytes": 12706,
+      "sha256": "4b127cf42dc68d6eb50b263a2910ab0c9edac48b14f9fcafcd2f58407c1e54d1"
+    },
+    {
+      "path": "experiments/MNIST/helpers.py",
+      "bytes": 26352,
+      "sha256": "0fbf754e020e837af92041bcd7f1cba26629d92af2275f42d47f06daac30d4d6"
+    }
+  ],
+  "replacement_entrypoints": [
+    "experiments/MNIST/comparison.py",
+    "experiments/MNIST/controls.py",
+    "experiments/MNIST/model_selection.py"
+  ],
+  "preserved": "all raw inputs, ignored result bundles, historical compact evidence, frozen /cwork packages, shared Python utilities, non-MNIST experiments",
+  "validation": "new comparison and controls CPU end-to-end smoke runs and saved-result replay; pretrained generator outputs exactly match originals; historical primary split rows match"
+}

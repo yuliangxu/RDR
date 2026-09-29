@@ -1,0 +1,8 @@
+# Tested with Python 3.9.25 and an RTX A5000; CPU smoke runs are also supported.
+# Install a matching PyTorch CUDA build for full GPU runs.
+torch==2.6.0
+torchvision==0.21.0
+numpy==1.26.4
+scipy==1.13.1
+matplotlib==3.9.4
+pytest==8.4.2

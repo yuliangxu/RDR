@@ -1,0 +1,81 @@
+{
+  "candidate": "js_a2",
+  "loss": "js",
+  "output_alpha": 2.0,
+  "local_gap": 0.05559941559039662,
+  "c2_distance": 0.0,
+  "supported_mass": 0.9999999999999998,
+  "maximum_gap": 0.27870207110600775,
+  "signed_gap": 0.026359335134389695,
+  "unsupported_mass": 0.0,
+  "c2_width": 0.2778196810646875,
+  "middle_mass": 0.3846,
+  "middle_supported_mass": 0.3846,
+  "middle_supported_fraction": 1.0,
+  "middle_local_gap": 0.06496344160286764,
+  "middle_c2_distance": 0.0,
+  "middle_signed_gap": 0.03104666132936174,
+  "middle_maximum_gap": 0.17334754498172034,
+  "bins": 20,
+  "alpha": 0.05,
+  "n_cal_p": 5000,
+  "n_cal_q": 5000,
+  "n_eval_p": 5000,
+  "n_eval_q": 5000,
+  "experiment": "perturbation",
+  "best_epoch": 16,
+  "epochs": 20,
+  "earlystop_brier": 0.1984319737946014,
+  "primary_role": "test",
+  "primary_brier": 0.19326177264790145,
+  "test_brier": 0.19326177264790145,
+  "train_brier": 0.18879784881938433,
+  "diagnostic_evaluation_brier": 0.19242637718935873,
+  "diagnostic_scope": "Conditional finite-pool Monte Carlo intervals after freezing the fitted network: the reference images are fixed; only independent resampling draws are random. Repeated images are not additional independent source images. These intervals exclude reference-image sampling uncertainty and are not population or pointwise guarantees.",
+  "reference_n": 5000,
+  "counts": {
+    "train": {
+      "p": 60000,
+      "q": 60000
+    },
+    "validation": {
+      "p": 5000,
+      "q": 5000
+    },
+    "test": {
+      "p": 5000,
+      "q": 5000
+    }
+  },
+  "unique_primary_images": {
+    "train": {
+      "p": 60000,
+      "q": 28734
+    },
+    "validation": {
+      "p": 5000,
+      "q": 2414
+    },
+    "test": {
+      "p": 5000,
+      "q": 2346
+    }
+  },
+  "unique_diagnostic_images": {
+    "calibration": {
+      "p": 3159,
+      "q": 2327
+    },
+    "evaluation": {
+      "p": 3197,
+      "q": 2319
+    }
+  },
+  "calibration_evaluation_image_overlap": 3297,
+  "has_independent_final_role": true,
+  "fit_seconds": 51.551487588789314,
+  "device": "cuda",
+  "gpu": "NVIDIA RTX A5000",
+  "selection_sha256": "48807a984a9ad3c9dd3238c3be4465cbf3b486b1c0646354fc8bd9c01681ff60",
+  "smoke": false
+}

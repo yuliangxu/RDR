@@ -1,4 +1,8 @@
-# MNIST: generator comparisons, controlled perturbation, and real-vs-real null
+# MNIST: historical Hellinger results
+
+This report preserves the earlier Hellinger fits. Current JS/slope-2 results
+and portable code are in [docs/MNIST.md](../../docs/MNIST.md). Absolute `/cwork`
+links below refer to local archived evidence, not files in the public clone.
 
 **Saved-result audit: 2026-09-13.** This report follows the structure of [agent3.md](agent3.md), using the existing pixel-space RDR results. The generator and perturbation experiments have separate RDR training, validation/early-stopping, and test roles. The available real-vs-real null has training and validation roles only; an independent-test null result is still missing. The summary retains the original saved results. The subsequent reproduction check below refitted all four RDR models without replacing those results.
 
@@ -57,7 +61,7 @@ with ratios lower-clamped at 10^-8 and the displayed divergence floored at zero.
 
 The example panels select the smallest, closest-to-1, and largest fitted scores. They illustrate the score distribution and do not estimate digit prevalence. Later DCGAN-only input-scale experiments are excluded from this paired comparison: scoring [0,1] inputs through a ratio model trained on [-1,1] changes the evaluation protocol.
 
-Sources: [test score summary](../../../../../../cwork/yx306/RDR/mnist-generator-trainval-testall/rdr_summary.csv), [test scores](../../../../../../cwork/yx306/RDR/mnist-generator-trainval-testall/rdr_scores.csv), [split manifest](../../../../../../cwork/yx306/RDR/mnist-generator-trainval-testall/split_manifest.json), and [experiment script](../MNIST_generator_strict_split.py).
+Sources: [test score summary](../../../../../../cwork/yx306/RDR/mnist-generator-trainval-testall/rdr_summary.csv), [test scores](../../../../../../cwork/yx306/RDR/mnist-generator-trainval-testall/rdr_scores.csv), [split manifest](../../../../../../cwork/yx306/RDR/mnist-generator-trainval-testall/split_manifest.json), and [experiment script](/cwork/yx306/RDR/MNIST_jrssb_final/source/experiments/MNIST_generator_strict_split.py).
 
 ## Controlled digit perturbation: RDR estimation accuracy
 
@@ -88,7 +92,7 @@ Across all 5,000 test-P images, observation-level MAE/RMSE are **0.1755/0.2315**
 
 As an additional calibration diagnostic, the raw affinity plug-in H² is **-0.000406** despite the deliberate distribution change. This illustrates why successful digit ordering alone does not establish accurate divergence estimation; the negative estimate is retained rather than silently replaced by zero.
 
-Sources: [per-digit test summary](../results/MNIST_label_perturbation/test_digit_rdr_summary.csv), [label counts](../results/MNIST_label_perturbation/label_frequencies.csv), [score/split bundle](../results/MNIST_label_perturbation/rdr_scores.pt), and [experiment script](../MNIST_label_perturbation.py).
+Sources: [per-digit test summary](/hpc/home/yx306/RDR/experiments/results/MNIST_label_perturbation/test_digit_rdr_summary.csv), [label counts](/hpc/home/yx306/RDR/experiments/results/MNIST_label_perturbation/label_frequencies.csv), [score/split bundle](/hpc/home/yx306/RDR/experiments/results/MNIST_label_perturbation/rdr_scores.pt), and [experiment script](/cwork/yx306/RDR/MNIST_jrssb_final/source/experiments/MNIST_label_perturbation.py).
 
 ## Real-vs-real null: available validation diagnostic
 
@@ -105,11 +109,11 @@ The learned validation scores concentrate near the population null value 1. Thes
 
 To complete the requested three-role null experiment, a new fit must reserve validation images from the official training set before fitting and leave the official test halves for final evaluation only. One compatible allocation is 27,500/27,500 training P/Q, 2,500/2,500 validation P/Q, and 5,000/5,000 test P/Q. This allocation is a proposed follow-up, not a completed result. Relabeling the existing validation scores as test scores would not repair the issue.
 
-Sources: [null summary](../results/MNIST_two_halves/rdr_summary.csv), [null score bundle](../results/MNIST_two_halves/rdr_scores.pt), and [experiment script](../MNIST_two_halves.py).
+Sources: [null summary](/hpc/home/yx306/RDR/experiments/results/MNIST_two_halves/rdr_summary.csv), [null score bundle](/hpc/home/yx306/RDR/experiments/results/MNIST_two_halves/rdr_scores.pt), and [experiment script](/cwork/yx306/RDR/MNIST_jrssb_final/source/experiments/MNIST_two_halves.py).
 
 ## Artifact provenance
 
-Numbers were checked against the saved CSVs and tensor bundles; generator split indices, perturbation role membership, and null P/Q membership were inspected directly. The source files remain in their original locations. The comparison figure, plotting script, panel selections, and provenance manifest are saved under `/cwork/yx306/RDR/mnist-vae-dcgan-comparison`; no reproduced result files were saved in the repository's existing results folders.
+Numbers were checked against the saved CSVs and tensor bundles; generator split indices, perturbation role membership, and null P/Q membership were inspected directly. Historical execution sources now live in the frozen package; current selected-model workflows live under `experiments/MNIST/`. The comparison figure, plotting script, panel selections, and provenance manifest are saved under `/cwork/yx306/RDR/mnist-vae-dcgan-comparison`; no reproduced result files were saved in the repository's existing results folders.
 
 SHA256 fingerprints of the audited inputs:
 
@@ -126,6 +130,6 @@ The complete RDR workflow was rerun twice on the pinned NVIDIA RTX A5000 / PyTor
 
 The matching numerical profile enables cuDNN TF32 and leaves deterministic-algorithm forcing disabled, following the original defaults. A separate strict-arithmetic profile was repeatable but produced different scores, so it is not the final-result reproduction profile. Training and validation input ranges were checked throughout. The reconstructed perturbation/null weights are now saved; they reproduce all archived scores, although identity with the historically unsaved parameter tensors cannot be established. The null remains the same validation diagnostic described above.
 
-The self-contained package is `/cwork/yx306/RDR/MNIST_jrssb_final`, with data, pretrained generators, source snapshots, original and reconstructed ratio weights, figures and audits. A fresh ZIP extraction passed replay with an empty `PYTHONPATH`. The [workflow](mnist_final_workflow.py) provides saved-result replay and full retraining followed by report reconstruction. See the [reproduction guide](../../../../../../cwork/yx306/RDR/MNIST_jrssb_final/README.md) and [execution audit](../../../../../../cwork/yx306/RDR/MNIST_jrssb_final/end_to_end_audit.json).
+The self-contained package is `/cwork/yx306/RDR/MNIST_jrssb_final`, with data, pretrained generators, source snapshots, original and reconstructed ratio weights, figures and audits. A fresh ZIP extraction passed replay with an empty `PYTHONPATH`. The [workflow](/cwork/yx306/RDR/MNIST_jrssb_final/workflow.py) provides saved-result replay and full retraining followed by report reconstruction. See the [reproduction guide](../../../../../../cwork/yx306/RDR/MNIST_jrssb_final/README.md) and [execution audit](../../../../../../cwork/yx306/RDR/MNIST_jrssb_final/end_to_end_audit.json).
 
 After these checks passed, 55 superseded MNIST files (29,841,942 bytes) were retired from their original locations into a verified rollback ZIP. The final inputs, raw MNIST data, shared utilities, non-MNIST experiments, and README-referenced legacy entrypoints were preserved. The exact file list is in the [cleanup receipt](../../../../../../cwork/yx306/RDR/MNIST_jrssb_final/cleanup_receipt.json).

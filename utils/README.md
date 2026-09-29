@@ -69,7 +69,7 @@ densities and omits empty-cell estimate placeholders.
 
 | Destination | Contents moved out of shared utilities |
 | --- | --- |
-| [MNIST helpers](../experiments/MNIST/helpers.py), [samplers](../experiments/MNIST/sampling.py), [VAE](../experiments/MNIST/vae.py) | Digit data, pretrained-generator adapters, image displays, and generator/real mixtures. |
+| [MNIST workflows](../experiments/MNIST/README.md), [generator adapters](../experiments/MNIST/generators.py), [controls](../experiments/MNIST/controls.py) | Public digit inputs, pretrained generators, controlled digit sampling, null validation and reproducible figures. |
 | [CelebA helpers](../experiments/CelebA/helpers.py), [samplers](../experiments/CelebA/sampling.py), [DDIM](../experiments/CelebA/ddim.py), [streaming script](../experiments/CelebA/ddim_streaming.py) | Image/attribute diagnostics and generator-specific code. The streaming file is an executable legacy experiment script, not an importable shared utility. |
 | [AGP helpers](../experiments/AGP/helpers.py), [microbiome plots](../experiments/AGP/microbiome.py) | Composition transforms, phylogenetic handling, and microbiome-specific diagnostics. |
 | [Simulation populations](../experiments/simulations/population.py), [toy notebook](../experiments/simulations/toy_illustrations.ipynb) | Gaussian-mixture populations, analytic truth, noisy lifting, and Gaussian/Beta illustrations. |
@@ -96,6 +96,6 @@ OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 MKL_NUM_THREADS=2 MPLBACKEND=Agg \
 New source snapshots include the extracted dependency closure. Historical source
 hash checks remain strict: replay an old run with its frozen source tree or the
 `pre-reorganization-20260926` checkout, not by bypassing provenance validation.
-The MNIST historical audit accepts `--repo` to identify that matching checkout.
-Full-scale refitting and portable dataset acquisition remain part of the later
-experiment-specific reproduction work.
+MNIST's historical audit is retained in its frozen reproduction package;
+the current [MNIST workflow](../experiments/MNIST/README.md) provides portable
+input acquisition, selected-model refitting and replay from new frozen runs.

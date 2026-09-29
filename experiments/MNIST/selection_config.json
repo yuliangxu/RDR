@@ -1,0 +1,21 @@
+{
+  "seed": 2026092701,
+  "losses": ["hellinger", "kl", "chisq", "js"],
+  "output_alphas": [0.5, 1, 2, 4],
+  "repeats": 5,
+  "train_n": 45000,
+  "earlystop_n": 5000,
+  "selection_calibration_n": 5000,
+  "selection_evaluation_n": 5000,
+  "final_calibration_n": 5000,
+  "final_evaluation_n": 5000,
+  "batch_size": 512,
+  "max_epochs": 20,
+  "min_epochs": 6,
+  "patience": 5,
+  "bn_freeze_epoch": 5,
+  "base_channels": 64,
+  "max_lr": 0.0006,
+  "ci_alpha": 0.05,
+  "bins": 20
+}

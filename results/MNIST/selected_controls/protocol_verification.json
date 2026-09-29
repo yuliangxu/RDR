@@ -1,0 +1,81 @@
+{
+  "historical_primary_index_match": {
+    "perturbation/train/p": {
+      "matches": true,
+      "n": 60000
+    },
+    "perturbation/train/q": {
+      "matches": true,
+      "n": 60000
+    },
+    "perturbation/validation/p": {
+      "matches": true,
+      "n": 5000
+    },
+    "perturbation/validation/q": {
+      "matches": true,
+      "n": 5000
+    },
+    "perturbation/test/p": {
+      "matches": true,
+      "n": 5000
+    },
+    "perturbation/test/q": {
+      "matches": true,
+      "n": 5000
+    },
+    "perturbation/fresh_resampling": {
+      "private_rng": true,
+      "deterministic": true,
+      "n_each": 5000,
+      "unique": {
+        "calibration": {
+          "p": 3159,
+          "q": 2327
+        },
+        "evaluation": {
+          "p": 3197,
+          "q": 2319
+        }
+      }
+    },
+    "null/train/p": {
+      "matches": true,
+      "n": 30000
+    },
+    "null/train/q": {
+      "matches": true,
+      "n": 30000
+    },
+    "null/validation/p": {
+      "matches": true,
+      "n": 5000
+    },
+    "null/validation/q": {
+      "matches": true,
+      "n": 5000
+    },
+    "null/fresh_resampling": {
+      "private_rng": true,
+      "deterministic": true,
+      "n_each": 5000,
+      "unique": {
+        "calibration": {
+          "p": 3962,
+          "q": 3888
+        },
+        "evaluation": {
+          "p": 3907,
+          "q": 3945
+        }
+      }
+    }
+  },
+  "conditional_ci_construction": "valid for fixed reference pools and frozen network: independent four RNG streams; P/Q common finite pool, Q digit mixture for perturbation; all null reference images were used for validation, so no independent population assessment",
+  "scope": "read-only pre-run protocol audit",
+  "limitations": [
+    "Primary perturbation rows preserve within-role repeated image sampling",
+    "Conditional finite-pool CIs exclude original image sampling uncertainty",
+    "Null remains a validation diagnostic only"
+  ]
+}

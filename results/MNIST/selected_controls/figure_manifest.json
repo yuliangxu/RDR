@@ -1,0 +1,24 @@
+{
+  "description": "Figures replayed solely from the saved new primary scores and conditional calibration cells",
+  "inputs": {
+    "perturbation/scores.pt": "df468f94bdf1aecb639e41e0b6b4d047eca962de62ea2d491aae13b5069c9d7a",
+    "perturbation/metrics.json": "8d997a39d998c5b09f3164b191ca93d574d4ce47d3f91621089466f76580c74b",
+    "perturbation/digits.json": "fdcd72a890cf0fb44dc7d1cde9bf2e20416bf0034b55701733db1eb98ccdb47b",
+    "perturbation/history.json": "8780c0066e94a86e21defc00f52082773c2dc0e77d80703489382687b0da90f9",
+    "perturbation/cells.json": "440cc3b72974b6a1e780b984099f77cf90a7ac58a3b18cc7dcdcc7efc2e48b96",
+    "null/scores.pt": "40c02a6a8c1f476b78f68e5d330f974da154180e875d7895df101ebabb0b8b09",
+    "null/metrics.json": "f5f03209334ee31444ba3abe6190beb69db0e4d85a061400ea82658ae80c50ec",
+    "null/digits.json": "701652e1348521faa8934183b522c36ba9ca3ae4cf7dd17da1093d4e60fe04c6",
+    "null/history.json": "3d86bda948c74ecef658ff81042da27a044b797090e3bd8a87710a5ccf706ab7",
+    "null/cells.json": "2b90731601cea9ea5beadb7cc89ba5973d66107756428bc6988522272aa9cb6f"
+  },
+  "outputs": {
+    "mnist_selected_controls.png": "85fb18577c111a128c42df8065227040c6dbbd5142e7d7069776e7eb1bb54f6f",
+    "mnist_selected_controls.pdf": "c3bede56a8b388e8e02d387a631d36043bec7c63547291f7a29963a7407edf8e",
+    "mnist_controls_calibration.png": "67ce339426f719a219a4fd9fb8401037dc3d3ff235012df778b37a21ad5ab545",
+    "mnist_controls_calibration.pdf": "1d22aef39b505e2a87490192056388b1a63abb2aaccbd8f89780d867e030e5ce"
+  },
+  "renderer_sha256": "6624c14dec39f5c96f1b07c8e0f75d48965ca658fb8c0e2c5dbf4d96e7ddaeaa",
+  "null_role": "validation only",
+  "ci_scope": "conditional finite-pool Monte Carlo uncertainty"
+}

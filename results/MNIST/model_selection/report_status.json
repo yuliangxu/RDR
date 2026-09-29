@@ -1,0 +1,16 @@
+{
+  "selection_complete": true,
+  "selection_fits": 80,
+  "expected_selection_fits": 80,
+  "final_complete": true,
+  "final_repeats": 5,
+  "expected_final_repeats": 5,
+  "smoke": false,
+  "chosen": {
+    "candidate": "js_a2",
+    "loss": "js",
+    "output_alpha": 2.0
+  },
+  "protocol_sha256": "dd473e1282933bd104cc7cb75dd2db71bfa37bebc3d541da6df3d11b65d13b0c",
+  "selection_sha256": "48807a984a9ad3c9dd3238c3be4465cbf3b486b1c0646354fc8bd9c01681ff60"
+}

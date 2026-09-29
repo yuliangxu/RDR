@@ -12,5 +12,7 @@ __pycache__/
 # Local inputs and exploratory outputs; selected evidence belongs in results/.
 /.codex
 /data/MNIST/raw/
+/data/mnist_dcgan/
+/data/mnist_vae/
 /experiments/results/
 /experiments/experiments/results/

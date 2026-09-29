@@ -1,0 +1,181 @@
+{
+  "study": "post_selection_vae_dcgan_refit",
+  "smoke": false,
+  "config": {
+    "seed": 2026092801,
+    "losses": [
+      "hellinger",
+      "kl",
+      "chisq",
+      "js"
+    ],
+    "output_alphas": [
+      0.5,
+      1,
+      2,
+      4
+    ],
+    "repeats": 5,
+    "train_n": 55000,
+    "earlystop_n": 5000,
+    "selection_calibration_n": 5000,
+    "selection_evaluation_n": 5000,
+    "final_calibration_n": 5000,
+    "final_evaluation_n": 5000,
+    "batch_size": 512,
+    "max_epochs": 20,
+    "min_epochs": 6,
+    "patience": 5,
+    "bn_freeze_epoch": 5,
+    "base_channels": 64,
+    "max_lr": 0.0006,
+    "ci_alpha": 0.05,
+    "bins": 20,
+    "test_n": 10000
+  },
+  "chosen": {
+    "candidate": "js_a2",
+    "loss": "js",
+    "output_alpha": 2.0
+  },
+  "files": {
+    "assets/netG_epoch_99.pth": {
+      "sha256": "d61db3ef26f469f29c1725b16c2be82cecd1a53fc53bcdda9f8789595a3d65f3",
+      "original": "/hpc/group/mastatlab/yx306/MNIST/mnist_dcgan/netG_epoch_99.pth"
+    },
+    "assets/vae_epoch_25.pth": {
+      "sha256": "233916a8095759cf732f4dc19c381bc8de03d97040e68f4252a257a5502a9c70",
+      "original": "/hpc/group/mastatlab/yx306/MNIST/mnist_vae/vae_epoch_25.pth"
+    },
+    "assets/vae.py": {
+      "sha256": "5216a92fe21b73698538eb1f48ee1fe20624eb17f64f0120891b23f261e8c34c",
+      "original": "/hpc/group/mastatlab/yx306/MNIST/mnist_vae/vae.py"
+    },
+    "selection.json": {
+      "sha256": "48807a984a9ad3c9dd3238c3be4465cbf3b486b1c0646354fc8bd9c01681ff60",
+      "original": "/cwork/yx306/RDR/MNIST/dcgan_model_selection_20260927/selection.json"
+    },
+    "selection.sha256": {
+      "sha256": "b889744436c45926c73c6e89c28d86ff9c4a6f6528386924da04eee5d76d2153",
+      "original": "/cwork/yx306/RDR/MNIST/dcgan_model_selection_20260927/selection.sha256"
+    },
+    "selection_protocol.json": {
+      "sha256": "dd473e1282933bd104cc7cb75dd2db71bfa37bebc3d541da6df3d11b65d13b0c",
+      "original": "/cwork/yx306/RDR/MNIST/dcgan_model_selection_20260927/protocol.json"
+    },
+    "historical_split_manifest.json": {
+      "sha256": "53d5f9b458500ba98d07c3d4c9a340270c1c0e6713ed7bb172fd5ca314e688f7",
+      "original": "/cwork/yx306/RDR/mnist-generator-trainval-testall/split_manifest.json"
+    },
+    "assets/train-images-idx3-ubyte": {
+      "sha256": "ba891046e6505d7aadcbbe25680a0738ad16aec93bde7f9b65e87a2fc25776db",
+      "original": "/hpc/group/mastatlab/yx306/MNIST/MNIST/raw/train-images-idx3-ubyte"
+    },
+    "assets/train-labels-idx1-ubyte": {
+      "sha256": "65a50cbbf4e906d70832878ad85ccda5333a97f0f4c3dd2ef09a8a9eef7101c5",
+      "original": "/hpc/group/mastatlab/yx306/MNIST/MNIST/raw/train-labels-idx1-ubyte"
+    },
+    "assets/t10k-images-idx3-ubyte": {
+      "sha256": "0fa7898d509279e482958e8ce81c8e77db3f2f8254e26661ceb7762c4d494ce7",
+      "original": "/hpc/group/mastatlab/yx306/MNIST/MNIST/raw/t10k-images-idx3-ubyte"
+    },
+    "assets/t10k-labels-idx1-ubyte": {
+      "sha256": "ff7bcfd416de33731a308c3f266cc351222c34898ecbeaf847f06e48f7ec33f2",
+      "original": "/hpc/group/mastatlab/yx306/MNIST/MNIST/raw/t10k-labels-idx1-ubyte"
+    },
+    "source/utils/networks.py": {
+      "sha256": "e3c712c4bab10085f489f8c6421547760e1296cfb94adc1339ee459e08f4d386",
+      "original": "/hpc/home/yx306/RDR/utils/networks.py"
+    },
+    "source/utils/losses.py": {
+      "sha256": "5c8a557a116b11769e5f9d80093852fd321cf612ba25507ba094cd3bf220b8df",
+      "original": "/hpc/home/yx306/RDR/utils/losses.py"
+    },
+    "source/utils/DRE_func.py": {
+      "sha256": "7f3d1244e8a337508d4c0d0f02d9e0ad962e6f9fbb3c2ccd83ce9fe2dafff175",
+      "original": "/hpc/home/yx306/RDR/utils/DRE_func.py"
+    },
+    "source/utils/DRE_batch.py": {
+      "sha256": "2034af68a4d438d5c6597d70c4dff5885a91c1342741efd86098a1282cdbecf3",
+      "original": "/hpc/home/yx306/RDR/utils/DRE_batch.py"
+    },
+    "source/utils/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original": "/hpc/home/yx306/RDR/utils/__init__.py"
+    },
+    "source/utils/training.py": {
+      "sha256": "579a14b277b8905161d564f04f4499f74cf2c1a6f341500fd2fe8f97b961c6e0",
+      "original": "/hpc/home/yx306/RDR/utils/training.py"
+    },
+    "source/utils/calibration.py": {
+      "sha256": "c038069e02f659d6ac8196ece44158287d50709c4aff1c6d662d85150e0ed19c",
+      "original": "/hpc/home/yx306/RDR/utils/calibration.py"
+    },
+    "source/utils/diagnostics.py": {
+      "sha256": "73f8251ea3cee9e1dc47d5c5097b692e8ea32a37d2689541cbb464d132f4425e",
+      "original": "/hpc/home/yx306/RDR/utils/diagnostics.py"
+    },
+    "source/experiments/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original": "/hpc/home/yx306/RDR/experiments/__init__.py"
+    },
+    "source/experiments/MNIST/model_selection.py": {
+      "sha256": "aa99fda5bc64a2f14f9220baf5fc7e1faee650a584282e06d1567456b7d620c3",
+      "original": "/hpc/home/yx306/RDR/experiments/MNIST/model_selection.py"
+    },
+    "source/experiments/MNIST/selection_config.json": {
+      "sha256": "2993770011c055db19a5ee32ef72057207c5477813aea29ace5064ec2991e908",
+      "original": "/hpc/home/yx306/RDR/experiments/MNIST/selection_config.json"
+    },
+    "source/experiments/MNIST/selection_metrics.py": {
+      "sha256": "5029f157c03ac72e66ccfa90ef1688b30d6eeb1de025b2e5e121e1260a3cc5e3",
+      "original": "/hpc/home/yx306/RDR/experiments/MNIST/selection_metrics.py"
+    },
+    "source/experiments/MNIST/selection_report.py": {
+      "sha256": "b1c93fbedcb09b437d6fa70219c2285e06d8c4fee559e63f1e2c295f64f3d278",
+      "original": "/hpc/home/yx306/RDR/experiments/MNIST/selection_report.py"
+    },
+    "source/experiments/MNIST/selection.slurm": {
+      "sha256": "2abc36d171110ec5e5100d24ba1f0387fd662123f0d97131edc465905b4b3bb9",
+      "original": "/hpc/home/yx306/RDR/experiments/MNIST/selection.slurm"
+    },
+    "source/experiments/MNIST/helpers.py": {
+      "sha256": "0fbf754e020e837af92041bcd7f1cba26629d92af2275f42d47f06daac30d4d6",
+      "original": "/hpc/home/yx306/RDR/experiments/MNIST/helpers.py"
+    },
+    "source/experiments/MNIST/__init__.py": {
+      "sha256": "30e6d76f4d3cf15c53c642853c847fbcb6e6fecd6fd99588625352cf1c28c703",
+      "original": "/hpc/home/yx306/RDR/experiments/MNIST/__init__.py"
+    },
+    "source/experiments/MNIST/comparison.py": {
+      "sha256": "b6d39921d1ef8d4b8f31c1db0af0ac4472251773b6fa1d71a56a14ef376cc64a",
+      "original": "/hpc/home/yx306/RDR/experiments/MNIST/comparison.py"
+    },
+    "source/experiments/MNIST/comparison_plot.py": {
+      "sha256": "39c5da05d86dd2a9e89de5d2401e7b913179945ba28208ce69bf4fcefe2e1533",
+      "original": "/hpc/home/yx306/RDR/experiments/MNIST/comparison_plot.py"
+    },
+    "source/experiments/MNIST/comparison.slurm": {
+      "sha256": "fffdc564ed471d82a6697eff89712bb4299a5ef740b756c2f4600b7b7263c172",
+      "original": "/hpc/home/yx306/RDR/experiments/MNIST/comparison.slurm"
+    },
+    "splits.json": {
+      "sha256": "17dc0a6eec491ab53cbf61d61a55195827196b3abb6d4dd11ddf1ea2b87433d4"
+    }
+  },
+  "selection_root": "/cwork/yx306/RDR/MNIST/dcgan_model_selection_20260927",
+  "selection_sha256": "48807a984a9ad3c9dd3238c3be4465cbf3b486b1c0646354fc8bd9c01681ff60",
+  "target": "r=2p/(p+q); all model inputs [-1,1]",
+  "checkpoint_rule": "minimum fixed validation balanced Brier; test access after checkpoint save and restore",
+  "sampling": "new initialization; matched real order; branch-specific private latent streams for training, validation and test",
+  "comparison_scope": "DCGAN-selected configuration transferred to VAE without VAE search; both max20/min6/patience5/BNfreeze5",
+  "limitations": "post-selection refit; official test inspected previously; generator pretraining membership unaudited; not a loss-only comparison with historical fits",
+  "python": "3.9.25 (main, Jul 13 2026, 00:00:00) \n[GCC 11.5.0 20240719 (Red Hat 11.5.0-14)]",
+  "packages": {
+    "torch": "2.6.0",
+    "torchvision": "0.21.0",
+    "numpy": "1.26.4",
+    "scipy": "1.13.1",
+    "matplotlib": "3.9.4"
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "source_run": "/cwork/yx306/RDR/MNIST/selected_controls_20260929",
+  "slurm_job_id": 56707707,
+  "files": {
+    "RESULTS.md": {
+      "source": "/cwork/yx306/RDR/MNIST/selected_controls_20260929/RESULTS.md",
+      "bytes": 4138,
+      "sha256": "bc1e5e680bbbd1006022ccc7b0d2c0f470049a47e8a1eb52fdc32f0303fcb77b"
+    },
+    "mnist_selected_controls.png": {
+      "source": "/cwork/yx306/RDR/MNIST/selected_controls_20260929/mnist_selected_controls.png",
+      "bytes": 295546,
+      "sha256": "85fb18577c111a128c42df8065227040c6dbbd5142e7d7069776e7eb1bb54f6f"
+    },
+    "mnist_selected_controls.pdf": {
+      "source": "/cwork/yx306/RDR/MNIST/selected_controls_20260929/mnist_selected_controls.pdf",
+      "bytes": 45036,
+      "sha256": "c3bede56a8b388e8e02d387a631d36043bec7c63547291f7a29963a7407edf8e"
+    },
+    "mnist_controls_calibration.png": {
+      "source": "/cwork/yx306/RDR/MNIST/selected_controls_20260929/mnist_controls_calibration.png",
+      "bytes": 169032,
+      "sha256": "67ce339426f719a219a4fd9fb8401037dc3d3ff235012df778b37a21ad5ab545"
+    },
+    "mnist_controls_calibration.pdf": {
+      "source": "/cwork/yx306/RDR/MNIST/selected_controls_20260929/mnist_controls_calibration.pdf",
+      "bytes": 25382,
+      "sha256": "1d22aef39b505e2a87490192056388b1a63abb2aaccbd8f89780d867e030e5ce"
+    },
+    "figure_manifest.json": {
+      "source": "/cwork/yx306/RDR/MNIST/selected_controls_20260929/figure_manifest.json",
+      "bytes": 1716,
+      "sha256": "e334d019ee89185aff792f14a80f88ae1907603c8882635567ed5f7a47233b4d"
+    },
+    "protocol.json": {
+      "source": "/cwork/yx306/RDR/MNIST/selected_controls_20260929/protocol.json",
+      "bytes": 8422,
+      "sha256": "3d1cb7f3e9a396e88c34b786558f49e4a5f16857fce3a3d126a405511e8113af"
+    },
+    "protocol.sha256": {
+      "source": "/cwork/yx306/RDR/MNIST/selected_controls_20260929/protocol.sha256",
+      "bytes": 65,
+      "sha256": "8f1f64ba373ff6bdeb6a8335568ebc50b3133faaaed9004b554a67097f43be70"
+    },
+    "selection.json": {
+      "source": "/cwork/yx306/RDR/MNIST/selected_controls_20260929/selection.json",
+      "bytes": 8840,
+      "sha256": "48807a984a9ad3c9dd3238c3be4465cbf3b486b1c0646354fc8bd9c01681ff60"
+    },
+    "perturbation/metrics.json": {
+      "source": "/cwork/yx306/RDR/MNIST/selected_controls_20260929/perturbation/metrics.json",
+      "bytes": 2179,
+      "sha256": "8d997a39d998c5b09f3164b191ca93d574d4ce47d3f91621089466f76580c74b"
+    },
+    "perturbation/history.json": {
+      "source": "/cwork/yx306/RDR/MNIST/selected_controls_20260929/perturbation/history.json",
+      "bytes": 2980,
+      "sha256": "8780c0066e94a86e21defc00f52082773c2dc0e77d80703489382687b0da90f9"
+    },
+    "perturbation/cells.json": {
+      "source": "/cwork/yx306/RDR/MNIST/selected_controls_20260929/perturbation/cells.json",
+      "bytes": 13119,
+      "sha256": "440cc3b72974b6a1e780b984099f77cf90a7ac58a3b18cc7dcdcc7efc2e48b96"
+    },
+    "perturbation/digits.json": {
+      "source": "/cwork/yx306/RDR/MNIST/selected_controls_20260929/perturbation/digits.json",
+      "bytes": 25135,
+      "sha256": "fdcd72a890cf0fb44dc7d1cde9bf2e20416bf0034b55701733db1eb98ccdb47b"
+    },
+    "null/metrics.json": {
+      "source": "/cwork/yx306/RDR/MNIST/selected_controls_20260929/null/metrics.json",
+      "bytes": 2074,
+      "sha256": "f5f03209334ee31444ba3abe6190beb69db0e4d85a061400ea82658ae80c50ec"
+    },
+    "null/history.json": {
+      "source": "/cwork/yx306/RDR/MNIST/selected_controls_20260929/null/history.json",
+      "bytes": 1946,
+      "sha256": "3d86bda948c74ecef658ff81042da27a044b797090e3bd8a87710a5ccf706ab7"
+    },
+    "null/cells.json": {
+      "source": "/cwork/yx306/RDR/MNIST/selected_controls_20260929/null/cells.json",
+      "bytes": 12300,
+      "sha256": "2b90731601cea9ea5beadb7cc89ba5973d66107756428bc6988522272aa9cb6f"
+    },
+    "null/digits.json": {
+      "source": "/cwork/yx306/RDR/MNIST/selected_controls_20260929/null/digits.json",
+      "bytes": 13850,
+      "sha256": "701652e1348521faa8934183b522c36ba9ca3ae4cf7dd17da1093d4e60fe04c6"
+    },
+    "verification.json": {
+      "source": "/tmp/mnist_controls_independent_verification.json",
+      "bytes": 2457,
+      "sha256": "4a946c920f835565312f2aab5cc7634eef8ab961ad8ab497ac477494f3644d33"
+    },
+    "protocol_verification.json": {
+      "source": "/tmp/mnist_controls_protocol_audit.json",
+      "bytes": 1935,
+      "sha256": "e5b493ce45b920019309c8ecf03df2186c87878002bab6cd8d9ea35b05b9c50f"
+    }
+  },
+  "slurm_state": "COMPLETED",
+  "slurm_exit_code": "0:0",
+  "slurm_elapsed": "00:01:28"
+}

@@ -5,8 +5,9 @@ Density Ratio*. For densities p and q, the midpoint relative density ratio is
 $r_0(x)=2p(x)/(p(x)+q(x))$ wherever $p(x)+q(x)>0$.
 
 The simulation studies are complete, with reproducible code, a toy notebook,
-results and computation costs. MNIST, CelebA and AGP are still being selected
-and organized for the paper release.
+results and computation costs. MNIST's retained results are selected and organized;
+its DCGAN loss and sigmoid-slope selection study is complete. CelebA and
+AGP are still being selected and organized for the paper release.
 
 ## Experiment summaries
 
@@ -105,13 +106,20 @@ before reporting.
 
 ## Remaining datasets
 
-MNIST, CelebA, and AGP entrypoints partly retain their previous locations,
-including `experiments/JRSSB/`, until their experiment selection is complete.
+MNIST's [reproducible workflows](experiments/MNIST/README.md) now cover VAE,
+DCGAN, controlled digit perturbation and the real-versus-real validation null.
+All four RDRs were refitted using JS with sigmoid slope 2, selected by the
+completed 80-fit DCGAN Brier/local-calibration study. Public inputs are acquired
+with recorded hashes; compact results and audits are in `results/MNIST/`.
+Superseded MNIST scripts were retired after a verified full rollback archive.
+CelebA and AGP entrypoints partly retain their previous locations, including
+`experiments/JRSSB/`, until their experiment selection is complete.
 
 The historical [requirements file](requirements.txt) contains conflicting pins,
 including two PyYAML versions. Simulations have their own
-[tested dependency versions](experiments/simulations/requirements.txt); the
-remaining datasets still need environment recipes for the public release.
+[tested dependency versions](experiments/simulations/requirements.txt), and
+MNIST has its own [environment recipe](experiments/MNIST/requirements.txt).
+The remaining datasets still need environment recipes for the public release.
 
 For each selected workflow, migrate dependencies, imports, launchers,
 configuration paths, and archived-source lists together. Preserve objectives,
