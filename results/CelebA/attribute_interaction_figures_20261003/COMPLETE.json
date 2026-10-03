@@ -1,0 +1,19 @@
+{
+  "complete": true,
+  "figure_pairs": 3,
+  "parent": "/cwork/yx306/RDR/CelebA/attribute_interactions_20261003",
+  "parent_completion_sha256": "6314e8fe1008cc5a86f579962105a5265a76fe2f788fdd83d2989166f8543f15",
+  "files": {
+    "attribute_importance.png": "d161e9bc2d1b406fae8885466072dea323fc2d1a83ace1ae2eb507fd9fb1a5c2",
+    "predictive_accuracy.png": "cef76b4c8181ff58c4a6a47f8e9f7f7757877620657d1b49e4b685062b2301ab",
+    "group_importance.pdf": "164c4fee6a2dd97350dfa76acc63f7425fc92ca69d56260712fad6cbb3e55ea0",
+    "predictive_accuracy.pdf": "7ecf33d06d85349f749990986f069a1573cf15cc6dc0838782497051c8897baa",
+    "attribute_importance.pdf": "ba50dbd2a1434f5ac8af19e540806f4df66b42948091acd5ead7c35f953da9ef",
+    "group_importance.png": "0dfbf1c653dfb3d31821ab5bb8e5fe873c5dcfec47545480036b23e44e71fe5e"
+  },
+  "source_files": {
+    "experiments/CelebA/attribute_interactions.py": "4ad65df720d8cbb0c3547e8d829cc3f7a10803e6d93b34ea4be20df0f5076e6c",
+    "experiments/CelebA/attribute_interaction_figures.py": "9d7aaf6d06f8952f24a6f97dc52009a5bfacb1896f7ced8b309d40b138bab2b9"
+  },
+  "changes": "Sparse scientific-notation ticks avoid label overlap; readable legends; numerical results unchanged"
+}

@@ -1,0 +1,21 @@
+{
+  "complete": true,
+  "task": {
+    "branch": "upper",
+    "response": "log_complement",
+    "repeat": 0
+  },
+  "protocol_sha256": "bbb33f7f6a72e05fa1e9be7c58064e16edfe923b105979e44e13fdf87cda119c",
+  "ebm_fits": 49,
+  "ols_fits": 1,
+  "ablations": 47,
+  "files": {
+    "assessment_predictions.npz": "b481bb0d7e67bb3d5096d6a29f4157fe1c78ad6ec42f7ed1245e7afe1164193e",
+    "importance.csv": "8a3190f6b286c2e1755bbfd93a4266098aaa7f98d7b939f844b56699a9eab3a4",
+    "metrics.csv": "6b991af3ece7f2437be10b0d44d8d949052d100df690e5ec52de6216b1a6671f",
+    "additive_ebm.joblib": "1979600d674181f775b8442962c81cecbbe5db1c451fe0e06385813991c009f2",
+    "task.json": "01c4a3339d1f538624663a5f8e0de7ebca1548a37e2df26ef55552205d62b1b5",
+    "interaction_ebm.joblib": "3d9689fec7514e77dae87ce796f67f33bf97194d83523b8530d362580a4629a1",
+    "terms.csv": "98b02365ad08dbb556e4289029804aff6e1aab1ef889303cc3aefb5b594a8f2e"
+  }
+}

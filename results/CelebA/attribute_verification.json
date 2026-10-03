@@ -1,0 +1,14 @@
+{
+  "regressions": 10,
+  "coefficient_rows": 400,
+  "real_test_rows": 39829,
+  "identity_clusters": 1985,
+  "checks": [
+    "Direct OLS normal equations",
+    "Manual identity-cluster sandwich covariance and small-sample correction",
+    "Cluster t intervals and BH q values",
+    "Stable log responses retain saturated images",
+    "Direct R squared and five-repeat summaries"
+  ],
+  "training_performed": false
+}

@@ -1,0 +1,20 @@
+{
+  "protocol_sha256": "a44d12a00376df6140ec36c6825d86ed6867811901d1b22d4051b9d5738c9045",
+  "accepted_freeze_sha256": "ad13e2b1da7780a72b93de43e3983379e924b23d962e9d4f07cbd5f2ef3c3d69",
+  "verified_fits": 319,
+  "renderer_sources": {
+    "refresh_selection_presentation.py": "8b099425021e43eee1e4a7f7116adf5afa60d1c969b3388f52bc9d5579bd79bf",
+    "selection_only_report.py": "e32b80cfefa699a4a861671743297ce129ff1594c020a0f953a037c33233723d",
+    "selection_report.py": "8f708bea1bcbd263a0dade39b9eb4ffb45f3c9a3a44eae2bb01518aad77a2a73"
+  },
+  "artifacts": {
+    "RESULTS.md": "4416efae1e2e5fa26914366b700219213ac8ff5366d4e0b24cb3664f559d1a2f",
+    "report_status.json": "97def8b4a82de0deba3824af7212cb29a26e23ced833a4eb8520bebc5fa444cc",
+    "per_fit.csv": "6578ac964675a2342a042a98082d5602981411e6a87e9765360a3d59b9492ae3",
+    "per_candidate.csv": "8611a0e58c3860bd9e4d521a74e62e334fc7674a8931ffc567f4c0a1573d4976",
+    "selection_grid_feature.png": "d12b67ce415cba87005d7ca54e7645545ff9f8f012335631841d54f9bce50c61",
+    "selection_grid_feature.pdf": "8d030464cdb4e51a63829ee04b07a0076031fe89effaabd65c627a5385722553",
+    "selection_grid_pixel.png": "46d9aca35cbd2c33d80240ed977df22a81d476e5a1d60e451b63972a2e0496bd",
+    "selection_grid_pixel.pdf": "9bf418e04fa54539eae0b2c736ad192921145de818b8aeafde5bc25f529676ee"
+  }
+}

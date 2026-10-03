@@ -1,0 +1,43 @@
+{
+  "complete": true,
+  "null_fits": 25,
+  "figure_pairs": 10,
+  "ranked_images": 960,
+  "files": {
+    "images_pixel_lower_ranked.pdf": "55afafebe0c260d97d4fc7c5e29b8697d7711fcdcb40e7d41d42af4827952249",
+    "FIGURES.md": "68110625d20e72f66de51d3bb17964640463c00248fe9b52e4d6be3f483b4bec",
+    "null_rdr_histograms.png": "a4cf20ec22db7df83c0977f974072f0c4255a92316bf6a00102c98a73583e2bd",
+    "null_rdr_histograms_feature_upper.pdf": "b8a21aa25b3738a2f57942790bab649a47bf509833e98257ae9a3334cc2bf92c",
+    "null_rdr_histograms_feature_upper.png": "3245b8d57f4e188d0ad88c8fa017511a64f7787c6c8be836510c47af5dc0518b",
+    "images_pixel_upper_ranked.png": "dffdc900936cea255147e82b768107e60ea3afd248b951e0369bf7c775549815",
+    "images_feature_lower_ranked.pdf": "d5de01ec2dbbb0c2905c4ca97a0bfc943edd040863fcfe2a492c2b773f7237c0",
+    "null_rdr_histograms_pixel_upper.png": "0ca7ec96ee03aa2f791e2a825526fb739fb878d427282abb87f2cb41c8b20d9b",
+    "images_pixel_upper_ranked.pdf": "0c8b3c26598901c41caa318e48294ce9bcd03e8df275057ad032626e554870ef",
+    "images_pixel_lower_ranked.png": "499c51d7b7ced8e120357c52ab0e9e693c6e782d4a58fd54d6816c586bb801f3",
+    "images_feature_upper_ranked.png": "0d3b5a232f8b6cba87b6fd37008cd8e33bb92420f48ed0c8d2144d6e9982d739",
+    "protocol.json": "2fe57df4ab79ca15d31dbebe019a65b4ddbf10a10273b3e5d609caaffaad2299",
+    "images_feature_upper_ranked.pdf": "f2272015aba03531344d2e1045a433a73734911d032400c3dc5117f1153a1a68",
+    "null_rdr_histograms_pixel_upper.pdf": "df63377bcb6bd2b4ad5c29a65b0adf5fa9cea464be911815b14c3bdf51509e65",
+    "null_rdr_histograms_feature_lower.png": "fbc75e2b167e140c4429eb68583486109da5d8ce9271347c7e5d097ef00b3fb0",
+    "null_rdr_histograms.pdf": "7eadf08b4015d9a4869e87e1c2c6d83301187c67816f760638f665c3b2970a74",
+    "null_rdr_histograms_pixel_real.pdf": "98c54a4f8c4ab1f3c5634bf62b45e4f1dc2194b95561e6c0be13449188069399",
+    "null_rdr_histograms_pixel_lower.png": "2791e6d3ae2b848251af9f8616a7b6f50b844fe21f6cad8157aeac844aa96ba5",
+    "null_rdr_histograms_feature_lower.pdf": "18800c1afebf7a08a9783d63f6abb83b1c5d3588234f82e8ff333b312f49d126",
+    "null_rdr_histograms_pixel_lower.pdf": "aafaa9f3132ec78cfa4e9d243678e3f20c9bdfe5d35b7ee5a42808a26b830390",
+    "null_histogram_summary.csv": "64f9d3c37c52154253698e64d03618dfb25731a6bb2276795736ddc9319c67e2",
+    "images_feature_lower_ranked.png": "8dab8bae63aa2e6b7cee77b3ec3827db6fc8f56727d188dbaf26cc34d9a4eb8f",
+    "null_rdr_histograms_pixel_real.png": "47163d8fb4b0467ff38e23720db307e6696ee46f00734447d85655f11ba39da4",
+    "image_ranges.csv": "c00370ad1c41d92e0a53e337e0aea871263611b1fd68b8effed7dd9ba3282957",
+    "selected_images.csv": "62aa8b406f596a98e3391aa92277068adab4fd9fd4910138bcb455e335da31b9",
+    "null_histogram_bins.csv": "bb9148b11dcfce39d6ca3e35dcdef07746e7e31a3a71a46aa3b0154de47fb930"
+  },
+  "source_files": {
+    "experiments/CelebA/merged_test.py": "8d5798560621b91643579036b1242a994feaf1c00002dfddc8238375ff2dcbca",
+    "experiments/CelebA/final_figures.py": "9106986ac6a8948eb9b6fb36fd12549e834ceecbe6b58130b2f986e1d150abbc",
+    "experiments/CelebA/null_report.py": "227ee792cf6a84a6256744407f747cfe4c2501e6715ed857cf080861843d1e33",
+    "utils/model_selection.py": "34d565721248ae13a07aa759526bbdf83744b0cf0e7a1f103d4d4d5a3016499f",
+    "utils/calibration.py": "c038069e02f659d6ac8196ece44158287d50709c4aff1c6d662d85150e0ed19c",
+    "experiments/CelebA/publication_figures.py": "713a1f04dc7b2f371b782377d1d3860a1d95858c4785ec41cfd5ce947d14d0b1"
+  },
+  "protocol_sha256": "2fe57df4ab79ca15d31dbebe019a65b4ddbf10a10273b3e5d609caaffaad2299"
+}

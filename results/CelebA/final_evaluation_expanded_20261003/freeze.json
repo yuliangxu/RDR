@@ -1,0 +1,36 @@
+{
+  "protocol_sha256": "6df2774fbb8a7ad527deb141b10504faf52c22d218f4d2f3873dee5c41381c6e",
+  "settings": {
+    "feature": [
+      "js",
+      0.5
+    ],
+    "pixel": [
+      "js",
+      2.0
+    ]
+  },
+  "checkpoint_receipts": {
+    "/cwork/yx306/RDR/CelebA/model_selection_expanded_20260929/fits/feature/lower/baseline_js_a0p5/repeat_00": "684660208f19c5ef3ea605d71386663e45e5f2b90ed596f0127548df96d20b0f",
+    "/cwork/yx306/RDR/CelebA/model_selection_expanded_20260929/fits/feature/lower/baseline_js_a0p5/repeat_01": "05e889cd9b3b8036154dc6d0908d245b77e488ced4acf80732d2220d3c0badb1",
+    "/cwork/yx306/RDR/CelebA/model_selection_expanded_20260929/fits/feature/lower/baseline_js_a0p5/repeat_02": "ca8c3ecd1d67526d66d019675d7ea4794ef6b8246495180b460f03a5ddeff733",
+    "/cwork/yx306/RDR/CelebA/model_selection_expanded_20260929/fits/feature/lower/baseline_js_a0p5/repeat_03": "1032ab8bc5c20b5273cb38d08751d6b74a7247dfdafab587836703a7e5b4a809",
+    "/cwork/yx306/RDR/CelebA/model_selection_expanded_20260929/fits/feature/lower/baseline_js_a0p5/repeat_04": "c101f779f49f82497caaed19622d27ef7dcf895c6e9b310ce45b7d767fb2fc58",
+    "/cwork/yx306/RDR/CelebA/model_selection_expanded_20260929/fits/feature/upper/baseline_js_a0p5/repeat_00": "1ef164ddf672bd680686d416d153ca59469a823270e90fc2360027ca50b4d759",
+    "/cwork/yx306/RDR/CelebA/model_selection_expanded_20260929/fits/feature/upper/baseline_js_a0p5/repeat_01": "01a696c6e889430f86c2abcaa109a5eb3754951c81731cb337723556091cf60d",
+    "/cwork/yx306/RDR/CelebA/model_selection_expanded_20260929/fits/feature/upper/baseline_js_a0p5/repeat_02": "58a6c579b55faebfa30bae6ca599ea7031d19463f07b4926ba1fd6a4fb70f397",
+    "/cwork/yx306/RDR/CelebA/model_selection_expanded_20260929/fits/feature/upper/baseline_js_a0p5/repeat_03": "946e04c99522e3b0f350d776eaab39765d29d238240fe7984e7ad83dee9c962d",
+    "/cwork/yx306/RDR/CelebA/model_selection_expanded_20260929/fits/feature/upper/baseline_js_a0p5/repeat_04": "bf077ac459aed1b3224c656c05ca246e9cac6584d15be1f348b3ec7480a65f64",
+    "/cwork/yx306/RDR/CelebA/model_selection_expanded_20260929/fits/pixel/lower/baseline_js_a2/repeat_00": "06dc53cae385288e00bdf8eb6056955763729c35f08aa1df207499521a46ac43",
+    "/cwork/yx306/RDR/CelebA/model_selection_expanded_20260929/fits/pixel/lower/baseline_js_a2/repeat_01": "da899f2231a5e67c3baecd9bc25e649d5f58f361438f667f2b3952306b9e474f",
+    "/cwork/yx306/RDR/CelebA/model_selection_expanded_20260929/fits/pixel/lower/baseline_js_a2/repeat_02": "20418f742e5554d7965831112615e051aa1581d05831ee11740b7769c3849e4d",
+    "/cwork/yx306/RDR/CelebA/model_selection_expanded_20260929/fits/pixel/lower/baseline_js_a2/repeat_03": "c0fe8a81f9d9da32a04bc99ab1638b49d62f5ac1ca7feff035fe985d0ec93962",
+    "/cwork/yx306/RDR/CelebA/model_selection_expanded_20260929/fits/pixel/lower/baseline_js_a2/repeat_04": "de04e38f12fe4cb2599c5a1a1702d034fc7a3759fe5000cee26a69ba433cefd3",
+    "/cwork/yx306/RDR/CelebA/model_selection_expanded_20260929/fits/pixel/upper/baseline_js_a2/repeat_00": "45d673237e92141eba04ff0622e24af56726599325849c22fbeeb1b2f01b8505",
+    "/cwork/yx306/RDR/CelebA/model_selection_expanded_20260929/fits/pixel/upper/baseline_js_a2/repeat_01": "5001137245fc937a51c5b24e6b1f083bb9532fe31e69c26345886d5fe785ecab",
+    "/cwork/yx306/RDR/CelebA/model_selection_expanded_20260929/fits/pixel/upper/baseline_js_a2/repeat_02": "50a0a7e06939fc50429b8d10811634e295515bb4835d58bceb22b8c55cf8fc0a",
+    "/cwork/yx306/RDR/CelebA/model_selection_expanded_20260929/fits/pixel/upper/baseline_js_a2/repeat_03": "306ef965f25e772444c66f01db142325dfd9ef318c493b81251a18d9b2dfd91e",
+    "/cwork/yx306/RDR/CelebA/model_selection_expanded_20260929/fits/pixel/upper/baseline_js_a2/repeat_04": "25b6b46cfdad2c40c077fe80fea24607feedcb12b9d5834d563fe9cc99f297af"
+  },
+  "authorization": "User accepted JS slope 0.5 feature and JS slope 2 pixel; only evaluate saved models on final splits."
+}

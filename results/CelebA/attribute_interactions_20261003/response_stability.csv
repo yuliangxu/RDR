@@ -1,0 +1,5 @@
+branch,kind,spearman,top5_overlap,top5_common
+lower,attribute,0.5699812382739212,4,"[""Bags_Under_Eyes"", ""Blurry"", ""Brown_Hair"", ""Male""]"
+lower,group,0.9285714285714288,5,"[""accessories"", ""age_sex_annotations"", ""expression"", ""facial_structure"", ""hair""]"
+upper,attribute,0.6433395872420263,2,"[""5_o_Clock_Shadow"", ""Eyeglasses""]"
+upper,group,0.9642857142857145,4,"[""accessories"", ""facial_hair"", ""facial_structure"", ""hair""]"

@@ -1,0 +1,185 @@
+representation,branch,repeat,panel,source,group,target,sampling_seed,shown_count,available_count,score_min,score_max,bin,left,right
+feature,lower,0,ranked,real,Smallest RDR,0.0,2026100301,40,39829,3.636122301031719e-06,0.0031171597074717283,,,
+feature,lower,0,ranked,real,Closest to 1,1.0,2026100302,40,39829,0.9797253012657166,1.019042730331421,,,
+feature,lower,0,ranked,real,Largest RDR,2.0,2026100303,40,39829,2.0,2.0,,,
+feature,lower,0,ranked,lower,Smallest RDR,0.0,2026100318,40,40000,3.3045950704183773e-15,9.616549093496851e-13,,,
+feature,lower,0,ranked,lower,Closest to 1,1.0,2026100319,40,40000,0.9832430481910706,1.0167515277862549,,,
+feature,lower,0,ranked,lower,Largest RDR,2.0,2026100320,40,40000,1.9903316497802734,1.9999866485595703,,,
+feature,lower,0,all_bins,real,,,2026100301,4,263,,,0.0,0.0,0.1
+feature,lower,0,all_bins,real,,,2026100318,4,117,,,1.0,0.1,0.2
+feature,lower,0,all_bins,real,,,2026100335,4,114,,,2.0,0.2,0.30000000000000004
+feature,lower,0,all_bins,real,,,2026100352,4,97,,,3.0,0.30000000000000004,0.4
+feature,lower,0,all_bins,real,,,2026100369,4,70,,,4.0,0.4,0.5
+feature,lower,0,all_bins,real,,,2026100386,4,84,,,5.0,0.5,0.6000000000000001
+feature,lower,0,all_bins,real,,,2026100403,4,76,,,6.0,0.6000000000000001,0.7000000000000001
+feature,lower,0,all_bins,real,,,2026100420,4,80,,,7.0,0.7000000000000001,0.8
+feature,lower,0,all_bins,real,,,2026100437,4,89,,,8.0,0.8,0.9
+feature,lower,0,all_bins,real,,,2026100454,4,93,,,9.0,0.9,1.0
+feature,lower,0,all_bins,real,,,2026100471,4,122,,,10.0,1.0,1.1
+feature,lower,0,all_bins,real,,,2026100488,4,98,,,11.0,1.1,1.2000000000000002
+feature,lower,0,all_bins,real,,,2026100505,4,123,,,12.0,1.2000000000000002,1.3
+feature,lower,0,all_bins,real,,,2026100522,4,152,,,13.0,1.3,1.4000000000000001
+feature,lower,0,all_bins,real,,,2026100539,4,202,,,14.0,1.4000000000000001,1.5
+feature,lower,0,all_bins,real,,,2026100556,4,300,,,15.0,1.5,1.6
+feature,lower,0,all_bins,real,,,2026100573,4,373,,,16.0,1.6,1.7000000000000002
+feature,lower,0,all_bins,real,,,2026100590,4,547,,,17.0,1.7000000000000002,1.8
+feature,lower,0,all_bins,real,,,2026100607,4,1218,,,18.0,1.8,1.9000000000000001
+feature,lower,0,all_bins,real,,,2026100624,4,35611,,,19.0,1.9000000000000001,2.0
+feature,lower,0,all_bins,lower,,,2026100302,4,36414,,,0.0,0.0,0.1
+feature,lower,0,all_bins,lower,,,2026100319,4,833,,,1.0,0.1,0.2
+feature,lower,0,all_bins,lower,,,2026100336,4,424,,,2.0,0.2,0.30000000000000004
+feature,lower,0,all_bins,lower,,,2026100353,4,301,,,3.0,0.30000000000000004,0.4
+feature,lower,0,all_bins,lower,,,2026100370,4,191,,,4.0,0.4,0.5
+feature,lower,0,all_bins,lower,,,2026100387,4,158,,,5.0,0.5,0.6000000000000001
+feature,lower,0,all_bins,lower,,,2026100404,4,152,,,6.0,0.6000000000000001,0.7000000000000001
+feature,lower,0,all_bins,lower,,,2026100421,4,117,,,7.0,0.7000000000000001,0.8
+feature,lower,0,all_bins,lower,,,2026100438,4,118,,,8.0,0.8,0.9
+feature,lower,0,all_bins,lower,,,2026100455,4,92,,,9.0,0.9,1.0
+feature,lower,0,all_bins,lower,,,2026100472,4,116,,,10.0,1.0,1.1
+feature,lower,0,all_bins,lower,,,2026100489,4,94,,,11.0,1.1,1.2000000000000002
+feature,lower,0,all_bins,lower,,,2026100506,4,83,,,12.0,1.2000000000000002,1.3
+feature,lower,0,all_bins,lower,,,2026100523,4,92,,,13.0,1.3,1.4000000000000001
+feature,lower,0,all_bins,lower,,,2026100540,4,74,,,14.0,1.4000000000000001,1.5
+feature,lower,0,all_bins,lower,,,2026100557,4,111,,,15.0,1.5,1.6
+feature,lower,0,all_bins,lower,,,2026100574,4,111,,,16.0,1.6,1.7000000000000002
+feature,lower,0,all_bins,lower,,,2026100591,4,122,,,17.0,1.7000000000000002,1.8
+feature,lower,0,all_bins,lower,,,2026100608,4,146,,,18.0,1.8,1.9000000000000001
+feature,lower,0,all_bins,lower,,,2026100625,4,251,,,19.0,1.9000000000000001,2.0
+feature,upper,0,ranked,real,Smallest RDR,0.0,2026101301,40,39829,1.9318304111948237e-05,0.00269488082267344,,,
+feature,upper,0,ranked,real,Closest to 1,1.0,2026101302,40,39829,0.9950547218322754,1.004756212234497,,,
+feature,upper,0,ranked,real,Largest RDR,2.0,2026101303,40,39829,1.9999985694885254,2.0,,,
+feature,upper,0,ranked,upper,Smallest RDR,0.0,2026101318,40,40000,1.0682302015947221e-15,1.583981383557198e-11,,,
+feature,upper,0,ranked,upper,Closest to 1,1.0,2026101319,40,40000,0.9915593266487122,1.0087552070617676,,,
+feature,upper,0,ranked,upper,Largest RDR,2.0,2026101320,40,40000,1.9894753694534302,1.998429775238037,,,
+feature,upper,0,all_bins,real,,,2026101301,4,480,,,0.0,0.0,0.1
+feature,upper,0,all_bins,real,,,2026101318,4,263,,,1.0,0.1,0.2
+feature,upper,0,all_bins,real,,,2026101335,4,244,,,2.0,0.2,0.30000000000000004
+feature,upper,0,all_bins,real,,,2026101352,4,231,,,3.0,0.30000000000000004,0.4
+feature,upper,0,all_bins,real,,,2026101369,4,230,,,4.0,0.4,0.5
+feature,upper,0,all_bins,real,,,2026101386,4,228,,,5.0,0.5,0.6000000000000001
+feature,upper,0,all_bins,real,,,2026101403,4,256,,,6.0,0.6000000000000001,0.7000000000000001
+feature,upper,0,all_bins,real,,,2026101420,4,296,,,7.0,0.7000000000000001,0.8
+feature,upper,0,all_bins,real,,,2026101437,4,310,,,8.0,0.8,0.9
+feature,upper,0,all_bins,real,,,2026101454,4,375,,,9.0,0.9,1.0
+feature,upper,0,all_bins,real,,,2026101471,4,413,,,10.0,1.0,1.1
+feature,upper,0,all_bins,real,,,2026101488,4,497,,,11.0,1.1,1.2000000000000002
+feature,upper,0,all_bins,real,,,2026101505,4,508,,,12.0,1.2000000000000002,1.3
+feature,upper,0,all_bins,real,,,2026101522,4,601,,,13.0,1.3,1.4000000000000001
+feature,upper,0,all_bins,real,,,2026101539,4,755,,,14.0,1.4000000000000001,1.5
+feature,upper,0,all_bins,real,,,2026101556,4,928,,,15.0,1.5,1.6
+feature,upper,0,all_bins,real,,,2026101573,4,1231,,,16.0,1.6,1.7000000000000002
+feature,upper,0,all_bins,real,,,2026101590,4,1848,,,17.0,1.7000000000000002,1.8
+feature,upper,0,all_bins,real,,,2026101607,4,3455,,,18.0,1.8,1.9000000000000001
+feature,upper,0,all_bins,real,,,2026101624,4,26680,,,19.0,1.9000000000000001,2.0
+feature,upper,0,all_bins,upper,,,2026101302,4,30623,,,0.0,0.0,0.1
+feature,upper,0,all_bins,upper,,,2026101319,4,2101,,,1.0,0.1,0.2
+feature,upper,0,all_bins,upper,,,2026101336,4,1210,,,2.0,0.2,0.30000000000000004
+feature,upper,0,all_bins,upper,,,2026101353,4,805,,,3.0,0.30000000000000004,0.4
+feature,upper,0,all_bins,upper,,,2026101370,4,579,,,4.0,0.4,0.5
+feature,upper,0,all_bins,upper,,,2026101387,4,478,,,5.0,0.5,0.6000000000000001
+feature,upper,0,all_bins,upper,,,2026101404,4,419,,,6.0,0.6000000000000001,0.7000000000000001
+feature,upper,0,all_bins,upper,,,2026101421,4,439,,,7.0,0.7000000000000001,0.8
+feature,upper,0,all_bins,upper,,,2026101438,4,377,,,8.0,0.8,0.9
+feature,upper,0,all_bins,upper,,,2026101455,4,289,,,9.0,0.9,1.0
+feature,upper,0,all_bins,upper,,,2026101472,4,286,,,10.0,1.0,1.1
+feature,upper,0,all_bins,upper,,,2026101489,4,282,,,11.0,1.1,1.2000000000000002
+feature,upper,0,all_bins,upper,,,2026101506,4,305,,,12.0,1.2000000000000002,1.3
+feature,upper,0,all_bins,upper,,,2026101523,4,264,,,13.0,1.3,1.4000000000000001
+feature,upper,0,all_bins,upper,,,2026101540,4,256,,,14.0,1.4000000000000001,1.5
+feature,upper,0,all_bins,upper,,,2026101557,4,238,,,15.0,1.5,1.6
+feature,upper,0,all_bins,upper,,,2026101574,4,247,,,16.0,1.6,1.7000000000000002
+feature,upper,0,all_bins,upper,,,2026101591,4,228,,,17.0,1.7000000000000002,1.8
+feature,upper,0,all_bins,upper,,,2026101608,4,248,,,18.0,1.8,1.9000000000000001
+feature,upper,0,all_bins,upper,,,2026101625,4,326,,,19.0,1.9000000000000001,2.0
+pixel,lower,0,ranked,real,Smallest RDR,0.0,2026102301,40,39829,6.0291258791145265e-37,2.0,,,
+pixel,lower,0,ranked,real,Closest to 1,1.0,2026102302,40,39829,1.5456594337770468e-12,2.0,,,
+pixel,lower,0,ranked,real,Largest RDR,2.0,2026102303,40,39829,2.0,2.0,,,
+pixel,lower,0,ranked,lower,Smallest RDR,0.0,2026102318,40,40000,0.0,0.0,,,
+pixel,lower,0,ranked,lower,Closest to 1,1.0,2026102319,40,40000,0.0,1.9999949932098389,,,
+pixel,lower,0,ranked,lower,Largest RDR,2.0,2026102320,40,40000,0.0,2.0,,,
+pixel,lower,0,all_bins,real,,,2026102301,4,12,,,0.0,0.0,0.1
+pixel,lower,0,all_bins,real,,,2026102318,0,0,,,1.0,0.1,0.2
+pixel,lower,0,all_bins,real,,,2026102335,0,0,,,2.0,0.2,0.30000000000000004
+pixel,lower,0,all_bins,real,,,2026102352,0,0,,,3.0,0.30000000000000004,0.4
+pixel,lower,0,all_bins,real,,,2026102369,0,0,,,4.0,0.4,0.5
+pixel,lower,0,all_bins,real,,,2026102386,0,0,,,5.0,0.5,0.6000000000000001
+pixel,lower,0,all_bins,real,,,2026102403,1,1,,,6.0,0.6000000000000001,0.7000000000000001
+pixel,lower,0,all_bins,real,,,2026102420,0,0,,,7.0,0.7000000000000001,0.8
+pixel,lower,0,all_bins,real,,,2026102437,0,0,,,8.0,0.8,0.9
+pixel,lower,0,all_bins,real,,,2026102454,0,0,,,9.0,0.9,1.0
+pixel,lower,0,all_bins,real,,,2026102471,0,0,,,10.0,1.0,1.1
+pixel,lower,0,all_bins,real,,,2026102488,0,0,,,11.0,1.1,1.2000000000000002
+pixel,lower,0,all_bins,real,,,2026102505,0,0,,,12.0,1.2000000000000002,1.3
+pixel,lower,0,all_bins,real,,,2026102522,0,0,,,13.0,1.3,1.4000000000000001
+pixel,lower,0,all_bins,real,,,2026102539,0,0,,,14.0,1.4000000000000001,1.5
+pixel,lower,0,all_bins,real,,,2026102556,0,0,,,15.0,1.5,1.6
+pixel,lower,0,all_bins,real,,,2026102573,0,0,,,16.0,1.6,1.7000000000000002
+pixel,lower,0,all_bins,real,,,2026102590,0,0,,,17.0,1.7000000000000002,1.8
+pixel,lower,0,all_bins,real,,,2026102607,3,3,,,18.0,1.8,1.9000000000000001
+pixel,lower,0,all_bins,real,,,2026102624,4,39813,,,19.0,1.9000000000000001,2.0
+pixel,lower,0,all_bins,lower,,,2026102302,4,39997,,,0.0,0.0,0.1
+pixel,lower,0,all_bins,lower,,,2026102319,0,0,,,1.0,0.1,0.2
+pixel,lower,0,all_bins,lower,,,2026102336,0,0,,,2.0,0.2,0.30000000000000004
+pixel,lower,0,all_bins,lower,,,2026102353,0,0,,,3.0,0.30000000000000004,0.4
+pixel,lower,0,all_bins,lower,,,2026102370,0,0,,,4.0,0.4,0.5
+pixel,lower,0,all_bins,lower,,,2026102387,0,0,,,5.0,0.5,0.6000000000000001
+pixel,lower,0,all_bins,lower,,,2026102404,0,0,,,6.0,0.6000000000000001,0.7000000000000001
+pixel,lower,0,all_bins,lower,,,2026102421,0,0,,,7.0,0.7000000000000001,0.8
+pixel,lower,0,all_bins,lower,,,2026102438,0,0,,,8.0,0.8,0.9
+pixel,lower,0,all_bins,lower,,,2026102455,0,0,,,9.0,0.9,1.0
+pixel,lower,0,all_bins,lower,,,2026102472,0,0,,,10.0,1.0,1.1
+pixel,lower,0,all_bins,lower,,,2026102489,0,0,,,11.0,1.1,1.2000000000000002
+pixel,lower,0,all_bins,lower,,,2026102506,0,0,,,12.0,1.2000000000000002,1.3
+pixel,lower,0,all_bins,lower,,,2026102523,0,0,,,13.0,1.3,1.4000000000000001
+pixel,lower,0,all_bins,lower,,,2026102540,0,0,,,14.0,1.4000000000000001,1.5
+pixel,lower,0,all_bins,lower,,,2026102557,0,0,,,15.0,1.5,1.6
+pixel,lower,0,all_bins,lower,,,2026102574,0,0,,,16.0,1.6,1.7000000000000002
+pixel,lower,0,all_bins,lower,,,2026102591,0,0,,,17.0,1.7000000000000002,1.8
+pixel,lower,0,all_bins,lower,,,2026102608,0,0,,,18.0,1.8,1.9000000000000001
+pixel,lower,0,all_bins,lower,,,2026102625,3,3,,,19.0,1.9000000000000001,2.0
+pixel,upper,0,ranked,real,Smallest RDR,0.0,2026103301,40,39829,0.0,6.700232813017237e-09,,,
+pixel,upper,0,ranked,real,Closest to 1,1.0,2026103302,40,39829,0.001224761363118887,1.9989465475082397,,,
+pixel,upper,0,ranked,real,Largest RDR,2.0,2026103303,40,39829,2.0,2.0,,,
+pixel,upper,0,ranked,upper,Smallest RDR,0.0,2026103318,40,40000,0.0,0.0,,,
+pixel,upper,0,ranked,upper,Closest to 1,1.0,2026103319,40,40000,0.0020617367699742317,1.9980478286743164,,,
+pixel,upper,0,ranked,upper,Largest RDR,2.0,2026103320,40,40000,2.0,2.0,,,
+pixel,upper,0,all_bins,real,,,2026103301,4,63,,,0.0,0.0,0.1
+pixel,upper,0,all_bins,real,,,2026103318,2,2,,,1.0,0.1,0.2
+pixel,upper,0,all_bins,real,,,2026103335,2,2,,,2.0,0.2,0.30000000000000004
+pixel,upper,0,all_bins,real,,,2026103352,2,2,,,3.0,0.30000000000000004,0.4
+pixel,upper,0,all_bins,real,,,2026103369,1,1,,,4.0,0.4,0.5
+pixel,upper,0,all_bins,real,,,2026103386,1,1,,,5.0,0.5,0.6000000000000001
+pixel,upper,0,all_bins,real,,,2026103403,2,2,,,6.0,0.6000000000000001,0.7000000000000001
+pixel,upper,0,all_bins,real,,,2026103420,1,1,,,7.0,0.7000000000000001,0.8
+pixel,upper,0,all_bins,real,,,2026103437,1,1,,,8.0,0.8,0.9
+pixel,upper,0,all_bins,real,,,2026103454,0,0,,,9.0,0.9,1.0
+pixel,upper,0,all_bins,real,,,2026103471,0,0,,,10.0,1.0,1.1
+pixel,upper,0,all_bins,real,,,2026103488,1,1,,,11.0,1.1,1.2000000000000002
+pixel,upper,0,all_bins,real,,,2026103505,1,1,,,12.0,1.2000000000000002,1.3
+pixel,upper,0,all_bins,real,,,2026103522,0,0,,,13.0,1.3,1.4000000000000001
+pixel,upper,0,all_bins,real,,,2026103539,0,0,,,14.0,1.4000000000000001,1.5
+pixel,upper,0,all_bins,real,,,2026103556,0,0,,,15.0,1.5,1.6
+pixel,upper,0,all_bins,real,,,2026103573,2,2,,,16.0,1.6,1.7000000000000002
+pixel,upper,0,all_bins,real,,,2026103590,4,4,,,17.0,1.7000000000000002,1.8
+pixel,upper,0,all_bins,real,,,2026103607,0,0,,,18.0,1.8,1.9000000000000001
+pixel,upper,0,all_bins,real,,,2026103624,4,39746,,,19.0,1.9000000000000001,2.0
+pixel,upper,0,all_bins,upper,,,2026103302,4,39896,,,0.0,0.0,0.1
+pixel,upper,0,all_bins,upper,,,2026103319,2,2,,,1.0,0.1,0.2
+pixel,upper,0,all_bins,upper,,,2026103336,3,3,,,2.0,0.2,0.30000000000000004
+pixel,upper,0,all_bins,upper,,,2026103353,0,0,,,3.0,0.30000000000000004,0.4
+pixel,upper,0,all_bins,upper,,,2026103370,0,0,,,4.0,0.4,0.5
+pixel,upper,0,all_bins,upper,,,2026103387,1,1,,,5.0,0.5,0.6000000000000001
+pixel,upper,0,all_bins,upper,,,2026103404,0,0,,,6.0,0.6000000000000001,0.7000000000000001
+pixel,upper,0,all_bins,upper,,,2026103421,2,2,,,7.0,0.7000000000000001,0.8
+pixel,upper,0,all_bins,upper,,,2026103438,0,0,,,8.0,0.8,0.9
+pixel,upper,0,all_bins,upper,,,2026103455,0,0,,,9.0,0.9,1.0
+pixel,upper,0,all_bins,upper,,,2026103472,0,0,,,10.0,1.0,1.1
+pixel,upper,0,all_bins,upper,,,2026103489,1,1,,,11.0,1.1,1.2000000000000002
+pixel,upper,0,all_bins,upper,,,2026103506,1,1,,,12.0,1.2000000000000002,1.3
+pixel,upper,0,all_bins,upper,,,2026103523,0,0,,,13.0,1.3,1.4000000000000001
+pixel,upper,0,all_bins,upper,,,2026103540,2,2,,,14.0,1.4000000000000001,1.5
+pixel,upper,0,all_bins,upper,,,2026103557,0,0,,,15.0,1.5,1.6
+pixel,upper,0,all_bins,upper,,,2026103574,1,1,,,16.0,1.6,1.7000000000000002
+pixel,upper,0,all_bins,upper,,,2026103591,1,1,,,17.0,1.7000000000000002,1.8
+pixel,upper,0,all_bins,upper,,,2026103608,1,1,,,18.0,1.8,1.9000000000000001
+pixel,upper,0,all_bins,upper,,,2026103625,4,89,,,19.0,1.9000000000000001,2.0

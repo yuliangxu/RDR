@@ -1,0 +1,4 @@
+{
+  "type": "FloatingPointError",
+  "message": "Nonfinite objective at epoch 7"
+}

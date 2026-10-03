@@ -1,0 +1,21 @@
+{
+  "complete": true,
+  "task": {
+    "branch": "lower",
+    "response": "rdr",
+    "repeat": 4
+  },
+  "protocol_sha256": "bbb33f7f6a72e05fa1e9be7c58064e16edfe923b105979e44e13fdf87cda119c",
+  "ebm_fits": 49,
+  "ols_fits": 1,
+  "ablations": 47,
+  "files": {
+    "assessment_predictions.npz": "7ec00a96da241e1871174527158c84d13b23a868ba4af85d33cc2f375e9bb906",
+    "importance.csv": "0ffa05d2cd7a84c1e088bb844ab2d87385d3c9bd6eca8082bc7ba73317fdf4f2",
+    "metrics.csv": "8b43937df3cae48ff64244903315daa0f224f9f8a7c60c6730bac2e184aca45e",
+    "additive_ebm.joblib": "981dbd089f7e52d6802f40dfcb517c02746b8e7648d2827f173cc85a626ebebe",
+    "task.json": "949ff299c78e2ae17520287405ce6539b4098b709e59d5601e79a0ce048dea3f",
+    "interaction_ebm.joblib": "f9a952f85b69c24b20c7cdc76cadb4af61561c8d0871412fcdd0071f3617eeca",
+    "terms.csv": "7927610f76c59650cd17d003d3cf87165ec8584b73757589896c7cdec44297f6"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "protocol_sha256": "6df2774fbb8a7ad527deb141b10504faf52c22d218f4d2f3873dee5c41381c6e",
+  "evaluations": 20,
+  "evaluation_data_sha256": "b258a5e4dfd7c1b4a005f56c43a1f5441f7e1d9b2820657c53fd16866c41c2b6",
+  "files": {
+    "RESULTS.md": "d17ece746e9601c98a96661ebfc2fc664c4816e44101c5e77cf67266d017faca",
+    "per_fit.csv": "26f8e17be0b53f1e30bdb9bd23d8a5fd107e903bce10f71f74e8a3d9f608e361",
+    "per_comparison.csv": "e7b180f9dc50fe613dfe74c77020fd8de13efe65bfe67e82b490e87ea9d0c541",
+    "report_status.json": "2e95194f0c9db72acbeffe6ff8c1855857ac2091ad0d5d436b490699c031b16d"
+  }
+}

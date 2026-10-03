@@ -7,8 +7,11 @@ independent sample means, mixed versus separate forwards, and constant terms
 are deliberately preserved; similarly named objectives need not be equivalent.
 """
 
+import math
+
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
 
 __all__ = [
     'Hellinger_loss',
@@ -233,3 +236,33 @@ def midpoint_rdr_loss(model, p, q, loss="hellinger"):
 
 
 __all__ += ["midpoint_rdr_loss"]
+
+
+def midpoint_loss_from_logits(p_logits, q_logits, loss="hellinger"):
+    """Expanded midpoint objectives for ``r=2*sigmoid(t)`` without clipping.
+
+    Inputs are the already slope-scaled logits t, not log ratios. Separate
+    source means retain equal P/Q mixture weights with unequal sample counts.
+    Constants and objectives match ``midpoint_rdr_loss``; log-sigmoid keeps
+    KL and JS gradients informative when the direct sigmoid saturates.
+    Hellinger's inverse-square-root term can still overflow for very negative
+    logits because the mathematical objective itself grows exponentially.
+    """
+    if p_logits.numel() == 0 or q_logits.numel() == 0:
+        raise ValueError("Each source must contain at least one logit")
+    log2 = math.log(2)
+    lp = log2 + F.logsigmoid(p_logits)
+    lq = log2 + F.logsigmoid(q_logits)
+    if loss == "hellinger":
+        return (.5 * (-.5 * lp).exp().mean() + .25 * (.5 * lp).exp().mean()
+                + .25 * (.5 * lq).exp().mean() - 1)
+    if loss == "kl":
+        return .5 * lp.exp().mean() + .5 * lq.exp().mean() - lp.mean() - 1
+    if loss == "chisq":
+        return .5 * (2 * lp).exp().mean() + .5 * (2 * lq).exp().mean() - 2 * lp.exp().mean() - 1
+    if loss == "js":
+        return -.5 * lp.mean() - .5 * (log2 + F.logsigmoid(-q_logits)).mean()
+    raise ValueError(f"Unknown RDR objective: {loss}")
+
+
+__all__ += ["midpoint_loss_from_logits"]

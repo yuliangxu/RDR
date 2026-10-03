@@ -70,7 +70,7 @@ densities and omits empty-cell estimate placeholders.
 | Destination | Contents moved out of shared utilities |
 | --- | --- |
 | [MNIST workflows](../experiments/MNIST/README.md), [generator adapters](../experiments/MNIST/generators.py), [controls](../experiments/MNIST/controls.py) | Public digit inputs, pretrained generators, controlled digit sampling, null validation and reproducible figures. |
-| [CelebA helpers](../experiments/CelebA/helpers.py), [samplers](../experiments/CelebA/sampling.py), [DDIM](../experiments/CelebA/ddim.py), [streaming script](../experiments/CelebA/ddim_streaming.py) | Image/attribute diagnostics and generator-specific code. The streaming file is an executable legacy experiment script, not an importable shared utility. |
+| [CelebA workflows](../experiments/CelebA/README.md) | Expanded generator pools, selection, merged-test diagnostics, null controls and attribute analysis. |
 | [AGP helpers](../experiments/AGP/helpers.py), [microbiome plots](../experiments/AGP/microbiome.py) | Composition transforms, phylogenetic handling, and microbiome-specific diagnostics. |
 | [Simulation populations](../experiments/simulations/population.py), [toy notebook](../experiments/simulations/toy_illustrations.ipynb) | Gaussian-mixture populations, analytic truth, noisy lifting, and Gaussian/Beta illustrations. |
 
@@ -89,8 +89,7 @@ From the repository root:
 ```bash
 OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 MKL_NUM_THREADS=2 MPLBACKEND=Agg \
   python3 -B -m pytest -q -p no:cacheprovider tests \
-  experiments/AGP/test_*.py \
-  experiments/JRSSB/tests/CELEBA_test.py
+  experiments/AGP/test_*.py
 ```
 
 New source snapshots include the extracted dependency closure. Historical source

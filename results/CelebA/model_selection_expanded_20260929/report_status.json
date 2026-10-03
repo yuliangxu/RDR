@@ -1,0 +1,10 @@
+{
+  "complete": false,
+  "baseline_fits": 319,
+  "expected_baseline_fits": 320,
+  "scope": "loss_and_activation_selection_only",
+  "test_assets_loaded": false,
+  "architecture_selection": false,
+  "final_assessment": false,
+  "failed_fits": 1
+}

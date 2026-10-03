@@ -1,0 +1,174 @@
+{
+  "approved_at_utc": "2026-08-26T03:53:43.342655+00:00",
+  "approved_by": "yx306",
+  "branches": {
+    "lower": {
+      "design_fid_covariance_term": 16.22616865691269,
+      "design_fid_mean_term": 12.280939166730732,
+      "design_fid_to_real": 28.507107823643423,
+      "full_roles": {
+        "design": {
+          "main_rdr_size": 9000,
+          "pool_size": 10000,
+          "seed_start": 1120000
+        },
+        "test": {
+          "main_rdr_size": 9000,
+          "pool_size": 10000,
+          "seed_start": 1150000
+        },
+        "train": {
+          "main_rdr_size": 60000,
+          "pool_size": 120000,
+          "seed_start": 1000000
+        },
+        "validation": {
+          "main_rdr_size": 20000,
+          "pool_size": 20000,
+          "seed_start": 1130000
+        }
+      },
+      "generator_rule": "fixed_truncation",
+      "source": "stylegan2_lower",
+      "stage2_feature_cache_path": "/cwork/yx306/RDR/JRSSB/ddim_diffusion_stylegan2_equal_fid/features/pytorch_fid_0.3.0/stage2_design/psi_0p650_2048.pt",
+      "stage2_feature_cache_sha256": "83d8c16696fc06a0b2ab4db13de4cc84430d1bded2e1346184bf05d6ba385858",
+      "stage2_fid_rows_fingerprint": "6ec73f50066ffb1c2d305515018ab15e4ae509964b90d998273fa7d70a20a72f",
+      "stage2_fid_rows_path": "/cwork/yx306/RDR/JRSSB/ddim_diffusion_stylegan2_equal_fid/manifests/stage2_fid_rows/psi_0p650.csv",
+      "stage2_manifest_fingerprint": "28734afec92b39561276b797a8a95a615fdfa001d68ccd41c06eef2af6be57b9",
+      "stage2_manifest_path": "/cwork/yx306/RDR/JRSSB/ddim_diffusion_stylegan2_equal_fid/manifests/stage2_design/psi_0p650.csv",
+      "truncation_psi": 0.65
+    },
+    "upper": {
+      "design_fid_covariance_term": 15.955499279504332,
+      "design_fid_mean_term": 12.381744621050776,
+      "design_fid_to_real": 28.33724390055511,
+      "full_roles": {
+        "design": {
+          "main_rdr_size": 9000,
+          "pool_size": 10000,
+          "seed_start": 4120000
+        },
+        "test": {
+          "main_rdr_size": 9000,
+          "pool_size": 10000,
+          "seed_start": 4150000
+        },
+        "train": {
+          "main_rdr_size": 60000,
+          "pool_size": 120000,
+          "seed_start": 4000000
+        },
+        "validation": {
+          "main_rdr_size": 20000,
+          "pool_size": 20000,
+          "seed_start": 4130000
+        }
+      },
+      "generator_rule": "fixed_truncation",
+      "source": "stylegan2_upper",
+      "stage2_feature_cache_path": "/cwork/yx306/RDR/JRSSB/ddim_diffusion_stylegan2_equal_fid/features/pytorch_fid_0.3.0/stage2_design/psi_1p569_2048.pt",
+      "stage2_feature_cache_sha256": "433e05c70ad7946d72c28d81afa279372c9fac8d2f2b3679da6069f309bac7d6",
+      "stage2_fid_rows_fingerprint": "6841b0e04ca8fb51fd3444f262163c323ae4ee8d9a2c20691272db29bacc89f9",
+      "stage2_fid_rows_path": "/cwork/yx306/RDR/JRSSB/ddim_diffusion_stylegan2_equal_fid/manifests/stage2_fid_rows/psi_1p569.csv",
+      "stage2_manifest_fingerprint": "9febabd8e0c617b53bbe05be2ecdc9db6fb362894275ec52bed2ff058f8bd012",
+      "stage2_manifest_path": "/cwork/yx306/RDR/JRSSB/ddim_diffusion_stylegan2_equal_fid/manifests/stage2_design/psi_1p569.csv",
+      "truncation_psi": 1.569
+    }
+  },
+  "candidate_lock_path": "/cwork/yx306/RDR/JRSSB/ddim_diffusion_stylegan2_equal_fid/locks/candidate_generator_lock.json",
+  "candidate_lock_sha256": "6a3ca33285e5504973fc0a6d1532856e6fc0e653825e637b26b07e957dcd9ff5",
+  "config_fingerprint": "1900c4b9f236861ff328255f0335660306ef003c70561471a1c50195fc5fb638",
+  "config_path": "/hpc/home/yx306/RDR/experiments/JRSSB/configs/agent3.yaml",
+  "design_equivalence_margin": 1.0,
+  "design_pairwise_lower_upper_fid": 86.25288918134459,
+  "design_pairwise_lower_upper_fid_covariance_term": 45.23409423569606,
+  "design_pairwise_lower_upper_fid_mean_term": 41.01879494564852,
+  "design_sample_size_per_source": 9000,
+  "design_scalar_fid_delta_lower_minus_upper": 0.16986392308831455,
+  "design_scalar_fid_equivalent": true,
+  "fid_backend": "pytorch_fid_0.3.0",
+  "fid_dimensions": 2048,
+  "force_reference_ops": true,
+  "full_generation": {
+    "sources": {
+      "lower": {
+        "roles": {
+          "design": {
+            "main_rdr_size": 9000,
+            "pool_size": 10000,
+            "seed_start": 1120000
+          },
+          "test": {
+            "main_rdr_size": 9000,
+            "pool_size": 10000,
+            "seed_start": 1150000
+          },
+          "train": {
+            "main_rdr_size": 60000,
+            "pool_size": 120000,
+            "seed_start": 1000000
+          },
+          "validation": {
+            "main_rdr_size": 20000,
+            "pool_size": 20000,
+            "seed_start": 1130000
+          }
+        },
+        "source": "stylegan2_lower",
+        "truncation_psi": 0.65
+      },
+      "upper": {
+        "roles": {
+          "design": {
+            "main_rdr_size": 9000,
+            "pool_size": 10000,
+            "seed_start": 4120000
+          },
+          "test": {
+            "main_rdr_size": 9000,
+            "pool_size": 10000,
+            "seed_start": 4150000
+          },
+          "train": {
+            "main_rdr_size": 60000,
+            "pool_size": 120000,
+            "seed_start": 4000000
+          },
+          "validation": {
+            "main_rdr_size": 20000,
+            "pool_size": 20000,
+            "seed_start": 4130000
+          }
+        },
+        "source": "stylegan2_upper",
+        "truncation_psi": 1.569
+      }
+    },
+    "total_size_all_sources": 320000,
+    "total_size_per_source": 160000
+  },
+  "full_generation_uses_disjoint_source_seed_namespaces": true,
+  "generator_assets": {
+    "checkpoint_path": "/cwork/yx306/RDR/JRSSB/external/checkpoints/diffusion-stylegan2-celeba64.pkl",
+    "checkpoint_sha256": "921e72e290870affb879bc90fe5334e8cb6d5f90ff486e4d6b540036a5606745",
+    "checkpoint_url": "https://huggingface.co/zhendongw/diffusion-gan/resolve/main/checkpoints/diffusion-stylegan2-celeba64.pkl",
+    "code_root": "/cwork/yx306/RDR/JRSSB/external/Diffusion-GAN/diffusion-stylegan2",
+    "name": "diffusion_stylegan2_celeba64",
+    "repository_commit": "2ca5e7aa21f07a3ff0e78966e5796c580126c14f",
+    "repository_path": "/cwork/yx306/RDR/JRSSB/external/Diffusion-GAN",
+    "repository_url": "https://github.com/Zhendong-Wang/Diffusion-GAN.git"
+  },
+  "heldout_validation_fid_equivalence_status": "pending",
+  "legacy_single_branch_lock_path": "/cwork/yx306/RDR/JRSSB/ddim_diffusion_stylegan2_equal_fid/locks/generator_lock.json",
+  "legacy_single_branch_lock_sha256": "813b8995a8cf2e34038e644d755f9557def3776901deedc9da0b19caa1408275",
+  "noise_mode": "const",
+  "p_source": "stylegan2_lower",
+  "primary_contrast": "stylegan2_lower_vs_stylegan2_upper",
+  "q_source": "stylegan2_upper",
+  "remaining_role_generation_authorized": false,
+  "review_note": "Lower and upper Stage 2 finalists approved as the primary equal-scalar-FID pair; DDIM retained as a positive control.",
+  "schema_version": 2,
+  "stage2_common_latent_seeds_visual_diagnostic_only": true,
+  "status": "approved_pair",
+  "validation_generation_authorized": true
+}

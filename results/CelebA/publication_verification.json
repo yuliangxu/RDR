@@ -1,0 +1,18 @@
+{
+  "presentation": "publication_figures_20261003_v2",
+  "null_fits": 25,
+  "histogram_bins_per_fit": 400,
+  "verified_bin_records": 10000,
+  "fold_density_integrals": 1,
+  "weighted_quantile_cdf_checks": "passed",
+  "null_rmse_matches_merged": true,
+  "ranked_image_records_exactly_unchanged": 960,
+  "range_groups": 24,
+  "training_performed": false,
+  "metrics_changed": false,
+  "visual_inspection": [
+    "combined overview header spacing",
+    "family font sizes",
+    "three-digit image labels"
+  ]
+}

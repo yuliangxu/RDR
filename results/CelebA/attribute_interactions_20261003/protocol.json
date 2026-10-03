@@ -1,0 +1,682 @@
+{
+  "parent": "/cwork/yx306/RDR/CelebA/attribute_regression_expanded_20261003_v2",
+  "parent_completion_sha256": "4503d9f77f72e2fd262146d3a69afd587a41e7eb12032acf16e1fd61d74c4486",
+  "input_hashes": {
+    "design.csv": "a8ea48ef4bb863a5c5743cc6bb769d682afe7dcf7acd49f7676bb47de398c927",
+    "responses/lower_00.npz": "2847306e7b67cd50392155af2d3e0cf688c3ed31ba0bf394622bbd010bcb54af",
+    "responses/lower_01.npz": "f6b18af3df2710d4f79061238780d479c021d46a5d6655e4ceed09df25f6e161",
+    "responses/lower_02.npz": "177ed7722f8ed8423e3d39ac479bc631e795d3dca3e62434e80d395afef3641f",
+    "responses/lower_03.npz": "dde68c8d95f049bc180ffa74daa1eff4764da796cdbc0d0eb12a0f9f43f70cf0",
+    "responses/lower_04.npz": "239493c577c97377fd6e162ee61e37fad3219362baaf58cf61555022efc5087e",
+    "responses/upper_00.npz": "f8b2816c9e292eb6cf9f85639239cd56044cbabe95c5ec5c1cdb2cb758acc9ca",
+    "responses/upper_01.npz": "460b9be783bb7fd8bbfe116f2d18068c32fa369d6794a60e85f855a3b5a34279",
+    "responses/upper_02.npz": "6c9e5b5b49c5482947165653ee53b6fba871c240bc672c109aa023337af0eb94",
+    "responses/upper_03.npz": "bf84be62f78313ff75a8e7acdbcb466494a624dae04df81afbc008da7027d203",
+    "responses/upper_04.npz": "19bfd0c9743dc86bd97da9edc9ce7ba563bb885c132c3fb14f80987657f4d8df"
+  },
+  "split_sha256": "ba1cbc5398904644f05c282f1daa2f5a4bafce88a588a77a0d1a936e05c06496",
+  "source_files": {
+    "experiments/CelebA/attribute_interactions.py": "d25fe0a2ab3324149afe8eacd6511699a5b2616c8953df0f82fca41c17aa505f",
+    "experiments/CelebA/attribute_interactions.slurm": "c08919733747fbeb1f52dd68add68bd1089912a0a36d4231d576537632f3ab26"
+  },
+  "seed": 2026100401,
+  "counts": {
+    "train": {
+      "images": 23805,
+      "identities": 1191
+    },
+    "val": {
+      "images": 7902,
+      "identities": 397
+    },
+    "test": {
+      "images": 8122,
+      "identities": 397
+    }
+  },
+  "attributes": [
+    "5_o_Clock_Shadow",
+    "Arched_Eyebrows",
+    "Attractive",
+    "Bags_Under_Eyes",
+    "Bald",
+    "Bangs",
+    "Big_Lips",
+    "Big_Nose",
+    "Black_Hair",
+    "Blond_Hair",
+    "Blurry",
+    "Brown_Hair",
+    "Bushy_Eyebrows",
+    "Chubby",
+    "Double_Chin",
+    "Eyeglasses",
+    "Goatee",
+    "Gray_Hair",
+    "Heavy_Makeup",
+    "High_Cheekbones",
+    "Male",
+    "Mouth_Slightly_Open",
+    "Mustache",
+    "Narrow_Eyes",
+    "No_Beard",
+    "Oval_Face",
+    "Pale_Skin",
+    "Pointy_Nose",
+    "Receding_Hairline",
+    "Rosy_Cheeks",
+    "Sideburns",
+    "Smiling",
+    "Straight_Hair",
+    "Wavy_Hair",
+    "Wearing_Earrings",
+    "Wearing_Hat",
+    "Wearing_Lipstick",
+    "Wearing_Necklace",
+    "Wearing_Necktie",
+    "Young"
+  ],
+  "ablations": [
+    {
+      "kind": "attribute",
+      "name": "5_o_Clock_Shadow",
+      "members": [
+        "5_o_Clock_Shadow"
+      ]
+    },
+    {
+      "kind": "attribute",
+      "name": "Arched_Eyebrows",
+      "members": [
+        "Arched_Eyebrows"
+      ]
+    },
+    {
+      "kind": "attribute",
+      "name": "Attractive",
+      "members": [
+        "Attractive"
+      ]
+    },
+    {
+      "kind": "attribute",
+      "name": "Bags_Under_Eyes",
+      "members": [
+        "Bags_Under_Eyes"
+      ]
+    },
+    {
+      "kind": "attribute",
+      "name": "Bald",
+      "members": [
+        "Bald"
+      ]
+    },
+    {
+      "kind": "attribute",
+      "name": "Bangs",
+      "members": [
+        "Bangs"
+      ]
+    },
+    {
+      "kind": "attribute",
+      "name": "Big_Lips",
+      "members": [
+        "Big_Lips"
+      ]
+    },
+    {
+      "kind": "attribute",
+      "name": "Big_Nose",
+      "members": [
+        "Big_Nose"
+      ]
+    },
+    {
+      "kind": "attribute",
+      "name": "Black_Hair",
+      "members": [
+        "Black_Hair"
+      ]
+    },
+    {
+      "kind": "attribute",
+      "name": "Blond_Hair",
+      "members": [
+        "Blond_Hair"
+      ]
+    },
+    {
+      "kind": "attribute",
+      "name": "Blurry",
+      "members": [
+        "Blurry"
+      ]
+    },
+    {
+      "kind": "attribute",
+      "name": "Brown_Hair",
+      "members": [
+        "Brown_Hair"
+      ]
+    },
+    {
+      "kind": "attribute",
+      "name": "Bushy_Eyebrows",
+      "members": [
+        "Bushy_Eyebrows"
+      ]
+    },
+    {
+      "kind": "attribute",
+      "name": "Chubby",
+      "members": [
+        "Chubby"
+      ]
+    },
+    {
+      "kind": "attribute",
+      "name": "Double_Chin",
+      "members": [
+        "Double_Chin"
+      ]
+    },
+    {
+      "kind": "attribute",
+      "name": "Eyeglasses",
+      "members": [
+        "Eyeglasses"
+      ]
+    },
+    {
+      "kind": "attribute",
+      "name": "Goatee",
+      "members": [
+        "Goatee"
+      ]
+    },
+    {
+      "kind": "attribute",
+      "name": "Gray_Hair",
+      "members": [
+        "Gray_Hair"
+      ]
+    },
+    {
+      "kind": "attribute",
+      "name": "Heavy_Makeup",
+      "members": [
+        "Heavy_Makeup"
+      ]
+    },
+    {
+      "kind": "attribute",
+      "name": "High_Cheekbones",
+      "members": [
+        "High_Cheekbones"
+      ]
+    },
+    {
+      "kind": "attribute",
+      "name": "Male",
+      "members": [
+        "Male"
+      ]
+    },
+    {
+      "kind": "attribute",
+      "name": "Mouth_Slightly_Open",
+      "members": [
+        "Mouth_Slightly_Open"
+      ]
+    },
+    {
+      "kind": "attribute",
+      "name": "Mustache",
+      "members": [
+        "Mustache"
+      ]
+    },
+    {
+      "kind": "attribute",
+      "name": "Narrow_Eyes",
+      "members": [
+        "Narrow_Eyes"
+      ]
+    },
+    {
+      "kind": "attribute",
+      "name": "No_Beard",
+      "members": [
+        "No_Beard"
+      ]
+    },
+    {
+      "kind": "attribute",
+      "name": "Oval_Face",
+      "members": [
+        "Oval_Face"
+      ]
+    },
+    {
+      "kind": "attribute",
+      "name": "Pale_Skin",
+      "members": [
+        "Pale_Skin"
+      ]
+    },
+    {
+      "kind": "attribute",
+      "name": "Pointy_Nose",
+      "members": [
+        "Pointy_Nose"
+      ]
+    },
+    {
+      "kind": "attribute",
+      "name": "Receding_Hairline",
+      "members": [
+        "Receding_Hairline"
+      ]
+    },
+    {
+      "kind": "attribute",
+      "name": "Rosy_Cheeks",
+      "members": [
+        "Rosy_Cheeks"
+      ]
+    },
+    {
+      "kind": "attribute",
+      "name": "Sideburns",
+      "members": [
+        "Sideburns"
+      ]
+    },
+    {
+      "kind": "attribute",
+      "name": "Smiling",
+      "members": [
+        "Smiling"
+      ]
+    },
+    {
+      "kind": "attribute",
+      "name": "Straight_Hair",
+      "members": [
+        "Straight_Hair"
+      ]
+    },
+    {
+      "kind": "attribute",
+      "name": "Wavy_Hair",
+      "members": [
+        "Wavy_Hair"
+      ]
+    },
+    {
+      "kind": "attribute",
+      "name": "Wearing_Earrings",
+      "members": [
+        "Wearing_Earrings"
+      ]
+    },
+    {
+      "kind": "attribute",
+      "name": "Wearing_Hat",
+      "members": [
+        "Wearing_Hat"
+      ]
+    },
+    {
+      "kind": "attribute",
+      "name": "Wearing_Lipstick",
+      "members": [
+        "Wearing_Lipstick"
+      ]
+    },
+    {
+      "kind": "attribute",
+      "name": "Wearing_Necklace",
+      "members": [
+        "Wearing_Necklace"
+      ]
+    },
+    {
+      "kind": "attribute",
+      "name": "Wearing_Necktie",
+      "members": [
+        "Wearing_Necktie"
+      ]
+    },
+    {
+      "kind": "attribute",
+      "name": "Young",
+      "members": [
+        "Young"
+      ]
+    },
+    {
+      "kind": "group",
+      "name": "facial_hair",
+      "members": [
+        "5_o_Clock_Shadow",
+        "Goatee",
+        "Mustache",
+        "No_Beard",
+        "Sideburns"
+      ]
+    },
+    {
+      "kind": "group",
+      "name": "hair",
+      "members": [
+        "Bald",
+        "Bangs",
+        "Black_Hair",
+        "Blond_Hair",
+        "Brown_Hair",
+        "Gray_Hair",
+        "Receding_Hairline",
+        "Straight_Hair",
+        "Wavy_Hair"
+      ]
+    },
+    {
+      "kind": "group",
+      "name": "cosmetics",
+      "members": [
+        "Heavy_Makeup",
+        "Wearing_Lipstick",
+        "Rosy_Cheeks"
+      ]
+    },
+    {
+      "kind": "group",
+      "name": "accessories",
+      "members": [
+        "Eyeglasses",
+        "Wearing_Hat",
+        "Wearing_Earrings",
+        "Wearing_Necklace",
+        "Wearing_Necktie"
+      ]
+    },
+    {
+      "kind": "group",
+      "name": "expression",
+      "members": [
+        "Smiling",
+        "Mouth_Slightly_Open"
+      ]
+    },
+    {
+      "kind": "group",
+      "name": "facial_structure",
+      "members": [
+        "Big_Lips",
+        "Big_Nose",
+        "Pointy_Nose",
+        "Narrow_Eyes",
+        "Arched_Eyebrows",
+        "Bushy_Eyebrows",
+        "High_Cheekbones",
+        "Oval_Face",
+        "Double_Chin",
+        "Chubby"
+      ]
+    },
+    {
+      "kind": "group",
+      "name": "age_sex_annotations",
+      "members": [
+        "Male",
+        "Young"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "branch": "lower",
+      "response": "rdr",
+      "repeat": 0
+    },
+    {
+      "branch": "lower",
+      "response": "rdr",
+      "repeat": 1
+    },
+    {
+      "branch": "lower",
+      "response": "rdr",
+      "repeat": 2
+    },
+    {
+      "branch": "lower",
+      "response": "rdr",
+      "repeat": 3
+    },
+    {
+      "branch": "lower",
+      "response": "rdr",
+      "repeat": 4
+    },
+    {
+      "branch": "lower",
+      "response": "log_complement",
+      "repeat": 0
+    },
+    {
+      "branch": "lower",
+      "response": "log_complement",
+      "repeat": 1
+    },
+    {
+      "branch": "lower",
+      "response": "log_complement",
+      "repeat": 2
+    },
+    {
+      "branch": "lower",
+      "response": "log_complement",
+      "repeat": 3
+    },
+    {
+      "branch": "lower",
+      "response": "log_complement",
+      "repeat": 4
+    },
+    {
+      "branch": "upper",
+      "response": "rdr",
+      "repeat": 0
+    },
+    {
+      "branch": "upper",
+      "response": "rdr",
+      "repeat": 1
+    },
+    {
+      "branch": "upper",
+      "response": "rdr",
+      "repeat": 2
+    },
+    {
+      "branch": "upper",
+      "response": "rdr",
+      "repeat": 3
+    },
+    {
+      "branch": "upper",
+      "response": "rdr",
+      "repeat": 4
+    },
+    {
+      "branch": "upper",
+      "response": "log_complement",
+      "repeat": 0
+    },
+    {
+      "branch": "upper",
+      "response": "log_complement",
+      "repeat": 1
+    },
+    {
+      "branch": "upper",
+      "response": "log_complement",
+      "repeat": 2
+    },
+    {
+      "branch": "upper",
+      "response": "log_complement",
+      "repeat": 3
+    },
+    {
+      "branch": "upper",
+      "response": "log_complement",
+      "repeat": 4
+    }
+  ],
+  "ebm_parameters": {
+    "interactions": 10,
+    "outer_bags": 1,
+    "max_bins": 4,
+    "max_interaction_bins": 4,
+    "n_jobs": 1,
+    "random_state": 2026100401,
+    "max_rounds": 2000,
+    "early_stopping_rounds": 50,
+    "early_stopping_tolerance": 0.0001,
+    "min_samples_leaf": 30,
+    "smoothing_rounds": 0,
+    "interaction_smoothing_rounds": 0
+  },
+  "environment": "/cwork/yx306/RDR/CelebA/environments/interpret_core_0_7_8",
+  "environment_files": {
+    "interpret_core-0.7.8.dist-info/WHEEL": "69e6228a0d35958183cc1812f07c565ce837b95eb51bd8a33acba9fa4f68d6c9",
+    "interpret_core-0.7.8.dist-info/METADATA": "04e9fa57fcdd90e54c884191e9e20afd5c12ebe7d05608e04ad8a17b92f647eb",
+    "interpret_core-0.7.8.dist-info/REQUESTED": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "interpret_core-0.7.8.dist-info/top_level.txt": "e529d626a646057252b79f43f0adb232de42e98bbd7f6a82bb6e2c4c50000b90",
+    "interpret_core-0.7.8.dist-info/entry_points.txt": "a8bce8468df5ba7a6e07d86e987ce200ddad6615de493eb22ba000ef952a0a01",
+    "interpret_core-0.7.8.dist-info/INSTALLER": "ceebae7b8927a3227e5303cf5e0f1f7b34bb542ad7250ac03fbcde36ec2f1508",
+    "interpret_core-0.7.8.dist-info/RECORD": "4a1d7dc48f718817255308da29e5e5ed6e4f6f067cdbf081bde0c92b265eaf83",
+    "interpret/_version.py": "86e3e14a0372cc30bf48691b6badf76a8ed7236d2a60a5b8d3076ecef6417db1",
+    "interpret/develop.py": "392955d7603f5ac06cf4917d434e0fc883a0d89efc5532edb0f49a49464efda1",
+    "interpret/__init__.py": "3ed0f65b7cdfeea694ce63cee6f46669ed0f264d0f04138492727ba58ae4b76b",
+    "interpret/perf/__init__.py": "f4b04f2fb08bac1c39f9e2ed389782c23a5979060ad2218223d4c41cd42be79e",
+    "interpret/perf/_curve.py": "f696a5ea0bcc560b6a844a1fb96f19d4f02e101ec54496d7fd14fccf78c18b1e",
+    "interpret/perf/_regression.py": "89e270647c110ec1f37db0b4e587b9c469c7c0aa1c859f545d8652f6332b4256",
+    "interpret/root/bld/lib/libebm_linux_x64_debug.so": "c79fe7f7d58828c6e40101318903612333e1b1fdf580bec47ba964a47f30b555",
+    "interpret/root/bld/lib/libebm_win_x64_debug.pdb": "53205f261491e6b3d4ce3ae43c68c73050e6410bbd366a56526f852ef782f615",
+    "interpret/root/bld/lib/libebm_win_x64_debug.dll": "62fbaa2b20502a8dc770857a10a0b9c608e3b9ccfa8b28e68921837df5cf608c",
+    "interpret/root/bld/lib/libebm_linux_x64.so": "3ce62515e9b1479c2f79dc63a289649122001a5def3376ac3c4500506c88ab57",
+    "interpret/root/bld/lib/libebm_mac_arm_debug.dylib": "ef2cf69ea454407e7dd4d05de045dfcc7e0052d13facfe3653a37847415d3775",
+    "interpret/root/bld/lib/libebm_win_x64.pdb": "458124a56dfa09e0d2e09c32cf914db8589f1f370ea3c283552f4837dcfb6829",
+    "interpret/root/bld/lib/interpret-inline.js": "1ce19ec5f7fb3548159f06f4e64e7fee2ac7b434ac4913089e914e1d5ab0f0fa",
+    "interpret/root/bld/lib/libebm_win_x64.dll": "b030981a183901183d1d5fd3a3976c9f16b64b7f64cae7c7c40b084d7ef94aa1",
+    "interpret/root/bld/lib/libebm_linux_arm.so": "e0de83f9765eaa2f781cf5ca288c242232893bf24dc9f99b25809b8e63aa6def",
+    "interpret/root/bld/lib/libebm_linux_arm_debug.so": "b37452037b68c1a3f725070e480ce66a52a8506b79956771be224db4c6f00897",
+    "interpret/root/bld/lib/libebm_mac_x64.dylib": "44ce87056d823aabd00daf36f49d405bbad0547e3b3ebf9b4cae93f876757fe9",
+    "interpret/root/bld/lib/libebm_mac_arm.dylib": "2802c34678dd239a3351ee135b5370451d2865cfb0dcdb5713d0778827c1698f",
+    "interpret/root/bld/lib/libebm_mac_x64_debug.dylib": "6e3fea71aa1988849e6560eb9d6fa7e353d3d0c7e3301caf31ad8b310d9f793b",
+    "interpret/root/bld/lib/interpret-inline.js.LICENSE.txt": "068cfda95e1c6aa945f43be4ebe564d59fe5cfba4d0f65f8d61cd0c5be94e55d",
+    "interpret/blackbox/_sensitivity.py": "78842e7f0fded6ad3b81340d2f3bb96f68e2e9618c5845588d43868a0ba29754",
+    "interpret/blackbox/__init__.py": "01b761402a3001de03e15ddbf3fc60d095244ce60cfe7669e65dd15dd87f174c",
+    "interpret/blackbox/_shap.py": "2cbdcf9744a297cb5b217d7ba39e4523cf63aa2408b6b9f01811605f57e8f54d",
+    "interpret/blackbox/_partialdependence.py": "5d951d2cf164bef4dfe462204231df55d4de396109dd62f4fd0b8899ed871661",
+    "interpret/blackbox/_lime.py": "a685fd7e515cd88030db662c7f68bec5f8fbde3cb36830a7fc6549a0e06668ef",
+    "interpret/blackbox/_permutationimportance.py": "dc8d6eef8595a4f8d4a226336a2c77f2293a0b93fef5aefcad2eeb32a6daf40f",
+    "interpret/ext/__init__.py": "721c0d1388a653baf11734457d42b55a0e28470c92493980325fd876ea8fca12",
+    "interpret/ext/extension.py": "4c37ee76053c4d10a46d96c548421e3b60cacd76911467775d4fdd4c9d697297",
+    "interpret/ext/extension_utils.py": "afda04712e033d958076cfa36e601668319d3e3ad8e99fca28f2993f3dda1a94",
+    "interpret/ext/examples.py": "ad1a79556e7e9370dce9ca1eaa32e25894af11d14351583979803767caf12e06",
+    "interpret/ext/perf/__init__.py": "e74e9876b74db95a4a529440f4359e91984c63f0cdfce995310de2d03f971698",
+    "interpret/ext/blackbox/__init__.py": "9aa009557ed211714f535481bf6fe8c81c0c2e8c93ac7343930c1144dcaf8061",
+    "interpret/ext/glassbox/__init__.py": "a970c2253d24f4361738ae0f97e39987f529c115e5e8e0b71f768747adc2b081",
+    "interpret/ext/provider/__init__.py": "81045bc112467836d0c35a7bbed318dc34fb0bc2b3e8f15ca5219c31e74f6fbd",
+    "interpret/ext/greybox/__init__.py": "fe49d9b231bd9d3042f57003aaf8474aae1b8ddbacc1e579b45cf8a59ce0071f",
+    "interpret/ext/data/__init__.py": "b3f370af59cff41fb024a60e403ccb84b83703cede2414a33f12fd48e89ad996",
+    "interpret/glassbox/_skoperules.py": "3560aef2115acb173d3ab08163e2baf1f6ea89775567a4eca6d484a9a0f63732",
+    "interpret/glassbox/__init__.py": "c64b2c9baaa1d1a9348015750073f84ac10ed8d1815f516296b2a97930a9d02c",
+    "interpret/glassbox/_aplr.py": "5e853fbd18c0b6290b2f9431d7d380f65b89f02fe604aaf3fad5aefbff225f76",
+    "interpret/glassbox/_decisiontree.py": "fb069ae8bc45cb30320f9279701f933093376d5e39fffb86fd0305e90a98aa33",
+    "interpret/glassbox/_linear.py": "95d9bf8ba34a7a7223f0c97735d474399615347ec8d156dd85ff6cb5eecd4237",
+    "interpret/glassbox/_ebm/_utils.py": "05122f665ce12464b064fcfc337e0204678166c3b289bc7d7f15b68938c90b25",
+    "interpret/glassbox/_ebm/__init__.py": "721c0d1388a653baf11734457d42b55a0e28470c92493980325fd876ea8fca12",
+    "interpret/glassbox/_ebm/_json.py": "9ee7ffc109f06e0203b992d29c8629942efaa3f10887751294adf3544bcf2e00",
+    "interpret/glassbox/_ebm/_tensor.py": "2482f2c03959d465b198772dfc3aefadd84bbe2af87b4e92c8b9cb53528bbf67",
+    "interpret/glassbox/_ebm/_bin.py": "740aaf5b5d3f3f8a79726d92b6137b0ab223032504caf2f148b3c9908119f6f6",
+    "interpret/glassbox/_ebm/_merge_ebms.py": "3693fcc18c67c0983fa7bb822aded9ea4b94026f2ea7ca4d2a3f16769da808a6",
+    "interpret/glassbox/_ebm/_boost.py": "9fe6ecbdf41f27bf2720fef83711d03198eb28c93945ab9177f19241946a0bf2",
+    "interpret/glassbox/_ebm/_excel.py": "86be8f3a8dd6542dd229d27804c42db1159c091f1ece5040a5f036d7492ec7e2",
+    "interpret/glassbox/_ebm/_ebm.py": "e71eccefff53b37c0b711ba669fa307265661625d55114359404a20392943f09",
+    "interpret/glassbox/_ebm/_multiclass.py": "87b86b123c1793623c543f238d24e5fa39098f1cb417159cbda8efe677ea14ed",
+    "interpret/glassbox/_ebm/_research/__init__.py": "e38dad31d63e54cf483ffb2aaf3b0b8b58cf2d47c36f8ba44d997b5c542976d6",
+    "interpret/glassbox/_ebm/_research/_group_importance.py": "0e409af749ec3f24ed5725f5d5687f68355535dcf106415820c7413ef76575b4",
+    "interpret/provider/__init__.py": "817e0afabf8348075bd24eb8b60e13079cf3d34f07ebff00ef09867e41579c6c",
+    "interpret/provider/_environment.py": "2c1394949fc6142779166881d64b88ff61a481947bd56e0a5cd3ce4a8ef58d96",
+    "interpret/provider/_visualize.py": "84d8e40d1b1ac8b959578e9d1abb0dd798d96075155072f0e7ea0c72ab7801d3",
+    "interpret/api/templates.py": "7b4f22d37df52fb0940e9d93e338e5cb3535720da01680438c2b72c84a372ef9",
+    "interpret/api/__init__.py": "721c0d1388a653baf11734457d42b55a0e28470c92493980325fd876ea8fca12",
+    "interpret/api/base.py": "20a81c9f3895a96dc9e0e9431dadadf30da904db6cd50a654409d353d1659bfb",
+    "interpret/privacy/__init__.py": "5217c40b8e42ff2be1769099e8d550366dece4fc7042982f365947185fc67575",
+    "interpret/greybox/_treeinterpreter.py": "80009999b382e7d9149505c547b5de0d0dc4c5573e340c835578bfcbf8128657",
+    "interpret/greybox/__init__.py": "cf376f1dab1c0637c96bf72beaa1566d01d422f4c899e537f2190944d9acb09c",
+    "interpret/greybox/_shaptree.py": "4715a1ea0612265b34983b535e644a2cb33c5e8ca2d61ade5a037867b7e5f930",
+    "interpret/visual/plot.py": "9b522a685a1c7b4e20643bbc11ea4b6fa82eddbb28a328b91d94812eadc1f570",
+    "interpret/visual/_interactive.py": "c47833ccc99963b06b1c4b88286fe41fdbfaa04072cfa8b105c2e4ec92001402",
+    "interpret/visual/__init__.py": "721c0d1388a653baf11734457d42b55a0e28470c92493980325fd876ea8fca12",
+    "interpret/visual/_inline.py": "daf5ceb7ded44588cdf36926ad830c734f65f6c7d58ea2fee336062f58255934",
+    "interpret/visual/_udash.py": "b9bde8754eaff185f44c786359e13af3db7ad7fb1953f51401a562f23c34ac19",
+    "interpret/visual/dashboard.py": "307155818e134fb14c39f5d740a02440aa2434bfe7577e6177f364ab3b88637d",
+    "interpret/visual/assets/favicon.ico": "2a52561a55cd1b59dd5452b1814b1a70adf78df4b0c37101ce11cb437371b8c9",
+    "interpret/visual/assets/udash.js": "67fd5eea2637f994cf56c51c91b2a707128d7009e04057941f1bdf1596d06376",
+    "interpret/visual/assets/udash.css": "ce7f0aa046bbc56baa29e8cb81a73f8e9ddf4c145b4acdadc2583871a936abbe",
+    "interpret/data/__init__.py": "feede52412f5a795adf7dc973382f2a76c50869e3b2006369830080fc1095ded",
+    "interpret/data/_response.py": "b2fa2a6728c9713320cf63b63578d0af7ada25d83c2c9f1e6564e7e74b1bb4c8",
+    "interpret/utils/_link.py": "7ccb54a8ffad25649b5252fe8c29ea3498f6cb7bd33b4ec9e213c1ef473d5701",
+    "interpret/utils/_rank_interactions.py": "43cb5a52c8f81de0c7674cc1f7b62c215caf81131fd92c1d453442c98808f2bd",
+    "interpret/utils/_unify_predict.py": "6e1b70ee2b3c5cc25defc5959192840a73ff18669f0a64eeec8a9c515eacc2cf",
+    "interpret/utils/_privacy.py": "b0c4e072baf3ef790a4c594f69f5751b9344548915753d20380cea55b966397b",
+    "interpret/utils/_histogram.py": "6c0c4252c022abd65236f5fbbc2f87da4807c8b367afdfa6ecc357a07aa16276",
+    "interpret/utils/_native.py": "41d6dd01e550683c08f3e1cae5023284f36598116d5ed36918d6b6ceb1711a5e",
+    "interpret/utils/_compressed_dataset.py": "c29836ae784308ece5a076300f3b0bd3f775d43eaaf095c6090b0139e437ea37",
+    "interpret/utils/_shap_common.py": "e31e8570d633f5d440a8006cf2c9cdbf7bd8c59480b3115abb769b7117e184a9",
+    "interpret/utils/__init__.py": "4261423d853c5345342dcfb91fc4cf65cdf9402852e519c0654fa28e8bac8be7",
+    "interpret/utils/_measure_interactions.py": "24fe1558ff7013e6ed67b78eb088232f7a44f5c673210643b83ebd51638a98fc",
+    "interpret/utils/_SPOTgreedy.py": "6420e893ea96516d290140b87ca3a5f6b7cb811ae2c9976c78e1e1417a36bc4b",
+    "interpret/utils/_measure_mem.py": "559d5eff04a546eb89086fb184964ead2a31d084d16e20809c79f1f925bc6b05",
+    "interpret/utils/_scikit.py": "6389aa3d515e5cab62f7f8b535bd2afdb4e5ac640278abdad6eaf8c1e7476ac4",
+    "interpret/utils/_unify_data.py": "48e86b13d51223a9b8b8ba15de466673ca4d1a3692f8b0bdff4a1fcb08e25460",
+    "interpret/utils/_clean_simple.py": "46c04822f0555d6308e5c96c51d6aad64c52c64c6bead732d446d19ad07c77c2",
+    "interpret/utils/_clean_x.py": "c65efff5694f6f7b2797f20ceb0d5494644b7dd77981eaa8bb35c4c5aa5bc181",
+    "interpret/utils/_purify.py": "c18dbdfeee9e30cb56c9726c1c7d7bf27daa74edfa25d746e161c3005d6ec1ed",
+    "interpret/utils/_seed.py": "9c3a3031a4169db90c4ceb092692a21efe98cb0aa748d793afc44c308b55d35b",
+    "interpret/utils/_explanation.py": "2db5def9ad15688e4ef81e6d2173fccc25ebee932515f440178d9e4639c13d72",
+    "interpret/utils/_synthetic.py": "39f28ef25aa975e01210d3e47f2a36c59597f0c0d6eea0fbf17f98fb77deea87",
+    "interpret/utils/_preprocessor.py": "c1fc2c7d9e2a3a2a36f3137837dca9971fd4bfe61569adf17526dbdd52acd72d",
+    "interpret/utils/_shared_dataset.py": "8fb8dede48ae9276c89c659c10245fc3acd8223555bf252570f3a287e55be2ee",
+    "interpret/utils/_misc.py": "408b26f021c1e4b2bca420aa3bec5ee5a22a2fa743d1a802090d372fdab2d475"
+  },
+  "versions": {
+    "python": "3.9.25 (main, Jul 13 2026, 00:00:00) \n[GCC 11.5.0 20240719 (Red Hat 11.5.0-14)]",
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "sklearn": "1.6.1",
+    "interpret": "0.7.8"
+  },
+  "scope": "Exploratory post hoc surrogate models; RDR networks frozen; no new confirmatory data",
+  "training_scope": "Fit attribute explanation models only; no RDR training",
+  "response_rule": "rdr uses archived bounded scores; log_complement uses previously recovered stable log responses",
+  "ranking_rule": "Held-out delta R2 = R2(full EBM) - R2(refitted reduced EBM); negatives retained",
+  "evaluation_rule": "One fixed identity-disjoint 60/20/20 train/early-stop/test split; common to all tasks and ablations",
+  "tuning_rule": "Fixed settings; automatic interaction selection and early stopping use development rows only; no test-based tuning",
+  "benchmark_note": "A single lower/log repeat-00 runtime benchmark used these same prechosen settings and split, then printed its assessment R2; no settings were adapted to that value",
+  "expected": {
+    "tasks": 20,
+    "ebm_fits": 980,
+    "ols_fits": 20,
+    "ablations": 940
+  }
+}

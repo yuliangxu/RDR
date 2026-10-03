@@ -1,0 +1,69 @@
+{
+  "seed": 2026092901,
+  "split_seed": 2026092902,
+  "levels": [
+    "feature",
+    "pixel"
+  ],
+  "branches": [
+    "lower",
+    "upper"
+  ],
+  "losses": [
+    "hellinger",
+    "kl",
+    "chisq",
+    "js"
+  ],
+  "output_alphas": [
+    0.5,
+    1,
+    2,
+    4
+  ],
+  "repeats": 5,
+  "bins": 20,
+  "ci_alpha": 0.05,
+  "smoke_rows": 64,
+  "sensitivity": {
+    "architecture": "small",
+    "leaders_per_pair": 2,
+    "expansion_minimum_brier_gain": 0.002,
+    "expansion_positive_repeat_fraction": 0.8,
+    "expansion_paired_se_multiplier": 1.0
+  },
+  "feature": {
+    "input_dimension": 2048,
+    "hidden_dimension": 512,
+    "small_hidden_dimension": 256,
+    "batch_size": 128,
+    "evaluation_batch_size": 4096,
+    "learning_rate": 0.0005,
+    "weight_decay": 0.01,
+    "max_epochs": 50,
+    "min_epochs": 8,
+    "patience": 5,
+    "plateau_factor": 0.5,
+    "plateau_patience": 5,
+    "plateau_cooldown": 2
+  },
+  "pixel": {
+    "ndf": 64,
+    "small_ndf": 32,
+    "batch_size": 128,
+    "evaluation_batch_size": 512,
+    "learning_rate": 0.0002,
+    "max_lr": 0.0006,
+    "weight_decay": 0.0,
+    "max_epochs": 50,
+    "min_epochs": 10,
+    "patience": 5,
+    "bn_freeze_epoch": 5,
+    "onecycle_pct_start": 0.1,
+    "onecycle_div_factor": 10.0,
+    "onecycle_final_div_factor": 1000
+  },
+  "selection_only": true,
+  "expanded_fid_root": "/cwork/yx306/RDR/CelebA/expanded_fid_20260929",
+  "numerical_gradient_mode": "scaled_hellinger_float64_norm"
+}

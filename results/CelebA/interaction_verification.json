@@ -1,0 +1,19 @@
+{
+  "scenarios": 20,
+  "ebm_fits": 980,
+  "ols_fits": 20,
+  "verified_deletion_refits": 940,
+  "held_out_images": 8122,
+  "held_out_identities": 397,
+  "checks": [
+    "All identity roles disjoint",
+    "Saved response and assessment-row alignment",
+    "Direct OLS least squares",
+    "Reloaded EBM predictions and training-only scaling",
+    "All held-out MSE and R2",
+    "All variance-normalized deletion importances and repeat aggregates",
+    "Task receipts and artifact hashes"
+  ],
+  "rdr_training_performed": false,
+  "surrogate_training_performed": true
+}

@@ -1,0 +1,53 @@
+{
+  "complete": true,
+  "tasks": 20,
+  "ebm_fits": 980,
+  "ols_fits": 20,
+  "ablations": 940,
+  "figure_pairs": 3,
+  "protocol_sha256": "bbb33f7f6a72e05fa1e9be7c58064e16edfe923b105979e44e13fdf87cda119c",
+  "files": {
+    "split.csv": "ba1cbc5398904644f05c282f1daa2f5a4bafce88a588a77a0d1a936e05c06496",
+    "response_stability.csv": "620e331fd6ad0469023bb1935432975e1d9317fe34d00fdb4e707cfa5091386f",
+    "protocol.sha256": "eac17b68d6989c52a0b1a40f8e1b394508eb5ac3c06e29bebb22b9f2e2c72a95",
+    "metrics_summary.csv": "794fa3df54d886473cd43c9882a848b8e07c5432d7c8b1b05c9926f7d651db47",
+    "attribute_importance.png": "690eac9e8f880efa7c1f41c97ae6f416f3dfb888abc99015c7b18e0b7def8eb3",
+    "predictive_accuracy.png": "54029a7d6475816f422371bba731405e0f7f905309044f9d805149c99a327824",
+    "group_importance.pdf": "3401e15d7451924b54965b67b45a3def729c2c4838dd6edac93537cffb71afde",
+    "importance_per_fit.csv": "2bd106482d6d8286a5fab6a7b5c0d4ce0f9bde786198bc6bfa0b521eaa3b7a62",
+    "protocol.json": "bbb33f7f6a72e05fa1e9be7c58064e16edfe923b105979e44e13fdf87cda119c",
+    "importance_summary.csv": "592f47ec7f79109438ac9a376a876610bc571087464c30d3a55bc8ce46cd8872",
+    "predictive_accuracy.pdf": "d3f533c71083687df5b27d876177b8af641a2c36746515e57a13d35ce4060c01",
+    "metrics_per_fit.csv": "bc16e4b4142a60f25df4a34546a44d3b2d4e05505c744e2d2867f25cd8db3d67",
+    "RESULTS.md": "af1c76128cc377b1083238bb98e3c3eb6ab5961eb6d62989da754646032a6a7b",
+    "attribute_importance.pdf": "d688cd707eb1dba132690eca2aa2a38f10eee85a08a91e343dca83a96c9c47ff",
+    "terms_per_fit.csv": "b9b2cd20079b0e4a361b1ceb8d203f6208b21d951474dacfdb871be77a838b04",
+    "group_importance.png": "913f7c6b8927a254fdde10b471691c7af137835d3f14308ddd5dd43ce7ad3c20"
+  },
+  "task_receipts": {
+    "tasks/00": "b268e8513cf36ac104a72b92d03869d4e9e0bfc22382e48c98e964baf4499dc2",
+    "tasks/01": "d53107d31a8a254b8824618bc1ca9d3fff139f14c9984bc03cb5be9a5806d3f7",
+    "tasks/02": "ac12d302fc76dac441b15bf4002bc9596c90131f6eab7bc0a67bca48ed4d3b1a",
+    "tasks/03": "62c80406c16c350169adce7182fb2a2dbbac99bcb47ce4a14a1ae936f3509dec",
+    "tasks/04": "8991b131bd9075735f0dd832729c2833aaf56906e510bd40127bd515d542436a",
+    "tasks/05": "20356e8c42ebbc6a87e16c2e8b09583c65f8ed0c65bfabcfb4579fb4fc2c2480",
+    "tasks/06": "ecc0c64cb7dd4d5940e606dc75a4c3a8133468fa3549a5f1a4075dc15600de1a",
+    "tasks/07": "9bcfefc3ac279bb652787f6c3e3e8d90653395a66da389ea1d847f4720a48bb6",
+    "tasks/08": "6d4bdc74bdced5a5e0822bd16b0eedb74cd861d40b92cb32702839b3151b35fe",
+    "tasks/09": "a245ab7be325c691421454f50b4479cdb0a7c8fdd663d177dbee447587d95ad0",
+    "tasks/10": "bd71ab70e428084ca261e3283238c8fffe66e5115eb49faa7306cad9915bf3d2",
+    "tasks/11": "dae4c6fbc48c3334482bcce5f65df999a06f4a9cea11fa4dd265b2b50ed4efa7",
+    "tasks/12": "2e8eb29b6796bd8958a8e66ba872b212ccba41d4d9851e99a85d8dbd720b7ed2",
+    "tasks/13": "3bdfea56095a7e6fe0ac320aea81a652ade23388f76c4e1cd3182d4176c694ba",
+    "tasks/14": "45f08a17b5f4ea5d9364acb9364717a4333dd58bd24378e4c55627ce3fc53ca6",
+    "tasks/15": "d48b0fe19b667fd81b50a7aaa02535a13d5dc4cd42f957ad035834d0d614faea",
+    "tasks/16": "fe9170664f4db8a3d6b31f17e43734367a807e771d687b3ce32d14aa69826c7d",
+    "tasks/17": "08ef9a27bdb2662df589c210b3d0ece3cc899168edc93deb65f56cafd9ae053a",
+    "tasks/18": "bcff004761a4d4cec6079c3be47ff463fe5fecec7d6b533a94384cf19c8cf486",
+    "tasks/19": "262657b3dcbbe24f9dfd816a0fc710d76cb02d56adea98adf0feb9229c7ceb2a"
+  },
+  "source_files": {
+    "experiments/CelebA/attribute_interactions.py": "d25fe0a2ab3324149afe8eacd6511699a5b2616c8953df0f82fca41c17aa505f",
+    "experiments/CelebA/attribute_interactions.slurm": "c08919733747fbeb1f52dd68add68bd1089912a0a36d4231d576537632f3ab26"
+  }
+}

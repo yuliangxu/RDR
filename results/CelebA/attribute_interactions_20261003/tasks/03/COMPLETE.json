@@ -1,0 +1,21 @@
+{
+  "complete": true,
+  "task": {
+    "branch": "lower",
+    "response": "rdr",
+    "repeat": 3
+  },
+  "protocol_sha256": "bbb33f7f6a72e05fa1e9be7c58064e16edfe923b105979e44e13fdf87cda119c",
+  "ebm_fits": 49,
+  "ols_fits": 1,
+  "ablations": 47,
+  "files": {
+    "assessment_predictions.npz": "d3a2a67765e72bc5c4b8f50c98fdb96b0d04bd57799a534644d63d6d348a39c6",
+    "importance.csv": "a0d2b8d798bacfe63942131fbeb718bd30441f0f86601014c0d474e59634ce2b",
+    "metrics.csv": "23a2d67d0a9d33f8dd961719a69a3bc665e1376af0817e1e7fa02d979be5141f",
+    "additive_ebm.joblib": "70a6805beacf6f92c6ebd4ed762aa85faec76528da4a8e3904f09692a5360ca6",
+    "task.json": "94d7ef3a530fa57106846e4f3436cfcf08a629c0ad932ea486cd6d1e51648b03",
+    "interaction_ebm.joblib": "ca17fdbe398e25dabe4391a0fe0faf42c5d716bf989edbdc1d82f1cd6e9b2f17",
+    "terms.csv": "3a090d762f2948db1e8b76635c2de9447ab9118e60aab8eca6ea1ad9e427ab47"
+  }
+}

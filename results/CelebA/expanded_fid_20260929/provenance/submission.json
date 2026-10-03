@@ -1,0 +1,24 @@
+{
+  "created_utc": "2026-09-29T17:35:56.670459+00:00",
+  "generation_array_job_id": 56825939,
+  "report_job_id": 56825984,
+  "report_dependency": "afterok:56825939",
+  "training_result": {
+    "path": "/cwork/yx306/RDR/CelebA/expanded_fid_20260929/fid/train.json",
+    "sha256": "e95664824418f054f1887b880115630b4511f4ff1907379e3d3f4b8a6f50b6d7"
+  },
+  "plan_sha256": "690ee6ccc55bb2871e4bfe747678cc222bc2172bc3e7819a84c1c5532f0ab462",
+  "source_files": {
+    "inputs/agent3.yaml": "b3f1d53f218e9b33dde8f59a72c9fb6666924f927e947de5e19cb4b96c8e65dd",
+    "inputs/generator_pair_lock.json": "f102cc8924a6bb526dd9125f1df05be0c0c3654c93e91aa216a7b382be3b5988",
+    "provenance/generator_assets.json": "a260c647e31b56da69da0f32cef2ce6d93d5c814b52bf9d1c3f3f71ea175d710",
+    "source/experiments/CelebA/expanded_fid.slurm": "909fd617e21bc0645a3e1f66fac2e314ebbbb41398afbc3b8d31f00a847c6fbb",
+    "source/experiments/CelebA/expanded_fid_generate.py": "ffe367b9061cf9d1ec17a4c84879765e1af04ce3081ab690b5c161063475ef69",
+    "source/experiments/CelebA/expanded_fid_report.py": "39b797ea2d5198eabb68fc080f7beb447985db8f6d549960fbf1c59aef89ce35",
+    "source/experiments/JRSSB/CELEBA_agent3.py": "129c8340185379ca76a630e5066033d8dd0d81ca6e049684b789eb27f4953b86",
+    "source/experiments/JRSSB/CELEBA_data.py": "0d457ab80506cc31d453b7594ba422ffccada8a67b8734d26e85191a22156725",
+    "source/experiments/JRSSB/CELEBA_inception.py": "6a9131d71e4ff19ee63077329de1cc9f923cfb7f3096700b6bdd17d7c422669a"
+  },
+  "scope": "80k fixed-generator samples and expanded FID only; existing model-selection jobs unchanged",
+  "workspace_generation_difference": "After snapshot, workspace generator added redundant force_reference_ops fields to plan/context. Jobs execute original frozen snapshot; numeric operations unchanged."
+}

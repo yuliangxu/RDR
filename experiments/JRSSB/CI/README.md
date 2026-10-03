@@ -18,21 +18,18 @@ Exact historical reproduction uses the corresponding frozen source tree.
 The active simulation folder retains only the agreed toy, model-selection,
 matched-loss and convergence workflows.
 
-## CelebA feature-RDR application
+## CelebA application
 
-[CELEBA_feature_ci.py](../CELEBA_feature_ci.py) reuses `calibration.py` unchanged for P versus Q_L and P versus Q_U, with fixed learned pool3 models, 20 equal-width bins, and nominal 95% C.1/C.2 intervals. The current full-test mode uses **18,000 P and 18,000 Q observations per contrast for both calibration and test**, with the same P observations in both contrasts. Training (60,000 per distribution) and validation (20,000 per distribution) remain disjoint from these test rows, including identities and generated seeds.
+The finalized [expanded CelebA study](../../../docs/CelebA.md) uses 39,829 P
+and 40,000 images per Q in one merged held-out test pool. The same observations
+supply cell counts, neural means and Brier/Gap. Selected feature/pixel models
+use JS with slopes 0.5/2. The [active workflow](../../CelebA/README.md) supplies
+all 20 main assessments, 25 learned null controls and publication figures.
 
-```bash
-python3 -B experiments/JRSSB/CELEBA_feature_ci.py --calibration-mode full-test
-```
-
-The [application report](/cwork/yx306/RDR/JRSSB/CI/celeba_feature_full_test_20260918/report.md) includes all 40 cell intervals, sample-level lookups, split audits, hashes, source snapshots, and PNG/PDF figures. C.2 is simultaneous over the 20 cells of each contrast; additional joint endpoints use half the error budget per contrast for nominal 95% simultaneous coverage across both contrasts. The shared P sample does not invalidate this union-bound allocation. Simultaneous coverage of all fixed cell targets allows intervals to be attached to the calibration observations themselves; no extra query holdout is needed. This is not an independent assessment of calibration performance. C.1 remains asymptotic and marginal for a fixed cell.
-
-These intervals target cell-average feature RDR, not individual true RDR or Hellinger divergence. True CelebA cell ratios are unknown, so this application does not measure coverage. C.2's finite-sample statement requires a fixed score map/partition independent of the calibration sample and independent image draws. Historical design use of 9,000 of the 18,000 test rows and repeated photos within identities remain recorded limitations; no correction for protocol selection or clustering is applied. The previous split-mode results (4,385 P / 4,500 Q calibration) remain preserved under `celeba_feature_20260918/`.
-
-## CelebA pixel-RDR application
-
-[CELEBA_pixel_ci.py](../CELEBA_pixel_ci.py) shares the feature-CI implementation and uses the identical full test/calibration pool and bins with `pixel_rdr` predictions and pixel checkpoint locks. The [pixel report](/cwork/yx306/RDR/JRSSB/CI/celeba_pixel_full_test_20260918/report.md) contains all 40 intervals, test mappings, and the same sampling limitations. Run `python3 -B experiments/JRSSB/CELEBA_pixel_ci.py --calibration-mode full-test`, using a fresh `--output-dir` for a rerun. Exact 0/2 scores and prescribed C.1 [0,2] fallbacks are retained. The updated plot marks unavailable C.1 cells without obscuring C.2, omits empty-cell placeholder estimates, and includes bin counts. Earlier split-mode results remain preserved under `celeba_pixel_20260918/`.
+C.1/C.2 target population cell-average RDR, not individual-image ratios.
+Repeated identities and historical inspection limit these to nominal,
+retrospective image-level diagnostics. Smaller-data CelebA launchers and reports
+are preserved in RDR-working and the external research archive.
 
 ## AGP real-versus-ICFM application
 

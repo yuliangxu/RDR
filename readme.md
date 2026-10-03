@@ -6,8 +6,11 @@ $r_0(x)=2p(x)/(p(x)+q(x))$ wherever $p(x)+q(x)>0$.
 
 The simulation studies are complete, with reproducible code, a toy notebook,
 results and computation costs. MNIST's retained results are selected and organized;
-its DCGAN loss and sigmoid-slope selection study is complete. CelebA and
-AGP are still being selected and organized for the paper release.
+its DCGAN loss and sigmoid-slope selection study is complete. CelebA's expanded
+selected-model assessment and five-family null study are complete, with
+[paper results and figures](results/CelebA/README.md) retained in the repository.
+Its selection grid records one numerical failure (319/320 fits completed).
+AGP is still being selected and organized for the paper release.
 
 ## Experiment summaries
 
@@ -112,8 +115,21 @@ All four RDRs were refitted using JS with sigmoid slope 2, selected by the
 completed 80-fit DCGAN Brier/local-calibration study. Public inputs are acquired
 with recorded hashes; compact results and audits are in `results/MNIST/`.
 Superseded MNIST scripts were retired after a verified full rollback archive.
-CelebA and AGP entrypoints partly retain their previous locations, including
-`experiments/JRSSB/`, until their experiment selection is complete.
+CelebA's main workflow is in `experiments/CelebA/`, with 20 selected-model final
+evaluations and 25 learned null fits/evaluations. Its repository package retains
+the FID/model-selection/final/null tables and 32 current PNG/PDF figure pairs, including
+compact score-ranked images with actual displayed ranges, per-bin supplements,
+null RDR histograms, feature-attribute associations and response sensitivity, and C.1/C.2 diagnostics. The final calibration/evaluation halves are now merged
+into one held-out test pool for all counts, intervals and neural summaries;
+the earlier split-based outputs remain archived. Frozen sources and checksums
+support archived-data replay; independent retraining still needs the external
+inputs and path/environment work documented in the
+[CelebA reproduction guide](results/CelebA/REPRODUCTION.md).
+Unused historical CelebA entrypoints and superseded outputs were removed after
+publishing the complete snapshot to
+[RDR-working](https://github.com/yuliangxu/RDR-working/tree/celeba-working-20261003).
+Four required CelebA support modules retain their `experiments/JRSSB/` paths.
+AGP entrypoints retain their current locations.
 
 The historical [requirements file](requirements.txt) contains conflicting pins,
 including two PyYAML versions. Simulations have their own

@@ -1,0 +1,160 @@
+{
+  "status": "complete",
+  "role": "train",
+  "results": {
+    "lower": {
+      "fid": 26.771782540457593,
+      "n_p": 122984,
+      "n_q": 120000,
+      "mean_term": 12.550756485343497,
+      "covariance_term": 14.221026055114097
+    },
+    "upper": {
+      "fid": 23.96560505244497,
+      "n_p": 122984,
+      "n_q": 120000,
+      "mean_term": 11.938784630214995,
+      "covariance_term": 12.026820422229976
+    }
+  },
+  "fid_upper_minus_lower": -2.8061774880126222,
+  "absolute_fid_difference": 2.8061774880126222,
+  "source_roles": [
+    "train"
+  ],
+  "extra_per_branch": 0,
+  "method": "pytorch_fid.fid_score.calculate_frechet_distance; raw pool3; float64 pooled mean/covariance; ddof=1",
+  "pytorch_fid_version": "0.3.0",
+  "dimension": 2048,
+  "created_utc": "2026-09-29T17:31:07.812202+00:00",
+  "provenance": {
+    "features": [
+      {
+        "path": "/cwork/yx306/RDR/JRSSB/real_ddim_fid_matched/features/pytorch_fid_0.3.0/train_real_2048.pt",
+        "sha256": "d1c52a0870a16dc3ed01b6fc4e016fe39cd5788b011380e74951a88e8598754f",
+        "bytes": 1007487000,
+        "count": 122984,
+        "dimension": 2048,
+        "metadata": {
+          "manifest_fingerprint": "2a3f6f8e0eb0aefe40202ede5afe06dd0f617a35f23215154e5e076622e31861",
+          "role": "train",
+          "source": "real",
+          "preprocessing": {
+            "package": "pytorch-fid",
+            "package_version": "0.3.0",
+            "dimensions": 2048,
+            "source_center_crop": 178,
+            "analysis_resize": 64,
+            "model_internal_resize": 299,
+            "input_pixel_range": [
+              0,
+              1
+            ],
+            "interpolation": "bilinear_antialiased",
+            "batch_size": 64,
+            "num_workers": 0,
+            "slurm_num_workers": 4
+          },
+          "seed": 20260824,
+          "backend": "pytorch_fid_0.3.0",
+          "pytorch_fid_version": "0.3.0",
+          "inception_weights_url": "https://github.com/mseitzer/pytorch-fid/releases/download/fid_weights/pt_inception-2015-12-05-6726825d.pth",
+          "inception_weights_sha256": "6726825d0af5f729cebd5821db510b11b1cfad8faad88a03f1befd49fb9129b2"
+        }
+      },
+      {
+        "path": "/cwork/yx306/RDR/JRSSB/ddim_diffusion_stylegan2_equal_fid/features/pytorch_fid_0.3.0/pair_train_lower/psi_0p650_2048.pt",
+        "sha256": "5acb928b4cb8cd951aa40f17ea40e67280d3c4079fd60321037e779a2944f41a",
+        "bytes": 983042387,
+        "count": 120000,
+        "dimension": 2048,
+        "metadata": {
+          "manifest_fingerprint": "37101a38bef12f691e01c891062c89580aee2b05faff2b4c9e9d4b61315f6439",
+          "namespace": "pair_train_lower",
+          "role": "train",
+          "source": "stylegan2_lower",
+          "truncation_psi": 0.65,
+          "noise_mode": "const",
+          "force_reference_ops": true,
+          "repository_commit": "2ca5e7aa21f07a3ff0e78966e5796c580126c14f",
+          "checkpoint_sha256": "921e72e290870affb879bc90fe5334e8cb6d5f90ff486e4d6b540036a5606745",
+          "preprocessing": {
+            "package": "pytorch-fid",
+            "package_version": "0.3.0",
+            "dimensions": 2048,
+            "source_center_crop": 178,
+            "analysis_resize": 64,
+            "model_internal_resize": 299,
+            "input_pixel_range": [
+              0,
+              1
+            ],
+            "interpolation": "bilinear_antialiased",
+            "batch_size": 64,
+            "num_workers": 0
+          },
+          "seed_start": 1000000,
+          "backend": "pytorch_fid_0.3.0",
+          "pytorch_fid_version": "0.3.0",
+          "inception_weights_url": "https://github.com/mseitzer/pytorch-fid/releases/download/fid_weights/pt_inception-2015-12-05-6726825d.pth",
+          "inception_weights_sha256": "6726825d0af5f729cebd5821db510b11b1cfad8faad88a03f1befd49fb9129b2"
+        }
+      },
+      {
+        "path": "/cwork/yx306/RDR/JRSSB/ddim_diffusion_stylegan2_equal_fid/features/pytorch_fid_0.3.0/pair_train_upper/psi_1p569_2048.pt",
+        "sha256": "c516e4972fde0dac6ccda232c22258fdb410f22d9e1eda11fd14e9a348cd4bd8",
+        "bytes": 983042387,
+        "count": 120000,
+        "dimension": 2048,
+        "metadata": {
+          "manifest_fingerprint": "8b244571e392a07c2b01b3a0400440eb2a463a8bfe65eab1bc3ddc3b05b6e09b",
+          "namespace": "pair_train_upper",
+          "role": "train",
+          "source": "stylegan2_upper",
+          "truncation_psi": 1.569,
+          "noise_mode": "const",
+          "force_reference_ops": true,
+          "repository_commit": "2ca5e7aa21f07a3ff0e78966e5796c580126c14f",
+          "checkpoint_sha256": "921e72e290870affb879bc90fe5334e8cb6d5f90ff486e4d6b540036a5606745",
+          "preprocessing": {
+            "package": "pytorch-fid",
+            "package_version": "0.3.0",
+            "dimensions": 2048,
+            "source_center_crop": 178,
+            "analysis_resize": 64,
+            "model_internal_resize": 299,
+            "input_pixel_range": [
+              0,
+              1
+            ],
+            "interpolation": "bilinear_antialiased",
+            "batch_size": 64,
+            "num_workers": 0
+          },
+          "seed_start": 4000000,
+          "backend": "pytorch_fid_0.3.0",
+          "pytorch_fid_version": "0.3.0",
+          "inception_weights_url": "https://github.com/mseitzer/pytorch-fid/releases/download/fid_weights/pt_inception-2015-12-05-6726825d.pth",
+          "inception_weights_sha256": "6726825d0af5f729cebd5821db510b11b1cfad8faad88a03f1befd49fb9129b2"
+        }
+      }
+    ],
+    "locks": [
+      {
+        "path": "/cwork/yx306/RDR/JRSSB/ddim_diffusion_stylegan2_equal_fid/locks/real_generator_rdr_selection.json",
+        "sha256": "3a8356e0b8d436a6b4283474ce61dfd1c2aff071b49248355019ce09446c967e",
+        "bytes": 11059
+      },
+      {
+        "path": "/cwork/yx306/RDR/JRSSB/ddim_diffusion_stylegan2_equal_fid/locks/generator_pair_lock.json",
+        "sha256": "f102cc8924a6bb526dd9125f1df05be0c0c3654c93e91aa216a7b382be3b5988",
+        "bytes": 7084
+      },
+      {
+        "path": "/cwork/yx306/RDR/JRSSB/ddim_diffusion_stylegan2_equal_fid/locks/generated_pair_train.json",
+        "sha256": "398fcae1709098535333a7728a368cf85d7bd77f5c2a26fa24a90b7bb2f2dd61",
+        "bytes": 2827
+      }
+    ]
+  }
+}

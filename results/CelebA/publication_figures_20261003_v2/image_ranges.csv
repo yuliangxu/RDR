@@ -1,0 +1,25 @@
+representation,branch,repeat,panel,source,group,target,sampling_seed,shown_count,available_count,score_min,score_max
+feature,lower,0,ranked,real,Smallest RDR,0,2026100301,40,39829,3.636122301031719e-06,0.0031171597074717283
+feature,lower,0,ranked,real,Closest to 1,1,2026100302,40,39829,0.9797253012657166,1.019042730331421
+feature,lower,0,ranked,real,Largest RDR,2,2026100303,40,39829,2.0,2.0
+feature,lower,0,ranked,lower,Smallest RDR,0,2026100318,40,40000,3.3045950704183773e-15,9.616549093496851e-13
+feature,lower,0,ranked,lower,Closest to 1,1,2026100319,40,40000,0.9832430481910706,1.0167515277862549
+feature,lower,0,ranked,lower,Largest RDR,2,2026100320,40,40000,1.9903316497802734,1.9999866485595703
+feature,upper,0,ranked,real,Smallest RDR,0,2026101301,40,39829,1.9318304111948237e-05,0.00269488082267344
+feature,upper,0,ranked,real,Closest to 1,1,2026101302,40,39829,0.9950547218322754,1.004756212234497
+feature,upper,0,ranked,real,Largest RDR,2,2026101303,40,39829,1.9999985694885254,2.0
+feature,upper,0,ranked,upper,Smallest RDR,0,2026101318,40,40000,1.0682302015947221e-15,1.583981383557198e-11
+feature,upper,0,ranked,upper,Closest to 1,1,2026101319,40,40000,0.9915593266487122,1.0087552070617676
+feature,upper,0,ranked,upper,Largest RDR,2,2026101320,40,40000,1.9894753694534302,1.998429775238037
+pixel,lower,0,ranked,real,Smallest RDR,0,2026102301,40,39829,6.0291258791145265e-37,2.0
+pixel,lower,0,ranked,real,Closest to 1,1,2026102302,40,39829,1.5456594337770468e-12,2.0
+pixel,lower,0,ranked,real,Largest RDR,2,2026102303,40,39829,2.0,2.0
+pixel,lower,0,ranked,lower,Smallest RDR,0,2026102318,40,40000,0.0,0.0
+pixel,lower,0,ranked,lower,Closest to 1,1,2026102319,40,40000,0.0,1.9999949932098389
+pixel,lower,0,ranked,lower,Largest RDR,2,2026102320,40,40000,0.0,2.0
+pixel,upper,0,ranked,real,Smallest RDR,0,2026103301,40,39829,0.0,6.700232813017237e-09
+pixel,upper,0,ranked,real,Closest to 1,1,2026103302,40,39829,0.001224761363118887,1.9989465475082397
+pixel,upper,0,ranked,real,Largest RDR,2,2026103303,40,39829,2.0,2.0
+pixel,upper,0,ranked,upper,Smallest RDR,0,2026103318,40,40000,0.0,0.0
+pixel,upper,0,ranked,upper,Closest to 1,1,2026103319,40,40000,0.0020617367699742317,1.9980478286743164
+pixel,upper,0,ranked,upper,Largest RDR,2,2026103320,40,40000,2.0,2.0

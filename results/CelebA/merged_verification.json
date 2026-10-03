@@ -1,0 +1,17 @@
+{
+  "verified_assessments": 45,
+  "verified_cells": 900,
+  "verified_image_rows": 1350,
+  "verified_ranked_groups": 24,
+  "checks": [
+    "All pooled Brier values match archived whole-test Brier",
+    "Direct histogram counts, cell ratios, neural means and local Gap",
+    "All C.1/C.2 intervals recomputed",
+    "Null MSE against one recomputed",
+    "Every image ID, original role and score matches the merged row",
+    "All global rankings and actual ranges verified",
+    "All-bin membership, emptiness and sample counts verified",
+    "Five-repeat metric aggregates recomputed"
+  ],
+  "training_performed": false
+}

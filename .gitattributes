@@ -9,3 +9,10 @@ results/simulations/** -text
 experiments/MNIST/** -text
 results/MNIST/** -text
 results/MNIST/**/*.csv whitespace=cr-at-eol
+
+# Final CelebA artifacts and frozen protocol sources retain exact bytes.
+experiments/CelebA/** -text
+experiments/JRSSB/CELEBA_*.py -text
+experiments/JRSSB/configs/agent3.yaml -text
+results/CelebA/** -text
+results/CelebA/**/*.csv whitespace=cr-at-eol

@@ -1,0 +1,15 @@
+{
+  "protocol_sha256": "c6aeaf764b5cd2bfe9242230018ba8d836a9ec7c3ede1ebe53ab3fb6a6554514",
+  "fits": 25,
+  "evaluations": 25,
+  "files": {
+    "RESULTS.md": "48f40df831c90b5f03e07be2f1702ef9d54e5867377342fe64c2a1b5adbed597",
+    "report_status.json": "189e02e93834c99f24dec6b04de6d3f52b385ed1cddf004dd7e654ad63c0b0dc",
+    "per_fit.csv": "d1a4c6d302be193cb6f81eaeefec6e38820818c5f3ec0230e9b1e231987e2cf6",
+    "per_comparison.csv": "d7514f08e62f14f1dc7c8bf95a029e118da5d613e9e4ecc2072e1d3d197b8370",
+    "null_ci_repeat_00.pdf": "ae95b4c4008a7ed7e556b843c097f873a19f2b9670d6585148401ae1e5cca510",
+    "null_ci_repeat_00.png": "6c4da89cc24ae3f78ba3a7ff44f59e67f28edf3e46afcde5157305dc3bac9197",
+    "null_summary.png": "fa2fd09a8843d4d9ed3bc63732108df56280ec03ea446fc4264f770de0c90d98",
+    "null_summary.pdf": "4d78eb50f1018528efa38ae6c37260f1f1cb58523c2b872e5e0e675c35cb007f"
+  }
+}

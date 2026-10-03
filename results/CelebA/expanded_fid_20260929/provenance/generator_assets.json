@@ -1,0 +1,10 @@
+{
+  "checkpoint_path": "/cwork/yx306/RDR/JRSSB/external/checkpoints/diffusion-stylegan2-celeba64.pkl",
+  "checkpoint_sha256": "921e72e290870affb879bc90fe5334e8cb6d5f90ff486e4d6b540036a5606745",
+  "checkpoint_url": "https://huggingface.co/zhendongw/diffusion-gan/resolve/main/checkpoints/diffusion-stylegan2-celeba64.pkl",
+  "code_root": "/cwork/yx306/RDR/JRSSB/external/Diffusion-GAN/diffusion-stylegan2",
+  "name": "diffusion_stylegan2_celeba64",
+  "repository_commit": "2ca5e7aa21f07a3ff0e78966e5796c580126c14f",
+  "repository_path": "/cwork/yx306/RDR/JRSSB/external/Diffusion-GAN",
+  "repository_url": "https://github.com/Zhendong-Wang/Diffusion-GAN.git"
+}
