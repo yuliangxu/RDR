@@ -10,7 +10,7 @@ Small numerical evidence is included under
 
 | File | Purpose |
 | --- | --- |
-| `global_local_toy.py` | Current paper toy: identical population PRD curves, scalar-feature FID and ideal-label IS, with opposite local RDR. Exports a compact PNG/PDF figure and exact numerical tables. |
+| `global_local_toy.py` | Current paper toy: discrete distributions with two-point support, identical population PRD curves, scalar-feature FID and ideal-label IS, and opposite local RDR. Exports a compact PNG/PDF figure and exact numerical tables. |
 | `toy_illustrations.ipynb` | Gaussian tail separation and beta-mixture toy examples. |
 | `moment_matched_fid.ipynb` | Earlier supplementary toy, retained for reference: Gaussian versus three-Gaussian mixture with identical population moments, zero FID, density plots and exact/fitted RDR. Superseded as the paper example by `global_local_toy.py`. |
 | `population.py`, `config.json` | Five populations, analytic truth, seeds and full experimental design. |
@@ -30,10 +30,11 @@ specified distributions. All output directories are configurable.
 ## Current paper toy: equal global metrics, opposite local mismatch
 
 The [rendered example](../../docs/simulations.md#toy-example-identical-global-metrics-opposite-local-mismatch)
-recreates the exact two-state construction from the AGP metric comparison.
+recreates the exact construction of discrete distributions with two-point support
+$\{-1,+1\}$ from the AGP metric comparison.
 It uses the original probabilities and metric functions in
 [`../AGP/rdr_metric_toy.py`](../AGP/rdr_metric_toy.py), with a compact figure and
-generic state labels. There is no training, sampling or Slurm submission.
+labels showing the support points. There is no training, sampling or Slurm submission.
 
 From the repository root, after installing the environment below:
 

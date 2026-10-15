@@ -1,17 +1,24 @@
 {
+  "bernoulli_theta": {
+    "P": 0.5,
+    "Q1": 0.2,
+    "Q2": 0.8
+  },
+  "family": "X=2B-1 with B~Bernoulli(theta)",
   "fid_features": "scalar coordinates -1,+1; no Inception feature extractor",
   "fitted_models": 0,
   "gaussian_frechet_exact": "2/5",
   "ideal_label_is_formula": "exp(-0.8*log(0.8)-0.2*log(0.2))",
-  "is_classifier": "ideal deterministic two-state label classifier",
+  "is_classifier": "ideal deterministic classifier assigning distinct labels to -1 and +1",
   "original_example": "results/AGP/rdr_metric_comparison_20261009/toy",
   "p": [
     0.5,
     0.5
   ],
+  "pmf_definition": "p(x)=P({x}), q_k(x)=Q_k({x}); arrays follow support order",
   "prd_alpha_formula": "sum_i min(lambda*p_i,q_i)",
   "prd_beta_formula": "alpha/lambda",
-  "prd_identity_reason": "Swapping states preserves P and interchanges Q1 and Q2.",
+  "prd_identity_reason": "Reflection x -> -x preserves P and interchanges Q1 and Q2.",
   "q": {
     "Q1": [
       0.8,
@@ -32,7 +39,7 @@
     "10/13"
   ],
   "scope": "Equal global summaries conceal the location of nonzero mismatch.",
-  "states": [
+  "support": [
     -1.0,
     1.0
   ]

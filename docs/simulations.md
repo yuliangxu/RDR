@@ -22,27 +22,35 @@ protocols and checksums, is included in this repository.
 ## Toy example: identical global metrics, opposite local mismatch
 
 Global summaries can agree for generators that misrepresent different parts
-of a population. On two states $A=-1$ and $B=+1$, let
+of a population. Let $P$, $Q_1$ and $Q_2$ be the distributions of $X=2B-1$
+for $B\sim\operatorname{Bernoulli}(\theta)$ with $\theta=0.5,0.2,0.8$,
+respectively. These are affine transformations of Bernoulli distributions,
+with common two-point support $\mathcal{X}=\{-1,+1\}$. Their probability mass
+functions $p(x)=P(\{x\})$ and $q_k(x)=Q_k(\{x\})$, for $k=1,2$, are
 
-$$
-P=(0.5,0.5),\qquad Q_1=(0.8,0.2),\qquad Q_2=(0.2,0.8).
-$$
+| $x$ | $p(x)$ | $q_1(x)$ | $q_2(x)$ |
+| --- | --- | --- | --- |
+| $-1$ | $0.5$ | $0.8$ | $0.2$ |
+| $+1$ | $0.5$ | $0.2$ | $0.8$ |
 
 Both generators have the **same entire population precision–recall for
 distributions (PRD) curve**, the **same scalar-feature FID of $0.4$**, and the
-**same ideal-label Inception Score (IS) of $1.649385$**. Yet $Q_1$ overrepresents
-$A$ and underrepresents $B$, while $Q_2$ does the reverse. RDR identifies both
-the location and direction of these discrepancies.
+**same ideal-label Inception Score (IS) of $1.649385$**. Yet $Q_1$ assigns more
+probability mass than $P$ to $-1$ and less to $+1$, while $Q_2$ does the reverse.
+RDR identifies both the support point and the direction of each difference
+in probability mass.
 
-![Two-state population example: opposite probability imbalances, identical PRD curves and global scores, and reversed local RDR values.](../results/simulations/global_local_toy/global_local_population_example.png)
+![Discrete distributions on two-point support: opposite differences in probability mass, identical PRD curves and global scores, and reversed RDR values at the support points.](../results/simulations/global_local_toy/global_local_population_example.png)
 
-**Figure.** (a) Population probabilities on the two states. (b) The two analytic
+**Figure.** (a) Probability mass functions on $\mathcal{X}=\{-1,+1\}$. (b) The two analytic
 PRD curves coincide; the blue solid and orange dashed lines represent $Q_1$
 and $Q_2$, respectively. The inset reports their common global scores under
 the feature and classifier definitions below. (c) Exact RDR
 $r_k(x)=2p(x)/(p(x)+q_k(x))$ equals $(10/13,10/7)$ for $Q_1$ and
-$(10/7,10/13)$ for $Q_2$. Values below one identify overrepresentation by $Q_k$;
-values above one identify underrepresentation. The dotted line marks balance.
+$(10/7,10/13)$ for $Q_2$, evaluated at $x=-1,+1$ in that order. Values below
+one identify excessive probability mass under $Q_k$ relative to $P$;
+values above one identify insufficient probability mass. The dotted line marks
+equal probability mass.
 
 [Vector PDF](../results/simulations/global_local_toy/global_local_population_example.pdf)
 · [Figure source](../experiments/simulations/global_local_toy.py)
@@ -52,8 +60,8 @@ The equalities follow directly from the population definitions:
 
 - **PRD:** for every $\lambda>0$,
   $\alpha_k(\lambda)=\sum_x\min\{\lambda p(x),q_k(x)\}$ and
-  $\beta_k(\lambda)=\alpha_k(\lambda)/\lambda$ are unchanged by swapping the
-  states, since $P$ is symmetric. Here $\alpha(\lambda)=\lambda$ for
+  $\beta_k(\lambda)=\alpha_k(\lambda)/\lambda$ are unchanged under the reflection
+  $x\mapsto-x$, since $p(-x)=p(x)$ and $q_2(x)=q_1(-x)$. Here $\alpha(\lambda)=\lambda$ for
   $\lambda\le0.4$, $0.2+0.5\lambda$ for $0.4<\lambda<1.6$, and $1$ for
   $\lambda\ge1.6$. This uses the population PRD definition of
   [Sajjadi et al. (2018)](https://arxiv.org/abs/1806.00035).
@@ -64,20 +72,21 @@ The equalities follow directly from the population definitions:
   space, rather than an image Inception embedding;
   see [Heusel et al. (2017)](https://arxiv.org/abs/1706.08500).
 - **IS:** an ideal deterministic classifier that assigns a separate label
-  to each state gives $\mathrm{IS}(Q_k)=\exp\{-\sum_x q_k(x)\log q_k(x)\}$.
+  to each support point gives $\mathrm{IS}(Q_k)=\exp\{-\sum_x q_k(x)\log q_k(x)\}$.
   Permuting the label probabilities preserves the score. This applies the
   [IS definition of Salimans et al. (2016)](https://arxiv.org/abs/1606.03498)
   under the stated ideal classifier; no trained Inception classifier is used.
 
 The example demonstrates **loss of location information in global summaries**.
 FID and PRD do detect a nonzero mismatch here, but their values cannot identify
-which state is over- or underrepresented. Conditional or other local metrics
-can also locate the imbalance. These are exact population calculations;
+where $Q_k$ assigns excessive or insufficient probability mass relative to $P$.
+Conditional or other local metrics can also locate the imbalance. These are
+exact population calculations;
 finite-sample metric estimates need not coincide, and this PRD identity is
 not a statement about every precision–recall estimator or classifier PR curve.
 
 This recreates the [original AGP toy example](../results/AGP/rdr_metric_comparison_20261009/toy/global_local_population_example.png)
-with a compact figure and generic state labels. It requires no fitted model
+with a compact figure and explicit two-point support. It requires no fitted model
 and does not add fits or repetitions to the completed studies below.
 
 ## Design and evaluation criteria
