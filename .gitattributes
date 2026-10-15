@@ -6,6 +6,12 @@ experiments/simulations/*.py -text
 experiments/simulations/config.json -text
 experiments/simulations/requirements.txt -text
 results/simulations/** -text
+
+# Exact population toy provenance retains source and CSV bytes across clones.
+experiments/AGP/rdr_metric_toy.py -text
+results/AGP/rdr_metric_comparison_20261009/toy/** -text
+results/AGP/rdr_metric_comparison_20261009/toy/*.csv whitespace=cr-at-eol
+results/simulations/global_local_toy/*.csv whitespace=cr-at-eol
 experiments/MNIST/** -text
 results/MNIST/** -text
 results/MNIST/**/*.csv whitespace=cr-at-eol

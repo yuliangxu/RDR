@@ -1,0 +1,22 @@
+{
+  "environment": {
+    "matplotlib": "3.9.4",
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "python": "3.9.25"
+  },
+  "files": {
+    "caption.md": "a954f3de83e715a6a422e84a8bbdbf75def61ec8e09e0565c095036a836bb82a",
+    "global_local_population_example.pdf": "eef56272e946ea7e8caf68aa7fc94390464dbdd55358a2ee919fe09561be0f41",
+    "global_local_population_example.png": "840b01c84a19cc5d8e7c63a8e50ef1a5575e588882b5acca897358261b595bab",
+    "population_example.json": "fabbe4d235c133159d68e298945d8bb86da84b84b2f3696a82a1a0739fb5af2a",
+    "population_global_metrics.csv": "8e51052eb7c116666c422fff7fac34202a29d6625c58a6a652ef8ce52d6df509",
+    "population_prd_curve.csv": "bc64c9fb32e81c39b07d1ec7c5eb283cda38451c47800a0daf4065f072076433",
+    "population_regional_rdr.csv": "a046aacb0efce8d8e6fe8ccd51a9144f9207fb053d9928bee9600ecb4c3e58a2"
+  },
+  "source_sha256": {
+    "experiments/AGP/rdr_metric_toy.py": "038462be1fe1e900dd8e690765a2f0d9c3307da89401c8970f68df0107f94c1c",
+    "experiments/simulations/global_local_toy.py": "fd4d487a8e4a8bfc7fd6ba851ac89aee1665ff5eae3b55439e614385cbc1bbdf"
+  },
+  "status": "complete"
+}

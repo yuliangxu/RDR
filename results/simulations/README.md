@@ -6,6 +6,7 @@ numerical evidence and figures, without checkpoints or raw predictions.
 
 | Folder | Completed design |
 | --- | --- |
+| `global_local_toy/` | Exact two-state population example: equal PRD/FID/ideal-label IS with opposite local RDR; PNG/PDF, numerical tables and provenance. No fitted models. |
 | `model_selection/` | Five settings, ten repetitions, 23 candidates: 1,150 fits. |
 | `loss_comparison/` | Four losses at B8-Res64, slope 2: 150 new fits plus 50 reused Hellinger fits. |
 | `convergence/` | Four losses × five settings × six training sizes × 100 repetitions: 12,000 fresh fits. |

@@ -1,0 +1,13 @@
+{
+  "files": {
+    "global_local_population_example.pdf": "0e23f37d94c1101d7dd140402860cadb0217c8a86116b42f2598826374a802b3",
+    "global_local_population_example.png": "37f98b8fc56027d0c194c20c7a89b91d748b36013112d86a46d2cf31a1092ea9",
+    "global_local_population_example_caption.md": "8a183dbfb7326a67e74cb98a8b85f9104f0932bb61d601798d4d20068524517f",
+    "population_example.json": "8e094f851c03cc4fe4fe6317f8d90cfca0e753a41b2071734da19219f2232393",
+    "population_global_metrics.csv": "8e51052eb7c116666c422fff7fac34202a29d6625c58a6a652ef8ce52d6df509",
+    "population_prd_curve.csv": "bc64c9fb32e81c39b07d1ec7c5eb283cda38451c47800a0daf4065f072076433",
+    "population_regional_rdr.csv": "a046aacb0efce8d8e6fe8ccd51a9144f9207fb053d9928bee9600ecb4c3e58a2"
+  },
+  "source_sha256": "038462be1fe1e900dd8e690765a2f0d9c3307da89401c8970f68df0107f94c1c",
+  "status": "complete"
+}

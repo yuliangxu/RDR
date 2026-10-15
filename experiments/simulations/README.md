@@ -10,7 +10,9 @@ Small numerical evidence is included under
 
 | File | Purpose |
 | --- | --- |
+| `global_local_toy.py` | Current paper toy: identical population PRD curves, scalar-feature FID and ideal-label IS, with opposite local RDR. Exports a compact PNG/PDF figure and exact numerical tables. |
 | `toy_illustrations.ipynb` | Gaussian tail separation and beta-mixture toy examples. |
+| `moment_matched_fid.ipynb` | Earlier supplementary toy, retained for reference: Gaussian versus three-Gaussian mixture with identical population moments, zero FID, density plots and exact/fitted RDR. Superseded as the paper example by `global_local_toy.py`. |
 | `population.py`, `config.json` | Five populations, analytic truth, seeds and full experimental design. |
 | `workflow.py` | Common selection, fitting primitives, fit verification and diagnostic reports; original Hellinger-only convergence remains for compatibility and smoke checks. |
 | `report.py` | Compact selection tables, supplementary results, Markdown/HTML/LaTeX and rendered tables. |
@@ -25,7 +27,35 @@ The old architecture/coverage replay module and its tests have been retired.
 No datasets need downloading: all simulation observations are generated from
 specified distributions. All output directories are configurable.
 
+## Current paper toy: equal global metrics, opposite local mismatch
+
+The [rendered example](../../docs/simulations.md#toy-example-identical-global-metrics-opposite-local-mismatch)
+recreates the exact two-state construction from the AGP metric comparison.
+It uses the original probabilities and metric functions in
+[`../AGP/rdr_metric_toy.py`](../AGP/rdr_metric_toy.py), with a compact figure and
+generic state labels. There is no training, sampling or Slurm submission.
+
+From the repository root, after installing the environment below:
+
+```bash
+MPLBACKEND=Agg python -B -m experiments.simulations.global_local_toy --output runs/global-local-toy
+```
+
+Use a new or empty output directory. Outputs include PNG and vector PDF,
+three CSV tables, population definitions, a caption, and `COMPLETE.json` with
+source/artifact SHA-256 hashes and library versions. The published copy is in
+[`results/simulations/global_local_toy`](../../results/simulations/global_local_toy/COMPLETE.json).
+The original AGP artifacts and the earlier zero-FID notebook remain available.
+
 ## Environment
+
+For the earlier supplementary interactive zero-FID example, open
+[`moment_matched_fid.ipynb`](moment_matched_fid.ipynb) in VS Code, select a Python
+kernel with the dependencies below, and **Run All**. It runs one CPU fit and
+shows all three figures inline. The analytic density plots appear before the
+fit and can be viewed without training. Edit `CONFIG` to adjust sample counts
+or component spread, and `DENSITY_VIEW` for the 3D camera and plotting grid;
+`OUTPUT_DIR` enables PDF/PNG and JSON export. No Slurm jobs are needed.
 
 Python 3.9.25 and the versions in [requirements.txt](requirements.txt) were used:
 

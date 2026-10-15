@@ -1,0 +1,39 @@
+{
+  "feature_coordinates": [
+    -1.0,
+    1.0
+  ],
+  "gaussian_frechet_exact": "2/5",
+  "gaussian_frechet_is_image_fid": false,
+  "ideal_classifier_is_formula": "exp(-0.8*log(0.8)-0.2*log(0.2))",
+  "is_used_on_agp": false,
+  "limitation": "Equal global summaries do not imply equal distributions or exclude other local diagnostics.",
+  "p": [
+    0.5,
+    0.5
+  ],
+  "prd_alpha_formula": "sum_i min(lambda*p_i,q_i)",
+  "prd_beta_formula": "alpha/lambda",
+  "prd_identical_for_all_positive_slopes": true,
+  "prd_symmetry_reason": "Swapping the two coordinates preserves P and maps Q1 to Q2.",
+  "q": {
+    "Q1": [
+      0.8,
+      0.2
+    ],
+    "Q2": [
+      0.2,
+      0.8
+    ]
+  },
+  "quantities": "exact_population",
+  "region_rdr_q1_exact": [
+    "10/13",
+    "10/7"
+  ],
+  "region_rdr_q2_exact": [
+    "10/7",
+    "10/13"
+  ],
+  "status": "complete"
+}
