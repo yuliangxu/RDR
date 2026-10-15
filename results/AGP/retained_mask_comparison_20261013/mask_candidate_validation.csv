@@ -1,0 +1,9 @@
+method,candidate,components,initialization,seed,valid_nll,selected_iterations,iterations_completed,cap_hit,seconds,selected,hidden,selected_epochs,epochs_completed
+bernoulli_mixture,mixture_k8_start0,8,0,2026112001,134.17693199873878,63,78,False,2.16717326361686,False,,,
+bernoulli_mixture,mixture_k8_start1,8,1,2026112002,134.3052102690614,12,27,False,0.7715055616572499,False,,,
+bernoulli_mixture,mixture_k16_start0,16,0,2026112801,131.57701980036904,58,73,False,2.2229326628148556,False,,,
+bernoulli_mixture,mixture_k16_start1,16,1,2026112802,132.0196617461085,100,115,False,3.507776322774589,False,,,
+bernoulli_mixture,mixture_k32_start0,32,0,2026114401,129.98751679837554,35,50,False,1.8814803771674633,False,,,
+bernoulli_mixture,mixture_k32_start1,32,1,2026114402,129.6390152265338,49,64,False,2.3931746082380414,True,,,
+autoregressive,nade_h128,,,2026121329,121.83776103547548,,,False,34.592128640040755,False,128,85,100
+autoregressive,nade_h256,,,2026121457,121.5251366483523,,,False,39.2739749988541,True,256,57,72

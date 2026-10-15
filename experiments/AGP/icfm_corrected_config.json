@@ -1,0 +1,12 @@
+{
+  "model": {"kind": "residual_mlp", "dim": 613, "width": 1024, "blocks": 4, "time_features": 128, "time_width": 512, "dropout": 0.1},
+  "training": {"epochs": 8000, "batch_size": 1044, "lr": 0.00001, "sigma": 0.0001, "warmup_steps": 2000, "grad_clip": 1.0, "ema_decay": 0.9999, "weight_decay": 0.0, "seed": 2026100601, "device": "cuda", "checkpoint_epochs": 100},
+  "sampling": {"atol": 0.0001, "rtol": 0.0001, "batch_size": 128, "device": "cuda", "solver": "torchdyn.dopri5", "evaluation_mode": true},
+  "noise_seed": 2026100700,
+  "noise_seed_stride": 1000,
+  "variants": ["eval_only", "resmlp"],
+  "roles": {"selection_train": 5847, "selection_stopping": 836, "selection_calibration": 835, "selection_evaluation": 836, "final_train": 7310, "final_stopping": 1044, "final_test": 2089},
+  "role_order": ["selection_train", "selection_stopping", "selection_calibration", "selection_evaluation", "final_train", "final_stopping", "final_test"],
+  "zero_handling": "Unchanged historical epsilon=1e-7 tree log-ratio training coordinates and sigmoid/tree inverse; no zero restoration",
+  "generator_selection": "Fixed architecture and historical 8000-epoch budget; no assessment data or generator selection"
+}

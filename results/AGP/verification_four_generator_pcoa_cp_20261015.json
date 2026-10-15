@@ -1,0 +1,124 @@
+{
+  "artifact_root": "/hpc/home/yx306/RDR/results/AGP/four_generator_pcoa_cp_20261015",
+  "categorical_rule": "upper < 1: below; lower > 1: above; otherwise contains, including endpoints",
+  "category_counts_rows_verified": 24,
+  "category_vector_sha256": {
+    "autoregressive_icfm_p": "7c5e1fbd1a34637e6f6a216d2605e30bfbf0674b3ae8068c4775ec987683cd25",
+    "autoregressive_icfm_q": "70ee6accfad18d3b1316529dde164d21a01099ee0bc31dd0610a95baa9a78b66",
+    "bernoulli_mixture_icfm_p": "7f28e36969440b118e1b4d84fef89fe732e70a58186a450f74bca4876c22ec60",
+    "bernoulli_mixture_icfm_q": "1f3f9bfbe8cc8eda0ca94e90d5a227968fccb426bf0cb431f50e4dc9e7af0caf",
+    "midasim_mask_icfm_p": "5bfa440ec02840e5ec275f368c2c91f3ba49053280f0c05a8cf6a5518e4041da",
+    "midasim_mask_icfm_q": "7d37fe1f9262b6c9e5a4950d18941d2689da28afac2aa9654ae8587fbb37687f",
+    "midasim_p": "c0c0f42a063789e86e311b049271a11703376c0c8dde71650ac3b13ff774a24d",
+    "midasim_q": "5c3c31a0b37ab9041cfdc07bd4ad80f39387c0f5f5f948475dbc7aa81a20e66f"
+  },
+  "category_vectors_verified": 8,
+  "classifier_endpoint_behavior_checked": {
+    "categories": [
+      1,
+      1,
+      1,
+      0,
+      2
+    ],
+    "intervals": [
+      [
+        0.0,
+        1.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        1.0,
+        2.0
+      ],
+      [
+        0.0,
+        0.99
+      ],
+      [
+        1.01,
+        2.0
+      ]
+    ]
+  },
+  "completed_utc": "2026-10-15T14:03:54.983373+00:00",
+  "coordinate_audit_scope": "Existing sealed coordinates and identities verified; no repeat ordination eigensolve or distance audit.",
+  "count_order": [
+    "entirely_below_1",
+    "contains_1",
+    "entirely_above_1"
+  ],
+  "cp_alpha": 0.05,
+  "cp_endpoint_max_absolute_error": 0.0,
+  "cp_endpoints_recomputed": 160,
+  "cp_tail_probability": 0.000625,
+  "displayed_point_assignments_verified": 16364,
+  "fit0_calibration_cells_verified": 80,
+  "identity_vectors_verified": 8,
+  "input_files_checked": 31,
+  "manifest_sha256": "95cdd12329cff862df758c7f29d64050173bb130d174bfc265a9bc8da392e6df",
+  "numerical_audit": "Independent direct beta quantiles and interval-predicate score binning, without producer functions; separate direct endpoint check of producer classifier.",
+  "output_files_checked": 6,
+  "plotting_source_review": "Coordinates are used unchanged; identical per-panel permutation applied to coordinates and categories; correct P and Q slices and shared limits.",
+  "point_category_counts": {
+    "autoregressive_icfm": {
+      "P": [
+        274,
+        1152,
+        576
+      ],
+      "Q": [
+        856,
+        1107,
+        126
+      ]
+    },
+    "bernoulli_mixture_icfm": {
+      "P": [
+        144,
+        419,
+        1439
+      ],
+      "Q": [
+        1357,
+        533,
+        199
+      ]
+    },
+    "midasim": {
+      "P": [
+        76,
+        381,
+        1545
+      ],
+      "Q": [
+        1489,
+        467,
+        133
+      ]
+    },
+    "midasim_mask_icfm": {
+      "P": [
+        137,
+        447,
+        1418
+      ],
+      "Q": [
+        1298,
+        521,
+        270
+      ]
+    }
+  },
+  "producer_source_sha256": "229f4d1348455ea82695dadfcaaa3e194ab37abc00401f09e4aa82c5f98c1c3d",
+  "saved_ordination_sha256": "d4bf1034815ea3bba9f79d761c56842142c13136358a10e9941c68287b42d939",
+  "scope": "Saved fit-0 score-cell C.2 CP intervals; nominal simultaneous over 20 cells per method only; not pointwise confidence intervals.",
+  "status": "passed",
+  "unchanged_coordinate_shape": [
+    10358,
+    2
+  ]
+}

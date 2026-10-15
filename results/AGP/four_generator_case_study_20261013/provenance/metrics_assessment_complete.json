@@ -1,0 +1,39 @@
+{
+  "assessment_inputs": {
+    "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/data/final/test_p.npy": "bf63be3108874ccd738df02e30e7f18e207bda4f68dcabd2906a297e8db7bf5c",
+    "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/data/final/test_q.npy": "05dea9d6a5758eccdee3ed5c493f06f91b4096b20b6bc289f7d1345d62c53726",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/data/final/test_p.npy": "bf63be3108874ccd738df02e30e7f18e207bda4f68dcabd2906a297e8db7bf5c",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/data/final/test_q.npy": "70242776d75974c1674037c870405a28e5110f8e1a53fa9a4ad9bc8615d27b8d",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/data/final/test_p.npy": "bf63be3108874ccd738df02e30e7f18e207bda4f68dcabd2906a297e8db7bf5c",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/data/final/test_q.npy": "083af5afbc0e13b4e6f4391252998fa4f2565597c715ef01984d0c5734ffb718",
+    "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/data/final/test_p.npy": "bf63be3108874ccd738df02e30e7f18e207bda4f68dcabd2906a297e8db7bf5c",
+    "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/data/final/test_q.npy": "560cfc5f1162a3ff7125cc63f450ee3b6b6f4c9776c38f1374eabb20bc520640"
+  },
+  "completed_utc": "2026-10-13T13:34:28.263213+00:00",
+  "files": {
+    "fd_reference_check.csv": "0f96a2fa46a50bbe0e6170a1400feddc207511e99d45c713798ee051252238dc",
+    "global_metrics.csv": "fe80c6e1dd98ec5ff506fd0ed66c305b7f8420140591c04195e4669f043b6de1",
+    "global_metrics_aggregate.csv": "8504563b4219977e6456fe2a3371297919ee1c1bdb23bc2b0dec0d91db708347",
+    "prd_curve_summary.csv": "2a388d369bcc5fc407cad91af694116cd0209c3c079998330825975e81c0f2bf",
+    "prd_curves.csv": "b26380c2075fbf4a0ce338d0d217ace31dd775060273b4c388241da8274c78ed",
+    "prd_histograms.csv": "6844f6ae7480cf68ea5942f6cc0f3c54df5925132754232932517f7021e04c35"
+  },
+  "freeze_sha256": "0b5e8890ee5ba4cab41e1289b3416ed5258d59389caa9dce16760cf5bba0ef9a",
+  "no_generator_or_rdr_fits": true,
+  "no_numeric_inception_score": true,
+  "published_reference_inputs": {
+    "/hpc/home/yx306/RDR/results/AGP/rdr_metric_comparison_20261009/COMPLETE.json": "daa38e2bed81d87989af30b05f280b0f19c17e557bb3a3afa8ff2c6545099845",
+    "/hpc/home/yx306/RDR/results/AGP/rdr_metric_comparison_20261009/global/global_metrics.csv": "95ee8b57f1110d2b8900787089c8604aa2a454bee5b825080cb5017c4e52ae51"
+  },
+  "release_sha256": "92ae0f39bb1e70eaf951d01c5110ec92a2d9e21fdad9a7e19a8c3089526d9df5",
+  "retrospective": true,
+  "status": "complete",
+  "tables": {
+    "fd_reference_check.csv": 4,
+    "global_metrics.csv": 40,
+    "global_metrics_aggregate.csv": 8,
+    "prd_curve_summary.csv": 1608,
+    "prd_curves.csv": 8040,
+    "prd_histograms.csv": 2560
+  }
+}

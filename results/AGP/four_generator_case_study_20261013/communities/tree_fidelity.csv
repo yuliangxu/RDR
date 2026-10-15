@@ -1,0 +1,5 @@
+method,real_assessment_mse,real_assessment_r2,real_n,target
+bernoulli_mixture_icfm,0.21283979395407232,0.03399595649602993,2002,Ensemble mean fitted RDR on real P only
+autoregressive_icfm,0.19664384912174446,0.1213499721553365,2002,Ensemble mean fitted RDR on real P only
+midasim_mask_icfm,0.21324940582465599,0.0239146126636115,2002,Ensemble mean fitted RDR on real P only
+midasim,0.1876353349555626,-0.027470499975057017,2002,Ensemble mean fitted RDR on real P only

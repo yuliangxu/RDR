@@ -1,0 +1,66 @@
+{
+  "communities": {
+    "assessment_complete_sha256": "add914ef0d565018ecd915ab156e2db4ae0f6b2d0f1230b35a7ae26f210e606c",
+    "assessment_score_replays": 20,
+    "common_real_rows_per_role": {
+      "stopping": 1281,
+      "test": 2002,
+      "train": 9162
+    },
+    "communities": 8,
+    "community_rows": 32,
+    "development_target_scope": "Replayed tree candidates on frozen development response arrays; did not independently rerun neural development predictions.",
+    "maximum_upstream_score_difference": 0.0,
+    "methods": 4,
+    "reconstructed_feature_count": 105,
+    "selected_depth": 4,
+    "selection_source_audit": "Prepare array calls are limited to train/stopping; frozen upstream excludes assessment arrays and predictions. Cohort previously examined; not an access-log proof.",
+    "source_normalized_region_means": "Independently weighted each observation by inverse source size before conditioning on its common leaf.",
+    "status": "passed",
+    "tree_candidates_replayed": 3,
+    "tree_source": "Original RDR stopping P, used previously for checkpoint selection, split by subjects with seed 2026101302",
+    "tree_subject_split_counts": {
+      "fit_rows": 910,
+      "fit_subjects": 761,
+      "validation_rows": 371,
+      "validation_subjects": 327
+    }
+  },
+  "metrics": {
+    "global_rows": 40,
+    "histogram_cells": 2560,
+    "independent_fd_audit": {
+      "completion_sha256": "e4eb98e092f06e7fcbc94d44cdffd185805a9e90111bf68085126cde53b25873",
+      "fd_method": "Independent centered-data QR factors and nuclear norm",
+      "fd_values": 8,
+      "freeze_and_completion_hashes": "passed",
+      "full_curve_points": 8040,
+      "maximum_independent_fd_absolute_difference": 8.606093615526333e-09,
+      "maximum_independent_prd_curve_absolute_difference": 2.220446049250313e-16,
+      "methods": 4,
+      "models": 40,
+      "prd_method": "Explicit scipy cdist nearest centers, histogram counts, independent angle formula",
+      "status": "passed",
+      "training_subsets": "Exact seeded balanced subset replay verified for all 40 models",
+      "verified_utc": "2026-10-13T13:36:00.567322+00:00"
+    },
+    "independent_fd_audit_sha256": "b55bf48ef5038a1974d493c2e937cfb0eb54e55ceee17f4c13bc4c1a8c82d8ca",
+    "maximum_prd_difference": 4.440892098500626e-16,
+    "prd_curves": 40,
+    "prd_points": 8040,
+    "published_frechet_checks": 4,
+    "status": "passed"
+  },
+  "public_export": {
+    "files_hashed": 38,
+    "manifest_sha256": "d982d09bdf3e147cd67e8cdb504d23bd8d4b936f1ac34a70cf87b55980142621",
+    "private_array_and_id_columns": "absent",
+    "status": "passed",
+    "unchanged_aggregate_tables": 11,
+    "unchanged_opening_files": 7
+  },
+  "scope": "Retrospective arithmetic/provenance audit; no pointwise RDR accuracy, interval coverage, generator-refit uncertainty or causal attribution claim.",
+  "status": "passed",
+  "verified_utc": "2026-10-13T13:46:34.792573+00:00",
+  "verifier_sha256": "5d09a6de0ad5038a7cfdd230dba8d6d24080a308dbae91b41d9b9366d2e73eec"
+}

@@ -1,0 +1,338 @@
+{
+  "arrays": {
+    "autoregressive_icfm": {
+      "test_p": {
+        "dtype": "float32",
+        "path": "data/final/test_p.npy",
+        "sha256": "bf63be3108874ccd738df02e30e7f18e207bda4f68dcabd2906a297e8db7bf5c",
+        "shape": [
+          2002,
+          614
+        ]
+      },
+      "test_q": {
+        "dtype": "float32",
+        "path": "data/final/test_q.npy",
+        "sha256": "70242776d75974c1674037c870405a28e5110f8e1a53fa9a4ad9bc8615d27b8d",
+        "shape": [
+          2089,
+          614
+        ]
+      },
+      "train_p": {
+        "dtype": "float32",
+        "path": "data/final/train_p.npy",
+        "sha256": "0092f192cf13d1c687e2692078eb32def4f120f93c81d0103499878c3ee1788f",
+        "shape": [
+          9162,
+          614
+        ]
+      },
+      "train_q": {
+        "dtype": "float32",
+        "path": "data/final/train_q.npy",
+        "sha256": "70a50127410c89b2fb398ed0885185cb1d94348df5f5d6eed0e02b94c59f6572",
+        "shape": [
+          7310,
+          614
+        ]
+      }
+    },
+    "bernoulli_mixture_icfm": {
+      "test_p": {
+        "dtype": "float32",
+        "path": "data/final/test_p.npy",
+        "sha256": "bf63be3108874ccd738df02e30e7f18e207bda4f68dcabd2906a297e8db7bf5c",
+        "shape": [
+          2002,
+          614
+        ]
+      },
+      "test_q": {
+        "dtype": "float32",
+        "path": "data/final/test_q.npy",
+        "sha256": "083af5afbc0e13b4e6f4391252998fa4f2565597c715ef01984d0c5734ffb718",
+        "shape": [
+          2089,
+          614
+        ]
+      },
+      "train_p": {
+        "dtype": "float32",
+        "path": "data/final/train_p.npy",
+        "sha256": "0092f192cf13d1c687e2692078eb32def4f120f93c81d0103499878c3ee1788f",
+        "shape": [
+          9162,
+          614
+        ]
+      },
+      "train_q": {
+        "dtype": "float32",
+        "path": "data/final/train_q.npy",
+        "sha256": "05637120666b94626190fbca1fd25ac0a617bd92c319674e5dfaa17d749346dc",
+        "shape": [
+          7310,
+          614
+        ]
+      }
+    },
+    "midasim": {
+      "test_p": {
+        "dtype": "float32",
+        "path": "data/final/test_p.npy",
+        "sha256": "bf63be3108874ccd738df02e30e7f18e207bda4f68dcabd2906a297e8db7bf5c",
+        "shape": [
+          2002,
+          614
+        ]
+      },
+      "test_q": {
+        "dtype": "float32",
+        "path": "data/final/test_q.npy",
+        "sha256": "560cfc5f1162a3ff7125cc63f450ee3b6b6f4c9776c38f1374eabb20bc520640",
+        "shape": [
+          2089,
+          614
+        ]
+      },
+      "train_p": {
+        "dtype": "float32",
+        "path": "data/final/train_p.npy",
+        "sha256": "0092f192cf13d1c687e2692078eb32def4f120f93c81d0103499878c3ee1788f",
+        "shape": [
+          9162,
+          614
+        ]
+      },
+      "train_q": {
+        "dtype": "float32",
+        "path": "data/final/train_q.npy",
+        "sha256": "64883aa90806f6fcd10728b671f22b2e6a78cef555f3f2422259cac4931c3b5d",
+        "shape": [
+          7310,
+          614
+        ]
+      }
+    },
+    "midasim_mask_icfm": {
+      "test_p": {
+        "dtype": "float32",
+        "path": "data/final/test_p.npy",
+        "sha256": "bf63be3108874ccd738df02e30e7f18e207bda4f68dcabd2906a297e8db7bf5c",
+        "shape": [
+          2002,
+          614
+        ]
+      },
+      "test_q": {
+        "dtype": "float32",
+        "path": "data/final/test_q.npy",
+        "sha256": "05dea9d6a5758eccdee3ed5c493f06f91b4096b20b6bc289f7d1345d62c53726",
+        "shape": [
+          2089,
+          614
+        ]
+      },
+      "train_p": {
+        "dtype": "float32",
+        "path": "data/final/train_p.npy",
+        "sha256": "0092f192cf13d1c687e2692078eb32def4f120f93c81d0103499878c3ee1788f",
+        "shape": [
+          9162,
+          614
+        ]
+      },
+      "train_q": {
+        "dtype": "float32",
+        "path": "data/final/train_q.npy",
+        "sha256": "0c6b54968cce183e1beb8c708b9bd9ca407cdf777bfdaf1204db149384035825",
+        "shape": [
+          7310,
+          614
+        ]
+      }
+    }
+  },
+  "created_utc": "2026-10-13T13:33:50.210382+00:00",
+  "development_role": "Existing final/train P and Q arrays; stopping and test arrays excluded from fitting.",
+  "epsilon": 1e-06,
+  "fd": "Gaussian Frechet analogue in declared composition features, using unbiased sample covariances; not image Inception FID.",
+  "fd_uncertainty": "FD uses all assessment observations and is invariant across PRD quantizer seeds; its reported seed SD is zero.",
+  "inception_score": "Not reported: no externally validated, scientifically justified AGP sample-class classifier.",
+  "max_train_per_source": 2048,
+  "metadata_inputs": {
+    "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/COMPLETE.json": "e95a747e45a0106cf2617500cabdca23ae914c1006860e6282b09b40a36c7d86",
+    "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/data/protocol.json": "4e9d6e849ce081b8453aef46de5820192605a8a4d6b32fb0c89d9ae3c0c514e7",
+    "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/protocol.json": "716c08086867aca9a087a8d74898931c93817088878b40936d3492b30dd735ab",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/COMPLETE.json": "6c59c814059d5c9f51431225323c9831106f7da6ce37aaacc447103a9f978910",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/data/protocol.json": "cf3c425525398774d6172ee7065607fff7434036c2ece16d685c349d294184b5",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/protocol.json": "be8a29e787ce361d3c3e0ccbcb90642cf9b765246f280b9cb0aa51c05615d240",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/COMPLETE.json": "7b042de9c79eeefe8ddcd5612f5e47e6fa4b54d657796f00e69e79d6d79b59ca",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/data/protocol.json": "87dd3c848f2d9378f8b53382f1898cde917acd75f7e45bea7079dc4657f3f8f3",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/protocol.json": "9700fc08693fdca16d39165ea768cd29dc35f1321f33b984320bed3d07ca03c5",
+    "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/COMPLETE.json": "60261ea602dd25049b5a56677ec41b5aefa7ada6538fc38bbc0188680883816c",
+    "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/data/protocol.json": "8c1f1bdbf18fea9e89c08b18dd3f5b1f7f0365869b3a7ea5f454adca0372e7da",
+    "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/protocol.json": "d0cec12c05b73eaeabd9471d7e01ac894f97350f13e2308f9cb257af40a3d387"
+  },
+  "methods": [
+    "bernoulli_mixture_icfm",
+    "autoregressive_icfm",
+    "midasim_mask_icfm",
+    "midasim"
+  ],
+  "no_test_arrays_read": true,
+  "prd": "P reference, Q evaluated; frozen development-only quantizer; 201 angles in [1e-10, pi/2-1e-10].",
+  "prd_uncertainty": "Mean and sample SD describe quantizer-seed variation on fixed assessment observations, not sampling uncertainty.",
+  "primary": "sqrt",
+  "published_reference_root": "/hpc/home/yx306/RDR/results/AGP/rdr_metric_comparison_20261009",
+  "quantizer": {
+    "batch_size": 1024,
+    "init_size": null,
+    "max_iter": 200,
+    "max_no_improvement": 10,
+    "n_clusters": 64,
+    "n_init": 1,
+    "reassignment_ratio": 0.01,
+    "tol": 0.0
+  },
+  "representations": [
+    "sqrt",
+    "clr"
+  ],
+  "role_counts": {
+    "autoregressive_icfm": {
+      "stopping_p": {
+        "rows": 1281,
+        "subjects": 1088
+      },
+      "stopping_q": {
+        "rows": 1044,
+        "subjects": null
+      },
+      "test_p": {
+        "rows": 2002,
+        "subjects": 1967
+      },
+      "test_q": {
+        "rows": 2089,
+        "subjects": null
+      },
+      "train_p": {
+        "rows": 9162,
+        "subjects": 7644
+      },
+      "train_q": {
+        "rows": 7310,
+        "subjects": null
+      }
+    },
+    "bernoulli_mixture_icfm": {
+      "stopping_p": {
+        "rows": 1281,
+        "subjects": 1088
+      },
+      "stopping_q": {
+        "rows": 1044,
+        "subjects": null
+      },
+      "test_p": {
+        "rows": 2002,
+        "subjects": 1967
+      },
+      "test_q": {
+        "rows": 2089,
+        "subjects": null
+      },
+      "train_p": {
+        "rows": 9162,
+        "subjects": 7644
+      },
+      "train_q": {
+        "rows": 7310,
+        "subjects": null
+      }
+    },
+    "midasim": {
+      "stopping_p": {
+        "rows": 1281,
+        "subjects": 1088
+      },
+      "stopping_q": {
+        "rows": 1044,
+        "subjects": null
+      },
+      "test_p": {
+        "rows": 2002,
+        "subjects": 1967
+      },
+      "test_q": {
+        "rows": 2089,
+        "subjects": null
+      },
+      "train_p": {
+        "rows": 9162,
+        "subjects": 7644
+      },
+      "train_q": {
+        "rows": 7310,
+        "subjects": null
+      }
+    },
+    "midasim_mask_icfm": {
+      "stopping_p": {
+        "rows": 1281,
+        "subjects": 1088
+      },
+      "stopping_q": {
+        "rows": 1044,
+        "subjects": null
+      },
+      "test_p": {
+        "rows": 2002,
+        "subjects": 1967
+      },
+      "test_q": {
+        "rows": 2089,
+        "subjects": null
+      },
+      "train_p": {
+        "rows": 9162,
+        "subjects": 7644
+      },
+      "train_q": {
+        "rows": 7310,
+        "subjects": null
+      }
+    }
+  },
+  "roots": {
+    "autoregressive_icfm": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm",
+    "bernoulli_mixture_icfm": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm",
+    "midasim": "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis",
+    "midasim_mask_icfm": "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis"
+  },
+  "sampling": "Pair-specific balanced uniform subsets without replacement; 2048 per source; same seed indices across representations.",
+  "scope": "Retrospective existing cohort; no new generator or RDR fits, no controlled perturbation, no selection by assessment metrics.",
+  "seeds": [
+    2026100901,
+    2026100902,
+    2026100903,
+    2026100904,
+    2026100905
+  ],
+  "sensitivity": "clr",
+  "sources": {
+    "/hpc/home/yx306/RDR/experiments/AGP/four_generator_metrics.py": "245a2ec61d6238f21e965cf36114a730d50c35ff1004d7fda107024a37a568f1",
+    "/hpc/home/yx306/RDR/experiments/AGP/rdr_global_metrics.py": "85083d3abce7d0659dab1fc057b642c302d8b0b99ed03537220d396a9b9727d2",
+    "/hpc/home/yx306/RDR/experiments/AGP/rdr_metric_utils.py": "ae51d8c52e558e1040ef96ce291ab8379fc62ec568c50301715927f8b62a1986"
+  },
+  "status": "prespecified_retrospective_metric_extension",
+  "threads": 2,
+  "versions": {
+    "joblib": "1.4.2",
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.6.1",
+    "scipy": "1.13.1"
+  }
+}

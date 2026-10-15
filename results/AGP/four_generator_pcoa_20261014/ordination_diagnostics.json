@@ -1,0 +1,50 @@
+{
+  "assessment_only_descriptive": true,
+  "centering_row_sum_max_abs": 3.409184046176961e-11,
+  "coordinate_centering_max_abs": 3.155528658521395e-17,
+  "corrected_total_inertia": 229649.52119842978,
+  "displayed_corrected_inertia_fractions": [
+    0.0017048551082478568,
+    0.0014163235667388613
+  ],
+  "eigen_residual_norm": 2.188566876073236e-12,
+  "eigensolver": "iterative",
+  "eigensolver_seed": 20261014,
+  "eigensolver_tolerance": 1e-11,
+  "exact_distances": true,
+  "full_spectrum_computed": false,
+  "group_counts": {
+    "autoregressive_icfm": 2089,
+    "bernoulli_mixture_icfm": 2089,
+    "midasim": 2089,
+    "midasim_mask_icfm": 2089,
+    "real": 2002
+  },
+  "group_order": [
+    "real",
+    "bernoulli_mixture_icfm",
+    "autoregressive_icfm",
+    "midasim_mask_icfm",
+    "midasim"
+  ],
+  "input_closure": "Each assessment row closed once in float64 for Bray-Curtis only",
+  "lingoes_constant": 22.020279980535854,
+  "method": "Joint Bray-Curtis PCoA with Lingoes correction",
+  "raw_leading_eigenvalues": [
+    369.4988793412816,
+    303.2377489830959
+  ],
+  "raw_minimum_eigenvalue": -22.020279980535854,
+  "raw_trace": 1585.4814400199332,
+  "rows": 10358,
+  "same_real_coordinates_in_every_panel": true,
+  "score_scale": [
+    0,
+    2
+  ],
+  "score_summary": "Arithmetic mean of the five completed pair-specific final RDR fits",
+  "structural_zero_shifted": false,
+  "subsampling": false,
+  "taxa": 614,
+  "used_for_fitting_or_selection": false
+}

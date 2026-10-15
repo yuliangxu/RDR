@@ -1,0 +1,12 @@
+# Tested with Python 3.9.25. Production used torch 2.6.0+cu124 on CPU.
+# Covers RDR, four-generator metrics and figures; flow generation also needs the archived torchdyn runtime.
+numpy==1.26.4
+scipy==1.13.1
+pandas==2.2.3
+scikit-learn==1.6.1
+joblib==1.4.2
+matplotlib==3.9.4
+torch==2.6.0
+threadpoolctl==3.6.0
+# Focused data/workflow verification tests.
+pytest==8.4.2

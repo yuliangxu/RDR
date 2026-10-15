@@ -1,0 +1,9 @@
+community,leaf,rule
+C01,2,Lachnospiraceae log mass/rest <= -3.2167 AND Streptococcaceae log mass/rest <= -2.73
+C02,3,Lachnospiraceae log mass/rest <= -3.2167 AND Streptococcaceae log mass/rest > -2.73
+C03,6,Lachnospiraceae log mass/rest > -3.2167 AND Porphyromonadaceae log mass/rest <= -5.40137 AND Rikenellaceae/Enterobacteriaceae log balance <= 0.824037
+C04,7,Lachnospiraceae log mass/rest > -3.2167 AND Porphyromonadaceae log mass/rest <= -5.40137 AND Rikenellaceae/Enterobacteriaceae log balance > 0.824037
+C05,10,Lachnospiraceae log mass/rest > -3.2167 AND Porphyromonadaceae log mass/rest > -5.40137 AND Lachnospiraceae log mass/rest <= -2.1706 AND Enterobacteriaceae/Bacteroidaceae log balance <= -4.32268
+C06,11,Lachnospiraceae log mass/rest > -3.2167 AND Porphyromonadaceae log mass/rest > -5.40137 AND Lachnospiraceae log mass/rest <= -2.1706 AND Enterobacteriaceae/Bacteroidaceae log balance > -4.32268
+C07,13,Lachnospiraceae log mass/rest > -3.2167 AND Porphyromonadaceae log mass/rest > -5.40137 AND Lachnospiraceae log mass/rest > -2.1706 AND Ruminococcaceae log mass/rest <= -1.73639
+C08,14,Lachnospiraceae log mass/rest > -3.2167 AND Porphyromonadaceae log mass/rest > -5.40137 AND Lachnospiraceae log mass/rest > -2.1706 AND Ruminococcaceae log mass/rest > -1.73639

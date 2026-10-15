@@ -1,0 +1,13 @@
+method,study,fits,epoch_cap_fits,maximum_epochs_run,maximum_best_epoch
+bernoulli_mixture_icfm,selection,80,0,121,91
+bernoulli_mixture_icfm,final,5,0,100,65
+bernoulli_mixture_icfm,null,5,0,100,22
+autoregressive_icfm,selection,80,0,100,48
+autoregressive_icfm,final,5,0,100,53
+autoregressive_icfm,null,5,0,100,22
+midasim_mask_icfm,selection,80,0,104,74
+midasim_mask_icfm,final,5,0,100,62
+midasim_mask_icfm,null,5,0,100,22
+midasim,selection,80,0,107,77
+midasim,final,5,0,116,86
+midasim,null,5,0,100,22
