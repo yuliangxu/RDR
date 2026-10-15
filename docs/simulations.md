@@ -22,32 +22,31 @@ protocols and checksums, is included in this repository.
 ## Toy example: identical global metrics, opposite local mismatch
 
 Global summaries can agree for generators that misrepresent different parts
-of a population. Let $P$, $Q_1$ and $Q_2$ be the distributions of $X=2B-1$
-for $B\sim\operatorname{Bernoulli}(\theta)$ with $\theta=0.5,0.2,0.8$,
-respectively. These are affine transformations of Bernoulli distributions,
-with common two-point support $\mathcal{X}=\{-1,+1\}$. Their probability mass
+of a population. Let $P=\operatorname{Bernoulli}(0.5)$,
+$Q_1=\operatorname{Bernoulli}(0.2)$ and $Q_2=\operatorname{Bernoulli}(0.8)$,
+with common support $\mathcal{X}=\{0,1\}$. Their probability mass
 functions $p(x)=P(\{x\})$ and $q_k(x)=Q_k(\{x\})$, for $k=1,2$, are
 
 | $x$ | $p(x)$ | $q_1(x)$ | $q_2(x)$ |
 | --- | --- | --- | --- |
-| $-1$ | $0.5$ | $0.8$ | $0.2$ |
-| $+1$ | $0.5$ | $0.2$ | $0.8$ |
+| $0$ | $0.5$ | $0.8$ | $0.2$ |
+| $1$ | $0.5$ | $0.2$ | $0.8$ |
 
 Both generators have the **same entire population precision–recall for
-distributions (PRD) curve**, the **same scalar-feature FID of $0.4$**, and the
+distributions (PRD) curve**, the **same scalar-feature FID of $0.1$**, and the
 **same ideal-label Inception Score (IS) of $1.649385$**. Yet $Q_1$ assigns more
-probability mass than $P$ to $-1$ and less to $+1$, while $Q_2$ does the reverse.
+probability mass than $P$ to $0$ and less to $1$, while $Q_2$ does the reverse.
 RDR identifies both the support point and the direction of each difference
 in probability mass.
 
-![Discrete distributions on two-point support: opposite differences in probability mass, identical PRD curves and global scores, and reversed RDR values at the support points.](../results/simulations/global_local_toy/global_local_population_example.png)
+![Bernoulli distributions on support {0,1}: opposite differences in probability mass, identical PRD curves and global scores, and reversed RDR values at the support points.](../results/simulations/global_local_toy/global_local_population_example.png)
 
-**Figure.** (a) Probability mass functions on $\mathcal{X}=\{-1,+1\}$. (b) The two analytic
+**Figure.** (a) Bernoulli probability mass functions on $\mathcal{X}=\{0,1\}$. (b) The two analytic
 PRD curves coincide; the blue solid and orange dashed lines represent $Q_1$
 and $Q_2$, respectively. The inset reports their common global scores under
 the feature and classifier definitions below. (c) Exact RDR
 $r_k(x)=2p(x)/(p(x)+q_k(x))$ equals $(10/13,10/7)$ for $Q_1$ and
-$(10/7,10/13)$ for $Q_2$, evaluated at $x=-1,+1$ in that order. Values below
+$(10/7,10/13)$ for $Q_2$, evaluated at $x=0,1$ in that order. Values below
 one identify excessive probability mass under $Q_k$ relative to $P$;
 values above one identify insufficient probability mass. The dotted line marks
 equal probability mass.
@@ -61,14 +60,14 @@ The equalities follow directly from the population definitions:
 - **PRD:** for every $\lambda>0$,
   $\alpha_k(\lambda)=\sum_x\min\{\lambda p(x),q_k(x)\}$ and
   $\beta_k(\lambda)=\alpha_k(\lambda)/\lambda$ are unchanged under the reflection
-  $x\mapsto-x$, since $p(-x)=p(x)$ and $q_2(x)=q_1(-x)$. Here $\alpha(\lambda)=\lambda$ for
+  $x\mapsto1-x$, since $p(1-x)=p(x)$ and $q_2(x)=q_1(1-x)$. Here $\alpha(\lambda)=\lambda$ for
   $\lambda\le0.4$, $0.2+0.5\lambda$ for $0.4<\lambda<1.6$, and $1$ for
   $\lambda\ge1.6$. This uses the population PRD definition of
   [Sajjadi et al. (2018)](https://arxiv.org/abs/1806.00035).
 - **FID:** applying the Gaussian Fréchet formula to the scalar features
-  $-1,+1$ gives means $0,-0.6,+0.6$ for $P,Q_1,Q_2$ and variances
-  $1,0.64,0.64$. Thus both distances are
-  $0.6^2+(1-0.8)^2=0.4$. This is the FID formula in a declared toy feature
+  $0,1$ gives means $0.5,0.2,0.8$ for $P,Q_1,Q_2$ and variances
+  $0.25,0.16,0.16$. Thus both distances are
+  $0.3^2+(0.5-0.4)^2=0.1$. This is the FID formula in a declared toy feature
   space, rather than an image Inception embedding;
   see [Heusel et al. (2017)](https://arxiv.org/abs/1706.08500).
 - **IS:** an ideal deterministic classifier that assigns a separate label
@@ -85,8 +84,9 @@ exact population calculations;
 finite-sample metric estimates need not coincide, and this PRD identity is
 not a statement about every precision–recall estimator or classifier PR curve.
 
-This recreates the [original AGP toy example](../results/AGP/rdr_metric_comparison_20261009/toy/global_local_population_example.png)
-with a compact figure and explicit two-point support. It requires no fitted model
+This adapts the [original AGP toy example](../results/AGP/rdr_metric_comparison_20261009/toy/global_local_population_example.png)
+to standard Bernoulli support $\{0,1\}$ with a compact figure. The original AGP
+figure is retained unchanged. The example requires no fitted model
 and does not add fits or repetitions to the completed studies below.
 
 ## Design and evaluation criteria
