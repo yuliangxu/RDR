@@ -51,7 +51,7 @@ requires an explicit path adaptation; `--output` changes destinations only.
 
 ## Check the public artifacts without private data
 
-This checks the 73 files recorded in the four public package manifests using
+This checks the 77 files recorded in the five public package manifests using
 only the Python standard library:
 
 ```bash
@@ -63,6 +63,7 @@ packages = (
     'four_generator_case_study_20261013',
     'four_generator_pcoa_20261014',
     'four_generator_pcoa_cp_20261015',
+    'four_generator_class_abundance_20261022',
 )
 checked = 0
 for name in packages:
@@ -138,6 +139,30 @@ To redraw CP categories directly from the original saved coordinates, omit
 `--output`. The CP producer checks identities, prediction hashes and score-bin
 counts; it does not refit coordinates or intervals. Each point inherits its
 final-fit-0 score-cell interval, not an individual confidence interval.
+
+## Class-level abundance panels (2026-10-22)
+
+[four_generator_class_abundance.py](four_generator_class_abundance.py) renders
+the five stacked-bar panels in [AGP_RDR.md](../../docs/AGP_RDR.md#class-level-relative-abundance).
+It reuses the verified assessment inputs from `four_generator_pcoa.py`: all
+2,002 real and 2,089 generated observations per method. The 614 feature-aligned
+taxa are aggregated into 48 classes after float64 row closure. All classes,
+including Unclassified, are retained. Colors follow the earlier class plots;
+class order follows real mean abundance, and each source's samples are sorted
+independently by their largest class abundance.
+
+With the upstream studies available at the documented paths, use a fresh output:
+
+```bash
+MPLCONFIGDIR=/tmp/agp-class-abundance-mpl python3 -B experiments/AGP/four_generator_class_abundance.py \
+  --output results/AGP/four_generator_class_abundance_REPLAY
+```
+
+Outputs are PNG/PDF figures, aggregate class means, closure/order diagnostics
+and input/output hashes. The PDF retains vector text and rasterized bar layers.
+Original arrays and studies are read without modification. The completed
+[figure package](../../results/AGP/four_generator_class_abundance_20261022/manifest.json)
+records the exact inputs and rendering source.
 
 ## Generator and RDR fitting order
 

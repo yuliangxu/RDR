@@ -84,6 +84,24 @@ evaluation**, rather than a newly reserved confirmatory study.
 [Split counts](../results/AGP/four_generator_case_study_20261013/split_counts.csv) ·
 [Selection records](../results/AGP/retained_mask_comparison_20261013/selection_ranking.csv)
 
+## Class-level relative abundance
+
+![Class-level stacked relative abundances for the real assessment data and all four generators.](../results/AGP/four_generator_class_abundance_20261022/class_relative_abundance.png)
+
+Each thin bar is one assessment composition: **2,002 real observations** and
+**2,089 observations from each generator**. Each saved composition is closed
+to sum to one before its 614 taxa are summed into **48 taxonomic classes**,
+including Unclassified. All panels share the historical class colors and a
+common stack order, ranked by mean abundance in the real assessment data.
+Within each panel, samples are sorted independently by decreasing abundance
+of their largest class, following the earlier class-level plots. Horizontal
+position is therefore a within-source display rank.
+
+[Figure PDF](../results/AGP/four_generator_class_abundance_20261022/class_relative_abundance.pdf) ·
+[Class mean abundances](../results/AGP/four_generator_class_abundance_20261022/class_mean_abundance.csv) ·
+[Figure source](../experiments/AGP/four_generator_class_abundance.py) ·
+[Provenance](../results/AGP/four_generator_class_abundance_20261022/manifest.json)
+
 ## RDR discrimination and fixed-width calibration
 
 | Generator | Selected loss / slope | RDR source AUC | Balanced Brier | Local absolute gap |

@@ -1,0 +1,241 @@
+source,label,sample_count,stack_order,class,color,taxon_count,mean_relative_abundance
+real,Real data,2002,0,Clostridia,#637939,79,0.44497440950253042
+real,Real data,2002,1,Bacteroidia,#9c9ede,44,0.37968936412115373
+real,Real data,2002,2,Gammaproteobacteria,#bd9e39,91,0.058142001632834867
+real,Real data,2002,3,Bacilli,#6b6ecf,77,0.025323082182062265
+real,Real data,2002,4,Actinobacteria,#6b6ecf,90,0.023036165204783729
+real,Real data,2002,5,Verrucomicrobiae,#ce6dbd,2,0.020066622868639129
+real,Real data,2002,6,Betaproteobacteria,#9c9ede,50,0.013051924798594525
+real,Real data,2002,7,Erysipelotrichi,#8c6d31,17,0.010886177568618267
+real,Real data,2002,8,Mollicutes,#e7cb94,4,0.0069376179316654341
+real,Real data,2002,9,Alphaproteobacteria,#6b6ecf,55,0.0059309957761073829
+real,Real data,2002,10,Coriobacteriia,#8ca252,9,0.0031681846730443951
+real,Real data,2002,11,Deltaproteobacteria,#b5cf6b,8,0.0029485945589014864
+real,Real data,2002,12,Fusobacteriia,#8c6d31,4,0.001701773984445725
+real,Real data,2002,13,Flavobacteriia,#8c6d31,13,0.001387557030476842
+real,Real data,2002,14,4C0d-2,#393b79,1,0.00084021932268440124
+real,Real data,2002,15,RF3,#ad494a,1,0.00050786833133646475
+real,Real data,2002,16,Epsilonproteobacteria,#cedb9c,3,0.0003107904327252162
+real,Real data,2002,17,Methanobacteria,#e7cb94,2,0.00030960285038966122
+real,Real data,2002,18,[Lentisphaeria],#de9ed6,2,0.00025418513676842995
+real,Real data,2002,19,Chloroplast,#637939,3,0.00015605510304613521
+real,Real data,2002,20,Synergistia,#e7969c,3,0.00014566835061837361
+real,Real data,2002,21,Sphingobacteriia,#d6616b,6,6.1934994545749107e-05
+real,Real data,2002,22,Unclassified,#393b79,3,4.1179003210429853e-05
+real,Real data,2002,23,TM7-3,#7b4173,1,2.026377472157518e-05
+real,Real data,2002,24,Thermoplasmata,#a55194,1,1.8827886865211611e-05
+real,Real data,2002,25,Spirochaetes,#e7969c,2,1.8296565203753221e-05
+real,Real data,2002,26,Opitutae,#e7cb94,2,1.4814967503435466e-05
+real,Real data,2002,27,Deinococci,#8ca252,3,1.4083314805420852e-05
+real,Real data,2002,28,Elusimicrobia,#cedb9c,1,1.2879492749957988e-05
+real,Real data,2002,29,Thermoleophilia,#7b4173,5,7.0313102225504587e-06
+real,Real data,2002,30,[Saprospirae],#de9ed6,5,5.4126034695401625e-06
+real,Real data,2002,31,Cytophagia,#8ca252,6,3.65270529867846e-06
+real,Real data,2002,32,Planctomycetia,#ad494a,3,2.3965377691201397e-06
+real,Real data,2002,33,Acidimicrobiia,#393b79,2,2.3126704347112104e-06
+real,Real data,2002,34,[Spartobacteria],#de9ed6,2,1.9337628869437131e-06
+real,Real data,2002,35,Solibacteres,#d6616b,1,1.7457278377195208e-06
+real,Real data,2002,36,[Chloracidobacteria],#ce6dbd,1,1.1967061745959392e-06
+real,Real data,2002,37,Acidobacteria-6,#5254a3,1,1.1386077088703628e-06
+real,Real data,2002,38,Acidobacteriia,#5254a3,1,8.2562492344741071e-07
+real,Real data,2002,39,Rubrobacteria,#d6616b,1,4.6584232049777336e-07
+real,Real data,2002,40,Ellin6529,#b5cf6b,1,3.8541621700439055e-07
+real,Real data,2002,41,Oscillatoriophycideae,#843c39,2,1.3488650177459318e-07
+real,Real data,2002,42,Phycisphaerae,#843c39,1,1.1239252767566538e-07
+real,Real data,2002,43,Thermomicrobia,#a55194,1,8.0061668411309279e-08
+real,Real data,2002,44,VC2_1_Bac22,#a55194,1,1.4897122317489988e-08
+real,Real data,2002,45,Gemm-3,#bd9e39,1,1.3626333056106143e-08
+real,Real data,2002,46,Gemmatimonadetes,#e7ba52,1,5.2595506800192094e-09
+real,Real data,2002,47,Halobacteria,#e7ba52,1,0
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,0,Clostridia,#637939,79,0.46800993314454215
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,1,Bacteroidia,#9c9ede,44,0.39046818258865307
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,2,Gammaproteobacteria,#bd9e39,91,0.035029722054169585
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,3,Bacilli,#6b6ecf,77,0.040162203020030166
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,4,Actinobacteria,#6b6ecf,90,0.027680987458613492
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,5,Verrucomicrobiae,#ce6dbd,2,0.00697565095125347
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,6,Betaproteobacteria,#9c9ede,50,0.01174067806380126
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,7,Erysipelotrichi,#8c6d31,17,0.0067419424113160801
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,8,Mollicutes,#e7cb94,4,0.0027876589802246958
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,9,Alphaproteobacteria,#6b6ecf,55,0.0023658114244957773
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,10,Coriobacteriia,#8ca252,9,0.0025239632588143265
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,11,Deltaproteobacteria,#b5cf6b,8,0.0019980430345100742
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,12,Fusobacteriia,#8c6d31,4,0.0015099177513313361
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,13,Flavobacteriia,#8c6d31,13,0.00038276584141640283
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,14,4C0d-2,#393b79,1,0.00041983751539110176
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,15,RF3,#ad494a,1,0.00018017295384252776
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,16,Epsilonproteobacteria,#cedb9c,3,0.00021716924370400876
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,17,Methanobacteria,#e7cb94,2,0.00018270031821336689
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,18,[Lentisphaeria],#de9ed6,2,0.00013851544194997927
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,19,Chloroplast,#637939,3,0.00018855178648052696
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,20,Synergistia,#e7969c,3,4.6172746062977095e-05
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,21,Sphingobacteriia,#d6616b,6,5.6858669877805451e-05
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,22,Unclassified,#393b79,3,3.4739715787653061e-05
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,23,TM7-3,#7b4173,1,2.5936112096160615e-05
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,24,Thermoplasmata,#a55194,1,1.2659357427676773e-05
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,25,Spirochaetes,#e7969c,2,1.1461743021399837e-05
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,26,Opitutae,#e7cb94,2,1.148096788563619e-05
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,27,Deinococci,#8ca252,3,1.6920011634625721e-05
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,28,Elusimicrobia,#cedb9c,1,2.8913349757131061e-06
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,29,Thermoleophilia,#7b4173,5,1.5490884956492037e-05
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,30,[Saprospirae],#de9ed6,5,1.2001682658107561e-05
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,31,Cytophagia,#8ca252,6,1.6955651261397942e-05
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,32,Planctomycetia,#ad494a,3,2.4345327425019773e-06
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,33,Acidimicrobiia,#393b79,2,3.1786935867543646e-06
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,34,[Spartobacteria],#de9ed6,2,4.8974504818748897e-06
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,35,Solibacteres,#d6616b,1,4.2653119482167381e-06
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,36,[Chloracidobacteria],#ce6dbd,1,3.5137706864991335e-06
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,37,Acidobacteria-6,#5254a3,1,1.8552143453139634e-06
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,38,Acidobacteriia,#5254a3,1,1.7787152028085941e-06
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,39,Rubrobacteria,#d6616b,1,1.1502726839925885e-06
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,40,Ellin6529,#b5cf6b,1,9.7652441316042384e-07
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,41,Oscillatoriophycideae,#843c39,2,1.3638574196489621e-06
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,42,Phycisphaerae,#843c39,1,1.7769265447922441e-06
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,43,Thermomicrobia,#a55194,1,7.5900846889853283e-07
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,44,VC2_1_Bac22,#a55194,1,2.347824245702186e-06
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,45,Gemm-3,#bd9e39,1,9.8467718311027247e-07
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,46,Gemmatimonadetes,#e7ba52,1,7.4109964773806139e-07
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2089,47,Halobacteria,#e7ba52,1,0
+autoregressive_icfm,NADE mask + ICFM,2089,0,Clostridia,#637939,79,0.48500470561558695
+autoregressive_icfm,NADE mask + ICFM,2089,1,Bacteroidia,#9c9ede,44,0.40227587637283857
+autoregressive_icfm,NADE mask + ICFM,2089,2,Gammaproteobacteria,#bd9e39,91,0.034135962440166527
+autoregressive_icfm,NADE mask + ICFM,2089,3,Bacilli,#6b6ecf,77,0.01871543791258988
+autoregressive_icfm,NADE mask + ICFM,2089,4,Actinobacteria,#6b6ecf,90,0.021304046126084074
+autoregressive_icfm,NADE mask + ICFM,2089,5,Verrucomicrobiae,#ce6dbd,2,0.0077873638647119377
+autoregressive_icfm,NADE mask + ICFM,2089,6,Betaproteobacteria,#9c9ede,50,0.0099840676956254662
+autoregressive_icfm,NADE mask + ICFM,2089,7,Erysipelotrichi,#8c6d31,17,0.0074879202555282404
+autoregressive_icfm,NADE mask + ICFM,2089,8,Mollicutes,#e7cb94,4,0.0035970334784901944
+autoregressive_icfm,NADE mask + ICFM,2089,9,Alphaproteobacteria,#6b6ecf,55,0.0019985203913617335
+autoregressive_icfm,NADE mask + ICFM,2089,10,Coriobacteriia,#8ca252,9,0.0026815540519826136
+autoregressive_icfm,NADE mask + ICFM,2089,11,Deltaproteobacteria,#b5cf6b,8,0.0022669461972317771
+autoregressive_icfm,NADE mask + ICFM,2089,12,Fusobacteriia,#8c6d31,4,0.00078106236246373124
+autoregressive_icfm,NADE mask + ICFM,2089,13,Flavobacteriia,#8c6d31,13,0.00023122269265653375
+autoregressive_icfm,NADE mask + ICFM,2089,14,4C0d-2,#393b79,1,0.00042786854305104188
+autoregressive_icfm,NADE mask + ICFM,2089,15,RF3,#ad494a,1,0.00025176003426525168
+autoregressive_icfm,NADE mask + ICFM,2089,16,Epsilonproteobacteria,#cedb9c,3,0.00022935186133975243
+autoregressive_icfm,NADE mask + ICFM,2089,17,Methanobacteria,#e7cb94,2,0.0002586501556248918
+autoregressive_icfm,NADE mask + ICFM,2089,18,[Lentisphaeria],#de9ed6,2,0.00018181469785757108
+autoregressive_icfm,NADE mask + ICFM,2089,19,Chloroplast,#637939,3,0.00012119260867321632
+autoregressive_icfm,NADE mask + ICFM,2089,20,Synergistia,#e7969c,3,6.9913730652848276e-05
+autoregressive_icfm,NADE mask + ICFM,2089,21,Sphingobacteriia,#d6616b,6,4.2462200457396275e-05
+autoregressive_icfm,NADE mask + ICFM,2089,22,Unclassified,#393b79,3,1.8212330682507098e-05
+autoregressive_icfm,NADE mask + ICFM,2089,23,TM7-3,#7b4173,1,1.5296016215045556e-05
+autoregressive_icfm,NADE mask + ICFM,2089,24,Thermoplasmata,#a55194,1,1.0506638352384013e-05
+autoregressive_icfm,NADE mask + ICFM,2089,25,Spirochaetes,#e7969c,2,1.1194476981491307e-05
+autoregressive_icfm,NADE mask + ICFM,2089,26,Opitutae,#e7cb94,2,1.6308182601886455e-05
+autoregressive_icfm,NADE mask + ICFM,2089,27,Deinococci,#8ca252,3,1.4499409404102113e-05
+autoregressive_icfm,NADE mask + ICFM,2089,28,Elusimicrobia,#cedb9c,1,6.3875689283000186e-06
+autoregressive_icfm,NADE mask + ICFM,2089,29,Thermoleophilia,#7b4173,5,2.2487723645598569e-05
+autoregressive_icfm,NADE mask + ICFM,2089,30,[Saprospirae],#de9ed6,5,8.4243359742875256e-06
+autoregressive_icfm,NADE mask + ICFM,2089,31,Cytophagia,#8ca252,6,9.3570937295400277e-06
+autoregressive_icfm,NADE mask + ICFM,2089,32,Planctomycetia,#ad494a,3,2.2409672282944227e-06
+autoregressive_icfm,NADE mask + ICFM,2089,33,Acidimicrobiia,#393b79,2,2.4414675033723423e-06
+autoregressive_icfm,NADE mask + ICFM,2089,34,[Spartobacteria],#de9ed6,2,6.842524960151242e-06
+autoregressive_icfm,NADE mask + ICFM,2089,35,Solibacteres,#d6616b,1,5.5807028103642161e-06
+autoregressive_icfm,NADE mask + ICFM,2089,36,[Chloracidobacteria],#ce6dbd,1,1.8839210929881329e-06
+autoregressive_icfm,NADE mask + ICFM,2089,37,Acidobacteria-6,#5254a3,1,3.2895146013903339e-06
+autoregressive_icfm,NADE mask + ICFM,2089,38,Acidobacteriia,#5254a3,1,3.4898110982977404e-06
+autoregressive_icfm,NADE mask + ICFM,2089,39,Rubrobacteria,#d6616b,1,1.349919952770496e-06
+autoregressive_icfm,NADE mask + ICFM,2089,40,Ellin6529,#b5cf6b,1,1.4642736439494343e-06
+autoregressive_icfm,NADE mask + ICFM,2089,41,Oscillatoriophycideae,#843c39,2,8.9177470037514496e-07
+autoregressive_icfm,NADE mask + ICFM,2089,42,Phycisphaerae,#843c39,1,2.1031412843573023e-06
+autoregressive_icfm,NADE mask + ICFM,2089,43,Thermomicrobia,#a55194,1,4.2710702461141117e-07
+autoregressive_icfm,NADE mask + ICFM,2089,44,VC2_1_Bac22,#a55194,1,7.6232421971689339e-08
+autoregressive_icfm,NADE mask + ICFM,2089,45,Gemm-3,#bd9e39,1,1.7086504516838382e-07
+autoregressive_icfm,NADE mask + ICFM,2089,46,Gemmatimonadetes,#e7ba52,1,3.4071087646916428e-07
+autoregressive_icfm,NADE mask + ICFM,2089,47,Halobacteria,#e7ba52,1,0
+midasim_mask_icfm,MIDASim mask + ICFM,2089,0,Clostridia,#637939,79,0.484262962803512
+midasim_mask_icfm,MIDASim mask + ICFM,2089,1,Bacteroidia,#9c9ede,44,0.38915218735935914
+midasim_mask_icfm,MIDASim mask + ICFM,2089,2,Gammaproteobacteria,#bd9e39,91,0.036561792904226946
+midasim_mask_icfm,MIDASim mask + ICFM,2089,3,Bacilli,#6b6ecf,77,0.031072333783427417
+midasim_mask_icfm,MIDASim mask + ICFM,2089,4,Actinobacteria,#6b6ecf,90,0.019981776982797933
+midasim_mask_icfm,MIDASim mask + ICFM,2089,5,Verrucomicrobiae,#ce6dbd,2,0.0072441395530283455
+midasim_mask_icfm,MIDASim mask + ICFM,2089,6,Betaproteobacteria,#9c9ede,50,0.010873781537638134
+midasim_mask_icfm,MIDASim mask + ICFM,2089,7,Erysipelotrichi,#8c6d31,17,0.007037478963726764
+midasim_mask_icfm,MIDASim mask + ICFM,2089,8,Mollicutes,#e7cb94,4,0.0028995071576338833
+midasim_mask_icfm,MIDASim mask + ICFM,2089,9,Alphaproteobacteria,#6b6ecf,55,0.002286481753070196
+midasim_mask_icfm,MIDASim mask + ICFM,2089,10,Coriobacteriia,#8ca252,9,0.002623065386476991
+midasim_mask_icfm,MIDASim mask + ICFM,2089,11,Deltaproteobacteria,#b5cf6b,8,0.002124915026473152
+midasim_mask_icfm,MIDASim mask + ICFM,2089,12,Fusobacteriia,#8c6d31,4,0.0014190928835159297
+midasim_mask_icfm,MIDASim mask + ICFM,2089,13,Flavobacteriia,#8c6d31,13,0.00042920040882180445
+midasim_mask_icfm,MIDASim mask + ICFM,2089,14,4C0d-2,#393b79,1,0.0004440927853186797
+midasim_mask_icfm,MIDASim mask + ICFM,2089,15,RF3,#ad494a,1,0.00019605819391819353
+midasim_mask_icfm,MIDASim mask + ICFM,2089,16,Epsilonproteobacteria,#cedb9c,3,0.00037970646035141687
+midasim_mask_icfm,MIDASim mask + ICFM,2089,17,Methanobacteria,#e7cb94,2,0.00022514615211019181
+midasim_mask_icfm,MIDASim mask + ICFM,2089,18,[Lentisphaeria],#de9ed6,2,0.00013646035325500221
+midasim_mask_icfm,MIDASim mask + ICFM,2089,19,Chloroplast,#637939,3,0.00025507021937937749
+midasim_mask_icfm,MIDASim mask + ICFM,2089,20,Synergistia,#e7969c,3,6.0842078073418733e-05
+midasim_mask_icfm,MIDASim mask + ICFM,2089,21,Sphingobacteriia,#d6616b,6,6.4762740852724153e-05
+midasim_mask_icfm,MIDASim mask + ICFM,2089,22,Unclassified,#393b79,3,5.2086879100634114e-05
+midasim_mask_icfm,MIDASim mask + ICFM,2089,23,TM7-3,#7b4173,1,5.6064998622354009e-05
+midasim_mask_icfm,MIDASim mask + ICFM,2089,24,Thermoplasmata,#a55194,1,1.3339885406771921e-05
+midasim_mask_icfm,MIDASim mask + ICFM,2089,25,Spirochaetes,#e7969c,2,2.6831692965819571e-05
+midasim_mask_icfm,MIDASim mask + ICFM,2089,26,Opitutae,#e7cb94,2,1.5858124044408032e-05
+midasim_mask_icfm,MIDASim mask + ICFM,2089,27,Deinococci,#8ca252,3,2.3545199083577646e-05
+midasim_mask_icfm,MIDASim mask + ICFM,2089,28,Elusimicrobia,#cedb9c,1,9.8373153278225139e-06
+midasim_mask_icfm,MIDASim mask + ICFM,2089,29,Thermoleophilia,#7b4173,5,1.4428739368657143e-05
+midasim_mask_icfm,MIDASim mask + ICFM,2089,30,[Saprospirae],#de9ed6,5,1.4425447512785702e-05
+midasim_mask_icfm,MIDASim mask + ICFM,2089,31,Cytophagia,#8ca252,6,1.1022060894422656e-05
+midasim_mask_icfm,MIDASim mask + ICFM,2089,32,Planctomycetia,#ad494a,3,1.7831004328091373e-06
+midasim_mask_icfm,MIDASim mask + ICFM,2089,33,Acidimicrobiia,#393b79,2,3.8439267679993506e-06
+midasim_mask_icfm,MIDASim mask + ICFM,2089,34,[Spartobacteria],#de9ed6,2,3.5263779125201118e-06
+midasim_mask_icfm,MIDASim mask + ICFM,2089,35,Solibacteres,#d6616b,1,3.4197301748698478e-06
+midasim_mask_icfm,MIDASim mask + ICFM,2089,36,[Chloracidobacteria],#ce6dbd,1,6.1643204173324183e-06
+midasim_mask_icfm,MIDASim mask + ICFM,2089,37,Acidobacteria-6,#5254a3,1,2.9729531529792142e-06
+midasim_mask_icfm,MIDASim mask + ICFM,2089,38,Acidobacteriia,#5254a3,1,2.9091847654459172e-06
+midasim_mask_icfm,MIDASim mask + ICFM,2089,39,Rubrobacteria,#d6616b,1,1.3443455421944489e-06
+midasim_mask_icfm,MIDASim mask + ICFM,2089,40,Ellin6529,#b5cf6b,1,1.3505899250573994e-06
+midasim_mask_icfm,MIDASim mask + ICFM,2089,41,Oscillatoriophycideae,#843c39,2,1.79663192179796e-06
+midasim_mask_icfm,MIDASim mask + ICFM,2089,42,Phycisphaerae,#843c39,1,8.454369155084587e-07
+midasim_mask_icfm,MIDASim mask + ICFM,2089,43,Thermomicrobia,#a55194,1,3.9941789765603687e-07
+midasim_mask_icfm,MIDASim mask + ICFM,2089,44,VC2_1_Bac22,#a55194,1,0
+midasim_mask_icfm,MIDASim mask + ICFM,2089,45,Gemm-3,#bd9e39,1,1.9848936208443176e-07
+midasim_mask_icfm,MIDASim mask + ICFM,2089,46,Gemmatimonadetes,#e7ba52,1,1.1496655168820322e-06
+midasim_mask_icfm,MIDASim mask + ICFM,2089,47,Halobacteria,#e7ba52,1,0
+midasim,MIDASim,2089,0,Clostridia,#637939,79,0.44020630347907652
+midasim,MIDASim,2089,1,Bacteroidia,#9c9ede,44,0.37341317856556805
+midasim,MIDASim,2089,2,Gammaproteobacteria,#bd9e39,91,0.049407429713141278
+midasim,MIDASim,2089,3,Bacilli,#6b6ecf,77,0.037873865807676259
+midasim,MIDASim,2089,4,Actinobacteria,#6b6ecf,90,0.029854201154737536
+midasim,MIDASim,2089,5,Verrucomicrobiae,#ce6dbd,2,0.014979997343562406
+midasim,MIDASim,2089,6,Betaproteobacteria,#9c9ede,50,0.016117684338569013
+midasim,MIDASim,2089,7,Erysipelotrichi,#8c6d31,17,0.0097473535652583439
+midasim,MIDASim,2089,8,Mollicutes,#e7cb94,4,0.0059672906814371377
+midasim,MIDASim,2089,9,Alphaproteobacteria,#6b6ecf,55,0.0062591154863516976
+midasim,MIDASim,2089,10,Coriobacteriia,#8ca252,9,0.0031892417584518944
+midasim,MIDASim,2089,11,Deltaproteobacteria,#b5cf6b,8,0.0029644332924245228
+midasim,MIDASim,2089,12,Fusobacteriia,#8c6d31,4,0.0041482195174590312
+midasim,MIDASim,2089,13,Flavobacteriia,#8c6d31,13,0.0010682079598324247
+midasim,MIDASim,2089,14,4C0d-2,#393b79,1,0.0012975788748268216
+midasim,MIDASim,2089,15,RF3,#ad494a,1,0.00059561145785225124
+midasim,MIDASim,2089,16,Epsilonproteobacteria,#cedb9c,3,0.00070096015483958325
+midasim,MIDASim,2089,17,Methanobacteria,#e7cb94,2,0.00055776902785573948
+midasim,MIDASim,2089,18,[Lentisphaeria],#de9ed6,2,0.00026634094503898988
+midasim,MIDASim,2089,19,Chloroplast,#637939,3,0.00025182747055005057
+midasim,MIDASim,2089,20,Synergistia,#e7969c,3,0.00016617764696234052
+midasim,MIDASim,2089,21,Sphingobacteriia,#d6616b,6,0.00055343757275183787
+midasim,MIDASim,2089,22,Unclassified,#393b79,3,0.00019734731280848789
+midasim,MIDASim,2089,23,TM7-3,#7b4173,1,3.4681839915778565e-05
+midasim,MIDASim,2089,24,Thermoplasmata,#a55194,1,2.7152313914642544e-05
+midasim,MIDASim,2089,25,Spirochaetes,#e7969c,2,1.018091050918409e-05
+midasim,MIDASim,2089,26,Opitutae,#e7cb94,2,4.5582554975544712e-05
+midasim,MIDASim,2089,27,Deinococci,#8ca252,3,2.0108322605402541e-05
+midasim,MIDASim,2089,28,Elusimicrobia,#cedb9c,1,5.0591930547499113e-05
+midasim,MIDASim,2089,29,Thermoleophilia,#7b4173,5,4.9068983755625664e-06
+midasim,MIDASim,2089,30,[Saprospirae],#de9ed6,5,6.1298556071848497e-06
+midasim,MIDASim,2089,31,Cytophagia,#8ca252,6,5.9144017984981812e-06
+midasim,MIDASim,2089,32,Planctomycetia,#ad494a,3,7.6151002043707563e-07
+midasim,MIDASim,2089,33,Acidimicrobiia,#393b79,2,1.8103068957213013e-06
+midasim,MIDASim,2089,34,[Spartobacteria],#de9ed6,2,1.4103269557564605e-06
+midasim,MIDASim,2089,35,Solibacteres,#d6616b,1,1.2812819607288205e-06
+midasim,MIDASim,2089,36,[Chloracidobacteria],#ce6dbd,1,6.7362177363130191e-07
+midasim,MIDASim,2089,37,Acidobacteria-6,#5254a3,1,1.8049856811940581e-06
+midasim,MIDASim,2089,38,Acidobacteriia,#5254a3,1,5.3443386727978605e-07
+midasim,MIDASim,2089,39,Rubrobacteria,#d6616b,1,4.5387703856159967e-07
+midasim,MIDASim,2089,40,Ellin6529,#b5cf6b,1,6.6637446274046148e-07
+midasim,MIDASim,2089,41,Oscillatoriophycideae,#843c39,2,4.4660806141067467e-07
+midasim,MIDASim,2089,42,Phycisphaerae,#843c39,1,1.1928832595522647e-07
+midasim,MIDASim,2089,43,Thermomicrobia,#a55194,1,1.4007308831737431e-07
+midasim,MIDASim,2089,44,VC2_1_Bac22,#a55194,1,0
+midasim,MIDASim,2089,45,Gemm-3,#bd9e39,1,3.3978056527611503e-07
+midasim,MIDASim,2089,46,Gemmatimonadetes,#e7ba52,1,7.353760215312087e-07
+midasim,MIDASim,2089,47,Halobacteria,#e7ba52,1,0
