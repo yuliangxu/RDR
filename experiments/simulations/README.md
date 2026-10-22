@@ -14,6 +14,7 @@ Small numerical evidence is included under
 | `toy_illustrations.ipynb` | Gaussian tail separation and beta-mixture toy examples. |
 | `moment_matched_fid.ipynb` | Earlier supplementary toy, retained for reference: Gaussian versus three-Gaussian mixture with identical population moments, zero FID, density plots and exact/fitted RDR. Superseded as the paper example by `global_local_toy.py`. |
 | `population.py`, `config.json` | Five populations, analytic truth, seeds and full experimental design. |
+| `scatter_2d.py` | Three-panel P/Q, fitted-RDR and true-RDR scatter figure from repetition 0 of the frozen selected 2D fit. |
 | `workflow.py` | Common selection, fitting primitives, fit verification and diagnostic reports; original Hellinger-only convergence remains for compatibility and smoke checks. |
 | `report.py` | Compact selection tables, supplementary results, Markdown/HTML/LaTeX and rendered tables. |
 | `loss_followup.py` | Matched loss fitting, copied Hellinger references, and verified presentation replay. |
@@ -131,6 +132,23 @@ weighted mean validation Brier. It does not select the best loss. Each fit
 restores its minimum own-validation-loss checkpoint before cross-model Brier is
 computed. The full grid must be complete and intact before freezing/reporting.
 The completed study selected B8-Res64/slope 2.
+
+### Two-dimensional scatter figure
+
+Render the same balanced subset of evaluation observations by P/Q source,
+fitted RDR and analytic true RDR, using the saved selected Hellinger fit:
+
+```bash
+python -B -m experiments.simulations.scatter_2d --run runs/selection --output runs/scatter-2d
+```
+
+Use a new output directory. The renderer verifies the frozen fit, reconstructs
+its evaluation coordinates and checks analytic truth against saved values.
+It exports PNG, vector PDF and provenance, using repetition 0 and 1,000 plotted
+observations per distribution. `--points-per-source` and `--plot-seed` control
+the display subset. The published [figure](../../results/simulations/scatter_2d/scatter_2d.png)
+reuses the completed study's fit; its original run path and hashes are in
+[provenance.json](../../results/simulations/scatter_2d/provenance.json).
 
 ## Reproduce the matched loss comparison
 

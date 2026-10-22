@@ -8,6 +8,7 @@ numerical evidence and figures, without checkpoints or raw predictions.
 | --- | --- |
 | `global_local_toy/` | Exact Bernoulli distributions on support {0,1}: equal PRD/FID/ideal-label IS with opposite local RDR; PNG/PDF, numerical tables and provenance. No fitted models. |
 | `model_selection/` | Five settings, ten repetitions, 23 candidates: 1,150 fits. |
+| `scatter_2d/` | P/Q, fitted-RDR and true-RDR scatter panels for the 2D case; reuses the selected Hellinger model at repetition 0, with PNG/PDF and provenance. |
 | `loss_comparison/` | Four losses at B8-Res64, slope 2: 150 new fits plus 50 reused Hellinger fits. |
 | `convergence/` | Four losses × five settings × six training sizes × 100 repetitions: 12,000 fresh fits. |
 | `computation_cost/` | Exact replays of ten convergence repetitions per setting/size/loss: 1,200 timed fits. |

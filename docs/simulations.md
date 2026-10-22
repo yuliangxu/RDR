@@ -134,6 +134,22 @@ Paired differences use the same formula on within-repetition differences.
 a significance claim. Selection-stage evaluation and the follow-up chosen after
 inspecting it are design evidence, not a fresh final test of a chosen procedure.
 
+![Two-dimensional Gaussian-mixture simulation: the same evaluation points colored by P/Q source, fitted RDR, and true RDR.](../results/simulations/scatter_2d/scatter_2d.png)
+
+**Figure.** The $D=2$, $\sigma=0$ simulation, showing the same random subset of
+1,000 evaluation observations from each distribution in all three panels:
+(a) source $P$ or $Q$; (b) fitted RDR $\hat r(x)$; (c) analytic true RDR
+$r_0(x)=2p(x)/(p(x)+q(x))$. The fitted values reuse repetition 0 of the selected
+Hellinger B8-Res64 model with output slope 2 and 1,000 training observations per
+distribution. Coordinates have equal scaling and common limits; the two RDR
+panels share a $[0,2]$ color scale. For true RDR, blue ($r<1$) indicates excess
+density under $Q$ relative to $P$, white ($r=1$) equal density, and red ($r>1$)
+insufficient density under $Q$. Fitted colors estimate these density differences.
+
+[Vector PDF](../results/simulations/scatter_2d/scatter_2d.pdf)
+· [Figure source](../experiments/simulations/scatter_2d.py)
+· [Provenance](../results/simulations/scatter_2d/provenance.json)
+
 ## Model selection: 1,150 fits
 
 The grid contains four losses at MLP32/slope 2, plus the 20 Hellinger combinations
