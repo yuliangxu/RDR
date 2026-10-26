@@ -1,0 +1,46 @@
+source,label,sample_count,stack_order,class,color,original_class_count,taxon_count,mean_relative_abundance
+real,Real data,2002,0,Clostridia,#0072B2,1,79,0.44497440950253037
+real,Real data,2002,1,Bacteroidia,#E69F00,1,44,0.37968936412115378
+real,Real data,2002,2,Gammaproteobacteria,#009E73,1,91,0.058142001632834873
+real,Real data,2002,3,Bacilli,#CC79A7,1,77,0.025323082182062261
+real,Real data,2002,4,Actinobacteria,#56B4E9,1,90,0.023036165204783729
+real,Real data,2002,5,Verrucomicrobiae,#D55E00,1,2,0.020066622868639129
+real,Real data,2002,6,Betaproteobacteria,#F0E442,1,50,0.013051924798594525
+real,Real data,2002,7,Erysipelotrichi,#332288,1,17,0.010886177568618267
+real,Real data,2002,8,Other,#D9D9D9,40,164,0.024830252120783075
+bernoulli_mixture_icfm,Mixture + ICFM,2089,0,Clostridia,#0072B2,1,79,0.46800993314454209
+bernoulli_mixture_icfm,Mixture + ICFM,2089,1,Bacteroidia,#E69F00,1,44,0.39046818258865307
+bernoulli_mixture_icfm,Mixture + ICFM,2089,2,Gammaproteobacteria,#009E73,1,91,0.035029722054169585
+bernoulli_mixture_icfm,Mixture + ICFM,2089,3,Bacilli,#CC79A7,1,77,0.040162203020030166
+bernoulli_mixture_icfm,Mixture + ICFM,2089,4,Actinobacteria,#56B4E9,1,90,0.027680987458613488
+bernoulli_mixture_icfm,Mixture + ICFM,2089,5,Verrucomicrobiae,#D55E00,1,2,0.0069756509512534691
+bernoulli_mixture_icfm,Mixture + ICFM,2089,6,Betaproteobacteria,#F0E442,1,50,0.011740678063801259
+bernoulli_mixture_icfm,Mixture + ICFM,2089,7,Erysipelotrichi,#332288,1,17,0.0067419424113160792
+bernoulli_mixture_icfm,Mixture + ICFM,2089,8,Other,#D9D9D9,40,164,0.013190700307620781
+autoregressive_icfm,NADE + ICFM,2089,0,Clostridia,#0072B2,1,79,0.48500470561558701
+autoregressive_icfm,NADE + ICFM,2089,1,Bacteroidia,#E69F00,1,44,0.40227587637283863
+autoregressive_icfm,NADE + ICFM,2089,2,Gammaproteobacteria,#009E73,1,91,0.034135962440166513
+autoregressive_icfm,NADE + ICFM,2089,3,Bacilli,#CC79A7,1,77,0.01871543791258988
+autoregressive_icfm,NADE + ICFM,2089,4,Actinobacteria,#56B4E9,1,90,0.021304046126084074
+autoregressive_icfm,NADE + ICFM,2089,5,Verrucomicrobiae,#D55E00,1,2,0.0077873638647119395
+autoregressive_icfm,NADE + ICFM,2089,6,Betaproteobacteria,#F0E442,1,50,0.0099840676956254662
+autoregressive_icfm,NADE + ICFM,2089,7,Erysipelotrichi,#332288,1,17,0.0074879202555282404
+autoregressive_icfm,NADE + ICFM,2089,8,Other,#D9D9D9,40,164,0.013304619716868228
+midasim_mask_icfm,MIDASim mask + ICFM,2089,0,Clostridia,#0072B2,1,79,0.484262962803512
+midasim_mask_icfm,MIDASim mask + ICFM,2089,1,Bacteroidia,#E69F00,1,44,0.38915218735935908
+midasim_mask_icfm,MIDASim mask + ICFM,2089,2,Gammaproteobacteria,#009E73,1,91,0.036561792904226946
+midasim_mask_icfm,MIDASim mask + ICFM,2089,3,Bacilli,#CC79A7,1,77,0.031072333783427417
+midasim_mask_icfm,MIDASim mask + ICFM,2089,4,Actinobacteria,#56B4E9,1,90,0.01998177698279793
+midasim_mask_icfm,MIDASim mask + ICFM,2089,5,Verrucomicrobiae,#D55E00,1,2,0.0072441395530283455
+midasim_mask_icfm,MIDASim mask + ICFM,2089,6,Betaproteobacteria,#F0E442,1,50,0.010873781537638133
+midasim_mask_icfm,MIDASim mask + ICFM,2089,7,Erysipelotrichi,#332288,1,17,0.0070374789637267631
+midasim_mask_icfm,MIDASim mask + ICFM,2089,8,Other,#D9D9D9,40,164,0.013813546112283349
+midasim,Full MIDASim,2089,0,Clostridia,#0072B2,1,79,0.44020630347907647
+midasim,Full MIDASim,2089,1,Bacteroidia,#E69F00,1,44,0.37341317856556799
+midasim,Full MIDASim,2089,2,Gammaproteobacteria,#009E73,1,91,0.049407429713141278
+midasim,Full MIDASim,2089,3,Bacilli,#CC79A7,1,77,0.037873865807676259
+midasim,Full MIDASim,2089,4,Actinobacteria,#56B4E9,1,90,0.029854201154737536
+midasim,Full MIDASim,2089,5,Verrucomicrobiae,#D55E00,1,2,0.014979997343562406
+midasim,Full MIDASim,2089,6,Betaproteobacteria,#F0E442,1,50,0.016117684338569013
+midasim,Full MIDASim,2089,7,Erysipelotrichi,#332288,1,17,0.0097473535652583439
+midasim,Full MIDASim,2089,8,Other,#D9D9D9,40,164,0.028399986032410649

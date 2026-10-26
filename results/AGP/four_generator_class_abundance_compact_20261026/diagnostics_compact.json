@@ -1,0 +1,164 @@
+{
+  "aggregation": {
+    "autoregressive_icfm": {
+      "max_aggregation_row_sum_error": 3.3306690738754696e-16,
+      "original_48_class_sort_indices_sha256": "197ecb9394f2be2feef97cb1b686160b176c0bdafb73e860d148f189709c375d",
+      "rows": 2089
+    },
+    "bernoulli_mixture_icfm": {
+      "max_aggregation_row_sum_error": 3.3306690738754696e-16,
+      "original_48_class_sort_indices_sha256": "decdadabee803ceb151487bbd37866f83d9ce47c96992ff206509abd0b6f59c1",
+      "rows": 2089
+    },
+    "midasim": {
+      "max_aggregation_row_sum_error": 3.3306690738754696e-16,
+      "original_48_class_sort_indices_sha256": "80c917ed31d00b6d3a92d21cf1168a6c4005f129893f5af494a11d41975d136c",
+      "rows": 2089
+    },
+    "midasim_mask_icfm": {
+      "max_aggregation_row_sum_error": 3.3306690738754696e-16,
+      "original_48_class_sort_indices_sha256": "6e234e5b290bd4b2a07d3d672b012876e550a1dcbc2ee1eca71bc5609d1b9198",
+      "rows": 2089
+    },
+    "real": {
+      "max_aggregation_row_sum_error": 4.440892098500626e-16,
+      "original_48_class_sort_indices_sha256": "c5eb6530db09e7e4f8d175bbd5765ea9415bb4c9cd9bad4d357aa1878ea9c679",
+      "rows": 2002
+    }
+  },
+  "all_classes_retained": true,
+  "class_order": [
+    "Clostridia",
+    "Bacteroidia",
+    "Gammaproteobacteria",
+    "Bacilli",
+    "Actinobacteria",
+    "Verrucomicrobiae",
+    "Betaproteobacteria",
+    "Erysipelotrichi",
+    "Other"
+  ],
+  "class_selection_rule": "Eight largest real-assessment mean abundances; alphabetical tie-break",
+  "colors": {
+    "Actinobacteria": "#56B4E9",
+    "Bacilli": "#CC79A7",
+    "Bacteroidia": "#E69F00",
+    "Betaproteobacteria": "#F0E442",
+    "Clostridia": "#0072B2",
+    "Erysipelotrichi": "#332288",
+    "Gammaproteobacteria": "#009E73",
+    "Other": "#D9D9D9",
+    "Verrucomicrobiae": "#D55E00"
+  },
+  "displayed_category_count": 9,
+  "figure_size_inches": [
+    6.8,
+    3.6
+  ],
+  "individual_abundance_arrays_or_identifiers_exported": false,
+  "input_closure": "Each saved composition closed once in float64 before summing taxa by class",
+  "minimum_font_size_pt": 8,
+  "original_class_count": 48,
+  "other_members": [
+    "Mollicutes",
+    "Alphaproteobacteria",
+    "Coriobacteriia",
+    "Deltaproteobacteria",
+    "Fusobacteriia",
+    "Flavobacteriia",
+    "4C0d-2",
+    "RF3",
+    "Epsilonproteobacteria",
+    "Methanobacteria",
+    "[Lentisphaeria]",
+    "Chloroplast",
+    "Synergistia",
+    "Sphingobacteriia",
+    "Unclassified",
+    "TM7-3",
+    "Thermoplasmata",
+    "Spirochaetes",
+    "Opitutae",
+    "Deinococci",
+    "Elusimicrobia",
+    "Thermoleophilia",
+    "[Saprospirae]",
+    "Cytophagia",
+    "Planctomycetia",
+    "Acidimicrobiia",
+    "[Spartobacteria]",
+    "Solibacteres",
+    "[Chloracidobacteria]",
+    "Acidobacteria-6",
+    "Acidobacteriia",
+    "Rubrobacteria",
+    "Ellin6529",
+    "Oscillatoriophycideae",
+    "Phycisphaerae",
+    "Thermomicrobia",
+    "VC2_1_Bac22",
+    "Gemm-3",
+    "Gemmatimonadetes",
+    "Halobacteria"
+  ],
+  "rank_convention": "One-based within-source rank at each unit-width step center",
+  "raster_dpi": 600,
+  "rasterized_artists": "Stacked abundance regions only",
+  "renormalization_after_aggregation": false,
+  "sample_order_rule": "Descending largest ORIGINAL 48-class abundance independently within each source; stable ties; BEFORE Other aggregation",
+  "sample_positions_are_paired_between_sources": false,
+  "shared_rank_axis_limits": [
+    0.5,
+    2089.5
+  ],
+  "smoothing": false,
+  "sources": {
+    "autoregressive_icfm": {
+      "classes": 48,
+      "max_class_row_sum_error": 4.440892098500626e-16,
+      "max_original_row_sum_error": 3.796412784140557e-08,
+      "original_row_sum_max": 1.0000000379641278,
+      "original_row_sum_min": 0.999999965159077,
+      "rows": 2089,
+      "taxa": 614
+    },
+    "bernoulli_mixture_icfm": {
+      "classes": 48,
+      "max_class_row_sum_error": 5.551115123125783e-16,
+      "max_original_row_sum_error": 3.628156264312565e-08,
+      "original_row_sum_max": 1.0000000362815626,
+      "original_row_sum_min": 0.9999999653491614,
+      "rows": 2089,
+      "taxa": 614
+    },
+    "midasim": {
+      "classes": 48,
+      "max_class_row_sum_error": 4.440892098500626e-16,
+      "max_original_row_sum_error": 3.279751581430901e-08,
+      "original_row_sum_max": 1.0000000324198481,
+      "original_row_sum_min": 0.9999999672024842,
+      "rows": 2089,
+      "taxa": 614
+    },
+    "midasim_mask_icfm": {
+      "classes": 48,
+      "max_class_row_sum_error": 4.440892098500626e-16,
+      "max_original_row_sum_error": 3.6052369978278875e-08,
+      "original_row_sum_max": 1.000000034146069,
+      "original_row_sum_min": 0.99999996394763,
+      "rows": 2089,
+      "taxa": 614
+    },
+    "real": {
+      "classes": 48,
+      "max_class_row_sum_error": 6.661338147750939e-16,
+      "max_original_row_sum_error": 0.0015188998077064753,
+      "original_row_sum_max": 1.0000000333602657,
+      "original_row_sum_min": 0.9984811001922935,
+      "rows": 2002,
+      "taxa": 614
+    }
+  },
+  "stack_order_rule": "Descending real-assessment mean for selected classes, then Other",
+  "subsampling": false
+}

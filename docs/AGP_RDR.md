@@ -86,21 +86,47 @@ evaluation**, rather than a newly reserved confirmatory study.
 
 ## Class-level relative abundance
 
-![Class-level stacked relative abundances for the real assessment data and all four generators.](../results/AGP/four_generator_class_abundance_20261022/class_relative_abundance.png)
+![Compact class-level relative abundances for real assessment data and four generators: eight classes selected by real mean abundance, plus Other.](../results/AGP/four_generator_class_abundance_compact_20261026/class_relative_abundance_compact.png)
 
-Each thin bar is one assessment composition: **2,002 real observations** and
-**2,089 observations from each generator**. Each saved composition is closed
-to sum to one before its 614 taxa are summed into **48 taxonomic classes**,
-including Unclassified. All panels share the historical class colors and a
-common stack order, ranked by mean abundance in the real assessment data.
-Within each panel, samples are sorted independently by decreasing abundance
-of their largest class, following the earlier class-level plots. Horizontal
-position is therefore a within-source display rank.
+**Main-text caption.** Class-level relative abundance in real assessment data
+($n=2{,}002$) and four generators ($n=2{,}089$ each). The eight classes with the
+highest mean abundance in the real assessment data are shown separately; the
+remaining 40 classes are summed as Other. All observations are retained,
+independently sorted within each source by decreasing largest-class abundance
+in the original 48-class compositions, before aggregation. Horizontal ranks
+are not matched observations. This descriptive view compares broad composition
+patterns; visual similarity alone does not establish distributional agreement.
+See the full 48-class supplementary figure below.
 
-[Figure PDF](../results/AGP/four_generator_class_abundance_20261022/class_relative_abundance.pdf) ·
-[Class mean abundances](../results/AGP/four_generator_class_abundance_20261022/class_mean_abundance.csv) ·
+The compact figure is **6.8 × 3.6 inches**, with 8–9 pt text at that insertion
+size. Its PDF retains vector text and axes; only the stacked abundance regions
+are rasterized, at 600 dpi. All panels use the same selected classes, stacking
+order, and colors. The shared rank axis extends to the largest source size;
+the real panel ends at rank 2,002. Each saved composition is closed once in
+float64 before its 614 taxa are summed into 48 classes, including Unclassified.
+The compact view then sums the remaining classes into Other without additional
+normalization, subsampling, smoothing, or averaging adjacent observations.
+
+[Compact PDF](../results/AGP/four_generator_class_abundance_compact_20261026/class_relative_abundance_compact.pdf) ·
+[Compact PNG](../results/AGP/four_generator_class_abundance_compact_20261026/class_relative_abundance_compact.png) ·
+[LaTeX figure and caption](../results/AGP/four_generator_class_abundance_compact_20261026/figure_compact.tex) ·
+[Compact class means](../results/AGP/four_generator_class_abundance_compact_20261026/class_mean_abundance_compact.csv) ·
+[Compact provenance](../results/AGP/four_generator_class_abundance_compact_20261026/manifest_compact.json)
+
+**Full 48-class supplementary figure (unchanged):**
+[PDF](../results/AGP/four_generator_class_abundance_20261022/class_relative_abundance.pdf) ·
+[PNG](../results/AGP/four_generator_class_abundance_20261022/class_relative_abundance.png) ·
+[Class means](../results/AGP/four_generator_class_abundance_20261022/class_mean_abundance.csv) ·
 [Figure source](../experiments/AGP/four_generator_class_abundance.py) ·
 [Provenance](../results/AGP/four_generator_class_abundance_20261022/manifest.json)
+
+Reproduce the compact view from the existing frozen assessment data, without
+fitting models (use a new output directory):
+
+```bash
+python -B experiments/AGP/four_generator_class_abundance.py --compact \
+  --output results/AGP/four_generator_class_abundance_compact_reproduction
+```
 
 ## RDR discrimination and fixed-width calibration
 

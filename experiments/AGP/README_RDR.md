@@ -51,7 +51,7 @@ requires an explicit path adaptation; `--output` changes destinations only.
 
 ## Check the public artifacts without private data
 
-This checks the 77 files recorded in the five public package manifests using
+This checks the 82 files recorded in the six public package manifests using
 only the Python standard library:
 
 ```bash
@@ -59,16 +59,17 @@ python3 -B - <<'PY'
 from pathlib import Path
 import hashlib, json
 packages = (
-    'retained_mask_comparison_20261013',
-    'four_generator_case_study_20261013',
-    'four_generator_pcoa_20261014',
-    'four_generator_pcoa_cp_20261015',
-    'four_generator_class_abundance_20261022',
+    ('retained_mask_comparison_20261013', 'manifest.json'),
+    ('four_generator_case_study_20261013', 'manifest.json'),
+    ('four_generator_pcoa_20261014', 'manifest.json'),
+    ('four_generator_pcoa_cp_20261015', 'manifest.json'),
+    ('four_generator_class_abundance_20261022', 'manifest.json'),
+    ('four_generator_class_abundance_compact_20261026', 'manifest_compact.json'),
 )
 checked = 0
-for name in packages:
+for name, manifest_name in packages:
     root = Path('results/AGP') / name
-    manifest = json.loads((root / 'manifest.json').read_text())
+    manifest = json.loads((root / manifest_name).read_text())
     for relative, expected in manifest['files_sha256'].items():
         actual = hashlib.sha256((root / relative).read_bytes()).hexdigest()
         if actual != expected:
@@ -143,7 +144,8 @@ final-fit-0 score-cell interval, not an individual confidence interval.
 ## Class-level abundance panels (2026-10-22)
 
 [four_generator_class_abundance.py](four_generator_class_abundance.py) renders
-the five stacked-bar panels in [AGP_RDR.md](../../docs/AGP_RDR.md#class-level-relative-abundance).
+the five stacked-bar panels linked as the full supplementary figure in
+[AGP_RDR.md](../../docs/AGP_RDR.md#class-level-relative-abundance).
 It reuses the verified assessment inputs from `four_generator_pcoa.py`: all
 2,002 real and 2,089 generated observations per method. The 614 feature-aligned
 taxa are aggregated into 48 classes after float64 row closure. All classes,
@@ -163,6 +165,25 @@ and input/output hashes. The PDF retains vector text and rasterized bar layers.
 Original arrays and studies are read without modification. The completed
 [figure package](../../results/AGP/four_generator_class_abundance_20261022/manifest.json)
 records the exact inputs and rendering source.
+
+The compact main-text version uses the same observations and the original
+48-class sorting, then displays the eight classes with the highest mean
+abundance in the real assessment data and sums the other 40 as light-gray
+Other. It uses a shared rank axis labeled `sample  index`, with independent
+sample ordering within each source. The 6.8 × 3.6-inch PDF retains vector
+text and axes; abundance regions are rasterized at 600 dpi. The full
+48-class figure is unchanged.
+
+```bash
+MPLCONFIGDIR=/tmp/agp-class-abundance-mpl python3 -B experiments/AGP/four_generator_class_abundance.py \
+  --compact --output results/AGP/four_generator_class_abundance_compact_REPLAY
+```
+
+The [compact package](../../results/AGP/four_generator_class_abundance_compact_20261026/manifest_compact.json)
+includes PDF/PNG exports, aggregate class means, diagnostics, provenance, and
+a [LaTeX figure and caption](../../results/AGP/four_generator_class_abundance_compact_20261026/figure_compact.tex).
+It is a descriptive view of broad class-level patterns; visual similarity
+alone does not establish distributional agreement.
 
 ## Generator and RDR fitting order
 
