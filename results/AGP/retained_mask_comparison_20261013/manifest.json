@@ -29,7 +29,7 @@
     "mask_candidate_validation.csv": "5ee3ff9e66a9bc508d6918a88a8dcff1b01329372fa5dcff786017fedd9107d0",
     "mask_comparison_readable.pdf": "96906cee6d868584f1aa315316054950fb31941bbf09c7ce40addb0b16922329",
     "mask_comparison_readable.png": "48fa495ceedc226ad1ebd4a8385f1c15b1ff6aff5ce61fa14ecbb25b000039f1",
-    "metrics.csv": "f0317d68226374cda3bc53f035fbe2bda22d689314abd3c13a3b7774df7c3396",
+    "metrics.csv": "c8e234f6540f5c02cd9dc1fcf75a35cffe3e114a5a7e6b179bc434d7d053427b",
     "metrics_aggregate.csv": "3212e68f96922316b15cbbb199aac20bdfcc1612463300a5e8030f572e6f7519",
     "null_controls.csv": "c656bba5c7ef1a33100858d4094739673939e45103725dfb886403d58d9d641c",
     "rdr_comparison.pdf": "d2335eb5ce049024b44e0eb0aa4d4ff772d61da31b889a3074b7ee195e8fb550",
@@ -42,7 +42,7 @@
     "selection_rows.csv": "e9faa0ac7c42eb12b5e74e51c23f778bedb4c5ad85d83363db4206c1db0bbf88",
     "split_counts.csv": "31a62ea3c457a02d63cecb597d9862974b3668b31b93fe68e0ec9eec7b7893dd"
   },
-  "filter_validation": "All retained CSV fields match their source records exactly; numeric frame equality verified.",
+  "filter_validation": "All original retained CSV fields match their source records exactly. The test_js_p_m_variational column in metrics.csv is a subsequent aggregate evaluation of the existing fitted RDR scores; all 38 original columns and row order are preserved.",
   "inference_scope": "Retrospective assessment; five-fit SD describes initialization variation on the same observations. Fixed-cell CIs are descriptive cell-average diagnostics, not pointwise RDR confidence intervals.",
   "input_verification": "Public export manifests, conventional completion seal, RDR summary manifest, and score completion chains checked; all recorded inputs rehashed after rendering.",
   "inputs_sha256": {
@@ -199,6 +199,44 @@
   "kind": "presentation_only",
   "new_assessments_run_by_this_renderer": 0,
   "new_fits_run_by_this_renderer": 0,
+  "posthoc_metric_extensions": [
+    {
+      "added_columns": [
+        "test_js_p_m_variational"
+      ],
+      "baseline_commit": "64421d4e464c03e6b11692f93ed21f8196b80e6c",
+      "baseline_metrics_sha256": "f0317d68226374cda3bc53f035fbe2bda22d689314abd3c13a3b7774df7c3396",
+      "date": "2026-10-26",
+      "definition": "0.5*mean_P(log(2*r_hat/(1+r_hat))) + 0.25*mean_P(log(2/(1+r_hat))) + 0.25*mean_Q(log(2/(1+r_hat)))",
+      "estimator": "Held-out standard equal-weight variational Jensen-Shannon estimate using the existing fitted RDR r_hat approximating p/m.",
+      "file": "metrics.csv",
+      "join_keys": [
+        "method",
+        "study",
+        "repeat"
+      ],
+      "mixture_weighting": "The P-versus-M JS uses equal source weights. E_M is evaluated as 0.5*E_P+0.5*E_Q, with each empirical mean using its own observation count.",
+      "negative_values": "Finite-sample variational estimates can be negative; control values are retained without truncation.",
+      "new_fits": 0,
+      "rows_updated": 40,
+      "scope": "Common JS(P,M) evaluation for every selected fitted RDR, including the chi-square-trained NADE fit. Selected fitting objectives and fitted networks are unchanged.",
+      "target": "JS(P,M), M=(P+Q)/2",
+      "test_counts": {
+        "final": {
+          "P": 2002,
+          "Q": 2089
+        },
+        "null": {
+          "P": 1001,
+          "Q": 1001
+        }
+      },
+      "theoretical_upper_bound": "0.75*log(4/3)",
+      "theoretical_upper_bound_nats": 0.21576155433883565,
+      "units": "nats (natural logarithms)",
+      "verification": "All 40 estimates independently recomputed from archived test predictions. All 38 original columns, row order, and cell strings are unchanged. Null, known Bernoulli, and disjoint-support upper-bound checks passed; no clipping or truncation."
+    }
+  ],
   "private_artifacts_excluded": [
     "row-level scores",
     "sample IDs",
