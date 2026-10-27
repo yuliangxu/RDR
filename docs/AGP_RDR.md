@@ -10,8 +10,9 @@ the information in global metrics.
 
 The evidence consists of the completed four-generator comparison, its shared
 biological communities, paired real-observation scores, and assessment-only
-ordination. All numerical results and figures below reuse those artifacts;
-this document introduces no new fitting or assessment.
+ordination. The global summary combines saved metrics with JS(P,M) from
+frozen RDR scores and abundance-correlation RMSE from the existing assessment
+compositions. All results reuse the frozen cohorts; no models are refitted.
 
 [Reproduction guide and input requirements](../experiments/AGP/README_RDR.md)
 
@@ -179,64 +180,137 @@ these are not independent null replications.
 
 ## Global distribution metrics
 
-The global baselines are a **Gaussian Fréchet feature-distance analogue of
-FID** and precision–recall for distributions (PRD). Square-root relative
-abundance is the primary representation; CLR with smoothing `1e-6` provides
-a sensitivity analysis. These use declared microbial composition features,
-rather than image Inception features or learned RDR scores.
+The table combines **seven global metrics** on the same full assessment
+cohorts: **2,002 real observations and 2,089 generated observations per
+method**. The Gaussian Fréchet feature distance (FD), a moment-based analogue
+of FID, and precision–recall for distributions (PRD) use **square-root relative
+abundances**. Here “square-root” describes the abundance transformation.
+Prevalence MAE, richness and Shannon Kolmogorov–Smirnov (KS) distances, and
+abundance-correlation RMSE compare P directly with Q. JS compares P with
+**M = (P + Q)/2**, using the fitted RDR. Down arrows indicate smaller discrepancy;
+the up arrow indicates larger PRD maximum F1.
 
-| Generator | Square-root Fréchet ↓ | Square-root PRD max F1 ↑ | CLR Fréchet ↓ | CLR PRD max F1 ↑ |
-| --- | ---: | ---: | ---: | ---: |
-| Bernoulli mixture + ICFM | 0.081940 | 0.63107 ± 0.02475 | 189.630 | 0.83411 ± 0.01411 |
-| NADE mask + ICFM | 0.066369 | 0.73891 ± 0.01815 | 142.314 | 0.87904 ± 0.00999 |
-| MIDASim mask + ICFM | 0.069756 | 0.66983 ± 0.01935 | 178.023 | 0.77478 ± 0.01417 |
-| MIDASim | 0.048080 | 0.77001 ± 0.01132 | 217.155 | 0.67659 ± 0.02634 |
+| Generator | Square-root FD ↓ | Square-root PRD max F1 ↑ | Prevalence MAE ↓ | Richness KS ↓ | Shannon KS ↓ | JS(P,M) ↓ | Spearman correlation RMSE ↓ |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Bernoulli mixture + ICFM | 0.081940 | 0.631075 ± 0.024754 | 0.011132 | 0.064476 | 0.182481 | 0.066173 ± 0.008440 | 0.075096 |
+| NADE mask + ICFM | 0.066369 | 0.738911 ± 0.018149 | 0.009882 | 0.028219 | 0.116170 | 0.020347 ± 0.001857 | 0.089681 |
+| MIDASim mask + ICFM | 0.069756 | 0.669829 ± 0.019349 | 0.010919 | 0.099986 | 0.103911 | 0.081189 ± 0.003502 | 0.080587 |
+| MIDASim | 0.048080 | 0.770013 ± 0.011323 | 0.010919 | 0.099986 | 0.039780 | 0.109260 ± 0.013888 | 0.089075 |
+
+PRD and JS are reported as **mean ± sample SD**. PRD SD summarizes five
+quantizer initializations/subsamples; JS SD summarizes five selected RDR
+initializations. Both use fixed assessment observations, so neither SD is
+a sampling confidence interval. The other five columns are single statistics
+on the full cohorts, with no repeated-fit SD.
+
+FD uses unbiased sample covariances and summarizes only feature means and
+covariances. PRD uses the original **pair-specific** 64-cluster quantizers,
+fitted on balanced training subsets of 2,048 observations per source with
+five fixed seeds in each representation. All 40 square-root/CLR quantizers
+were frozen before assessment arrays were opened. Every assessment observation
+contributes to its source histogram. The complete 201-angle PRD curves are
+retained; maximum F1 summarizes distribution PRD, rather than a classifier
+precision–recall curve.
+
+Prevalence MAE averages absolute presence-probability differences across all
+614 taxa. Richness counts present taxa; Shannon entropy uses natural
+logarithms. Their KS distances compare the respective empirical distributions.
+The hybrid and full MIDASim have identical prevalence and richness statistics
+because they share occurrence masks.
+
+For fitted RDR $\widehat r \approx p/m$, the held-out variational JS estimate is
+
+$$
+\widehat{\mathrm{JS}}(P,M)
+=\frac12\overline{\log\frac{2\widehat r}{1+\widehat r}}_{P}
++\frac14\overline{\log\frac{2}{1+\widehat r}}_{P}
++\frac14\overline{\log\frac{2}{1+\widehat r}}_{Q}.
+$$
+
+Each bar averages over its source's full assessment cohort. The last two
+terms implement the equal-weight mixture M despite unequal source sample
+sizes. Natural logarithms give nats; the population target satisfies
+$0\leq\mathrm{JS}(P,M)\leq\tfrac34\log(4/3)\approx0.215762$.
+The stored bounded-JS fitting objective targets JS(P,Q). Three methods
+selected that loss; NADE selected chi-square. The common JS(P,M) evaluation
+applies to all four existing fitted RDRs without refitting. Smaller fitted
+JS means less discrepancy detected by that evaluator and does not establish
+better generator fidelity.
+
+Correlation RMSE compares **Spearman abundance correlations** over all
+$\binom{50}{2}=1,225$ pairs among the 50 taxa with highest real-training
+prevalence, fixed before assessment:
+
+$$
+\mathrm{RMSE}_{\mathrm{corr}}
+=\sqrt{\frac{1}{1225}\sum_{j<k}
+\left(\widehat\rho^{P}_{jk}-\widehat\rho^{Q}_{jk}\right)^2}.
+$$
+
+Correlations use relative abundances normalized to sum to one within each
+observation and average ranks for ties. The same taxa and pair set are used
+for all four generators; none of these
+taxa are constant in either source. This is a global summary of pairwise
+dependence among those 50 taxa, independent of fitted RDR. It differs from
+the binary occurrence-correlation MAE reported below.
 
 ![Global distribution summaries for all four generators](../results/AGP/four_generator_case_study_20261013/global_baselines.png)
 
-Fréchet uses all assessment rows and unbiased sample covariances. PRD uses
-pair-specific 64-cluster quantizers fitted on balanced training subsets of
-2,048 observations per source, with five fixed seeds in each representation.
-All **40 quantizers** were frozen before this extension opened assessment
-arrays. Every assessment observation contributes to its source histogram.
+The retained figure also shows the **CLR sensitivity analysis**, with
+smoothing `1e-6`; its full results and PRD curves remain linked below. Full
+MIDASim has the smallest square-root FD and largest square-root PRD maximum
+F1, whereas NADE has the smallest CLR distance and largest CLR PRD maximum
+F1. The ordering therefore depends on representation, whose distance scales
+are not comparable. These are declared microbial features, not image
+Inception features. **No numerical Inception Score is reported:** there is
+no scientifically justified external sample-class classifier for these
+compositions.
 
-PRD SD measures quantizer initialization/subsampling variation on a fixed
-cohort, not a sampling confidence interval. Fréchet does not vary with these
-quantizer seeds. The complete 201-angle PRD curves are retained; maximum F1
-is a compact summary. These are distribution PRD curves, distinct from a
-classifier precision–recall curve.
-
-Full MIDASim has the smallest square-root Fréchet distance and largest
-square-root PRD maximum F1, whereas NADE has the smallest CLR distance and
-largest CLR PRD maximum F1. Thus the ordering depends on representation.
-Distances have different scales across the two representations and should
-only be compared within a representation. Finite-sample Fréchet distance
-also summarizes only feature means and covariances.
-
-**No numerical Inception Score is reported:** the study has no scientifically
-justified external sample-class classifier for these microbial compositions.
-
+[Seven-metric table](../results/AGP/seven_global_metrics_20261026/global_metrics.csv) ·
+[Correlation RMSE and pair counts](../results/AGP/seven_global_metrics_20261026/correlation_rmse.csv) ·
+[Fixed correlation taxa](../results/AGP/seven_global_metrics_20261026/correlation_taxa.csv) ·
+[Summary provenance](../results/AGP/seven_global_metrics_20261026/manifest.json) ·
+[Summary reproduction source](../experiments/AGP/seven_global_metrics.py) ·
+[Per-fit JS(P,M) values](../results/AGP/retained_mask_comparison_20261013/metrics.csv) ·
+[Biological metric values](../results/AGP/retained_mask_comparison_20261013/fidelity_metrics.csv) ·
 [Full square-root PRD curves](../results/AGP/four_generator_case_study_20261013/prd_sqrt.pdf) ·
 [Full CLR PRD curves](../results/AGP/four_generator_case_study_20261013/prd_clr.pdf) ·
-[Global metric table](../results/AGP/four_generator_case_study_20261013/global/global_metrics_aggregate.csv) ·
+[Square-root and CLR metric values](../results/AGP/four_generator_case_study_20261013/global/global_metrics_aggregate.csv) ·
 [PRD histograms](../results/AGP/four_generator_case_study_20261013/global/prd_histograms.csv) ·
 [Frozen metric protocol](../results/AGP/four_generator_case_study_20261013/provenance/metrics_protocol.json)
 
+Verify the saved package against its source tables and recorded hashes
+using only the GitHub checkout:
+
+```bash
+python -B experiments/AGP/seven_global_metrics.py \
+  --verify results/AGP/seven_global_metrics_20261026
+```
+
+Recomputing correlations additionally requires the frozen training and
+assessment arrays recorded in the metric protocol; these private arrays are
+not included in the repository. With that archive available, reproduce the
+summary without fitting models (use a new output directory):
+
+```bash
+python -B experiments/AGP/seven_global_metrics.py \
+  --archive-root /path/to/frozen/AGP \
+  --output results/AGP/seven_global_metrics_reproduction
+```
+
 ## Biological checks and alternative source classifiers
 
-These complementary checks use the same full assessment cohorts: 2,002 real
-and 2,089 generated observations per method. Taxon prevalence and mean
-abundance MAE average absolute source differences across all 614 taxa.
-Richness counts present taxa; Shannon entropy uses natural logarithms.
-Their KS distances compare empirical distributions. Smaller values indicate
-closer agreement for the particular summary being measured.
+These additional checks use the same full assessment cohorts as the seven
+metrics above. Mean abundance MAE averages absolute source differences
+across all 614 taxa. Smaller values indicate closer agreement for the
+particular summary being measured.
 
-| Generator | Prevalence MAE ↓ | Mean abundance MAE ↓ | Richness KS ↓ | Shannon KS ↓ | Occurrence correlation MAE ↓ |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| Bernoulli mixture + ICFM | 0.01113 | 0.000520 | 0.0645 | 0.1825 | 0.03514 |
-| NADE mask + ICFM | 0.00988 | 0.000456 | 0.0282 | 0.1162 | 0.03321 |
-| MIDASim mask + ICFM | 0.01092 | 0.000460 | 0.1000 | 0.1039 | 0.03857 |
-| MIDASim | 0.01092 | 0.000180 | 0.1000 | 0.0398 | 0.03857 |
+| Generator | Mean abundance MAE ↓ | Occurrence correlation MAE ↓ |
+| --- | ---: | ---: |
+| Bernoulli mixture + ICFM | 0.000520 | 0.035144 |
+| NADE mask + ICFM | 0.000456 | 0.033210 |
+| MIDASim mask + ICFM | 0.000460 | 0.038567 |
+| MIDASim | 0.000180 | 0.038567 |
 
 Occurrence correlation is calculated on binary presence, using taxa with
 nonconstant presence in real classifier training. Pairs that become constant
@@ -247,11 +321,12 @@ correlation summary does not compare a strictly identical pair set across
 all four methods. The accompanying prevalence and constant-taxon diagnostics
 remain necessary context.
 
-NADE has the smallest prevalence and richness discrepancies in this table;
-full MIDASim has the smallest mean-abundance and Shannon discrepancies.
-The hybrid and full MIDASim have identical mask-based statistics by design.
-These checks describe selected marginals and dependence summaries, without
-establishing agreement of the full joint distribution.
+Across these checks and the main table, NADE has the smallest prevalence
+and richness discrepancies; full MIDASim has the smallest mean-abundance
+and Shannon discrepancies. The hybrid and full MIDASim have identical
+mask-based statistics by design. These checks describe selected marginals
+and dependence summaries, without establishing agreement of the full joint
+distribution.
 
 | Generator | Boosted-tree composition AUC | Boosted-tree mask AUC | Logistic composition AUC |
 | --- | ---: | ---: | ---: |

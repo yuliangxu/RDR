@@ -1,0 +1,5 @@
+method,label,n_p,n_q,spearman_rmse,taxa,pairs,constant_taxa_p,constant_taxa_q
+bernoulli_mixture_icfm,Bernoulli mixture + ICFM,2002,2089,0.07509576476591955,50,1225,0,0
+autoregressive_icfm,NADE mask + ICFM,2002,2089,0.08968141082256545,50,1225,0,0
+midasim_mask_icfm,MIDASim mask + ICFM,2002,2089,0.08058656744769958,50,1225,0,0
+midasim,MIDASim,2002,2089,0.08907452175905828,50,1225,0,0
