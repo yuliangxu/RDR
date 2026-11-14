@@ -1,0 +1,1098 @@
+{
+  "archive_inputs_sha256": {
+    "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/COMPLETE.json": "e95a747e45a0106cf2617500cabdca23ae914c1006860e6282b09b40a36c7d86",
+    "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/config.json": "86b267d6a79996e2aa250cd1725bd6882497ef1121ae08839ea9e0a5034bf362",
+    "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/data/final/test_p.npy": "bf63be3108874ccd738df02e30e7f18e207bda4f68dcabd2906a297e8db7bf5c",
+    "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/data/final/test_q.npy": "05dea9d6a5758eccdee3ed5c493f06f91b4096b20b6bc289f7d1345d62c53726",
+    "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/final/00/COMPLETE.json": "9badc11bd716050e3e6afac4ad8bf920420a025cc04ba9319c601c5297c2ae49",
+    "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/final/00/model.pt": "37847ef718f49b240bbf233d8263cbeafbcbf3354d6ce935777126c59eaa9111",
+    "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/final/00/predictions.npz": "d24707436a2d7bf0e2afc3a2d01019d87e1974f0851d5096cdc2311a152a7c8a",
+    "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/final/00/scores.csv": "e0215f80556c2dc91ce0715cb3baee47bd1f26710a032b1a504569dde279be20",
+    "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/final/00/transform.npz": "6e9a1d01dd9665e7608f6c19f54e82e2a254294c4fd4b96402e125a5762a5da6",
+    "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/final/01/COMPLETE.json": "064ec301cb23dc1e3760233300d26f7c9457c36e459ef4ba7434ffe0e0a105fe",
+    "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/final/01/model.pt": "e51d880ac20b6d1f8a0d64047d712cd551a8afa9a1b0998501802b25b9643bc2",
+    "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/final/01/predictions.npz": "9a730775a0d6f25244acbb22f2de409d1b914cd33127ba2d1fcec6f7a72d68b1",
+    "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/final/01/scores.csv": "16d00015cc4290ef912b800e131209b96c0e845a64c54a6b1808c1a0641bcd8f",
+    "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/final/01/transform.npz": "6e9a1d01dd9665e7608f6c19f54e82e2a254294c4fd4b96402e125a5762a5da6",
+    "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/final/02/COMPLETE.json": "c01ea01840633e8fa0fa2881bf601c0d8cbf9ed7af665b7f367701552a15dfcc",
+    "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/final/02/model.pt": "821b9ea5a7f5d652c8a9ac5d5d7af01ed606bb5863d68df46faa04b4ef6e1710",
+    "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/final/02/predictions.npz": "3e59a1869a3dded66a94aa42cb2799168d733325f51b694d0f5f4e518b323b4c",
+    "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/final/02/scores.csv": "c00e148f9df5e165dcb91728bac3c442829cf0f9476494ae57445b2fd258264a",
+    "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/final/02/transform.npz": "6e9a1d01dd9665e7608f6c19f54e82e2a254294c4fd4b96402e125a5762a5da6",
+    "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/final/03/COMPLETE.json": "434e9fc099784b97d5d382964b53c58ca7541d7d4c4152960252ccee915b8eab",
+    "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/final/03/model.pt": "117de0f7475dff1396b938854c69712fdc68a1ebc76dd240751cfcd1940abe43",
+    "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/final/03/predictions.npz": "fcb186f7365008d002f60d808f774466dacf30000766e360c506b0d54a21a1fb",
+    "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/final/03/scores.csv": "d262f333a12a59a3286382577d3a0c37292ffbbba991a73318e5a8b5d3058982",
+    "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/final/03/transform.npz": "6e9a1d01dd9665e7608f6c19f54e82e2a254294c4fd4b96402e125a5762a5da6",
+    "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/final/04/COMPLETE.json": "a37ccef83691f29c9685306f1e94c5450fd3779f77d43e06b9c38da76170957b",
+    "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/final/04/model.pt": "cab8e3a0f9cc697aa6ea2c15cc86f50846bf78beb8b65e0cc2da9afbfa260f1a",
+    "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/final/04/predictions.npz": "e463f6183dc1613607f9809bf47adaaf57f9f458b6991b1507cd16fe858caedb",
+    "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/final/04/scores.csv": "21831042ce9ecd91925864aef1b020732f38a47d01d618cf763b592360abae42",
+    "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/final/04/transform.npz": "6e9a1d01dd9665e7608f6c19f54e82e2a254294c4fd4b96402e125a5762a5da6",
+    "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/protocol.json": "716c08086867aca9a087a8d74898931c93817088878b40936d3492b30dd735ab",
+    "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/selection/freeze.json": "247f7f625528d0ca09f04c1aa0fc7a82137cdbc819e630436830d60be7438d98",
+    "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/selection/selection.json": "1652538c4eae571ec088e84b209453ba4dbebeb128e428d7004bdab52bdfc009",
+    "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/source/experiments/AGP/selected_workflow.py": "40fe10e0f039636ec7ce45c3088fcfba46336dd1d4cb0ae12b8b177f7ff2164f",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/COMPLETE.json": "6c59c814059d5c9f51431225323c9831106f7da6ce37aaacc447103a9f978910",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/config.json": "d3ff9bf88707ad6d3b5dbe90cee6d1254c16957672b0b96514327982b55fe929",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/data/final/test_p.npy": "bf63be3108874ccd738df02e30e7f18e207bda4f68dcabd2906a297e8db7bf5c",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/data/final/test_q.npy": "70242776d75974c1674037c870405a28e5110f8e1a53fa9a4ad9bc8615d27b8d",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/final/00/COMPLETE.json": "030806ec6cef6e5a5d88082e3bd7b22066b3779295ac4e43e322b6ba65a35559",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/final/00/model.pt": "e1a75d1a674d30222baa3dccf1dea70c252300fd2e0202959ad9cd868440c119",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/final/00/predictions.npz": "04be1183d15d87d8ba930b964efb353e5dc22e0694e732bb8ff98fc24a1e310d",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/final/00/scores.csv": "b3bb1743d4468e197d45dc6eeec808fa403c142c386161980075be8916def559",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/final/00/transform.npz": "70ea04acc5113d5490753c39935e0e5e5d2e44886d6b866663e1c212b98954b2",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/final/01/COMPLETE.json": "f7f8439653511315ce3af9bb5e5f3010e55878d1d41b504d4418c3968a37660a",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/final/01/model.pt": "13555e6b81ec9d01c9b1c08a78f0d06e586f1b2b1c4d343f0e92b3feead0a09f",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/final/01/predictions.npz": "d4994e4109c3e338c88c4395170a16bfbfe1b0399da176193dd0d73b8dfed555",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/final/01/scores.csv": "0042572301c8cf037bfdb792a2a3b646d28c0dce1870450b5d1cb0d1e44908cf",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/final/01/transform.npz": "70ea04acc5113d5490753c39935e0e5e5d2e44886d6b866663e1c212b98954b2",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/final/02/COMPLETE.json": "2469aed9b3d5eeafc6fa661ba85dd9d6316065b7bda2372e4a7e3a3d7523652d",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/final/02/model.pt": "157c6e6fe1fce5e28cb288237bc7a1e6a949d2eba6cf3e47c956d1a1f5824337",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/final/02/predictions.npz": "1407f7b33d8f869b523f2ef3dfc8d16422b3fbe35244178a408280578072147c",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/final/02/scores.csv": "1557fc18f31e9f86b3331120a05ca298f13eab9f011eddc7c7b1e6127f4f959e",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/final/02/transform.npz": "70ea04acc5113d5490753c39935e0e5e5d2e44886d6b866663e1c212b98954b2",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/final/03/COMPLETE.json": "f1f58242b3007f22a43723d59e46aa413bf2ac454e7c1da425749e9eec2c51a0",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/final/03/model.pt": "8840f9dbd335d72f5d79515955379615685f193addb06b6dd61f6f24b53201a1",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/final/03/predictions.npz": "aac02f86e1da19d437372fc2aeeaaa8e878270fe20706d1c022ef817eb203410",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/final/03/scores.csv": "c8a8991bf02dee58523d85ee538e24990c27db6c393cae7bc96b3c220b7c5a4f",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/final/03/transform.npz": "70ea04acc5113d5490753c39935e0e5e5d2e44886d6b866663e1c212b98954b2",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/final/04/COMPLETE.json": "b5d26aa1ab531f7b90fa00a356909901f4c89309db3b7d6c3f6a78efa93b694a",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/final/04/model.pt": "1507c90ef553cef0740bc15881ee24c8d404d796ead2e25cd87604a2e3c2b371",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/final/04/predictions.npz": "954cf16b4c9869a20cdea45e7002cb2492d7cf9566c66f7b1d3f3a4c4e947007",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/final/04/scores.csv": "3bba9dddc3ce6c6afce0cf4e2dccb544a7a40e43bb740a15f3a7535ed71a78c9",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/final/04/transform.npz": "70ea04acc5113d5490753c39935e0e5e5d2e44886d6b866663e1c212b98954b2",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/protocol.json": "be8a29e787ce361d3c3e0ccbcb90642cf9b765246f280b9cb0aa51c05615d240",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/selection/freeze.json": "b63f4b3f287a0088d15278226b88dd8df51a723d9235e16e0e9d4a4789994973",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/selection/selection.json": "9e1424db5a006eebfa351561dead0487e2c8072809911c273660330ca9c570cf",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/source/experiments/AGP/selected_workflow.py": "40fe10e0f039636ec7ce45c3088fcfba46336dd1d4cb0ae12b8b177f7ff2164f",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/COMPLETE.json": "7b042de9c79eeefe8ddcd5612f5e47e6fa4b54d657796f00e69e79d6d79b59ca",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/config.json": "0cab59eeb15467531e3d07554192f83b1a98e0a17881fc2180171f8327dc2df3",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/data/final/test_p.npy": "bf63be3108874ccd738df02e30e7f18e207bda4f68dcabd2906a297e8db7bf5c",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/data/final/test_q.npy": "083af5afbc0e13b4e6f4391252998fa4f2565597c715ef01984d0c5734ffb718",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/final/00/COMPLETE.json": "c8e6c000137cc163bc5beed4b15032e5b5afa59ecb22b51e22e56dd0be1f3767",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/final/00/model.pt": "4f0af4f611db4bc26de60c8a1ae0081aaa906f6b3e998597dddb49e340c0d5f0",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/final/00/predictions.npz": "f8b362b52507d92822f42a13be96e96336c009d4bc36228a71465420fa9f1e44",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/final/00/scores.csv": "ac09737213d05a0ba41229301a0b64fb04dc55d9f7f5f980ba6fb85adf0e47b0",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/final/00/transform.npz": "dbaf68fc53ab4dd3138e0f8e0bbcb4f8c43437db84788e0dd5de63a00ea6f0dc",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/final/01/COMPLETE.json": "4058e8a44feb2eaa625d38eafed0ebc2080b4ab8b8d86e4933328b75bfb048ba",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/final/01/model.pt": "0d6589ea74e7ed17192678978a357c222aa573193281ae2ca1de14802a9b95ce",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/final/01/predictions.npz": "0d0e1f257ea91d48618d0488d2b49b113c65f1489f82fd801a3de6fd2654b769",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/final/01/scores.csv": "24f04d3819d26f06fe6e1931a4fb927436a0ddcf3ad2c5722291b56fb810c3bb",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/final/01/transform.npz": "dbaf68fc53ab4dd3138e0f8e0bbcb4f8c43437db84788e0dd5de63a00ea6f0dc",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/final/02/COMPLETE.json": "c3b7c192a6e253398db3873a018f1ee18db560012d55e0c757047a7e5624d73e",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/final/02/model.pt": "3fdd4e0ed6f643d596e3f46182380e82d584faef7374e50ebc5e727e68ffc7ef",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/final/02/predictions.npz": "2ce0c924554178ec09cc8fb9d9d6a207fb9e30a3064ab65e14f1b83bc4b8bc9e",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/final/02/scores.csv": "d79879a928b0bb08caf58acce0dc7e37cd11f66fad2592114383ad85801de292",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/final/02/transform.npz": "dbaf68fc53ab4dd3138e0f8e0bbcb4f8c43437db84788e0dd5de63a00ea6f0dc",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/final/03/COMPLETE.json": "9b5ac9d959504b418a0fab7203e58b56ecbd6a731d035208e2c1bbdcba93fbb0",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/final/03/model.pt": "8557f78eb181871991092c47b179b4e0cf2cd484a5e7c876e5cdb63957fbfffa",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/final/03/predictions.npz": "cdaa355ee9382d6874d0b8e655be64314a02baf1ec1a85d5afc9ff3f2661ef5c",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/final/03/scores.csv": "32eca2e436ee65600ece0497a5f668be4d80cc1bec6695818a2313d905134f55",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/final/03/transform.npz": "dbaf68fc53ab4dd3138e0f8e0bbcb4f8c43437db84788e0dd5de63a00ea6f0dc",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/final/04/COMPLETE.json": "4f2c86022db7de02dfd1f44c2cf325488aaf8de40ed570d93d4303c6816e0c2c",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/final/04/model.pt": "746c220350cae3413927fa461a069df398fee29049df88f6640b9171a9b53673",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/final/04/predictions.npz": "a7210e12055ea0f6d754fb6459a00406ea8f326d51e4ddd5e4176a356a3df91a",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/final/04/scores.csv": "f7abeb475b0b2bb1be0673f657289678b98785eba8c5f034432203b8766051be",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/final/04/transform.npz": "dbaf68fc53ab4dd3138e0f8e0bbcb4f8c43437db84788e0dd5de63a00ea6f0dc",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/protocol.json": "9700fc08693fdca16d39165ea768cd29dc35f1321f33b984320bed3d07ca03c5",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/selection/freeze.json": "9314bfc6002bf55dda17570c8167dcd94c4251a928ba00c702408039f84ea09f",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/selection/selection.json": "ee0ae40baed5f11bb18579b2cdeb1a9c60081e37c41a837e202f1946252ad685",
+    "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/source/experiments/AGP/selected_workflow.py": "40fe10e0f039636ec7ce45c3088fcfba46336dd1d4cb0ae12b8b177f7ff2164f",
+    "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/COMPLETE.json": "60261ea602dd25049b5a56677ec41b5aefa7ada6538fc38bbc0188680883816c",
+    "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/config.json": "fe706ac60cd10dde5eeb087d0d2ff364502402c3167918d196d158984ade79f8",
+    "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/data/final/test_p.npy": "bf63be3108874ccd738df02e30e7f18e207bda4f68dcabd2906a297e8db7bf5c",
+    "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/data/final/test_q.npy": "560cfc5f1162a3ff7125cc63f450ee3b6b6f4c9776c38f1374eabb20bc520640",
+    "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/final/00/COMPLETE.json": "5ff2607391c45468d83f07769b6fdbf78066b56e62584579c65681e116277e42",
+    "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/final/00/model.pt": "9c4c43d44f719511f0754ed4150e1cdddd188aba091955c9999b56c225edec0f",
+    "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/final/00/predictions.npz": "35e56fdabb0ac2772ad7a24aecdea33e7344960edfb624111ac61f5a53390238",
+    "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/final/00/scores.csv": "5bc606ecb895f61ac5fad5695aecb8735d1318626133d6ff7e7165e6fa858536",
+    "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/final/00/transform.npz": "b5f202df4733870f12991fea7f1f9a8dcc593421440d4eeeaeb6b8c8f29828e1",
+    "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/final/01/COMPLETE.json": "b94260b97a23ccfd65a5b33b82529543b59d3647840340e6170ca1f395ffca62",
+    "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/final/01/model.pt": "644d15a2662929948956941897ee9a7cb0637c5e9f919cebbe4b1d1878c2877c",
+    "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/final/01/predictions.npz": "a8ec97eff73d41910cc12cfcde4b39ab6c431e7bb5d684c6b49630cfc49a2985",
+    "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/final/01/scores.csv": "ecfc74b4fd422c1ca8a2bf424dd2c492554e9b08fcaddf9c9ca2606036939818",
+    "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/final/01/transform.npz": "b5f202df4733870f12991fea7f1f9a8dcc593421440d4eeeaeb6b8c8f29828e1",
+    "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/final/02/COMPLETE.json": "db6304d24219c938374222152b12fb4198bc82376a4e5bba42aa78f89f04d14d",
+    "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/final/02/model.pt": "a03f0f09b67367efdddd8d02fecba378f7eec1c4a1cee2fffb3c9a59422eb47e",
+    "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/final/02/predictions.npz": "da552dc219108785096c603f882bd499bc03244b2e1a6a9b79fe9f89effb9481",
+    "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/final/02/scores.csv": "367c16e4494538709555c0b5574d5097031eedfd4385482bb7158f164bd56ac7",
+    "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/final/02/transform.npz": "b5f202df4733870f12991fea7f1f9a8dcc593421440d4eeeaeb6b8c8f29828e1",
+    "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/final/03/COMPLETE.json": "43bebd4c474c5c28ee5637273197fedcab523e60e2cee8c3eca98e6032ed096e",
+    "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/final/03/model.pt": "3c3284fc6367878ded119f0c904be44eb5aba514cc6ba91f933bcb0f507dcf92",
+    "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/final/03/predictions.npz": "f594f8aa46b45e8387be561d7fddb2a42e4ad5ce4d3de3d76afa8205356ebbb3",
+    "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/final/03/scores.csv": "f31b045121c50971b31172739ae0080d98e785bc5ed6097e3055645eb1bdeb04",
+    "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/final/03/transform.npz": "b5f202df4733870f12991fea7f1f9a8dcc593421440d4eeeaeb6b8c8f29828e1",
+    "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/final/04/COMPLETE.json": "46ccdf3e8f44493eac5f8e008f6e340d02b0ebaf8efc58373e44d7c4c6b7b05a",
+    "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/final/04/model.pt": "5b955aa3ad02d0f2b4bfe849a27d4bf56aebbaa06a64d301fcd0d87bd81dc4a1",
+    "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/final/04/predictions.npz": "2eec82a7aeefc2d4e2c057f240d1a80354a4eb26ce8663b81ddeebb8052c80fc",
+    "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/final/04/scores.csv": "a47de2ff7b6fb0cc0f995abc1db60997a2a604f8e679c9726606dd6de754d34c",
+    "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/final/04/transform.npz": "b5f202df4733870f12991fea7f1f9a8dcc593421440d4eeeaeb6b8c8f29828e1",
+    "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/protocol.json": "d0cec12c05b73eaeabd9471d7e01ac894f97350f13e2308f9cb257af40a3d387",
+    "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/selection/freeze.json": "58ebdbf0ba9edefcf5608403c040119c2aaa551e0c6b508023c6f39fc53c3518",
+    "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/selection/selection.json": "4d5701f98b2e44a5833d53ceb3134c35a42291f21f43c3bc87638cc585835c1f",
+    "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/source/experiments/AGP/selected_workflow.py": "40fe10e0f039636ec7ce45c3088fcfba46336dd1d4cb0ae12b8b177f7ff2164f"
+  },
+  "baseline": "results/AGP/seven_global_metrics_20261026/global_metrics.csv",
+  "code_provenance": "Repository HEAD plus exact hashes of working scripts; new scripts may be untracked.",
+  "created_utc": "2026-11-14T02:01:45.352466+00:00",
+  "environment": {
+    "numpy": "1.26.4",
+    "python": "3.9.25",
+    "torch": "2.6.0+cu124"
+  },
+  "files_sha256": {
+    "global_metrics.csv": "21f65fbb8cfe35ba28da1d428a5fcd9ea02be48e2fad4eea84eba777511f9b23",
+    "js_target_comparison.csv": "7fd0c15be7bee10e2075ddf77de2882fe5b32f5bb0b29a84f557a9953530adc5",
+    "per_fit_js_p_q.csv": "72b8a7dde8cad35cb7cd3b0c51156de751c4656a555fe7c6715782b2c1b4703d",
+    "source_snapshot/retained_manifest.json": "21414daedf3bcdef331c125a976db6170bab572a87fc06a0bed1a2ac42749bfe",
+    "table.md": "6df3b0de6ef727cb9c0c0a0511bc789b60b6aee66d34ef066146f47720f98cbb",
+    "table_3dp.md": "d233fa06cef048d2cdbf6d29f622a7effd1176e68e6da9419ab3cc606f4752e2"
+  },
+  "final_fits_per_generator": 5,
+  "fit_identities": [
+    {
+      "checkpoint": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/final/00/model.pt",
+      "checkpoint_sha256": "4f0af4f611db4bc26de60c8a1ae0081aaa906f6b3e998597dddb49e340c0d5f0",
+      "logits_sha256": {
+        "p": "f60aa69f5182f3554adffb41587e118f296cca8631249042e4386ab231b1eda1",
+        "q": "451560809b3764ffc0f44e559e4e68380c0ddc18c7c7d11ee2d0b83e9148e016"
+      },
+      "method": "bernoulli_mixture_icfm",
+      "numerical_input": "float64 scaled logits from frozen float32 CPU network and saved ILR transform",
+      "original_training": {
+        "best_epoch": 57,
+        "device": "cpu",
+        "epochs_run": 100,
+        "fit_seconds": 20.163365266285837,
+        "loss_dtype": "float64",
+        "model_dtype": "float32",
+        "numerical_gradient_mode": "scale_factored_hellinger_float64_norm",
+        "parameter_count": 177793,
+        "restored_stopping_brier": 0.14900632659368235,
+        "seed_initialization": 2026200400,
+        "stopping_brier": 0.14900632659368235,
+        "stopping_reason": "patience",
+        "train_p": 9162,
+        "train_q": 7310
+      },
+      "protocol": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/protocol.json",
+      "repeat": 0,
+      "selection_freeze": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/selection/freeze.json",
+      "selection_freeze_sha256": "9314bfc6002bf55dda17570c8167dcd94c4251a928ba00c702408039f84ea09f",
+      "task": {
+        "candidate": "js_a0.5",
+        "loss": "js",
+        "output_alpha": 0.5,
+        "repeat": 0
+      },
+      "test_array_paths": {
+        "p": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/data/final/test_p.npy",
+        "q": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/data/final/test_q.npy"
+      },
+      "workflow": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/source/experiments/AGP/selected_workflow.py"
+    },
+    {
+      "checkpoint": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/final/01/model.pt",
+      "checkpoint_sha256": "0d6589ea74e7ed17192678978a357c222aa573193281ae2ca1de14802a9b95ce",
+      "logits_sha256": {
+        "p": "505edb4c2439475c5348f62f2bb5b7d23f8185a531d4177501191861b01c4080",
+        "q": "6a99aad471f1fea79267fe69e0bddea9f6c9bc5c92c3a65574748a5222f0df76"
+      },
+      "method": "bernoulli_mixture_icfm",
+      "numerical_input": "float64 scaled logits from frozen float32 CPU network and saved ILR transform",
+      "original_training": {
+        "best_epoch": 63,
+        "device": "cpu",
+        "epochs_run": 100,
+        "fit_seconds": 19.778310852125287,
+        "loss_dtype": "float64",
+        "model_dtype": "float32",
+        "numerical_gradient_mode": "scale_factored_hellinger_float64_norm",
+        "parameter_count": 177793,
+        "restored_stopping_brier": 0.15607700757279733,
+        "seed_initialization": 2026201409,
+        "stopping_brier": 0.15607700757279733,
+        "stopping_reason": "patience",
+        "train_p": 9162,
+        "train_q": 7310
+      },
+      "protocol": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/protocol.json",
+      "repeat": 1,
+      "selection_freeze": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/selection/freeze.json",
+      "selection_freeze_sha256": "9314bfc6002bf55dda17570c8167dcd94c4251a928ba00c702408039f84ea09f",
+      "task": {
+        "candidate": "js_a0.5",
+        "loss": "js",
+        "output_alpha": 0.5,
+        "repeat": 1
+      },
+      "test_array_paths": {
+        "p": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/data/final/test_p.npy",
+        "q": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/data/final/test_q.npy"
+      },
+      "workflow": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/source/experiments/AGP/selected_workflow.py"
+    },
+    {
+      "checkpoint": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/final/02/model.pt",
+      "checkpoint_sha256": "3fdd4e0ed6f643d596e3f46182380e82d584faef7374e50ebc5e727e68ffc7ef",
+      "logits_sha256": {
+        "p": "170798517be19bb8dfae3a947fb0860fb54cf2586681b712bb6ceab6cbf1bb20",
+        "q": "41bbf777a34c0b805370d904c4b762103d2fac8f1091d0a13dbd9d1885f23bb7"
+      },
+      "method": "bernoulli_mixture_icfm",
+      "numerical_input": "float64 scaled logits from frozen float32 CPU network and saved ILR transform",
+      "original_training": {
+        "best_epoch": 65,
+        "device": "cpu",
+        "epochs_run": 100,
+        "fit_seconds": 19.839540522545576,
+        "loss_dtype": "float64",
+        "model_dtype": "float32",
+        "numerical_gradient_mode": "scale_factored_hellinger_float64_norm",
+        "parameter_count": 177793,
+        "restored_stopping_brier": 0.15237172960990303,
+        "seed_initialization": 2026202418,
+        "stopping_brier": 0.15237172960990303,
+        "stopping_reason": "patience",
+        "train_p": 9162,
+        "train_q": 7310
+      },
+      "protocol": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/protocol.json",
+      "repeat": 2,
+      "selection_freeze": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/selection/freeze.json",
+      "selection_freeze_sha256": "9314bfc6002bf55dda17570c8167dcd94c4251a928ba00c702408039f84ea09f",
+      "task": {
+        "candidate": "js_a0.5",
+        "loss": "js",
+        "output_alpha": 0.5,
+        "repeat": 2
+      },
+      "test_array_paths": {
+        "p": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/data/final/test_p.npy",
+        "q": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/data/final/test_q.npy"
+      },
+      "workflow": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/source/experiments/AGP/selected_workflow.py"
+    },
+    {
+      "checkpoint": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/final/03/model.pt",
+      "checkpoint_sha256": "8557f78eb181871991092c47b179b4e0cf2cd484a5e7c876e5cdb63957fbfffa",
+      "logits_sha256": {
+        "p": "4fa28d5f6383329aae2acb22f9cf62408e977c2b142ff832b39b32503f9c184d",
+        "q": "3b9af099c914e40e94ec40b5a7ef89188c41a80a6afcdf61da2eb8498f37977d"
+      },
+      "method": "bernoulli_mixture_icfm",
+      "numerical_input": "float64 scaled logits from frozen float32 CPU network and saved ILR transform",
+      "original_training": {
+        "best_epoch": 64,
+        "device": "cpu",
+        "epochs_run": 100,
+        "fit_seconds": 19.56639038026333,
+        "loss_dtype": "float64",
+        "model_dtype": "float32",
+        "numerical_gradient_mode": "scale_factored_hellinger_float64_norm",
+        "parameter_count": 177793,
+        "restored_stopping_brier": 0.15769511219983467,
+        "seed_initialization": 2026203427,
+        "stopping_brier": 0.15769511219983467,
+        "stopping_reason": "patience",
+        "train_p": 9162,
+        "train_q": 7310
+      },
+      "protocol": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/protocol.json",
+      "repeat": 3,
+      "selection_freeze": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/selection/freeze.json",
+      "selection_freeze_sha256": "9314bfc6002bf55dda17570c8167dcd94c4251a928ba00c702408039f84ea09f",
+      "task": {
+        "candidate": "js_a0.5",
+        "loss": "js",
+        "output_alpha": 0.5,
+        "repeat": 3
+      },
+      "test_array_paths": {
+        "p": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/data/final/test_p.npy",
+        "q": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/data/final/test_q.npy"
+      },
+      "workflow": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/source/experiments/AGP/selected_workflow.py"
+    },
+    {
+      "checkpoint": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/final/04/model.pt",
+      "checkpoint_sha256": "746c220350cae3413927fa461a069df398fee29049df88f6640b9171a9b53673",
+      "logits_sha256": {
+        "p": "27c4dc297c7f2470f8186fa0d43f9d4a9f05981a5a21312ec53c2b4a197c923e",
+        "q": "8d0a5c5037fbcfd6e5f6940a663599cee4c5915367b9b31528754515df74c568"
+      },
+      "method": "bernoulli_mixture_icfm",
+      "numerical_input": "float64 scaled logits from frozen float32 CPU network and saved ILR transform",
+      "original_training": {
+        "best_epoch": 62,
+        "device": "cpu",
+        "epochs_run": 100,
+        "fit_seconds": 18.947850928641856,
+        "loss_dtype": "float64",
+        "model_dtype": "float32",
+        "numerical_gradient_mode": "scale_factored_hellinger_float64_norm",
+        "parameter_count": 177793,
+        "restored_stopping_brier": 0.1578663836447009,
+        "seed_initialization": 2026204436,
+        "stopping_brier": 0.1578663836447009,
+        "stopping_reason": "patience",
+        "train_p": 9162,
+        "train_q": 7310
+      },
+      "protocol": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/protocol.json",
+      "repeat": 4,
+      "selection_freeze": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/selection/freeze.json",
+      "selection_freeze_sha256": "9314bfc6002bf55dda17570c8167dcd94c4251a928ba00c702408039f84ea09f",
+      "task": {
+        "candidate": "js_a0.5",
+        "loss": "js",
+        "output_alpha": 0.5,
+        "repeat": 4
+      },
+      "test_array_paths": {
+        "p": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/data/final/test_p.npy",
+        "q": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/data/final/test_q.npy"
+      },
+      "workflow": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/bernoulli_mixture_icfm/source/experiments/AGP/selected_workflow.py"
+    },
+    {
+      "checkpoint": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/final/00/model.pt",
+      "checkpoint_sha256": "e1a75d1a674d30222baa3dccf1dea70c252300fd2e0202959ad9cd868440c119",
+      "logits_sha256": {
+        "p": "7799c7bb52ac785cafc22efa29400cd40b8933a0d1287c1bacbe9c8640894949",
+        "q": "b0a27af58d8e9ba98df641a80f5d9b03b086f10bf24cfed136e37d1f220285b2"
+      },
+      "method": "autoregressive_icfm",
+      "numerical_input": "float64 scaled logits from frozen float32 CPU network and saved ILR transform",
+      "original_training": {
+        "best_epoch": 45,
+        "device": "cpu",
+        "epochs_run": 100,
+        "fit_seconds": 17.22143770940602,
+        "loss_dtype": "float64",
+        "model_dtype": "float32",
+        "numerical_gradient_mode": "scale_factored_hellinger_float64_norm",
+        "parameter_count": 177793,
+        "restored_stopping_brier": 0.22186015049953228,
+        "seed_initialization": 2026200400,
+        "stopping_brier": 0.22186015049953228,
+        "stopping_reason": "patience",
+        "train_p": 9162,
+        "train_q": 7310
+      },
+      "protocol": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/protocol.json",
+      "repeat": 0,
+      "selection_freeze": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/selection/freeze.json",
+      "selection_freeze_sha256": "b63f4b3f287a0088d15278226b88dd8df51a723d9235e16e0e9d4a4789994973",
+      "task": {
+        "candidate": "chisq_a0.5",
+        "loss": "chisq",
+        "output_alpha": 0.5,
+        "repeat": 0
+      },
+      "test_array_paths": {
+        "p": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/data/final/test_p.npy",
+        "q": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/data/final/test_q.npy"
+      },
+      "workflow": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/source/experiments/AGP/selected_workflow.py"
+    },
+    {
+      "checkpoint": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/final/01/model.pt",
+      "checkpoint_sha256": "13555e6b81ec9d01c9b1c08a78f0d06e586f1b2b1c4d343f0e92b3feead0a09f",
+      "logits_sha256": {
+        "p": "71565130142b8e3d3ca0f17cdc81b553f12585f5889bf15b44a721a1934ddc96",
+        "q": "4585022e0715178ad5339e9e0e156ce7efc7bdfa8de5663fa5e342242f60738a"
+      },
+      "method": "autoregressive_icfm",
+      "numerical_input": "float64 scaled logits from frozen float32 CPU network and saved ILR transform",
+      "original_training": {
+        "best_epoch": 47,
+        "device": "cpu",
+        "epochs_run": 100,
+        "fit_seconds": 18.071381679736078,
+        "loss_dtype": "float64",
+        "model_dtype": "float32",
+        "numerical_gradient_mode": "scale_factored_hellinger_float64_norm",
+        "parameter_count": 177793,
+        "restored_stopping_brier": 0.21999178619373944,
+        "seed_initialization": 2026201409,
+        "stopping_brier": 0.21999178619373944,
+        "stopping_reason": "patience",
+        "train_p": 9162,
+        "train_q": 7310
+      },
+      "protocol": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/protocol.json",
+      "repeat": 1,
+      "selection_freeze": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/selection/freeze.json",
+      "selection_freeze_sha256": "b63f4b3f287a0088d15278226b88dd8df51a723d9235e16e0e9d4a4789994973",
+      "task": {
+        "candidate": "chisq_a0.5",
+        "loss": "chisq",
+        "output_alpha": 0.5,
+        "repeat": 1
+      },
+      "test_array_paths": {
+        "p": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/data/final/test_p.npy",
+        "q": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/data/final/test_q.npy"
+      },
+      "workflow": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/source/experiments/AGP/selected_workflow.py"
+    },
+    {
+      "checkpoint": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/final/02/model.pt",
+      "checkpoint_sha256": "157c6e6fe1fce5e28cb288237bc7a1e6a949d2eba6cf3e47c956d1a1f5824337",
+      "logits_sha256": {
+        "p": "c918d526153678e550a41658b02fee48be1cdc55bde7894fcc21202f90e6bd02",
+        "q": "31376f875f4f7a94a1aac5e3ae295e30caaa89b5fb79460a591d78879b67d970"
+      },
+      "method": "autoregressive_icfm",
+      "numerical_input": "float64 scaled logits from frozen float32 CPU network and saved ILR transform",
+      "original_training": {
+        "best_epoch": 53,
+        "device": "cpu",
+        "epochs_run": 100,
+        "fit_seconds": 18.071713846176863,
+        "loss_dtype": "float64",
+        "model_dtype": "float32",
+        "numerical_gradient_mode": "scale_factored_hellinger_float64_norm",
+        "parameter_count": 177793,
+        "restored_stopping_brier": 0.22180290231936772,
+        "seed_initialization": 2026202418,
+        "stopping_brier": 0.22180290231936772,
+        "stopping_reason": "patience",
+        "train_p": 9162,
+        "train_q": 7310
+      },
+      "protocol": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/protocol.json",
+      "repeat": 2,
+      "selection_freeze": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/selection/freeze.json",
+      "selection_freeze_sha256": "b63f4b3f287a0088d15278226b88dd8df51a723d9235e16e0e9d4a4789994973",
+      "task": {
+        "candidate": "chisq_a0.5",
+        "loss": "chisq",
+        "output_alpha": 0.5,
+        "repeat": 2
+      },
+      "test_array_paths": {
+        "p": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/data/final/test_p.npy",
+        "q": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/data/final/test_q.npy"
+      },
+      "workflow": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/source/experiments/AGP/selected_workflow.py"
+    },
+    {
+      "checkpoint": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/final/03/model.pt",
+      "checkpoint_sha256": "8840f9dbd335d72f5d79515955379615685f193addb06b6dd61f6f24b53201a1",
+      "logits_sha256": {
+        "p": "63ab7060f4f18b5e4c7b19f9ba584cb5f6a7b5b0f9afb7256cee195e3fca53ae",
+        "q": "061901b5e1712bc144f3c37006465d185914b22913f174fb77d7b263a1dece0d"
+      },
+      "method": "autoregressive_icfm",
+      "numerical_input": "float64 scaled logits from frozen float32 CPU network and saved ILR transform",
+      "original_training": {
+        "best_epoch": 47,
+        "device": "cpu",
+        "epochs_run": 100,
+        "fit_seconds": 17.265308796428144,
+        "loss_dtype": "float64",
+        "model_dtype": "float32",
+        "numerical_gradient_mode": "scale_factored_hellinger_float64_norm",
+        "parameter_count": 177793,
+        "restored_stopping_brier": 0.22253526967207624,
+        "seed_initialization": 2026203427,
+        "stopping_brier": 0.22253526967207624,
+        "stopping_reason": "patience",
+        "train_p": 9162,
+        "train_q": 7310
+      },
+      "protocol": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/protocol.json",
+      "repeat": 3,
+      "selection_freeze": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/selection/freeze.json",
+      "selection_freeze_sha256": "b63f4b3f287a0088d15278226b88dd8df51a723d9235e16e0e9d4a4789994973",
+      "task": {
+        "candidate": "chisq_a0.5",
+        "loss": "chisq",
+        "output_alpha": 0.5,
+        "repeat": 3
+      },
+      "test_array_paths": {
+        "p": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/data/final/test_p.npy",
+        "q": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/data/final/test_q.npy"
+      },
+      "workflow": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/source/experiments/AGP/selected_workflow.py"
+    },
+    {
+      "checkpoint": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/final/04/model.pt",
+      "checkpoint_sha256": "1507c90ef553cef0740bc15881ee24c8d404d796ead2e25cd87604a2e3c2b371",
+      "logits_sha256": {
+        "p": "8e6fdcc860f89c58d5a81c3cb870b716fbb29a309603c5f9c2c31cd3f00f4bb4",
+        "q": "c82b2a2ee900a4d01dadd485453d2d24b38e503327cfbe03195b1cd8f03e5113"
+      },
+      "method": "autoregressive_icfm",
+      "numerical_input": "float64 scaled logits from frozen float32 CPU network and saved ILR transform",
+      "original_training": {
+        "best_epoch": 44,
+        "device": "cpu",
+        "epochs_run": 100,
+        "fit_seconds": 18.255130104720592,
+        "loss_dtype": "float64",
+        "model_dtype": "float32",
+        "numerical_gradient_mode": "scale_factored_hellinger_float64_norm",
+        "parameter_count": 177793,
+        "restored_stopping_brier": 0.21980785787988166,
+        "seed_initialization": 2026204436,
+        "stopping_brier": 0.21980785787988166,
+        "stopping_reason": "patience",
+        "train_p": 9162,
+        "train_q": 7310
+      },
+      "protocol": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/protocol.json",
+      "repeat": 4,
+      "selection_freeze": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/selection/freeze.json",
+      "selection_freeze_sha256": "b63f4b3f287a0088d15278226b88dd8df51a723d9235e16e0e9d4a4789994973",
+      "task": {
+        "candidate": "chisq_a0.5",
+        "loss": "chisq",
+        "output_alpha": 0.5,
+        "repeat": 4
+      },
+      "test_array_paths": {
+        "p": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/data/final/test_p.npy",
+        "q": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/data/final/test_q.npy"
+      },
+      "workflow": "/cwork/yx306/RDR/AGP/mask_rdr_20261012/analyses/autoregressive_icfm/source/experiments/AGP/selected_workflow.py"
+    },
+    {
+      "checkpoint": "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/final/00/model.pt",
+      "checkpoint_sha256": "37847ef718f49b240bbf233d8263cbeafbcbf3354d6ce935777126c59eaa9111",
+      "logits_sha256": {
+        "p": "afdf15e771652de2600ea550a0b0c24f32fd1643e295f7c28119a0ee4e036c5e",
+        "q": "63acaa81a36fcead09759b7bc4cd8897d6ee320055a2f5136dad5455a1c3feaf"
+      },
+      "method": "midasim_mask_icfm",
+      "numerical_input": "float64 scaled logits from frozen float32 CPU network and saved ILR transform",
+      "original_training": {
+        "best_epoch": 58,
+        "device": "cpu",
+        "epochs_run": 100,
+        "fit_seconds": 19.6047086333856,
+        "loss_dtype": "float64",
+        "model_dtype": "float32",
+        "numerical_gradient_mode": "scale_factored_hellinger_float64_norm",
+        "parameter_count": 177793,
+        "restored_stopping_brier": 0.15250408808763888,
+        "seed_initialization": 2026200400,
+        "stopping_brier": 0.15250408808763888,
+        "stopping_reason": "patience",
+        "train_p": 9162,
+        "train_q": 7310
+      },
+      "protocol": "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/protocol.json",
+      "repeat": 0,
+      "selection_freeze": "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/selection/freeze.json",
+      "selection_freeze_sha256": "247f7f625528d0ca09f04c1aa0fc7a82137cdbc819e630436830d60be7438d98",
+      "task": {
+        "candidate": "js_a0.5",
+        "loss": "js",
+        "output_alpha": 0.5,
+        "repeat": 0
+      },
+      "test_array_paths": {
+        "p": "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/data/final/test_p.npy",
+        "q": "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/data/final/test_q.npy"
+      },
+      "workflow": "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/source/experiments/AGP/selected_workflow.py"
+    },
+    {
+      "checkpoint": "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/final/01/model.pt",
+      "checkpoint_sha256": "e51d880ac20b6d1f8a0d64047d712cd551a8afa9a1b0998501802b25b9643bc2",
+      "logits_sha256": {
+        "p": "4188d04a5a1cfdd80355592eb68c4704aba24c6efd81ed45aad1d6315546b9ad",
+        "q": "d9c38293a714e83261bc90b3f02ae5053c6f64f73517cf2a1542fa4e39ac436d"
+      },
+      "method": "midasim_mask_icfm",
+      "numerical_input": "float64 scaled logits from frozen float32 CPU network and saved ILR transform",
+      "original_training": {
+        "best_epoch": 60,
+        "device": "cpu",
+        "epochs_run": 100,
+        "fit_seconds": 19.66263283137232,
+        "loss_dtype": "float64",
+        "model_dtype": "float32",
+        "numerical_gradient_mode": "scale_factored_hellinger_float64_norm",
+        "parameter_count": 177793,
+        "restored_stopping_brier": 0.1402447752901852,
+        "seed_initialization": 2026201409,
+        "stopping_brier": 0.1402447752901852,
+        "stopping_reason": "patience",
+        "train_p": 9162,
+        "train_q": 7310
+      },
+      "protocol": "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/protocol.json",
+      "repeat": 1,
+      "selection_freeze": "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/selection/freeze.json",
+      "selection_freeze_sha256": "247f7f625528d0ca09f04c1aa0fc7a82137cdbc819e630436830d60be7438d98",
+      "task": {
+        "candidate": "js_a0.5",
+        "loss": "js",
+        "output_alpha": 0.5,
+        "repeat": 1
+      },
+      "test_array_paths": {
+        "p": "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/data/final/test_p.npy",
+        "q": "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/data/final/test_q.npy"
+      },
+      "workflow": "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/source/experiments/AGP/selected_workflow.py"
+    },
+    {
+      "checkpoint": "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/final/02/model.pt",
+      "checkpoint_sha256": "821b9ea5a7f5d652c8a9ac5d5d7af01ed606bb5863d68df46faa04b4ef6e1710",
+      "logits_sha256": {
+        "p": "b75dd583272935b5a4a1ec126937ad09748cbb6d9379649f39752f9fcd983f0c",
+        "q": "59792c92368eddaa40866cd414141d7eded271df72b0569780696db94a1ae25b"
+      },
+      "method": "midasim_mask_icfm",
+      "numerical_input": "float64 scaled logits from frozen float32 CPU network and saved ILR transform",
+      "original_training": {
+        "best_epoch": 62,
+        "device": "cpu",
+        "epochs_run": 100,
+        "fit_seconds": 19.550603005103767,
+        "loss_dtype": "float64",
+        "model_dtype": "float32",
+        "numerical_gradient_mode": "scale_factored_hellinger_float64_norm",
+        "parameter_count": 177793,
+        "restored_stopping_brier": 0.1471836290331044,
+        "seed_initialization": 2026202418,
+        "stopping_brier": 0.1471836290331044,
+        "stopping_reason": "patience",
+        "train_p": 9162,
+        "train_q": 7310
+      },
+      "protocol": "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/protocol.json",
+      "repeat": 2,
+      "selection_freeze": "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/selection/freeze.json",
+      "selection_freeze_sha256": "247f7f625528d0ca09f04c1aa0fc7a82137cdbc819e630436830d60be7438d98",
+      "task": {
+        "candidate": "js_a0.5",
+        "loss": "js",
+        "output_alpha": 0.5,
+        "repeat": 2
+      },
+      "test_array_paths": {
+        "p": "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/data/final/test_p.npy",
+        "q": "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/data/final/test_q.npy"
+      },
+      "workflow": "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/source/experiments/AGP/selected_workflow.py"
+    },
+    {
+      "checkpoint": "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/final/03/model.pt",
+      "checkpoint_sha256": "117de0f7475dff1396b938854c69712fdc68a1ebc76dd240751cfcd1940abe43",
+      "logits_sha256": {
+        "p": "668ad49a18ad78faa946e685f96c9227ed274bb6b513b3ea7573f657354bed71",
+        "q": "7c13a499d4e38a072994b4726fc6954f8243eb256aa101b0a2eaf4bff9298083"
+      },
+      "method": "midasim_mask_icfm",
+      "numerical_input": "float64 scaled logits from frozen float32 CPU network and saved ILR transform",
+      "original_training": {
+        "best_epoch": 62,
+        "device": "cpu",
+        "epochs_run": 100,
+        "fit_seconds": 19.969174382276833,
+        "loss_dtype": "float64",
+        "model_dtype": "float32",
+        "numerical_gradient_mode": "scale_factored_hellinger_float64_norm",
+        "parameter_count": 177793,
+        "restored_stopping_brier": 0.15441154879939278,
+        "seed_initialization": 2026203427,
+        "stopping_brier": 0.15441154879939278,
+        "stopping_reason": "patience",
+        "train_p": 9162,
+        "train_q": 7310
+      },
+      "protocol": "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/protocol.json",
+      "repeat": 3,
+      "selection_freeze": "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/selection/freeze.json",
+      "selection_freeze_sha256": "247f7f625528d0ca09f04c1aa0fc7a82137cdbc819e630436830d60be7438d98",
+      "task": {
+        "candidate": "js_a0.5",
+        "loss": "js",
+        "output_alpha": 0.5,
+        "repeat": 3
+      },
+      "test_array_paths": {
+        "p": "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/data/final/test_p.npy",
+        "q": "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/data/final/test_q.npy"
+      },
+      "workflow": "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/source/experiments/AGP/selected_workflow.py"
+    },
+    {
+      "checkpoint": "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/final/04/model.pt",
+      "checkpoint_sha256": "cab8e3a0f9cc697aa6ea2c15cc86f50846bf78beb8b65e0cc2da9afbfa260f1a",
+      "logits_sha256": {
+        "p": "ec3a15531533227abbe7dc9200e6d7dfcc6b1cda71d434bc04698647858d4486",
+        "q": "4f44c42fed66b6fbe8b15e3322b9de7b1a3e095bfbb2e180f43a315fd7a2f316"
+      },
+      "method": "midasim_mask_icfm",
+      "numerical_input": "float64 scaled logits from frozen float32 CPU network and saved ILR transform",
+      "original_training": {
+        "best_epoch": 61,
+        "device": "cpu",
+        "epochs_run": 100,
+        "fit_seconds": 19.622823017649353,
+        "loss_dtype": "float64",
+        "model_dtype": "float32",
+        "numerical_gradient_mode": "scale_factored_hellinger_float64_norm",
+        "parameter_count": 177793,
+        "restored_stopping_brier": 0.15154678228888585,
+        "seed_initialization": 2026204436,
+        "stopping_brier": 0.15154678228888585,
+        "stopping_reason": "patience",
+        "train_p": 9162,
+        "train_q": 7310
+      },
+      "protocol": "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/protocol.json",
+      "repeat": 4,
+      "selection_freeze": "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/selection/freeze.json",
+      "selection_freeze_sha256": "247f7f625528d0ca09f04c1aa0fc7a82137cdbc819e630436830d60be7438d98",
+      "task": {
+        "candidate": "js_a0.5",
+        "loss": "js",
+        "output_alpha": 0.5,
+        "repeat": 4
+      },
+      "test_array_paths": {
+        "p": "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/data/final/test_p.npy",
+        "q": "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/data/final/test_q.npy"
+      },
+      "workflow": "/cwork/yx306/RDR/AGP/icfm_zero_20261007/analysis/source/experiments/AGP/selected_workflow.py"
+    },
+    {
+      "checkpoint": "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/final/00/model.pt",
+      "checkpoint_sha256": "9c4c43d44f719511f0754ed4150e1cdddd188aba091955c9999b56c225edec0f",
+      "logits_sha256": {
+        "p": "0e056ec742f6dd95a0f49f4c88d4c1f595cc0a84b2f1096938890da45c881452",
+        "q": "09d4033a5572cac8f9720df916cebf110d0e9be42e448177eef1b35c80cfa8e4"
+      },
+      "method": "midasim",
+      "numerical_input": "float64 scaled logits from frozen float32 CPU network and saved ILR transform",
+      "original_training": {
+        "best_epoch": 59,
+        "device": "cpu",
+        "epochs_run": 100,
+        "fit_seconds": 18.1806188528426,
+        "loss_dtype": "float64",
+        "model_dtype": "float32",
+        "numerical_gradient_mode": "scale_factored_hellinger_float64_norm",
+        "parameter_count": 177793,
+        "restored_stopping_brier": 0.10716343644174917,
+        "seed_initialization": 2026200400,
+        "stopping_brier": 0.10716343644174917,
+        "stopping_reason": "patience",
+        "train_p": 9162,
+        "train_q": 7310
+      },
+      "protocol": "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/protocol.json",
+      "repeat": 0,
+      "selection_freeze": "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/selection/freeze.json",
+      "selection_freeze_sha256": "58ebdbf0ba9edefcf5608403c040119c2aaa551e0c6b508023c6f39fc53c3518",
+      "task": {
+        "candidate": "js_a0.5",
+        "loss": "js",
+        "output_alpha": 0.5,
+        "repeat": 0
+      },
+      "test_array_paths": {
+        "p": "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/data/final/test_p.npy",
+        "q": "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/data/final/test_q.npy"
+      },
+      "workflow": "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/source/experiments/AGP/selected_workflow.py"
+    },
+    {
+      "checkpoint": "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/final/01/model.pt",
+      "checkpoint_sha256": "644d15a2662929948956941897ee9a7cb0637c5e9f919cebbe4b1d1878c2877c",
+      "logits_sha256": {
+        "p": "18427119042b7dbdd715d4da73e76d530cbeac6c7c3342bd12e3b22c1af6fae7",
+        "q": "9f3cd302aac73516bd3e2c15b84b1503537626542623b7ce0c227a2853964492"
+      },
+      "method": "midasim",
+      "numerical_input": "float64 scaled logits from frozen float32 CPU network and saved ILR transform",
+      "original_training": {
+        "best_epoch": 77,
+        "device": "cpu",
+        "epochs_run": 107,
+        "fit_seconds": 19.105432508978993,
+        "loss_dtype": "float64",
+        "model_dtype": "float32",
+        "numerical_gradient_mode": "scale_factored_hellinger_float64_norm",
+        "parameter_count": 177793,
+        "restored_stopping_brier": 0.10110020628996105,
+        "seed_initialization": 2026201409,
+        "stopping_brier": 0.10110020628996105,
+        "stopping_reason": "patience",
+        "train_p": 9162,
+        "train_q": 7310
+      },
+      "protocol": "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/protocol.json",
+      "repeat": 1,
+      "selection_freeze": "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/selection/freeze.json",
+      "selection_freeze_sha256": "58ebdbf0ba9edefcf5608403c040119c2aaa551e0c6b508023c6f39fc53c3518",
+      "task": {
+        "candidate": "js_a0.5",
+        "loss": "js",
+        "output_alpha": 0.5,
+        "repeat": 1
+      },
+      "test_array_paths": {
+        "p": "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/data/final/test_p.npy",
+        "q": "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/data/final/test_q.npy"
+      },
+      "workflow": "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/source/experiments/AGP/selected_workflow.py"
+    },
+    {
+      "checkpoint": "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/final/02/model.pt",
+      "checkpoint_sha256": "a03f0f09b67367efdddd8d02fecba378f7eec1c4a1cee2fffb3c9a59422eb47e",
+      "logits_sha256": {
+        "p": "e8cd8546b3a3defe2b1be0e177c50d5f77e60fd91025cc4b3a0702acb1334204",
+        "q": "9062b618799399a930539c71e2d21ff1fe3e8bc863b3a3d0e328d9da358cc760"
+      },
+      "method": "midasim",
+      "numerical_input": "float64 scaled logits from frozen float32 CPU network and saved ILR transform",
+      "original_training": {
+        "best_epoch": 61,
+        "device": "cpu",
+        "epochs_run": 100,
+        "fit_seconds": 17.303021881729364,
+        "loss_dtype": "float64",
+        "model_dtype": "float32",
+        "numerical_gradient_mode": "scale_factored_hellinger_float64_norm",
+        "parameter_count": 177793,
+        "restored_stopping_brier": 0.1036292103030941,
+        "seed_initialization": 2026202418,
+        "stopping_brier": 0.1036292103030941,
+        "stopping_reason": "patience",
+        "train_p": 9162,
+        "train_q": 7310
+      },
+      "protocol": "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/protocol.json",
+      "repeat": 2,
+      "selection_freeze": "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/selection/freeze.json",
+      "selection_freeze_sha256": "58ebdbf0ba9edefcf5608403c040119c2aaa551e0c6b508023c6f39fc53c3518",
+      "task": {
+        "candidate": "js_a0.5",
+        "loss": "js",
+        "output_alpha": 0.5,
+        "repeat": 2
+      },
+      "test_array_paths": {
+        "p": "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/data/final/test_p.npy",
+        "q": "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/data/final/test_q.npy"
+      },
+      "workflow": "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/source/experiments/AGP/selected_workflow.py"
+    },
+    {
+      "checkpoint": "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/final/03/model.pt",
+      "checkpoint_sha256": "3c3284fc6367878ded119f0c904be44eb5aba514cc6ba91f933bcb0f507dcf92",
+      "logits_sha256": {
+        "p": "945022914dc3988a79bd6298ed36ed15b5754b46e985c249e5afaf3c163f6810",
+        "q": "d28a2e6654f34f15943ea5a3c0f3cc2168463fffc0a946cff1b32686b47f56af"
+      },
+      "method": "midasim",
+      "numerical_input": "float64 scaled logits from frozen float32 CPU network and saved ILR transform",
+      "original_training": {
+        "best_epoch": 70,
+        "device": "cpu",
+        "epochs_run": 100,
+        "fit_seconds": 18.709415482822806,
+        "loss_dtype": "float64",
+        "model_dtype": "float32",
+        "numerical_gradient_mode": "scale_factored_hellinger_float64_norm",
+        "parameter_count": 177793,
+        "restored_stopping_brier": 0.09948413519081005,
+        "seed_initialization": 2026203427,
+        "stopping_brier": 0.09948413519081005,
+        "stopping_reason": "patience",
+        "train_p": 9162,
+        "train_q": 7310
+      },
+      "protocol": "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/protocol.json",
+      "repeat": 3,
+      "selection_freeze": "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/selection/freeze.json",
+      "selection_freeze_sha256": "58ebdbf0ba9edefcf5608403c040119c2aaa551e0c6b508023c6f39fc53c3518",
+      "task": {
+        "candidate": "js_a0.5",
+        "loss": "js",
+        "output_alpha": 0.5,
+        "repeat": 3
+      },
+      "test_array_paths": {
+        "p": "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/data/final/test_p.npy",
+        "q": "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/data/final/test_q.npy"
+      },
+      "workflow": "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/source/experiments/AGP/selected_workflow.py"
+    },
+    {
+      "checkpoint": "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/final/04/model.pt",
+      "checkpoint_sha256": "5b955aa3ad02d0f2b4bfe849a27d4bf56aebbaa06a64d301fcd0d87bd81dc4a1",
+      "logits_sha256": {
+        "p": "41f306ac28ea6532504ad000f1cc9707b1f3d43e8602b0a527c5ef972186c62a",
+        "q": "e564e51c2b2c75a05f589837cfa4f4095f4f0da34efa0369f7a346b43fd73826"
+      },
+      "method": "midasim",
+      "numerical_input": "float64 scaled logits from frozen float32 CPU network and saved ILR transform",
+      "original_training": {
+        "best_epoch": 86,
+        "device": "cpu",
+        "epochs_run": 116,
+        "fit_seconds": 18.434696710202843,
+        "loss_dtype": "float64",
+        "model_dtype": "float32",
+        "numerical_gradient_mode": "scale_factored_hellinger_float64_norm",
+        "parameter_count": 177793,
+        "restored_stopping_brier": 0.10240763679477413,
+        "seed_initialization": 2026204436,
+        "stopping_brier": 0.10240763679477413,
+        "stopping_reason": "patience",
+        "train_p": 9162,
+        "train_q": 7310
+      },
+      "protocol": "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/protocol.json",
+      "repeat": 4,
+      "selection_freeze": "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/selection/freeze.json",
+      "selection_freeze_sha256": "58ebdbf0ba9edefcf5608403c040119c2aaa551e0c6b508023c6f39fc53c3518",
+      "task": {
+        "candidate": "js_a0.5",
+        "loss": "js",
+        "output_alpha": 0.5,
+        "repeat": 4
+      },
+      "test_array_paths": {
+        "p": "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/data/final/test_p.npy",
+        "q": "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/data/final/test_q.npy"
+      },
+      "workflow": "/cwork/yx306/RDR/AGP/midasim_full_20261004/analysis/source/experiments/AGP/selected_workflow.py"
+    }
+  ],
+  "js": {
+    "M": "(P+Q)/2",
+    "empirical_upper_bound": 0.6931471805599453,
+    "formula": "0.5*mean_P(log(r_hat)) + 0.5*mean_Q(log(2-r_hat))",
+    "identity": "JS_PQ_hat=log(2)-balanced_BCE_with_logits(t)",
+    "log_r_from_scaled_logit": "log(2)-softplus(-t)",
+    "log_two_minus_r_from_scaled_logit": "log(2)-softplus(t)",
+    "logarithms": "natural",
+    "logit": "t=output_alpha*model(transformed_x); r_hat=2*sigmoid(t)",
+    "negative_estimates": "retained without truncation",
+    "rdr": "r_hat approximates 2p/(p+q)",
+    "sd": "sample standard deviation across all five frozen fits; ddof=1, denominator=4",
+    "source_weights": {
+      "P": 0.5,
+      "Q": 0.5
+    },
+    "target": "JS(P,Q)",
+    "units": "nats"
+  },
+  "kind": "four_generator_full_test_seven_metric_js_p_q",
+  "limitations": [
+    "Fitted variational test estimates, not exact population divergences.",
+    "Five-fit SD is initialization variation conditional on fixed cohorts, not sampling uncertainty.",
+    "Retrospective assessment; finite-sample estimates are not guaranteed population lower bounds.",
+    "Portable verification checks saved arithmetic and repository hashes; full replay requires private HPC artifacts."
+  ],
+  "methods": [
+    "bernoulli_mixture_icfm",
+    "autoregressive_icfm",
+    "midasim_mask_icfm",
+    "midasim"
+  ],
+  "metric_count": 7,
+  "n_p": 2002,
+  "n_q_per_generator": 2089,
+  "new_model_fits": 0,
+  "numerical_handling": {
+    "archived_endpoints_p": 1,
+    "archived_endpoints_q": 0,
+    "arithmetic": "float64 softplus/log1p, math.fsum source means; frozen float32 model inference on CPU",
+    "clipping": false,
+    "discarded_fits": 0,
+    "endpoint_recovery": "Full MIDASim final/04 has one P=2; evaluated from finite checkpoint logit",
+    "maximum_js_difference_from_archived_rdr": 1.2850831510036187e-14,
+    "maximum_rdr_replay_error": 0.0,
+    "preprocessing": "Original saved ILR state applied by hash-checked archived selected_workflow.py; no transform refit",
+    "primary": "stable scaled-logit evaluation for every selected checkpoint",
+    "replay_absolute_tolerance": 1e-10,
+    "source_loading": "Exact DeepLogitMLP, _clr, transform_ilr AST definitions from hash-sealed selected_workflow.py; training imports not executed. Empty utils/__init__.py absent in mask source snapshots is not needed for inference.",
+    "subsampling": false
+  },
+  "repository_commit": "1f8488923593875adf7044d6fb07ce1597982829",
+  "repository_input_snapshots": {
+    "results/AGP/retained_mask_comparison_20261013/manifest.json": "source_snapshot/retained_manifest.json"
+  },
+  "repository_inputs_sha256": {
+    "experiments/AGP/js_pq.py": "4a4aa238af8a28ea014f7c1361efc43345122245fa05ecc386e2400715df83ae",
+    "experiments/AGP/seven_global_metrics.py": "f29f860b967e9ada2eeedd1c6cd1983eaa99953f0d1ebddf2e962b6f179eb11c",
+    "experiments/AGP/seven_global_metrics_pq.py": "61944eba383a51996376ef054bb303b91ee19dea1d3b6fd36e9ff38a5ffd245f",
+    "results/AGP/retained_mask_comparison_20261013/manifest.json": "21414daedf3bcdef331c125a976db6170bab572a87fc06a0bed1a2ac42749bfe",
+    "results/AGP/retained_mask_comparison_20261013/metrics.csv": "c8e234f6540f5c02cd9dc1fcf75a35cffe3e114a5a7e6b179bc434d7d053427b",
+    "results/AGP/retained_mask_comparison_20261013/selection_ranking.csv": "6a2063e98a52a3b384b9da2e21c0f93954b7cc4b3d0486d1e5fed095a6b94494",
+    "results/AGP/seven_global_metrics_20261026/global_metrics.csv": "be17b2b5c9ab522cc9e110c5a4ec58c687911e6a5731fae4265cc40013ba791c",
+    "results/AGP/seven_global_metrics_20261026/manifest.json": "cff0a922397de69831d59432eb8de89d8c413a12eb2424e77ad35c2940722925",
+    "tests/test_agp_js_pq.py": "da8a0da382706537e7b27b2d4092ea6b0c17baef4fb27d22772d1a8d95755046",
+    "tests/test_agp_seven_global_metrics_pq.py": "4d3206b0edecbe9cc1aec415e1054f3dc79ab17ced902ca3400c95c0bc531088"
+  },
+  "repository_worktree_dirty": true,
+  "reselections": 0,
+  "selected_recipes": {
+    "autoregressive_icfm": {
+      "candidate": "chisq_a0.5",
+      "loss": "chisq",
+      "output_alpha": 0.5
+    },
+    "bernoulli_mixture_icfm": {
+      "candidate": "js_a0.5",
+      "loss": "js",
+      "output_alpha": 0.5
+    },
+    "midasim": {
+      "candidate": "js_a0.5",
+      "loss": "js",
+      "output_alpha": 0.5
+    },
+    "midasim_mask_icfm": {
+      "candidate": "js_a0.5",
+      "loss": "js",
+      "output_alpha": 0.5
+    }
+  },
+  "status": "complete",
+  "transform_fits": 0,
+  "unchanged_non_js_fields": [
+    "method",
+    "label",
+    "n_p",
+    "n_q",
+    "fd_sqrt",
+    "prd_max_f1_sqrt_mean",
+    "prd_max_f1_sqrt_sd",
+    "prd_quantizer_seeds",
+    "prevalence_mae",
+    "richness_ks",
+    "shannon_ks",
+    "rdr_initializations",
+    "spearman_rmse",
+    "correlation_taxa",
+    "correlation_pairs"
+  ],
+  "verification": {
+    "analytic_and_stability_tests": "tests/test_agp_js_pq.py",
+    "checkpoint_predictions": "compared to hash-sealed scores.csv and predictions.npz, with exact CSV/NPZ alignment",
+    "exactly_five_final_fits_per_generator": true,
+    "independent_bce": "torch.nn.functional.binary_cross_entropy_with_logits evaluated anew on full test logits",
+    "other_six_metrics": "all non-JS baseline CSV cell strings preserved exactly",
+    "sample_sd_denominator": 4,
+    "summary_preservation_and_fit_count_tests": "tests/test_agp_seven_global_metrics_pq.py",
+    "test_counts_per_fit": [
+      2002,
+      2089
+    ]
+  }
+}
