@@ -1,0 +1,15 @@
+{
+  "a": 0.01,
+  "b": 1.99,
+  "max_knots": 8,
+  "width": 128,
+  "gradient_chunk_rows": 2048,
+  "learning_rate": 0.0005,
+  "weight_decay": 0.01,
+  "clip_max_norm": 1.0,
+  "min_epochs": 100,
+  "max_epochs": 1000,
+  "patience": 30,
+  "plateau_patience": 5,
+  "plateau_cooldown": 2
+}
