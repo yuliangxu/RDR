@@ -3,16 +3,16 @@
 This case study presents relative density ratio (RDR) as an **evaluation
 method** for microbial generators. It compares four fixed generators on the
 same American Gut Project assessment cohort, using global distribution
-summaries, biological checks, source classifiers, and RDR diagnostics. The
+summaries, biological checks, and RDR diagnostics. The
 main question is **where each generator underrepresents or overrepresents
 real microbial compositions**, and how those local differences complement
 the information in global metrics.
 
 The evidence consists of the completed four-generator comparison, its shared
 biological communities, paired real-observation scores, and assessment-only
-ordination. The global summary combines saved metrics with JS(P,M) from
-frozen RDR scores and abundance-correlation RMSE from the existing assessment
-compositions. All results reuse the frozen cohorts; no models are refitted.
+ordination. [Manuscript Table 2](../results/AGP/seven_global_metrics_js_pq_20261113/table_3dp.md)
+reports JS(P,Q) estimated from the fitted neural RDR on the assessment data.
+The October global summary below uses the earlier JS(P,M) target.
 
 [Reproduction guide and input requirements](../experiments/AGP/README_RDR.md)
 
@@ -178,7 +178,7 @@ these are not independent null replications.
 [Control metrics](../results/AGP/four_generator_case_study_20261013/null_controls.csv) ·
 [Control figure](../results/AGP/retained_mask_comparison_20261013/rdr_null_controls.pdf)
 
-## Global distribution metrics
+## October global distribution metrics
 
 The table combines **seven global metrics** on the same full assessment
 cohorts: **2,002 real observations and 2,089 generated observations per
@@ -298,7 +298,7 @@ python -B experiments/AGP/seven_global_metrics.py \
   --output results/AGP/seven_global_metrics_reproduction
 ```
 
-## Biological checks and logistic source classification
+## Biological checks
 
 These additional checks use the same full assessment cohorts as the seven
 metrics above. Mean abundance MAE averages absolute source differences
@@ -313,7 +313,7 @@ particular summary being measured.
 | MIDASim | 0.000180 | 0.038567 |
 
 Occurrence correlation is calculated on binary presence, using taxa with
-nonconstant presence in real classifier training. Pairs that become constant
+nonconstant presence in the real training samples. Pairs that become constant
 in either assessment source are excluded from that correlation calculation
 and recorded explicitly. Consequently, the compared pair counts differ:
 182,710 for the Bernoulli mixture and 182,106 for each other method. This
@@ -328,20 +328,7 @@ mask-based statistics by design. These checks describe selected marginals
 and dependence summaries, without establishing agreement of the full joint
 distribution.
 
-| Generator | Logistic composition AUC |
-| --- | ---: |
-| Bernoulli mixture + ICFM | 0.9088 |
-| NADE mask + ICFM | 0.8861 |
-| MIDASim mask + ICFM | 0.9140 |
-| MIDASim | 0.5379 |
-
-The logistic classifier uses square-root relative abundances, with one frozen
-fit for each generator. For Full MIDASim it gives a source AUC of 0.5379,
-while Selected ILR gives 0.9464 on the same assessment samples. This
-difference illustrates how source discrimination depends on the evaluator.
-
-[Combined biological and classifier table](../results/AGP/four_generator_case_study_20261013/conventional_comparison.csv) ·
-[Classifier diagnostics](../results/AGP/retained_mask_comparison_20261013/classifier_metrics.csv) ·
+[Biological comparison table](../results/AGP/four_generator_case_study_20261013/conventional_comparison.csv) ·
 [Detailed biological diagnostics](../results/AGP/retained_mask_comparison_20261013/fidelity_metrics.csv)
 
 ## Common biological communities: location, direction, and magnitude

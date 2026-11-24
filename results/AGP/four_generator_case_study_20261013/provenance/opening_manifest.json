@@ -13,22 +13,21 @@
     "selection": 160
   },
   "figure_notes": {
-    "mask_comparison_readable": "Frozen logistic composition AUC with a real-real control, mean taxon richness, and mean Shannon diversity.",
+    "mask_comparison_readable": "Mean taxon richness and mean Shannon diversity for generated samples, with the observed means as references.",
     "rdr_comparison": "Primary fit 0 with four other fits faint; nominal C.1 dark and C.2 light over 20 fixed cells.",
     "rdr_model_selection": "Two additional retained mask methods only; selection ranking CSV also retains the two reused reference methods.",
     "rdr_null_controls": "Real-versus-real controls reuse existing subject-separated cohorts and fitted recipes."
   },
   "files_sha256": {
-    "classifier_metrics.csv": "537468603720ad3d5284ef073581f230ae0c63316993483859c543268b8e836f",
     "comparison.csv": "c7408c787d0d31c4839627cb1da1053931cd2c2a3cc78b555703d2456dc52cf7",
-    "conventional_comparison.csv": "c2a36aaac70090c146d51fc6193a7458de73166c07354a08277d002bbfff1a7c",
+    "conventional_comparison.csv": "67c1d1fcfb4d670ec86dd52f4be8711e66d41fd1e9603a85f2909857d09224ea",
     "epoch_cap_flags.csv": "a834123ce9b8fe6f1e12ec316553ccda1664d41312d75db74ca1a31a878d9f21",
     "fidelity_metrics.csv": "67c1d1fcfb4d670ec86dd52f4be8711e66d41fd1e9603a85f2909857d09224ea",
     "fit_stopping.csv": "685f77cf14a847d1915f5421f4fdf534b15b15e901575a0bd648448f8bb3de12",
     "fixed_width_cells.csv": "d3ec5ba8790f06f17a8fd4fc35d8381dba2937e0565de13c1f29a79a443d6dfb",
     "mask_candidate_validation.csv": "5ee3ff9e66a9bc508d6918a88a8dcff1b01329372fa5dcff786017fedd9107d0",
-    "mask_comparison_readable.pdf": "4a3ddd9b0723773ae246ee08a955936b3d0b52327350422a400605abd53ca718",
-    "mask_comparison_readable.png": "0ee2807df540f983765ab2ff9cf7a87db473d4f0c242cdfc44dcbf400f2ee90d",
+    "mask_comparison_readable.pdf": "b64a54eee6ccf49cd29e1cddf3c8382724be98640293b61193b9c726cb73eb7f",
+    "mask_comparison_readable.png": "074d0702443b2861ddbdb41ee86d062888d355609b16eb74bc18f509ab37c0ef",
     "metrics.csv": "c8e234f6540f5c02cd9dc1fcf75a35cffe3e114a5a7e6b179bc434d7d053427b",
     "metrics_aggregate.csv": "3212e68f96922316b15cbbb199aac20bdfcc1612463300a5e8030f572e6f7519",
     "null_controls.csv": "c656bba5c7ef1a33100858d4094739673939e45103725dfb886403d58d9d641c",
@@ -42,7 +41,7 @@
     "selection_rows.csv": "e9faa0ac7c42eb12b5e74e51c23f778bedb4c5ad85d83363db4206c1db0bbf88",
     "split_counts.csv": "31a62ea3c457a02d63cecb597d9862974b3668b31b93fe68e0ec9eec7b7893dd"
   },
-  "filter_validation": "The retained cells of the classifier and biological tables match the original CSV field text. The later test_js_p_m_variational column in metrics.csv is documented under posthoc_metric_extensions.",
+  "filter_validation": "All biological fields match the originally published cells in the combined table and the retained fidelity table. The test_js_p_m_variational extension in metrics.csv is documented under posthoc_metric_extensions.",
   "inference_scope": "Retrospective assessment; five-fit SD describes initialization variation on the same observations. Fixed-cell CIs are descriptive cell-average diagnostics, not pointwise RDR confidence intervals.",
   "input_verification": "Public export manifests, conventional completion seal, RDR summary manifest, and score completion chains checked; all recorded inputs rehashed after rendering.",
   "inputs_sha256": {
@@ -246,13 +245,13 @@
   ],
   "public_revision": {
     "date": "2026-11-24",
-    "scope": "Restricted the source classifier to logistic regression, projected the combined table to biological metrics and logistic AUC, and redrew the aggregate figure. Generator, RDR and biological values use the original assessments."
+    "scope": "The public conventional comparison includes biological fidelity measures only. The fitted neural RDR summaries and the historical input fingerprints are preserved."
   },
   "reference_studies_reused": [
     "midasim_mask_icfm",
     "midasim"
   ],
-  "renderer_sha256": "35549adbfb2137fd6c7045c33629d47d1b10137157a8b08ec1eb279fff5a7741",
+  "renderer_sha256": "09cda88226b3e9060a96f4a51d597020150da01c8617729fcee9991f42289963",
   "retained_methods": [
     "bernoulli_mixture_icfm",
     "autoregressive_icfm",
@@ -261,7 +260,6 @@
   ],
   "status": "complete",
   "table_rows": {
-    "classifier_metrics.csv": 5,
     "comparison.csv": 4,
     "conventional_comparison.csv": 4,
     "epoch_cap_flags.csv": 12,

@@ -51,7 +51,7 @@ requires an explicit path adaptation; `--output` changes destinations only.
 
 ## Check the public artifacts without private data
 
-This checks the 82 files recorded in the six public package manifests using
+This checks every file recorded in the six public package manifests using
 only the Python standard library:
 
 ```bash

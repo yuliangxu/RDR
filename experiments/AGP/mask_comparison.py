@@ -257,9 +257,9 @@ def export(out, destination):
     if destination.exists():
         raise FileExistsError('Use a fresh public package destination')
     destination.mkdir(parents=True)
-    for p in sorted((out / 'metrics/summary').iterdir()):
-        if p.is_file():
-            shutil.copy2(p, destination / p.name)
+    # The public study uses the biological summaries from the frozen assessment.
+    fidelity = out / 'metrics/summary/fidelity_metrics.csv'
+    shutil.copy2(fidelity, destination / fidelity.name)
     for f in ('protocol.json', 'verification.json', 'COMPLETE.json'):
         shutil.copy2(out / f, destination / f)
     if completion.name != 'COMPLETE.json':
@@ -268,7 +268,8 @@ def export(out, destination):
               'bernoulli_mixture_refit_history.csv', 'autoregressive_refit_history.csv'):
         if (out / 'models' / f).exists():
             shutil.copy2(out / 'models' / f, destination / ('mask_' + f))
-    write(destination / 'paper_files.json', dict(archive=str(out), files_sha256=receipts(destination)))
+    write(destination / 'paper_files.json', dict(archive=str(out), active_completion_receipt=completion.name,
+                                                 files_sha256=receipts(destination)))
     print(f'Exported verified aggregate package to {destination}', flush=True)
 
 

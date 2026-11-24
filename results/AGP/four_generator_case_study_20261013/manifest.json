@@ -23,7 +23,7 @@
     },
     "results/AGP/retained_mask_comparison_20261013/conventional_comparison.csv": {
       "destination": "conventional_comparison.csv",
-      "sha256": "c2a36aaac70090c146d51fc6193a7458de73166c07354a08277d002bbfff1a7c"
+      "sha256": "67c1d1fcfb4d670ec86dd52f4be8711e66d41fd1e9603a85f2909857d09224ea"
     },
     "results/AGP/retained_mask_comparison_20261013/fixed_width_cells.csv": {
       "destination": "fixed_width_cells.csv",
@@ -56,7 +56,7 @@
     "community_rdr.pdf": "e682463c5db6aa90be063d43f8326febc1bc88dd1c6190aac5ae0d1b629272cf",
     "community_rdr.png": "cd2871e5b80ffcd81ccba37f8a983fa38db9825b39984a7cc84a10526114ba8e",
     "comparison.csv": "c7408c787d0d31c4839627cb1da1053931cd2c2a3cc78b555703d2456dc52cf7",
-    "conventional_comparison.csv": "c2a36aaac70090c146d51fc6193a7458de73166c07354a08277d002bbfff1a7c",
+    "conventional_comparison.csv": "67c1d1fcfb4d670ec86dd52f4be8711e66d41fd1e9603a85f2909857d09224ea",
     "fixed_width_cells.csv": "d3ec5ba8790f06f17a8fd4fc35d8381dba2937e0565de13c1f29a79a443d6dfb",
     "global/fd_reference_check.csv": "0f96a2fa46a50bbe0e6170a1400feddc207511e99d45c713798ee051252238dc",
     "global/global_metrics.csv": "fe80c6e1dd98ec5ff506fd0ed66c305b7f8420140591c04195e4669f043b6de1",
@@ -78,7 +78,7 @@
     "provenance/metrics_assessment_complete.json": "e4eb98e092f06e7fcbc94d44cdffd185805a9e90111bf68085126cde53b25873",
     "provenance/metrics_freeze.json": "0b5e8890ee5ba4cab41e1289b3416ed5258d59389caa9dce16760cf5bba0ef9a",
     "provenance/metrics_protocol.json": "148059e3b1e12dd366cd4b6f98a1b63680ab642a1d99cfbc55b25bfbe50a2602",
-    "provenance/opening_manifest.json": "f4078282355b0c91a4b5a8629d4d62cb863013650b24e0ff44529d0bf66bce36",
+    "provenance/opening_manifest.json": "ccdc6beb8478981a897f78513ad43c6b80a9de46a0c37bacd71c064729be9dee",
     "rdr_comparison.pdf": "d2335eb5ce049024b44e0eb0aa4d4ff772d61da31b889a3074b7ee195e8fb550",
     "rdr_comparison.png": "20ab6ae0c0a49efe1656affc9fb09248e6b0d0317dd3b55a28eabd8e87a86bd2",
     "report.md": "b86ba4bab546dc23b9c49f15a3e1d44cb233f719e99ffd1badffb5114df5128b",
@@ -112,9 +112,9 @@
     "results/AGP/four_generator_case_study_20261013/source/four_generator_metrics.py": "245a2ec61d6238f21e965cf36114a730d50c35ff1004d7fda107024a37a568f1",
     "results/AGP/four_generator_case_study_20261013/source/four_generator_report.py": "b945589f12b04741cb36f961fa64e1f37339537f7d5b88e19e59d9448a8bc8ab",
     "results/AGP/retained_mask_comparison_20261013/comparison.csv": "c7408c787d0d31c4839627cb1da1053931cd2c2a3cc78b555703d2456dc52cf7",
-    "results/AGP/retained_mask_comparison_20261013/conventional_comparison.csv": "c2a36aaac70090c146d51fc6193a7458de73166c07354a08277d002bbfff1a7c",
+    "results/AGP/retained_mask_comparison_20261013/conventional_comparison.csv": "67c1d1fcfb4d670ec86dd52f4be8711e66d41fd1e9603a85f2909857d09224ea",
     "results/AGP/retained_mask_comparison_20261013/fixed_width_cells.csv": "d3ec5ba8790f06f17a8fd4fc35d8381dba2937e0565de13c1f29a79a443d6dfb",
-    "results/AGP/retained_mask_comparison_20261013/manifest.json": "f4078282355b0c91a4b5a8629d4d62cb863013650b24e0ff44529d0bf66bce36",
+    "results/AGP/retained_mask_comparison_20261013/manifest.json": "ccdc6beb8478981a897f78513ad43c6b80a9de46a0c37bacd71c064729be9dee",
     "results/AGP/retained_mask_comparison_20261013/null_controls.csv": "c656bba5c7ef1a33100858d4094739673939e45103725dfb886403d58d9d641c",
     "results/AGP/retained_mask_comparison_20261013/rdr_comparison.pdf": "d2335eb5ce049024b44e0eb0aa4d4ff772d61da31b889a3074b7ee195e8fb550",
     "results/AGP/retained_mask_comparison_20261013/rdr_comparison.png": "20ab6ae0c0a49efe1656affc9fb09248e6b0d0317dd3b55a28eabd8e87a86bd2",
@@ -125,7 +125,7 @@
   "new_generator_or_rdr_fits": 0,
   "opening_files_copied_unchanged": {
     "comparison.csv": "c7408c787d0d31c4839627cb1da1053931cd2c2a3cc78b555703d2456dc52cf7",
-    "conventional_comparison.csv": "c2a36aaac70090c146d51fc6193a7458de73166c07354a08277d002bbfff1a7c",
+    "conventional_comparison.csv": "67c1d1fcfb4d670ec86dd52f4be8711e66d41fd1e9603a85f2909857d09224ea",
     "fixed_width_cells.csv": "d3ec5ba8790f06f17a8fd4fc35d8381dba2937e0565de13c1f29a79a443d6dfb",
     "null_controls.csv": "c656bba5c7ef1a33100858d4094739673939e45103725dfb886403d58d9d641c",
     "rdr_comparison.pdf": "d2335eb5ce049024b44e0eb0aa4d4ff772d61da31b889a3074b7ee195e8fb550",
@@ -143,7 +143,7 @@
   ],
   "public_revision": {
     "date": "2026-11-24",
-    "scope": "Updated the report, the combined biological and logistic table, the report source and the opening manifest. The historical study timing and numerical assessment records above describe the original analysis."
+    "scope": "The conventional comparison includes biological fidelity measures only. The seven opening files match the retained release. Historical study timing and numerical assessment records describe the original analysis."
   },
   "regional_rows": 32,
   "retained_methods": [
