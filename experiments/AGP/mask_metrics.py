@@ -1,13 +1,10 @@
 """Conventional source-classifier and composition checks for AGP mask samplers.
 
-This module fits ordinary binary classifiers. It does not estimate or calibrate
-RDR. ``prepare`` selects boosting iteration using train/stop only and freezes all
-classifiers before ``evaluate`` uses assessment observations. All methods use
-the same recipes and real observations; the historical RDR AUCs are not reused.
+Fit a logistic source classifier on square-root compositions. Freeze the fitted
+weights before evaluating the held-out real and generated observations.
 """
 from __future__ import annotations
 
-import copy
 import hashlib
 import json
 import os
@@ -20,7 +17,6 @@ import numpy as np
 import pandas as pd
 from scipy.special import xlogy
 from scipy.stats import ks_2samp
-from sklearn.ensemble import HistGradientBoostingClassifier
 from sklearn.exceptions import ConvergenceWarning
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import log_loss, roc_auc_score
@@ -33,16 +29,12 @@ LABELS = {"bootstrap_icfm": "Resampled mask + ICFM",
           "autoregressive_icfm": "Autoregressive mask + ICFM",
           "midasim_mask_icfm": "MIDASim mask + ICFM",
           "midasim": "MIDASim", "real_real": "Real–real null"}
-RECIPES = ("hgb_composition", "hgb_mask", "logistic_composition")
+RECIPES = ("logistic_composition",)
 COLORS = dict(zip(METHODS, ("#009e73", "#e69f00", "#cc79a7", "#0072b2", "#d55e00")))
 
 
 def default_config():
     return {"seed": 2026101107,
-            "hgb": {"max_iter": 300, "checkpoint_every": 10,
-                    "learning_rate": .05, "max_leaf_nodes": 15,
-                    "max_depth": 4, "min_samples_leaf": 40,
-                    "l2_regularization": 10., "max_bins": 63},
             "logistic": {"C": 1., "max_iter": 2000, "tol": 1e-6},
             "recipes": list(RECIPES), "make_plots": True}
 
@@ -61,8 +53,6 @@ def merged_config(config=None):
             result[key] = value
     if not result["recipes"] or set(result["recipes"])-set(RECIPES):
         raise ValueError("recipes must be a nonempty subset of declared classifiers")
-    if result["hgb"]["max_iter"] < 1 or result["hgb"]["checkpoint_every"] < 1:
-        raise ValueError("positive boosting iteration/checkpoint counts required")
     return result
 
 
@@ -94,11 +84,6 @@ def close(array):
 
 def features(array, recipe):
     x = close(array)
-    mask = (x > 0).astype(np.float32)
-    if recipe == "hgb_composition":
-        return np.column_stack((np.sqrt(x), mask)).astype(np.float32)
-    if recipe == "hgb_mask":
-        return np.column_stack((mask, mask.sum(1))).astype(np.float32)
     if recipe == "logistic_composition":
         return np.sqrt(x).astype(np.float32)
     raise ValueError(f"unknown classifier recipe {recipe}")
@@ -133,56 +118,29 @@ def null_partition(n, seed, subjects=None):
 
 
 def fit_classifier(p_train, q_train, p_stop, q_stop, recipe, config):
-    """Fit a fixed classifier recipe and choose HGB iteration on stopping data."""
+    """Fit the prespecified logistic model and record stopping-set log loss."""
     x, y, weights = binary_pair(features(p_train, recipe), features(q_train, recipe))
     stop_x, stop_y, stop_w = binary_pair(features(p_stop, recipe), features(q_stop, recipe))
     started = time.monotonic()
-    if recipe.startswith("hgb_"):
-        settings = copy.deepcopy(config["hgb"])
-        checkpoint = int(settings.pop("checkpoint_every"))
-        model = HistGradientBoostingClassifier(**settings, loss="log_loss",
-                                               early_stopping=False, random_state=config["seed"])
+    model = LogisticRegression(**config["logistic"], solver="lbfgs", random_state=config["seed"])
+    with warnings.catch_warnings(record=True) as caught:
+        warnings.simplefilter("always", ConvergenceWarning)
         model.fit(x, y, sample_weight=weights)
-        grid = set(range(checkpoint, settings["max_iter"]+1, checkpoint)) | {settings["max_iter"]}
-        trace = [{"iteration": 0, "stop_balanced_log_loss": float(np.log(2.))}]
-        best_iteration, best_loss = 0, float(np.log(2.))
-        for iteration, probabilities in enumerate(model.staged_predict_proba(stop_x), 1):
-            if iteration in grid:
-                loss = float(log_loss(stop_y, probabilities[:, 1], sample_weight=stop_w, labels=[0, 1]))
-                trace.append({"iteration": iteration, "stop_balanced_log_loss": loss})
-                # A strict improvement keeps the earliest checkpoint on a tie.
-                if loss < best_loss-1e-12:
-                    best_iteration, best_loss = iteration, loss
-        n_iter, convergence_warning = settings["max_iter"], False
-    else:
-        model = LogisticRegression(**config["logistic"], solver="lbfgs", random_state=config["seed"])
-        with warnings.catch_warnings(record=True) as caught:
-            warnings.simplefilter("always", ConvergenceWarning)
-            model.fit(x, y, sample_weight=weights)
-        convergence_warning = any(issubclass(w.category, ConvergenceWarning) for w in caught)
-        best_loss = float(log_loss(stop_y, model.predict_proba(stop_x)[:, 1], sample_weight=stop_w,
-                                   labels=[0, 1]))
-        n_iter = int(model.n_iter_.max())
-        best_iteration, trace = None, [{"iteration": n_iter, "stop_balanced_log_loss": best_loss}]
+    convergence_warning = any(issubclass(w.category, ConvergenceWarning) for w in caught)
+    best_loss = float(log_loss(stop_y, model.predict_proba(stop_x)[:, 1], sample_weight=stop_w,
+                               labels=[0, 1]))
+    n_iter = int(model.n_iter_.max())
+    best_iteration, trace = None, [{"iteration": n_iter, "stop_balanced_log_loss": best_loss}]
     return {"model": model, "recipe": recipe, "selected_iteration": best_iteration,
             "stop_balanced_log_loss": best_loss, "trace": trace,
             "trained_iterations": int(n_iter), "convergence_warning": convergence_warning,
-            "selection_at_cap": bool(best_iteration == config["hgb"]["max_iter"])
-            if recipe.startswith("hgb_") else False,
+            "selection_at_cap": False,
             "fit_seconds": float(time.monotonic()-started), "feature_count": int(x.shape[1])}
 
 
 def predict_classifier(fit, array):
     x = features(array, fit["recipe"])
-    selected = fit["selected_iteration"]
-    if selected == 0:
-        return np.full(len(x), .5)
-    if selected is None:
-        return fit["model"].predict_proba(x)[:, 1]
-    for iteration, probabilities in enumerate(fit["model"].staged_predict_proba(x), 1):
-        if iteration == selected:
-            return probabilities[:, 1]
-    raise RuntimeError("selected boosting iteration missing from fitted model")
+    return fit["model"].predict_proba(x)[:, 1]
 
 
 def _training_inputs(real, generated):
@@ -374,13 +332,6 @@ def evaluate(real, generated, output, real_subjects=None):
             checks[f"midasim_hybrid_{role}_masks_identical"] = bool(a.shape == b.shape and np.array_equal(a, b))
             if not checks[f"midasim_hybrid_{role}_masks_identical"]:
                 raise ValueError(f"current hybrid no longer shares the MIDASim {role} masks")
-        if "hgb_mask" in freeze["recipes"]:
-            paths = [output/"private"/f"{method}__hgb_mask_test_predictions.npz"
-                     for method in ("midasim_mask_icfm", "midasim")]
-            with np.load(paths[0]) as a, np.load(paths[1]) as b:
-                checks["midasim_hybrid_mask_classifier_predictions_identical"] = all(np.array_equal(a[key], b[key]) for key in ("p", "q"))
-            if not checks["midasim_hybrid_mask_classifier_predictions_identical"]:
-                raise AssertionError("identical masks produced different fixed-classifier predictions")
     if config["make_plots"]:
         make_figure(summary, classifiers, p, tests)
     make_report(summary, classifiers, compositions, config, freeze, checks)
@@ -389,7 +340,6 @@ def evaluate(real, generated, output, real_subjects=None):
                                     **{m: array_hash(np.asarray(generated[m]["test"])) for m in freeze["methods"]}},
               "test_subjects_sha256": None if null_subjects is None else array_hash(np.asarray(null_subjects).astype(str)),
               "checks": checks, "rdr_fitted_or_evaluated": False,
-              "selected_at_boosting_cap": int(classifiers.selection_at_cap.sum()),
               "logistic_convergence_warnings": int(classifiers.convergence_warning.sum()),
               "summary_hashes": {path.name: file_hash(path) for path in sorted(summary.iterdir())}}
     write_json(output/"COMPLETE.json", result)
@@ -403,25 +353,22 @@ def make_figure(folder, classifiers, p, tests):
     import matplotlib.pyplot as plt
     plt.rcParams.update({"font.size": 10, "axes.spines.top": False, "axes.spines.right": False})
     methods = list(tests)
-    fig, axes = plt.subplots(2, 2, figsize=(12.5, 8), constrained_layout=True)
-    for col, recipe, title in ((0, "hgb_composition", "A  Composition source classification"),
-                               (1, "hgb_mask", "B  Mask source classification")):
-        ax = axes[0, col]
-        subset = classifiers[classifiers.recipe.eq(recipe)].set_index("method")
-        if len(subset):
-            for i, method in enumerate(methods):
-                auc = subset.loc[method, "auc"]
-                ax.barh(i, auc, color=COLORS[method], height=.65)
-                ax.text(min(auc+.012, .99), i, f"{auc:.3f}", va="center", ha="left" if auc < .94 else "right")
-            ax.axvline(.5, ls="--", color=".4", lw=1, label="Chance")
-            if "real_real" in subset.index:
-                ax.axvline(subset.loc["real_real", "auc"], color=".3", ls=":", lw=1.5, label="Real–real null")
-        ax.set(yticks=np.arange(len(methods)), yticklabels=[LABELS[m] for m in methods], xlim=(0, 1.055),
-               xlabel="Held-out AUC (higher = more separable)", title=title)
-        ax.invert_yaxis()
-        ax.legend(frameon=False, fontsize=8, loc="lower right")
-    for col, kind, title in ((0, "richness", "C  Taxon richness"), (1, "shannon", "D  Shannon diversity")):
-        ax = axes[1, col]
+    fig, axes = plt.subplots(1, 3, figsize=(15, 4.5), constrained_layout=True)
+    ax = axes[0]
+    subset = classifiers[classifiers.recipe.eq("logistic_composition")].set_index("method")
+    for i, method in enumerate(methods):
+        auc = subset.loc[method, "auc"]
+        ax.barh(i, auc, color=COLORS[method], height=.65)
+        ax.text(min(auc+.012, .99), i, f"{auc:.3f}", va="center", ha="left" if auc < .94 else "right")
+    ax.axvline(.5, ls="--", color=".4", lw=1, label="Chance")
+    if "real_real" in subset.index:
+        ax.axvline(subset.loc["real_real", "auc"], color=".3", ls=":", lw=1.5, label="Real–real null")
+    ax.set(yticks=np.arange(len(methods)), yticklabels=[LABELS[m] for m in methods], xlim=(0, 1.055),
+           xlabel="Held-out AUC (higher = more separable)", title="Logistic source classification")
+    ax.invert_yaxis()
+    ax.legend(frameon=False, fontsize=8, loc="lower right")
+    for col, kind, title in ((1, "richness", "Taxon richness"), (2, "shannon", "Shannon diversity")):
+        ax = axes[col]
         for method, values in [("real", p), *tests.items()]:
             x = np.sort((values > 0).sum(1) if kind == "richness" else -xlogy(values, values).sum(1))
             ax.step(x, np.arange(1, len(x)+1)/len(x), where="post", label="Observed P" if method == "real" else LABELS[method],
@@ -430,7 +377,7 @@ def make_figure(folder, classifiers, p, tests):
         ax.set(xlabel="Number of present taxa" if kind == "richness" else "Shannon entropy (natural log)",
                ylabel="Empirical CDF", title=title, ylim=(0, 1.02))
         ax.grid(alpha=.15)
-        if col == 1:
+        if col == 2:
             ax.legend(frameon=False, fontsize=8)
     fig.savefig(folder/"mask_comparison.png", dpi=220, bbox_inches="tight")
     fig.savefig(folder/"mask_comparison.pdf", bbox_inches="tight", metadata={"CreationDate": None, "ModDate": None})
@@ -440,17 +387,15 @@ def make_figure(folder, classifiers, p, tests):
 def make_report(folder, classifiers, fidelity, config, freeze, checks):
     def fmt(value, digits=4):
         return "—" if value is None or pd.isna(value) else f"{value:.{digits}f}"
-    auc = classifiers.pivot(index="method", columns="recipe", values="auc")
-    rows = ["| Method | Composition AUC | Mask AUC | Logistic AUC | Zero fraction | Richness | Shannon |",
-            "|---|---:|---:|---:|---:|---:|---:|"]
+    auc = classifiers.set_index("method")["auc"]
+    rows = ["| Method | Logistic AUC | Zero fraction | Richness | Shannon |",
+            "|---|---:|---:|---:|---:|"]
     first = fidelity.iloc[0]
-    rows.append(f"| Observed P | — | — | — | {first.zero_fraction_p:.4f} | {first.richness_mean_p:.2f} | {first.shannon_mean_p:.3f} |")
+    rows.append(f"| Observed P | — | {first.zero_fraction_p:.4f} | {first.richness_mean_p:.2f} | {first.shannon_mean_p:.3f} |")
     for row in fidelity.itertuples():
-        a = auc.loc[row.method]
-        rows.append(f"| {LABELS[row.method]} | {fmt(a.get('hgb_composition'))} | {fmt(a.get('hgb_mask'))} | "
-                    f"{fmt(a.get('logistic_composition'))} | {row.zero_fraction_q:.4f} | {row.richness_mean_q:.2f} | {row.shannon_mean_q:.3f} |")
-    a = auc.loc["real_real"]
-    rows.append(f"| Real–real null | {fmt(a.get('hgb_composition'))} | {fmt(a.get('hgb_mask'))} | {fmt(a.get('logistic_composition'))} | — | — | — |")
+        rows.append(f"| {LABELS[row.method]} | {fmt(auc.loc[row.method])} | {row.zero_fraction_q:.4f} | "
+                    f"{row.richness_mean_q:.2f} | {row.shannon_mean_q:.3f} |")
+    rows.append(f"| Real–real null | {fmt(auc.loc['real_real'])} | — | — | — |")
     discrepancy = ["| Method | Prevalence MAE | Mean abundance MAE | Richness KS | Shannon KS | Occurrence correlation MAE | Novel masks |",
                    "|---|---:|---:|---:|---:|---:|---:|"]
     for row in fidelity.itertuples():
@@ -463,12 +408,9 @@ def make_report(folder, classifiers, fidelity, config, freeze, checks):
             "## Assessment protocol", "",
             "AUC uses real=1 and generated=0; 0.5 denotes chance discrimination, and larger values mean that this fitted classifier separates the sources more easily. "
             "We retain AUC below 0.5 without flipping labels or selecting test direction. Low AUC alone does not establish distributional equivalence or overall generator quality.", "",
-            "Composition HGB uses the square root of closed abundances concatenated with their binary presence masks. Mask HGB uses the binary masks plus richness. "
-            "The sensitivity classifier is L2 logistic regression on square-root composition, without feature standardization. "
-            "All sources have equal total training weight; stopping log loss is also equally weighted by source. "
-            f"Boosting fits at most {config['hgb']['max_iter']} iterations, checking stopping loss every {config['hgb']['checkpoint_every']} iterations and at the cap, "
-            "including the constant probability 0.5 candidate. The earliest minimum is retained, treating loss differences within 1e-12 as ties. No assessment labels select a model or iteration. "
-            "The same recipe and fixed seed are used for every pair, with one fitted classifier per recipe/pair; these are new conventional classifier AUCs, not historical neural RDR AUCs.", "",
+            "The classifier is L2 logistic regression on square-root composition without feature standardization. "
+            "The two sources have equal total training weight and equal weight in the stopping log loss. "
+            "Each pair uses the same prespecified recipe and seed.", "",
             f"All {freeze['n_classifiers']} classifiers were frozen before assessment scoring. "
             f"The real–real null divides each role's real {freeze['null_partition_unit']} units into two disjoint halves. "
             "It has fewer observations per source than the generator comparisons, so it is a sanity check rather than a sample-size-matched performance bound. "
@@ -479,11 +421,10 @@ def make_report(folder, classifiers, fidelity, config, freeze, checks):
             "because prevalence errors and lost variation must not be hidden by this exclusion. Novelty is the fraction of generated assessment masks absent "
             "from the union of real train and stopping observations, the full 10,443-observation generator-training bank in the AGP study. "
             "The CSV also records generated richness below/above the observed generator-training range; matching this range does not guarantee that a new mask is well supported by the abundance flow.", "",
-            "The existing hybrid and MIDASim reuse exactly the same masks in every role; their mask AUC, richness distribution, prevalence, and occurrence-correlation statistics "
+            "The existing hybrid and MIDASim reuse exactly the same masks in every role; their richness distributions, prevalence, and occurrence-correlation statistics "
             "therefore coincide by construction. The four ICFM variants must be interpreted conditional on the common frozen abundance flow; the full MIDASim comparison changes the abundance generator as well.", "",
-            f"Boosting selections at the iteration cap: {int(classifiers.selection_at_cap.sum())}. "
             f"Logistic convergence warnings: {int(classifiers.convergence_warning.sum())}. "
-            "These are reported explicitly rather than treated as proof that optimization or statistical power is exhausted.", "",
+            "",
             "Machine-readable details: [classifier metrics](classifier_metrics.csv), [composition metrics](fidelity_metrics.csv), [combined table](comparison.csv).", ""]
     (folder/"report.md").write_text("\n".join(text))
 

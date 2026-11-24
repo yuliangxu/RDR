@@ -1,4 +1,4 @@
-"""Published AGP sigmoid MLP fitted to the frozen composition tree's inputs."""
+"""Published AGP sigmoid MLP fitted to square-root abundances and binary presences."""
 
 import math
 import time
@@ -12,13 +12,15 @@ from utils.model_selection import balanced_brier
 
 
 def control_features(raw):
-    """Apply the tree's row closure, square root, and presence transform."""
+    """Return square-root relative abundance and a binary presence indicator for each taxon."""
     raw = np.asarray(raw)
     if raw.ndim == 2 and len(raw) == 1:
         # The archived helper validates a bank of two or more rows. Its
         # transform is strictly rowwise, including for a singleton query.
-        return mask_metrics.features(np.repeat(raw, 2, axis=0), "hgb_composition")[:1]
-    return mask_metrics.features(raw, "hgb_composition")
+        x = mask_metrics.close(np.repeat(raw, 2, axis=0))[:1]
+    else:
+        x = mask_metrics.close(raw)
+    return np.column_stack((np.sqrt(x), x > 0)).astype(np.float32)
 
 
 class CompositionControl(nn.Module):
@@ -119,5 +121,5 @@ def fit_control(raw, cfg, task, device):
                     train_p=n_p, train_q=len(train) - n_p, fit_seconds=time.monotonic() - started,
                     parameter_count=sum(p.numel() for p in model.parameters()),
                     loss=task["loss"], output_alpha=float(task["output_alpha"]),
-                    features="hgb_composition", feature_dimension=train.shape[1])
+                    features="sqrt_abundance_and_presence", feature_dimension=train.shape[1])
     return model, history, training

@@ -10,7 +10,7 @@ The additive readout and the two width-128 ReLU interaction layers share these f
 `-0.5 * mean(log(rP / 2)) - 0.5 * mean(log1p(-rQ / 2))`.
 The trainer accumulates classwise sums in chunks and divides by each class's full count. It applies the logarithms directly to probabilities derived from the clipped output. The stopping Brier selects the minimum over all completed epochs. Histories record endpoint fractions separately for real and generated stopping rows. Saved state includes scales, the taxon index of each hinge, trainable cutoffs, output bounds, and weights.
 
-The control uses the published sigmoid MLP on the frozen tree's features, the square roots of closed abundances concatenated with binary presences. It retains the selected per-generator neural loss and sigmoid slope. Both new arms use the five original final initialization seeds. Each fit reads only the train and stopping banks and reloads its saved model to verify stopping predictions. Assessment opens the test banks after all 40 checkpoints are frozen. The tree comparison uses its archived real-source probabilities, ordered test input hashes, and reproduced balanced log loss. For two generators the original tree inputs are float64 and the neural banks contain their row-for-row float32 casts.
+The control uses the published sigmoid MLP on the square roots of closed abundances concatenated with binary presences. It retains the selected per-generator neural loss and sigmoid slope. Both new arms use the five original final initialization seeds. Each fit reads only the train and stopping banks and reloads its saved model to verify stopping predictions. Assessment opens the test banks after all 40 checkpoints are frozen.
 
 ## Commands
 

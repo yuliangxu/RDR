@@ -143,7 +143,7 @@ def initialize(out, seed):
                p_counts=EXPECTED_P, q_counts=EXPECTED_Q,
                p_subject_counts={k: len(set(v)) for k, v in ids.items()},
                generator_rows=10443, generator_subjects=len(generator_ids), taxa=614,
-               selection='Mask architectures and stopping length selected by development NLL; refit on 10443 original generator rows. Classifiers selected by balanced development log loss; all freeze before test assessment.',
+               selection='Mask architectures and stopping length selected by development NLL; refit on 10443 original generator rows. Logistic source classifiers use a fixed configuration and freeze before test assessment.',
                scope='Retrospective existing audited cohort. Fixed conditional abundance flow; comparison isolates mask replacement, not independently optimized generators. One realization per method; conditional descriptive point estimates.',
                source_sha256=receipts(out / 'source'),
                inputs_sha256={str(p): sha(p) for p in paths})

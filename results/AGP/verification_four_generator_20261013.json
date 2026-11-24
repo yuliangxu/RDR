@@ -53,11 +53,13 @@
   },
   "public_export": {
     "files_hashed": 38,
-    "manifest_sha256": "d982d09bdf3e147cd67e8cdb504d23bd8d4b936f1ac34a70cf87b55980142621",
+    "manifest_sha256": "bcc4455b536a00b2be390af0039d01a488220d332de4f98111d6956e1df05377",
     "private_array_and_id_columns": "absent",
+    "scope": "Verification of the revised public export against the retained opening files, source snapshots and durable assessment archives. The top-level timestamp and component audits describe the original numerical analysis.",
     "status": "passed",
     "unchanged_aggregate_tables": 11,
-    "unchanged_opening_files": 7
+    "unchanged_opening_files": 7,
+    "verified_utc": "2026-11-24T17:16:30.495815+00:00"
   },
   "scope": "Retrospective arithmetic/provenance audit; no pointwise RDR accuracy, interval coverage, generator-refit uncertainty or causal attribution claim.",
   "status": "passed",

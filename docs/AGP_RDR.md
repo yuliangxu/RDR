@@ -298,7 +298,7 @@ python -B experiments/AGP/seven_global_metrics.py \
   --output results/AGP/seven_global_metrics_reproduction
 ```
 
-## Biological checks and alternative source classifiers
+## Biological checks and logistic source classification
 
 These additional checks use the same full assessment cohorts as the seven
 metrics above. Mean abundance MAE averages absolute source differences
@@ -328,25 +328,17 @@ mask-based statistics by design. These checks describe selected marginals
 and dependence summaries, without establishing agreement of the full joint
 distribution.
 
-| Generator | Boosted-tree composition AUC | Boosted-tree mask AUC | Logistic composition AUC |
-| --- | ---: | ---: | ---: |
-| Bernoulli mixture + ICFM | 0.9921 | 0.8236 | 0.9088 |
-| NADE mask + ICFM | 0.9896 | 0.6976 | 0.8861 |
-| MIDASim mask + ICFM | 0.9903 | 0.7240 | 0.9140 |
-| MIDASim | 0.9667 | 0.7240 | 0.5379 |
+| Generator | Logistic composition AUC |
+| --- | ---: |
+| Bernoulli mixture + ICFM | 0.9088 |
+| NADE mask + ICFM | 0.8861 |
+| MIDASim mask + ICFM | 0.9140 |
+| MIDASim | 0.5379 |
 
-Composition boosted trees use square-root abundances and binary presence;
-mask boosted trees use presence and richness. Logistic regression uses
-square-root abundances. Each recipe/pair has one frozen classifier, so these
-values have no repeated-fit SD. All eight displayed boosted-tree fits selected
-the 300-iteration cap, a limitation of that search budget.
-
-**Evaluator dependence is visible:** NADE has neural RDR source AUC 0.7334
-but boosted-tree composition AUC 0.9896 on the same assessment samples.
-Full MIDASim's logistic AUC is near chance while its boosted-tree and neural
-RDR AUCs are high. Weak separation by one evaluator does not establish
-generator fidelity. The classifiers provide complementary evidence of
-detectable mismatch, while RDR supplies signed scores and calibration checks.
+The logistic classifier uses square-root relative abundances, with one frozen
+fit for each generator. For Full MIDASim it gives a source AUC of 0.5379,
+while Selected ILR gives 0.9464 on the same assessment samples. This
+difference illustrates how source discrimination depends on the evaluator.
 
 [Combined biological and classifier table](../results/AGP/four_generator_case_study_20261013/conventional_comparison.csv) ·
 [Classifier diagnostics](../results/AGP/retained_mask_comparison_20261013/classifier_metrics.csv) ·

@@ -76,23 +76,25 @@ class Receipts:
                 raise ValueError(f"Input changed during presentation: {filename}")
 
 
-def filtered_csv(source, destination, allowed):
-    """Copy retained records while preserving every field's source text."""
+def filtered_csv(source, destination, allowed, *, recipe=None, columns=None):
+    """Copy retained source cells verbatim and verify the resulting numeric table."""
     with source.open(newline="") as stream:
-        reader = csv.reader(stream)
-        header = next(reader)
-        column = header.index("method")
-        rows = [row for row in reader if row[column] in allowed]
+        reader = csv.DictReader(stream)
+        fields = list(reader.fieldnames if columns is None else columns)
+        rows = [row for row in reader if row["method"] in allowed
+                and (recipe is None or row["recipe"] == recipe)]
     if not rows:
         raise ValueError(f"No retained records: {source}")
     with destination.open("w", newline="") as stream:
-        writer = csv.writer(stream, lineterminator="\n")
-        writer.writerow(header)
+        writer = csv.DictWriter(stream, fieldnames=fields, extrasaction="ignore", lineterminator="\n")
+        writer.writeheader()
         writer.writerows(rows)
     original = read_table(source)
-    expected = original[original.method.isin(allowed)].reset_index(drop=True)
+    expected = original[original.method.isin(allowed)]
+    if recipe is not None:
+        expected = expected[expected.recipe.eq(recipe)]
     result = read_table(destination)
-    pd.testing.assert_frame_equal(result, expected, check_exact=True)
+    pd.testing.assert_frame_equal(result, expected[fields].reset_index(drop=True), check_exact=True)
     return result
 
 
@@ -214,25 +216,25 @@ def selection_plot(destination, ranking, configs):
 
 
 def conventional_plot(destination, classifiers, fidelity):
-    fig, axes = plt.subplots(2, 2, figsize=(12.5, 7.6), constrained_layout=True)
-    for axis, recipe, title in zip(axes[0], ("hgb_composition", "hgb_mask"), ("A  Composition AUC", "B  Mask-only AUC")):
-        table = classifiers[classifiers.recipe.eq(recipe)].set_index("method")
-        axis.axvline(.5, color=".45", ls="--", lw=1, label="Chance")
-        null = table.loc["real_real", "auc"]
-        axis.axvline(null, color=".45", ls=":", lw=1.5, label=f"Real–real: {null:.3f}")
-        for i, method in enumerate(METHODS):
-            auc = table.loc[method, "auc"]
-            axis.scatter(auc, i, color=COLORS[i], s=75, zorder=3)
-            right = auc < .96
-            axis.text(auc + (.012 if right else -.012), i, f"{auc:.3f}",
-                      ha="left" if right else "right", va="center", fontsize=9)
-        axis.set(yticks=range(4), yticklabels=LABELS, ylim=(4.05, -.6), xlim=(.46, 1.025),
-                 xlabel="Held-out AUC (higher = more separable)", title=title)
-        axis.grid(axis="x", alpha=.13)
-        axis.legend(loc="lower center", ncol=2, frameon=False, fontsize=8)
+    fig, axes = plt.subplots(1, 3, figsize=(15, 4.7), constrained_layout=True)
+    axis = axes[0]
+    table = classifiers[classifiers.recipe.eq("logistic_composition")].set_index("method")
+    axis.axvline(.5, color=".45", ls="--", lw=1, label="Chance")
+    null = table.loc["real_real", "auc"]
+    axis.axvline(null, color=".45", ls=":", lw=1.5, label=f"Real–real: {null:.3f}")
+    for i, method in enumerate(METHODS):
+        auc = table.loc[method, "auc"]
+        axis.scatter(auc, i, color=COLORS[i], s=75, zorder=3)
+        right = auc < .96
+        axis.text(auc + (.012 if right else -.012), i, f"{auc:.3f}",
+                  ha="left" if right else "right", va="center", fontsize=9)
+    axis.set(yticks=range(4), yticklabels=LABELS, ylim=(4.05, -.6), xlim=(.46, 1.025),
+             xlabel="Held-out AUC (higher = more separable)", title="Logistic composition AUC")
+    axis.grid(axis="x", alpha=.13)
+    axis.legend(loc="lower center", ncol=2, frameon=False, fontsize=8)
     table = fidelity.set_index("method")
-    for axis, metric, title, xlabel in zip(axes[1], ("richness", "shannon"),
-            ("C  Mean taxon richness", "D  Mean Shannon diversity"),
+    for axis, metric, title, xlabel in zip(axes[1:], ("richness", "shannon"),
+            ("Mean taxon richness", "Mean Shannon diversity"),
             ("Mean number of present taxa", "Mean Shannon entropy (natural log)")):
         reference = table.loc[METHODS[0], f"{metric}_mean_p"]
         axis.axvline(reference, color="black", ls="--", lw=1.4, label=f"Observed P: {reference:.2f}")
@@ -247,7 +249,7 @@ def conventional_plot(destination, classifiers, fidelity):
                  xlim=(min(values) - .2 * span, max(values) + .5 * span), xlabel=xlabel, title=title)
         axis.grid(axis="x", alpha=.13)
         axis.legend(loc="lower center", frameon=False, fontsize=8)
-    fig.suptitle("Frozen conventional diagnostics: four retained generators\nBottom panels show means only; distributional distances remain in the CSV tables", fontsize=12)
+    fig.suptitle("Composition diagnostics for the four retained generators", fontsize=12)
     save(fig, destination, "mask_comparison_readable")
 
 
@@ -274,15 +276,21 @@ def render(conventional, public, archive, destination):
     configs = {method: read(public / "recipes" / method / "config.json") for method in NEW_METHODS}
     destination.mkdir(parents=True)
     tables = {name: filtered_csv(public / name, destination / name, METHODS) for name in RDR_TABLES}
-    for source, target, allowed in (("comparison.csv", "conventional_comparison.csv", METHODS),
-                                  ("classifier_metrics.csv", "classifier_metrics.csv", (*METHODS, "real_real")),
+    tables["classifier_metrics.csv"] = filtered_csv(
+        conventional / "classifier_metrics.csv", destination / "classifier_metrics.csv",
+        (*METHODS, "real_real"), recipe="logistic_composition")
+    fidelity_fields = read_table(conventional / "fidelity_metrics.csv").columns.tolist()
+    tables["conventional_comparison.csv"] = filtered_csv(
+        conventional / "comparison.csv", destination / "conventional_comparison.csv",
+        METHODS, columns=[*fidelity_fields, "logistic_composition_auc"])
+    for source, target, allowed in (
                                   ("fidelity_metrics.csv", "fidelity_metrics.csv", METHODS),
                                   ("mask_candidate_validation.csv", "mask_candidate_validation.csv", ("bernoulli_mixture", "autoregressive"))):
         tables[target] = filtered_csv(conventional / source, destination / target, allowed)
     for name in ("comparison.csv", "null_controls.csv", "conventional_comparison.csv", "fidelity_metrics.csv"):
         if set(tables[name].method) != set(METHODS):
             raise ValueError(f"Incorrect retained methods: {name}")
-    if len(tables["classifier_metrics.csv"]) != 15 or len(tables["fixed_width_cells.csv"]) != 800:
+    if len(tables["classifier_metrics.csv"]) != 5 or len(tables["fixed_width_cells.csv"]) != 800:
         raise ValueError("Incorrect retained classifier or fixed-cell count")
     new_fits = tables["fit_stopping.csv"][tables["fit_stopping.csv"].method.isin(NEW_METHODS)]
     counts = new_fits.study.value_counts().to_dict()
@@ -307,7 +315,7 @@ def render(conventional, public, archive, destination):
         "figure_notes": {"rdr_comparison": "Primary fit 0 with four other fits faint; nominal C.1 dark and C.2 light over 20 fixed cells.",
             "rdr_null_controls": "Real-versus-real controls reuse existing subject-separated cohorts and fitted recipes.",
             "rdr_model_selection": "Two additional retained mask methods only; selection ranking CSV also retains the two reused reference methods.",
-            "mask_comparison_readable": "Frozen aggregate AUCs and means; real-real AUC controls retained. Bottom panels show means, not ECDFs."},
+            "mask_comparison_readable": "Frozen logistic AUC, real-real AUC control, mean taxon richness and mean Shannon diversity."},
         "private_artifacts_excluded": ["row-level scores", "sample IDs", "subject IDs", "abundance arrays", "checkpoints"],
         "filter_validation": "All retained CSV fields match their source records exactly; numeric frame equality verified.",
         "input_verification": "Public export manifests, conventional completion seal, RDR summary manifest, and score completion chains checked; all recorded inputs rehashed after rendering.",

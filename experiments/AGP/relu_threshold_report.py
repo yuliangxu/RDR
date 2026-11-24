@@ -21,7 +21,7 @@ METHODS = {
 PREDICTIONS = ("threshold_p", "threshold_q", "control_p", "control_q")
 ENDPOINTS = [f"threshold_{limit}_{side}" for side in ("p", "q") for limit in ("lower", "upper")]
 MODEL_NAMES = {"published_neural_brier": "Published ILR neural", "threshold_brier": "Clipped ReLU",
-               "tree_brier": "Boosted tree", "control_brier": "Tree-feature MLP"}
+               "control_brier": "Abundance/presence MLP"}
 
 
 def verify_number(observed, expected, name):
@@ -30,8 +30,6 @@ def verify_number(observed, expected, name):
 
 
 def winner(scores, include_control):
-    if pd.isna(scores["tree_brier"]):
-        return "Unavailable"
     keys = [k for k in MODEL_NAMES if include_control or k != "control_brier"]
     best = min(scores[k] for k in keys)
     return " / ".join(MODEL_NAMES[k] for k in keys if scores[k] == best)
@@ -80,8 +78,8 @@ def summarize_method(output, method, baseline, published, protocol):
             accumulated[key] += array
         reports.append(row)
     per_seed = pd.DataFrame(reports)
-    result = dict(method=method, generator=METHODS[method], tree_brier=baseline.tree_brier,
-                  tree_log_loss=baseline.tree_log_loss, published_ensemble_brier=baseline.published_ensemble_brier)
+    result = dict(method=method, generator=METHODS[method],
+                  published_ensemble_brier=baseline.published_ensemble_brier)
     for name in ("published_neural", "threshold", "control"):
         scores = per_seed[name + "_brier"]
         result[name + "_brier"] = float(scores.mean())
@@ -92,48 +90,37 @@ def summarize_method(output, method, baseline, published, protocol):
         result[name + "_ensemble_brier"] = balanced_brier(
             accumulated[name + "_p"] / 5, accumulated[name + "_q"] / 5)
     result.update({column: float(per_seed[column].mean()) for column in ENDPOINTS})
-    result["delta_vs_tree"] = result["threshold_brier"] - result["tree_brier"]
     result["delta_vs_published"] = result["threshold_brier"] - result["published_neural_brier"]
     result["primary_winner"] = winner(result, False)
     result["all_methods_winner"] = winner(result, True)
     return result, per_seed
 
 
-def format_number(value, signed=False):
-    if pd.isna(value):
-        return "Unavailable"
-    return format(value, "+.6f" if signed else ".6f")
-
-
 def render(summary):
     lines = [
         "# Retrospective AGP comparison of relative density ratio estimators", "",
         "The table reports held-out balanced Brier scores for the four separate real-versus-generated comparisons. "
-        "Lower scores indicate more accurate real-source probabilities. Neural columns give the mean and sample SD "
-        "of five individually fitted models using the archived final seeds. The tree column gives the score of "
-        "the single frozen composition tree. ΔBS subtracts its score from the clipped ReLU mean.", "",
-        "| Generator | Published ILR neural | Clipped ReLU | Boosted tree | ΔBS | Tree-feature MLP | Winner among primary three | Winner including control |",
-        "|---|---:|---:|---:|---:|---:|---|---|",
+        "Lower scores indicate more accurate real-source probabilities. Each estimator column gives the mean and sample SD "
+        "of five individually fitted models using the archived final seeds. ΔBS subtracts the published ILR mean from the clipped ReLU mean.", "",
+        "| Generator | Published ILR neural | Clipped ReLU | ΔBS | Abundance/presence MLP | Winner including control |",
+        "|---|---:|---:|---:|---:|---|",
     ]
     for r in summary.itertuples():
         lines.append(f"| {r.generator} | {r.published_neural_brier:.6f} ± {r.published_neural_sd:.6f} | "
-                     f"{r.threshold_brier:.6f} ± {r.threshold_sd:.6f} | {format_number(r.tree_brier)} | "
-                     f"{format_number(r.delta_vs_tree, True)} | {r.control_brier:.6f} ± {r.control_sd:.6f} | "
-                     f"{r.primary_winner} | {r.all_methods_winner} |")
+                     f"{r.threshold_brier:.6f} ± {r.threshold_sd:.6f} | "
+                     f"{r.delta_vs_published:+.6f} | {r.control_brier:.6f} ± {r.control_sd:.6f} | "
+                     f"{r.all_methods_winner} |")
     n_pairs = len(summary)
     n_ilr = int((summary.threshold_brier < summary.published_neural_brier).sum())
     n_control = int((summary.threshold_brier < summary.control_brier).sum())
     closest = summary.loc[summary.delta_vs_published.abs().idxmin()]
     lines.extend(["", f"The clipped feedforward ReLU estimator has a lower five-fit mean than the published "
-                  f"ILR estimator for {n_ilr} of {n_pairs} generators and than the tree-feature MLP for "
+                  f"ILR estimator for {n_ilr} of {n_pairs} generators and than the abundance/presence MLP for "
                   f"{n_control} of {n_pairs}. The smallest absolute difference from ILR is for "
                   f"{closest.generator} (clipped ReLU minus ILR = {closest.delta_vs_published:+.6f})."])
-    lines.extend(["", "A missing verified tree score makes ΔBS and the winner unavailable."
-                  if summary.tree_brier.isna().any() else
-                  "The frozen tree's real-source predictions reproduce the archived log loss for each generator.",
-                  "", "The clipped feedforward ReLU estimator uses abundance and taxon-specific positive-abundance "
+    lines.extend(["", "The clipped feedforward ReLU estimator uses abundance and taxon-specific positive-abundance "
                   "hinges, an additive output, and two width-128 ReLU interaction layers. Each generator has its own "
-                  "fitted weights. The control uses the published deep sigmoid MLP on the tree's square-root abundance "
+                  "fitted weights. The control uses the published deep sigmoid MLP on square-root abundance "
                   "and presence features, with the published objective and slope for each generator. "
                   "The proposed model also changes the architecture and output link, so a score difference cannot "
                   "be attributed solely to thresholds.", "",
@@ -153,10 +140,8 @@ def render(summary):
                      f"{r.threshold_lower_q:.2%} | {r.threshold_upper_q:.2%} |")
     changes = []
     for r in summary.itertuples():
-        if pd.isna(r.tree_brier):
-            continue
         ensemble_scores = {"Clipped ReLU": r.threshold_ensemble_brier, "Published ILR neural": r.published_ensemble_brier,
-                           "Tree-feature MLP": r.control_ensemble_brier, "Boosted tree": r.tree_brier}
+                           "Abundance/presence MLP": r.control_ensemble_brier}
         lowest = min(ensemble_scores, key=ensemble_scores.get)
         if lowest != r.all_methods_winner:
             changes.append(f"For {r.generator}, {lowest} has the lowest score under the ensemble comparison "

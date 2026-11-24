@@ -18,9 +18,7 @@ def sparse_bank(seed, n, d=6):
 
 
 def tiny_config(**extra):
-    config = {"hgb": {"max_iter": 6, "checkpoint_every": 2, "min_samples_leaf": 3,
-                       "max_leaf_nodes": 5, "max_bins": 16},
-              "logistic": {"max_iter": 150}, "make_plots": False}
+    config = {"logistic": {"max_iter": 150}, "make_plots": False}
     config.update(extra)
     return config
 
@@ -37,10 +35,9 @@ def banks():
 def test_close_and_feature_map_preserve_zero_semantics():
     x = np.array([[0., 2., 3.], [4., 0., 1.]])
     np.testing.assert_allclose(m.close(x).sum(1), 1)
-    np.testing.assert_array_equal(m.features(x, "hgb_mask"), [[0, 1, 1, 2], [1, 0, 1, 2]])
-    f = m.features(x, "hgb_composition")
-    np.testing.assert_array_equal(f[:, 3:], x > 0)
-    np.testing.assert_allclose((f[:, :3]**2).sum(1), 1, atol=1e-7)
+    f = m.features(x, "logistic_composition")
+    np.testing.assert_array_equal(f == 0, x == 0)
+    np.testing.assert_allclose(f**2, m.close(x), atol=1e-7)
     for bad in (np.zeros((3, 2)), [[1., -1.], [2., 1.]], [[np.nan, 1.], [2., 1.]]):
         with pytest.raises(ValueError):
             m.close(bad)
@@ -68,21 +65,11 @@ def test_null_partition_preserves_subjects_and_is_reproducible():
         m.null_partition(5, 12, [1, 1, 1, 2, 2])
 
 
-def test_exact_null_selects_constant_and_replays_probabilities():
+def test_logistic_exact_null_replays_balanced_probabilities():
     train, stop = sparse_bank(43, 30), sparse_bank(44, 16)
-    fit = m.fit_classifier(train, train, stop, stop, "hgb_mask", m.merged_config(tiny_config()))
-    assert fit["selected_iteration"] == 0
+    fit = m.fit_classifier(train, train, stop, stop, "logistic_composition", m.merged_config(tiny_config()))
     assert fit["stop_balanced_log_loss"] == pytest.approx(np.log(2))
-    np.testing.assert_array_equal(m.predict_classifier(fit, stop), .5)
-
-
-def test_predict_uses_selected_stage_not_final_stage():
-    class Stages:
-        def staged_predict_proba(self, x):
-            for p in (.2, .3, .8):
-                yield np.tile([1-p, p], (len(x), 1))
-    fit = {"recipe": "hgb_mask", "selected_iteration": 2, "model": Stages()}
-    np.testing.assert_array_equal(m.predict_classifier(fit, sparse_bank(15, 8)), .3)
+    np.testing.assert_allclose(m.predict_classifier(fit, stop), .5, atol=1e-7)
 
 
 def test_fidelity_identity_and_full_generator_reference_novelty():
@@ -118,7 +105,7 @@ def test_preparation_never_reads_test_and_assessment_requires_freeze(tmp_path):
     r = Guarded(real)
     g = {name: Guarded(bank) for name, bank in generated.items()}
     s = Guarded(subjects)
-    freeze = m.prepare(r, g, tmp_path/"run", tiny_config(recipes=["hgb_mask"]), real_subjects=s)
+    freeze = m.prepare(r, g, tmp_path/"run", tiny_config(), real_subjects=s)
     assert freeze["n_classifiers"] == 6
     assert freeze["no_test_data_used"]
     assert freeze["null_partition_unit"] == "subject"
@@ -132,7 +119,7 @@ def test_preparation_never_reads_test_and_assessment_requires_freeze(tmp_path):
 def test_full_small_comparison_and_prediction_metric_replay(tmp_path):
     real, generated, subjects = banks()
     result = m.assess(real, generated, tmp_path/"run", tiny_config(make_plots=True), real_subjects=subjects)
-    assert result["n_classifiers"] == 18
+    assert result["n_classifiers"] == 6
     frame = pd.read_csv(tmp_path/"run/summary/classifier_metrics.csv")
     composition = pd.read_csv(tmp_path/"run/summary/fidelity_metrics.csv")
     assert len(composition) == 5
@@ -144,8 +131,8 @@ def test_full_small_comparison_and_prediction_metric_replay(tmp_path):
             values = np.r_[prediction["p"], prediction["q"]]
             labels = np.r_[np.ones(len(prediction["p"])), np.zeros(len(prediction["q"]))]
             assert row.auc == pytest.approx(roc_auc_score(labels, values))
-    fit = joblib.load(tmp_path/"run/private/midasim__hgb_composition.joblib")
-    with np.load(tmp_path/"run/private/midasim__hgb_composition_test_predictions.npz") as prediction:
+    fit = joblib.load(tmp_path/"run/private/midasim__logistic_composition.joblib")
+    with np.load(tmp_path/"run/private/midasim__logistic_composition_test_predictions.npz") as prediction:
         np.testing.assert_array_equal(m.predict_classifier(fit, real["test"]), prediction["p"])
 
 
@@ -153,7 +140,7 @@ def test_freeze_guards_config_and_training_data(tmp_path):
     real, generated, subjects = banks()
     subset = {"bootstrap_icfm": generated["bootstrap_icfm"]}
     out = tmp_path/"run"
-    m.prepare(real, subset, out, tiny_config(recipes=["hgb_mask"]), real_subjects=subjects)
+    m.prepare(real, subset, out, tiny_config(), real_subjects=subjects)
     previous = real["train"].copy()
     real["train"][0] = np.roll(real["train"][0], 1)
     with pytest.raises(ValueError, match="inputs changed"):
@@ -170,10 +157,10 @@ def test_mismatched_null_unit_and_unknown_configuration_fail(tmp_path):
     real, generated, subjects = banks()
     subset = {"bootstrap_icfm": generated["bootstrap_icfm"]}
     out = tmp_path/"run"
-    m.prepare(real, subset, out, tiny_config(recipes=["hgb_mask"]), real_subjects=subjects)
+    m.prepare(real, subset, out, tiny_config(), real_subjects=subjects)
     with pytest.raises(ValueError, match="subject/row convention"):
         m.evaluate(real, subset, out)
     with pytest.raises(ValueError, match="unknown classifier"):
         m.merged_config({"test_tuning": True})
-    with pytest.raises(ValueError, match="unknown hgb"):
-        m.merged_config({"hgb": {"test_tuning": True}})
+    with pytest.raises(ValueError, match="unknown logistic"):
+        m.merged_config({"logistic": {"test_tuning": True}})

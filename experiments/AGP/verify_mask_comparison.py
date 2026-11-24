@@ -307,25 +307,13 @@ def check_models(out, cfg, real, full):
 
 def feature_matrix(values, recipe):
     values = close(values)
-    mask = (values > 0).astype(np.float32)
-    if recipe == 'hgb_composition':
-        return np.concatenate([np.sqrt(values), mask], axis=1).astype(np.float32)
-    if recipe == 'hgb_mask':
-        return np.concatenate([mask, mask.sum(1)[:, None]], axis=1).astype(np.float32)
     ensure(recipe == 'logistic_composition', 'Unknown frozen classifier representation')
     return np.sqrt(values).astype(np.float32)
 
 
 def model_predict(fit, values):
     x = feature_matrix(values, fit['recipe'])
-    if fit['selected_iteration'] == 0:
-        return np.full(len(x), .5)
-    if fit['selected_iteration'] is None:
-        return fit['model'].predict_proba(x)[:, 1]
-    for i, probabilities in enumerate(fit['model'].staged_predict_proba(x), 1):
-        if i == fit['selected_iteration']:
-            return probabilities[:, 1]
-    raise ValueError('Missing classifier checkpoint')
+    return fit['model'].predict_proba(x)[:, 1]
 
 
 def audit(out):
@@ -479,7 +467,8 @@ def audit(out):
         ensure(np.array_equal(a, np.flatnonzero(np.isin(ids[role], unique[chosen]))), 'Null partition seed mismatch')
         null[role] = pair
     rows = pd.read_csv(metric_folder/'summary/classifier_metrics.csv')
-    expected_pairs = {(m,r) for m in (*METHODS,'real_real') for r in config['recipes']}
+    rows = rows.loc[rows.recipe.eq('logistic_composition')]
+    expected_pairs = {(m, 'logistic_composition') for m in (*METHODS, 'real_real')}
     ensure(len(rows) == len(expected_pairs) and set(zip(rows.method, rows.recipe)) == expected_pairs,
            'Classifier comparison rows incomplete')
     max_auc_error = max_loss_error = max_prediction_error = 0.
@@ -493,13 +482,6 @@ def audit(out):
                'Reported classifier stopping iteration differs')
         trace = read(metric_folder/'private'/(name+'_trace.json'))
         ensure(trace == fit['trace'], 'Stored classifier stopping trace differs')
-        if row['recipe'].startswith('hgb_'):
-            best_iteration, best_loss = 0, float(np.log(2))
-            for item in trace:
-                if item['stop_balanced_log_loss'] < best_loss-1e-12:
-                    best_iteration, best_loss = item['iteration'], item['stop_balanced_log_loss']
-            ensure(fit['selected_iteration'] == best_iteration, 'Classifier was not selected by minimum stopping log loss')
-            ensure(fit['selection_at_cap'] == (best_iteration == config['hgb']['max_iter']), 'Classifier cap flag wrong')
         for role in ('stop', 'test'):
             if row['method'] == 'real_real':
                 pp, qq = [close(real[role])[indices] for indices in null[role]]
@@ -519,9 +501,8 @@ def audit(out):
                 indices = np.unique(np.linspace(0,len(source)-1,min(64,len(source)),dtype=int))
                 max_prediction_error = max(max_prediction_error,
                       near(model_predict(fit,source[indices]),scores[indices], 'Frozen classifier prediction subset', atol=2e-12))
-    ensure(mc['selected_at_boosting_cap'] == int(rows.selection_at_cap.sum())
-           and mc['logistic_convergence_warnings'] == int(rows.convergence_warning.sum()),
-           'Reported classifier cap/convergence totals differ')
+    ensure(mc['logistic_convergence_warnings'] == int(rows.convergence_warning.sum()),
+           'Reported logistic convergence totals differ')
     fidelity_rows = pd.read_csv(metric_folder/'summary/fidelity_metrics.csv')
     ensure(len(fidelity_rows) == len(METHODS) and set(fidelity_rows.method) == set(METHODS), 'Missing simple-metric methods')
     metric_error = 0.
@@ -541,10 +522,6 @@ def audit(out):
                 near(value,combined.loc[row['method'],key],'Combined composition table')
     for row in rows[rows.method != 'real_real'].to_dict('records'):
         near(row['auc'],combined.loc[row['method'],row['recipe']+'_auc'],'Combined AUC table')
-    for side in ('p','q'):
-        a = np.load(metric_folder/'private/midasim_mask_icfm__hgb_mask_test_predictions.npz')[side]
-        b = np.load(metric_folder/'private/midasim__hgb_mask_test_predictions.npz')[side]
-        ensure(np.array_equal(a,b), 'Identical reference masks produce different mask-classifier predictions')
     hashes(out/'source',cfg['source_sha256'])
     hashes(out,cfg['inputs_sha256'])
     return dict(status='passed', finished_utc=datetime.now(timezone.utc).isoformat(),
