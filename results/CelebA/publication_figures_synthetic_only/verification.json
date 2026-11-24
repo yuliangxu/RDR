@@ -1,0 +1,187 @@
+{
+  "reference_seal_sha256": "55b2bfc3337b916298c9e6a916b34590bcfddf2eaec49d31cd01634d7eb7e25c",
+  "groups": [
+    {
+      "panel": "7A",
+      "group": "Smallest RDR",
+      "label": "n = 40    RDR [3.3e-15, 9.62e-13]",
+      "reference_xref": 16,
+      "reference_bbox_points_top_left": [
+        1.7999999523162842,
+        269.4720153808594,
+        332.1999816894531,
+        401.4720153808594
+      ],
+      "output_xref": 25,
+      "native_rgb_sha256": "a7ffc371c0f4633d25ea89d10a645a45147449760efc60e4e3d05c5974fb6067"
+    },
+    {
+      "panel": "7A",
+      "group": "Closest to 1",
+      "label": "n = 40    RDR [0.983, 1.02]",
+      "reference_xref": 17,
+      "reference_bbox_points_top_left": [
+        359.2799987792969,
+        269.4720153808594,
+        689.6799926757812,
+        401.4720153808594
+      ],
+      "output_xref": 31,
+      "native_rgb_sha256": "848bc96978730412414eba01043a601e25caee6425bd92fc0a26f9b62d33c740"
+    },
+    {
+      "panel": "7A",
+      "group": "Largest RDR",
+      "label": "n = 40    RDR [1.99, 2]",
+      "reference_xref": 18,
+      "reference_bbox_points_top_left": [
+        716.760009765625,
+        269.4720153808594,
+        1047.1600341796875,
+        401.4720153808594
+      ],
+      "output_xref": 35,
+      "native_rgb_sha256": "3a06c20ea5a92e06b5f22ac5237ebb17b69e48ef6ce14f7baaa19b6f79444820"
+    },
+    {
+      "panel": "7B",
+      "group": "Smallest RDR",
+      "label": "n = 40    RDR [1.07e-15, 1.58e-11]",
+      "reference_xref": 16,
+      "reference_bbox_points_top_left": [
+        1.7999999523162842,
+        269.4720153808594,
+        332.1999816894531,
+        401.4720153808594
+      ],
+      "output_xref": 25,
+      "native_rgb_sha256": "2bb9080f8054c1375e07c8973df405d6fe8a2af790f88ab25bb916c62445e795"
+    },
+    {
+      "panel": "7B",
+      "group": "Closest to 1",
+      "label": "n = 40    RDR [0.992, 1.01]",
+      "reference_xref": 17,
+      "reference_bbox_points_top_left": [
+        359.2799987792969,
+        269.4720153808594,
+        689.6799926757812,
+        401.4720153808594
+      ],
+      "output_xref": 31,
+      "native_rgb_sha256": "42100e21d99b70abe152c247d2db10e7fac45947f134ad33ef8ad660c0e5e104"
+    },
+    {
+      "panel": "7B",
+      "group": "Largest RDR",
+      "label": "n = 40    RDR [1.99, 2]",
+      "reference_xref": 18,
+      "reference_bbox_points_top_left": [
+        716.760009765625,
+        269.4720153808594,
+        1047.1600341796875,
+        401.4720153808594
+      ],
+      "output_xref": 35,
+      "native_rgb_sha256": "52d143252edc619cc58ccbc258c2c18a718dd4dbb021bddbfdc2afc7935edbe4"
+    },
+    {
+      "panel": "S5A",
+      "group": "Smallest RDR",
+      "label": "n = 40    RDR [0, 0]",
+      "reference_xref": 16,
+      "reference_bbox_points_top_left": [
+        1.7999999523162842,
+        269.4720153808594,
+        332.1999816894531,
+        401.4720153808594
+      ],
+      "output_xref": 25,
+      "native_rgb_sha256": "b4fb460dd162b53dc9869fba9279e49bf59b3a5191ecfa45303e18d7317ca17a"
+    },
+    {
+      "panel": "S5A",
+      "group": "Closest to 1",
+      "label": "n = 40    RDR [0, 2]",
+      "reference_xref": 17,
+      "reference_bbox_points_top_left": [
+        359.2799987792969,
+        269.4720153808594,
+        689.6799926757812,
+        401.4720153808594
+      ],
+      "output_xref": 31,
+      "native_rgb_sha256": "5c4d44624dbc3da5433d77997918438d52268daa9208fc7229aeb33f4f997de3"
+    },
+    {
+      "panel": "S5A",
+      "group": "Largest RDR",
+      "label": "n = 40    RDR [0, 2]",
+      "reference_xref": 18,
+      "reference_bbox_points_top_left": [
+        716.760009765625,
+        269.4720153808594,
+        1047.1600341796875,
+        401.4720153808594
+      ],
+      "output_xref": 35,
+      "native_rgb_sha256": "ffd942f6c568ad8406169155106a901022105abb650ed7723d0912205ad658a7"
+    },
+    {
+      "panel": "S5B",
+      "group": "Smallest RDR",
+      "label": "n = 40    RDR [0, 0]",
+      "reference_xref": 16,
+      "reference_bbox_points_top_left": [
+        1.7999999523162842,
+        269.4720153808594,
+        332.1999816894531,
+        401.4720153808594
+      ],
+      "output_xref": 25,
+      "native_rgb_sha256": "857f4d609e48dea6659ec40526752ab1d9b62dce57555bf004f43b4488fa4ca8"
+    },
+    {
+      "panel": "S5B",
+      "group": "Closest to 1",
+      "label": "n = 40    RDR [0.00206, 2]",
+      "reference_xref": 17,
+      "reference_bbox_points_top_left": [
+        359.2799987792969,
+        269.4720153808594,
+        689.6799926757812,
+        401.4720153808594
+      ],
+      "output_xref": 31,
+      "native_rgb_sha256": "6f5370fe34fc772bcd08b11d10b08f14e9973bae7da0beafcfecf66bfaa069bd"
+    },
+    {
+      "panel": "S5B",
+      "group": "Largest RDR",
+      "label": "n = 40    RDR [2, 2]",
+      "reference_xref": 18,
+      "reference_bbox_points_top_left": [
+        716.760009765625,
+        269.4720153808594,
+        1047.1600341796875,
+        401.4720153808594
+      ],
+      "output_xref": 35,
+      "native_rgb_sha256": "a091eaf5a03cd178c6e0c5bc798196b2710688269b7361605f30a4f6057d4b39"
+    }
+  ],
+  "count": 480,
+  "unique_source_ids": 468,
+  "files_sha256": {
+    "image_ranges.csv": "7745a83f02bec9670d1837a86b9d19f0c26fbcca22591d3d276561027565ae2b",
+    "images_feature_lower_ranked.pdf": "3c66decafb89bb4380c8c5e593a77c0f32c8c00680f444d9be4b395d76026f8b",
+    "images_feature_lower_ranked.png": "6db529ece7fbd2dd4f644e3e9766d7190bdb9aa21b412b642b36730640a011a9",
+    "images_feature_upper_ranked.pdf": "c74a971971e500297804c157b6c494d2eb420e073c1973d20e929bc339e0c2be",
+    "images_feature_upper_ranked.png": "c0c51d63e003fd448d6dcd35c17f80fab5ea7554e95a31bc18e323df0312c848",
+    "images_pixel_lower_ranked.pdf": "21ab4fb982185a61e3e9998d6dccb270ba3becacec33340d45bc1e73a6f4fa59",
+    "images_pixel_lower_ranked.png": "17d0d85e4f942fdd57e5d98cb1a3c6e58126651336278f4ab84cd2dd841fc6e0",
+    "images_pixel_upper_ranked.pdf": "a814cbf871e432bb0f8839469ac673f502c2041c0eae612d15942ba9fdd071d2",
+    "images_pixel_upper_ranked.png": "6523f1fc902708e637e07fdff1c991ad9e9fc1f750aa978b86590527d3c3cec0",
+    "selected_images.csv": "8061290982938ca48bf9f3b453a27c1235e28e6f0e82faa2fc1a929de20d75dc"
+  }
+}
